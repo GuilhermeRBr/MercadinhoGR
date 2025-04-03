@@ -7,9 +7,8 @@ class Pessoa:
         self.endereco = endereco
 
 class Funcionario(Pessoa):
-    def __init__(self, nome, cpf, telefone, email, endereco, cargo, salario, id_funcionario):
+    def __init__(self, nome, cpf, telefone, email, endereco, salario, id_funcionario):
         super().__init__(nome, cpf, telefone, email, endereco)
-        self.cargo = cargo
         self.salario = salario
         self.id_funcionario = id_funcionario
 

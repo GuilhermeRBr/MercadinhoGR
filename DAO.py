@@ -1,7 +1,30 @@
 import json
-from Models import Cliente
+from models.Models import Cliente, Pessoa
 
 
+class PessoaDAO:
+    @classmethod
+    def salvar_pessoa(cls, pessoa: Pessoa):
+        pessoas = []
+        with open('data/pessoas.json', 'r', encoding='utf-8') as arq:
+            pessoas = json.load(arq)
+            pessoas.append({
+                'nome': pessoa.nome,
+                'cpf': pessoa.cpf,
+                'telefone': pessoa.telefone,
+                'email': pessoa.email,
+                'endereco': pessoa.endereco
+            })
+
+            with open('data/pessoas.json', 'w', encoding='utf-8') as arq:
+                json.dump(pessoas, arq, indent=4, ensure_ascii=False)
+
+    @classmethod
+    def listar_pessoas(cls):
+        with open('data/pessoas.json', 'r', encoding='utf-8') as arq:
+            pessoas = json.load(arq)
+            for pessoa in pessoas:
+                return Pessoa(pessoa['nome'], pessoa['cpf'], pessoa['telefone'], pessoa['email'], pessoa['endereco'])
 
 class ClienteDAO:
     @classmethod
