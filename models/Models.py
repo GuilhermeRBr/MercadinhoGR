@@ -19,10 +19,9 @@ class Cliente(Pessoa):
         self.id_cliente = id_cliente
 
 class Produto:
-    def __init__(self, id_produto, nome, descricao, preco, quantidade):
+    def __init__(self, id_produto, nome, preco, quantidade):
         self.id_produto = id_produto
         self.nome = nome
-        self.descricao = descricao
         self.preco = preco
         self.quantidade = quantidade
 
@@ -50,9 +49,9 @@ class Estoque:
         self.quantidade = quantidade
 
 class Categoria:
-    def __init__(self, id_categoria, nome):
+    def __init__(self, id_categoria, nome_categoria):
         self.id_categoria = id_categoria
-        self.nome = nome
+        self.nome_categoria = nome_categoria
 
 class Caixa:
     def __init__(self, id_caixa, id_funcionario, data_abertura, data_fechamento):
