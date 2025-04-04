@@ -5,13 +5,24 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from DAO.DAO import PessoaDAO, ClienteDAO
 from models.Models import Pessoa, Cliente
-from validators import validar_nome
+from validators import *
 
 class PessoaController:
     @classmethod
     def cadastrar_pessoa(cls, nome, cpf, telefone, email, endereco):
-        validar_nome(nome)
-        pessoa = Pessoa(nome, cpf, telefone, email, endereco)
-        PessoaDAO.salvar_pessoa(pessoa) 
+        try:
+            validar_nome(nome)
+            validar_cpf(cpf)
+            validar_telefone(telefone)
+            validar_email(email)
+            validar_endereco(endereco)
+        except ValueError as e:
+            print(f"Erro ao cadastrar pessoa: {e}")
+            return
+        try:
+            pessoa = Pessoa(nome, cpf, telefone, email, endereco)
+            PessoaDAO.salvar_pessoa(pessoa) 
+        except ValueError as e:
+            print(f"Erro ao cadastrar pessoa: {e}")
 
-PessoaController.cadastrar_pessoa("João", "12345678901", "12345678901", "joao@example.com", "Rua A, 123")
+PessoaController.cadastrar_pessoa("Guilherme", "13346789402", "12246789012", "joeo@example.com", "Rua A, 123")

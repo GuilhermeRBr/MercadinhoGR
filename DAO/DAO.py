@@ -9,6 +9,14 @@ class PessoaDAO:
         pessoas = []
         with open('data/pessoas.json', 'r', encoding='utf-8') as arq:
             pessoas = json.load(arq)
+            for p in pessoas:
+                if p['cpf'] == pessoa.cpf:
+                    raise ValueError("CPF já cadastrado.")
+                if p['telefone'] == pessoa.telefone:
+                    raise ValueError("Telefone já cadastrado.")
+                if p['email'] == pessoa.email:
+                    raise ValueError("Email já cadastrado.")
+            
             pessoas.append({
                 'nome': pessoa.nome,
                 'cpf': pessoa.cpf,
