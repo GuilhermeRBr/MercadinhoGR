@@ -19,5 +19,12 @@
         "telefone": "12246789012",
         "email": "joeo@example.com",
         "endereco": "Rua A, 123"
+    },
+    {
+        "nome": "João",
+        "cpf": "12345678901",
+        "telefone": "11987654321",
+        "email": "joao2@example.com",
+        "endereco": "Rua A, 123"
     }
 ]

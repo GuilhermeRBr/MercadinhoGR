@@ -25,4 +25,3 @@ class PessoaController:
         except ValueError as e:
             print(f"Erro ao cadastrar pessoa: {e}")
 
-PessoaController.cadastrar_pessoa("Guilherme", "13346789402", "12246789012", "joeo@example.com", "Rua A, 123")
