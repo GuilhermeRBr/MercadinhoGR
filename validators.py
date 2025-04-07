@@ -122,3 +122,11 @@ def validar_nome_categoria(nome_categoria):
     elif len(nome_categoria) < 3:
         raise ValueError("Nome da categoria deve ter pelo menos 3 caracteres.")
     return nome_categoria
+
+def validar_opcao(opcao):
+    while True:
+        if opcao.isdigit():
+           return int(opcao)
+        else:
+            print("Opção inválida. Digite um número.")
+            opcao = input("Digite a opção desejada: ")
