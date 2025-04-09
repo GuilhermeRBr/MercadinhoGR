@@ -35,6 +35,15 @@ def formatar_cpf(cpf):
 
     return cpf_formatado
 
+def formatar_cnpj(cnpj):
+    if not cnpj.isdigit():
+        raise ValueError("CNPJ deve conter apenas números.")
+    elif len(cnpj) != 14:
+        raise ValueError("CNPJ deve ter 14 dígitos.")
+    cnpj_formatado = f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
+
+    return cnpj_formatado
+
 def formatar_telefone(telefone):
     if not telefone.isdigit():
         raise ValueError("Telefone deve conter apenas números.")
@@ -45,9 +54,12 @@ def formatar_telefone(telefone):
     return telefone_formatado
 
 def formatar_dinheiro(valor):
+    if not isinstance(valor, (int, float)):
+        raise TypeError("Valor deve ser um número.")
+    elif valor < 0 or valor == 0:
+        raise ValueError("Valor não pode ser zero ou negativo.")
     
     locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
     valor_formatado = locale.currency(valor, grouping=True)
     return valor_formatado
-
 
