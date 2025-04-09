@@ -9,25 +9,8 @@ def validar_nome(nome):
         raise ValueError("Nome deve conter apenas letras.")
     elif len(nome) < 3:
         raise ValueError("Nome deve ter pelo menos 3 caracteres.")
-    return nome
+    return nome.title()
 
-def validar_cpf(cpf):
-    if not cpf.strip():
-        raise ValueError("CPF não pode ser vazio.")
-    elif not cpf.isdigit():
-        raise ValueError("CPF deve conter apenas números.")
-    elif len(cpf) != 11:
-        raise ValueError("CPF deve ter 11 dígitos.")
-    return cpf
-
-def validar_telefone(telefone):
-    if not telefone.strip():
-        raise ValueError("Telefone não pode ser vazio.")
-    elif not telefone.isdigit():
-        raise ValueError("Telefone deve conter apenas números.")
-    elif len(telefone) != 11:
-        raise ValueError("Telefone deve ter 11 dígitos.")
-    return telefone
 
 def validar_email(email):
     if not email.strip():
@@ -35,28 +18,12 @@ def validar_email(email):
     elif not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 , email):
         raise ValueError("Email inválido.")
-    return email
+    return email.lower()
 
 def validar_endereco(endereco):
     if not endereco.strip():
         raise ValueError("Endereço não pode ser vazio.")
-    return endereco
-
-def validar_data_nascimento(data_nascimento):
-    if not data_nascimento.isdigit(data_nascimento):
-        raise ValueError('Data de nascimento deve conter apenas números.')
-    elif not data_nascimento.strip():
-        raise ValueError("Data de nascimento não pode ser vazia.")
-    elif not re.match(r"^\d{8}$", data_nascimento):
-        raise ValueError("Formato inválido. Use DDMMYYYY.")
-    elif len(data_nascimento) != 8:
-        raise ValueError("Data de nascimento deve ter 8 dígitos.")
-    elif data_nascimento < "01011900":
-        raise ValueError("Data de nascimento inválida.")
-    elif data_nascimento > datetime.now().strftime("%d%m%Y"):
-        raise ValueError("Data de nascimento inválida.")
-    return data_nascimento
-
+    return endereco.title()
 
 def validar_id(id):
     if not id.strip():
@@ -130,3 +97,4 @@ def validar_opcao(opcao):
         else:
             print("Opção inválida. Digite um número.")
             opcao = input("Digite a opção desejada: ")
+

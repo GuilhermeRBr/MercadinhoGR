@@ -1,5 +1,7 @@
 import json
-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Models import Cliente, Pessoa
 
 
@@ -41,6 +43,15 @@ class ClienteDAO:
         clientes = []
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
+            for cliente in clientes:
+                if cliente['cpf'] == cliente.cpf:
+                    raise ValueError("CPF já cadastrado.")
+                if cliente['telefone'] == cliente.telefone:
+                    raise ValueError("Telefone já cadastrado.")
+                if cliente['email'] == cliente.email:
+                    raise ValueError("Email já cadastrado.")
+                if cliente['id_cliente'] == cliente.id_cliente:
+                    raise ValueError("ID já cadastrado.")
 
         clientes.append({
             'nome': cliente.nome,
@@ -61,3 +72,6 @@ class ClienteDAO:
             for cliente in clientes:
                 return Cliente(cliente['nome'], cliente['cpf'], cliente['telefone'], cliente['email'], cliente['endereco'], cliente['data_nascimento'], cliente['id_cliente'])
     
+c1 = Cliente('João', '12345678901', '12345678901', 'joao@email.com', 'Rua A, 123', '01012000', 1)
+
+print(ClienteDAO.listar_clientes())

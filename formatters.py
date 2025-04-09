@@ -1,10 +1,22 @@
 from datetime import datetime
+import locale
 import re
 
-def formatar_data(data_str):
-    dia = data_str[:2]
-    mes = data_str[2:4]
-    ano = data_str[4:]
+def formatar_data(data_nascimento):
+    if not data_nascimento.isdigit():
+        raise ValueError('Data de nascimento deve conter apenas números.')
+    elif not re.match(r"^\d{8}$", data_nascimento):
+        raise ValueError("Formato inválido. Use DDMMYYYY.")
+    elif len(data_nascimento) != 8:
+        raise ValueError("Data de nascimento deve ter 8 dígitos.")
+    elif data_nascimento < "0101190":
+        raise ValueError("Data de nascimento inválida.")
+    elif data_nascimento > datetime.now().strftime("%d%m%Y"):
+        raise ValueError("Data de nascimento inválida.")
+
+    dia = data_nascimento[:2]
+    mes = data_nascimento[2:4]
+    ano = data_nascimento[4:]
 
     data_formatada = f"{dia}/{mes}/{ano}"
 
@@ -14,29 +26,28 @@ def formatar_data(data_str):
     except ValueError:
         return "Data inválida."
     
-def formatar_cpf(cpf):    
+def formatar_cpf(cpf):   
+    if not cpf.isdigit():
+        raise ValueError("CPF deve conter apenas números.")
+    elif len(cpf) != 11:
+        raise ValueError("CPF deve ter 11 dígitos.")
     cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
+
     return cpf_formatado
 
 def formatar_telefone(telefone):
+    if not telefone.isdigit():
+        raise ValueError("Telefone deve conter apenas números.")
+    elif len(telefone) != 11:
+        raise ValueError("Telefone deve ter 11 dígitos.")
     telefone_formatado = f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
+
     return telefone_formatado
 
-def formatar_email(email):
-    email_formatado = email.lower()
-    return email_formatado
-
-def formatar_endereco(endereco):
-    endereco_formatado = endereco.title()
-    return endereco_formatado
-
-def formatar_nome(nome):
-    nome_formatado = nome.title()
-    return nome_formatado
-
 def formatar_dinheiro(valor):
-    valor_formatado = f"R$ {valor:,.2f}".replace('.', ',')
+    
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+    valor_formatado = locale.currency(valor, grouping=True)
     return valor_formatado
 
 
-    

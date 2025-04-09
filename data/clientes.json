@@ -5,25 +5,7 @@
         "telefone": "12345678901",
         "email": "joao@email.com",
         "endereco": "Rua A, 123",
-        "data_nascimento": "01011990",
-        "id_cliente": "000001"
-    },
-    {
-        "nome": "João",
-        "cpf": "12345678901",
-        "telefone": "12345678901",
-        "email": "joao@email.com",
-        "endereco": "Rua A, 123",
-        "data_nascimento": "01011990",
-        "id_cliente": "000001"
-    },
-    {
-        "nome": "João",
-        "cpf": "12345678901",
-        "telefone": "12345678901",
-        "email": "joao@email.com",
-        "endereco": "Rua A, 123",
-        "data_nascimento": "01011990",
-        "id_cliente": "000001"
+        "data_nascimento": "01012000",
+        "id_cliente": 190
     }
 ]

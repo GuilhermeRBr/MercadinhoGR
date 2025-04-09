@@ -16,7 +16,7 @@ class Mercado:
             print('\n== MENU PRINCIPAL ==\n' \
             '1. Caixa\n' \
             '2. Gerenciar Clientes\n' \
-            '3. Gerenciar Funcionários' \
+            '3. Gerenciar Funcionários\n' \
             '4. Gerenciar Produtos\n' \
             '5. Gerenciar Fornecedores\n' \
             '6. Gerenciar Categorias\n' \
@@ -55,10 +55,11 @@ class Mercado:
                  '2. Listar Clientes\n' \
                  '3. Atualizar Cliente\n' \
                  '4. Excluir Cliente\n' \
-                 '5. Pesquisar Cliente\n' \
+                 '5. Pesquisar Cliente(ID)\n' \
                  '0. Voltar\n' \
                 )
         opcao = validar_opcao(input('Digite a opção desejada: '))
+        
         match opcao:
             case 1:
                 pass
@@ -79,19 +80,150 @@ class Mercado:
 
     
     def gerenciar_funcionarios(self):
-        print('Gerenciar Funcionários')
+        print('\n == MENU FUNCIONÁRIOS ==\n' \
+                '1. Cadastrar Funcionário\n' \
+                '2. Listar Funcionários\n' \
+                '3. Atualizar Funcionário\n' \
+                '4. Excluir Funcionário\n' \
+                '5. Pesquisar Funcionário(ID)\n' \
+                '0. Voltar\n' 
+                )
+        
+        opcao = validar_opcao(input('Digite a opção desejada: '))
+
+        match opcao:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 0:
+                print('Voltando...')
+                self.menu_principal()
+            case _:
+                print('Opção inválida!')
+                self.gerenciar_funcionarios()
     
     def gerenciar_produtos(self):
-        print('Gerenciar Produtos')
+        print('\n == MENU PRODUTOS ==\n' \
+        '1. Cadastrar Produtos\n' \
+        '2. Listar Produtos\n' \
+        '3. Atualizar Produtos\n' \
+        '4. Excluir Produtos\n' \
+        '5. Pesquisar Produtos(ID)\n' \
+        '0. Voltar\n' ) 
+
+        opcao = validar_opcao(input('Digite a opção desejada: '))
+        match opcao:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 0:
+                print('Voltando...')
+                self.menu_principal()
+            case _:
+                print('Opção inválida!')
+                self.gerenciar_produtos()
 
     def gerenciar_fornecedores(self):
-        print('Gerenciar Fornecedores')
+        print('\n == MENU FORNECEDORES ==\n' 
+        '1. Cadastrar Fornecedor\n'
+        '2. Listar Fornecedores\n' 
+        '3. Atualizar Fornecedor\n' 
+        '4. Excluir Fornecedor\n'
+        '5. Pesquisar Fornecedor(ID)\n'
+        '0. Voltar\n' 
+        )
+        opcao = validar_opcao(input('Digite a opção desejada: '))
+
+        match opcao:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 0:
+                print('Voltando...')
+                self.menu_principal()
+            case _:
+                print('Opção inválida!')
+                self.gerenciar_fornecedores()
 
     def gerenciar_categorias(self):
-        print('Gerenciar Categorias')
+        print('\n == MENU CATEGORIAS ==\n'
+        '1. Cadastrar Categoria\n'
+        '2. Listar Categorias\n'
+        '3. Atualizar Categoria\n'
+        '4. Excluir Categoria\n'
+        '5. Pesquisar Categoria(ID)\n'
+        '0. Voltar\n' 
+        )
+        
+        opcao = validar_opcao(input('Digite a opção desejada: '))
+        match opcao:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 0:
+                print('Voltando...')
+                self.menu_principal()
+            case _:
+                print('Opção inválida!')
+                self.gerenciar_categorias()
 
     def relatorios(self):
-        print('Relatórios')
-
+        print('\n == MENU RELATÓRIOS ==\n'
+                '1. Relatório de Vendas\n'
+                '2. Relatório de Clientes\n'
+                '3. Relatório de Funcionários\n'
+                '4. Relatório de Produtos\n' 
+                '5. Relatório de Fornecedores\n'
+                '6. Relatório de Categorias\n'
+                '0. Voltar\n'   
+              )
+        opcao = validar_opcao(input('Digite a opção desejada: '))
+        match opcao:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 6:
+                pass
+            case 0:
+                print('Voltando...')
+                self.menu_principal()
+            case _:
+                print('Opção inválida!')
+                self.relatorios()
 app = Mercado()
 app.menu_principal()
