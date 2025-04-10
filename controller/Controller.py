@@ -3,29 +3,10 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import PessoaDAO, ClienteDAO
+from DAO.DAO import ClienteDAO
 from models.Models import Pessoa, Cliente
 from validators import *
 from formatters import *
-
-class PessoaController:
-    @classmethod
-    def cadastrar_pessoa(cls, nome, cpf, telefone, email, endereco):
-        try:
-            validar_nome(nome)
-            formatar_cpf(cpf)
-            formatar_telefone(telefone)
-            validar_email(email)
-            validar_endereco(endereco)
-        except ValueError as e:
-            print(f"Erro ao cadastrar pessoa: {e}")
-            return
-        try:
-            pessoa = Pessoa(nome, cpf, telefone, email, endereco)
-            PessoaDAO.salvar_pessoa(pessoa) 
-            print("Pessoa cadastrada com sucesso!")
-        except ValueError as e:
-            print(f"Erro ao cadastrar pessoa: {e}")
 
 class ClienteController:
     @classmethod
@@ -43,7 +24,7 @@ class ClienteController:
             try:
                 telefone= formatar_telefone(telefone)
             except ValueError as e:
-                erros.append(str)
+                erros.append(str(e))
             try:
                 email= validar_email(email)
             except ValueError as e:

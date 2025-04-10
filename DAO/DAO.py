@@ -4,39 +4,6 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Models import Cliente, Pessoa
 
-
-class PessoaDAO:
-    @classmethod
-    def salvar_pessoa(cls, pessoa: Pessoa):
-        pessoas = []
-        with open('data/pessoas.json', 'r', encoding='utf-8') as arq:
-            pessoas = json.load(arq)
-            for p in pessoas:
-                if p['cpf'] == pessoa.cpf:
-                    raise ValueError("CPF já cadastrado.")
-                if p['telefone'] == pessoa.telefone:
-                    raise ValueError("Telefone já cadastrado.")
-                if p['email'] == pessoa.email:
-                    raise ValueError("Email já cadastrado.")
-            
-            pessoas.append({
-                'nome': pessoa.nome,
-                'cpf': pessoa.cpf,
-                'telefone': pessoa.telefone,
-                'email': pessoa.email,
-                'endereco': pessoa.endereco
-            })
-
-            with open('data/pessoas.json', 'w', encoding='utf-8') as arq:
-                json.dump(pessoas, arq, indent=4, ensure_ascii=False)
-
-    @classmethod
-    def listar_pessoas(cls):
-        with open('data/pessoas.json', 'r', encoding='utf-8') as arq:
-            pessoas = json.load(arq)
-            for pessoa in pessoas:
-                return Pessoa(pessoa['nome'], pessoa['cpf'], pessoa['telefone'], pessoa['email'], pessoa['endereco'])
-
 class ClienteDAO:
     @classmethod
     def salvar_cliente(cls, cliente: Cliente):
@@ -85,5 +52,17 @@ class ClienteDAO:
                 lista_clientes.append(cliente)
 
             return lista_clientes
+        
+    @classmethod        
+    def excluir_cliente(cls, cpf):
+        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+            clientes = json.load(arq)
+        if cpf in clientes:
+            del clientes[cpf]
+            print(f'Cliente com cpf {cpf} excluído com sucesso!')
+        else:
+            print(f'Cliente com cpf {cpf} não encontrado.')
 
+        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+            json.dump(clientes, arq, indent=4, ensure_ascii=False)
 

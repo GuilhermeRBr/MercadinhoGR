@@ -2,9 +2,9 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import PessoaController, ClienteController
+from controller.Controller import ClienteController
 from models.Models import Pessoa, Cliente
-from DAO.DAO import PessoaDAO, ClienteDAO
+from DAO.DAO import ClienteDAO
 from validators import validar_opcao
 from formatters import *
 
@@ -65,12 +65,12 @@ class Mercado:
         
         match opcao:
             case 1:
-                nome = "joao"
-                cpf = "12345212901"
-                telefone = "11587654221"
-                email = "jos2o@gmail.com"
+                nome = "jqwo"
+                cpf = "12352212901"
+                telefone = "15387654221"
+                email = "joss2o@gmail.com"
                 endereco = "Rua A, 123"
-                data_nascimento = "01012000"
+                data_nascimento = "01122000"
 
                 if ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento):
                     print('Cliente cadastrado com sucesso!')
@@ -83,7 +83,9 @@ class Mercado:
             case 3:
                 pass
             case 4:
-                pass
+                cpf_excluir = input('Digite o CPF para excluir os dados do cliente: ')
+                ClienteDAO.excluir_cliente(cpf_excluir)
+                
             case 5:
                 pass
             case 0:

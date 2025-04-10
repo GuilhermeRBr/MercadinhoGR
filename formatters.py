@@ -9,22 +9,23 @@ def formatar_data(data_nascimento):
         raise ValueError("Formato inválido. Use DDMMYYYY.")
     elif len(data_nascimento) != 8:
         raise ValueError("Data de nascimento deve ter 8 dígitos.")
-    elif data_nascimento < "0101190":
-        raise ValueError("Data de nascimento inválida.")
     elif data_nascimento > datetime.now().strftime("%d%m%Y"):
         raise ValueError("Data de nascimento inválida.")
+    elif int(data_nascimento[:2]) > 31:
+        raise ValueError("Dia inválido.")
+    elif int(data_nascimento[2:4]) > 12:
+        raise ValueError("Mês inválido.")
+    elif int(data_nascimento[4:]) < 1900:
+        raise ValueError("Ano inválido.")
+    
 
     dia = data_nascimento[:2]
     mes = data_nascimento[2:4]
     ano = data_nascimento[4:]
 
     data_formatada = f"{dia}/{mes}/{ano}"
-
-    try:
-        datetime.strptime(data_formatada, "%d/%m/%Y")
-        return data_formatada
-    except ValueError:
-        return "Data inválida."
+    return data_formatada
+ 
     
 def formatar_cpf(cpf):   
     if not cpf.isdigit():
