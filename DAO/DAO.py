@@ -70,6 +70,12 @@ class ClienteDAO:
     def listar_clientes(cls):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
-            for cliente in clientes:
-                return Cliente(cliente['nome'], cliente['cpf'], cliente['telefone'], cliente['email'], cliente['endereco'], cliente['data_nascimento'], cliente['id_cliente'])
+            lista_clientes = []
+            for c in clientes:
+                nome,  cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
+                cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
+                lista_clientes.append(cliente)
+
+            return lista_clientes
+
 

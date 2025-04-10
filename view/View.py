@@ -3,6 +3,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from controller.Controller import PessoaController, ClienteController
+from models.Models import Pessoa, Cliente
+from DAO.DAO import PessoaDAO, ClienteDAO
 from validators import validar_opcao
 
 
@@ -72,7 +74,9 @@ class Mercado:
 
                 ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
             case 2:
-                pass
+                clientes = ClienteDAO.listar_clientes()
+                for cliente in clientes:
+                    print(f'Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | ID: {cliente.id_cliente}\n')
             case 3:
                 pass
             case 4:
