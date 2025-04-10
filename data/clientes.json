@@ -1,11 +1,20 @@
 [
     {
-        "nome": "João",
+        "nome": "joao",
         "cpf": "12345678901",
-        "telefone": "12345678901",
-        "email": "joao@email.com",
+        "telefone": "11987654321",
+        "email": "joao@gmail.com",
         "endereco": "Rua A, 123",
         "data_nascimento": "01012000",
-        "id_cliente": 190
+        "id_cliente": "000001"
+    },
+    {
+        "nome": "joao",
+        "cpf": "12345672901",
+        "telefone": "11987654221",
+        "email": "joeo@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "01012000",
+        "id_cliente": 2
     }
 ]

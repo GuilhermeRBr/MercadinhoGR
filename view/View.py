@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import PessoaController
+from controller.Controller import PessoaController, ClienteController
 from validators import validar_opcao
 
 
@@ -62,7 +62,15 @@ class Mercado:
         
         match opcao:
             case 1:
-                pass
+                nome = "joao"
+                cpf = "12345672901"
+                telefone = "11987654221"
+                email = "joeo@gmail.com"
+                endereco = "Rua A, 123"
+                data_nascimento = "01012000"
+                id_cliente = '000001'
+
+                ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
             case 2:
                 pass
             case 3:

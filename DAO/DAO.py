@@ -43,15 +43,16 @@ class ClienteDAO:
         clientes = []
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
-            for cliente in clientes:
-                if cliente['cpf'] == cliente.cpf:
+            for c in clientes:
+                if c['cpf'] == cliente.cpf:
                     raise ValueError("CPF já cadastrado.")
-                if cliente['telefone'] == cliente.telefone:
+                if c['telefone'] == cliente.telefone:
                     raise ValueError("Telefone já cadastrado.")
-                if cliente['email'] == cliente.email:
+                if c['email'] == cliente.email:
                     raise ValueError("Email já cadastrado.")
-                if cliente['id_cliente'] == cliente.id_cliente:
-                    raise ValueError("ID já cadastrado.")
+                if c['id_cliente'] == cliente.id_cliente:
+                    id_attribuido = int(c['id_cliente'])
+                    id_attribuido += 1
 
         clientes.append({
             'nome': cliente.nome,
@@ -60,7 +61,7 @@ class ClienteDAO:
             'email': cliente.email,
             'endereco': cliente.endereco,
             'data_nascimento': cliente.data_nascimento,
-            'id_cliente': cliente.id_cliente
+            'id_cliente': id_attribuido
         })
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
@@ -71,7 +72,4 @@ class ClienteDAO:
             clientes = json.load(arq)
             for cliente in clientes:
                 return Cliente(cliente['nome'], cliente['cpf'], cliente['telefone'], cliente['email'], cliente['endereco'], cliente['data_nascimento'], cliente['id_cliente'])
-    
-c1 = Cliente('João', '12345678901', '12345678901', 'joao@email.com', 'Rua A, 123', '01012000', 1)
 
-print(ClienteDAO.listar_clientes())
