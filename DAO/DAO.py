@@ -41,6 +41,7 @@ class ClienteDAO:
     @classmethod
     def salvar_cliente(cls, cliente: Cliente):
         clientes = []
+        id_cliente = 1
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
             for c in clientes:
@@ -50,9 +51,8 @@ class ClienteDAO:
                     raise ValueError("Telefone já cadastrado.")
                 if c['email'] == cliente.email:
                     raise ValueError("Email já cadastrado.")
-                if c['id_cliente'] == cliente.id_cliente:
-                    id_attribuido = int(c['id_cliente'])
-                    id_attribuido += 1
+                if c['id_cliente'] == str(id_cliente):
+                    id_cliente += 1
 
         clientes.append({
             'nome': cliente.nome,
@@ -61,8 +61,9 @@ class ClienteDAO:
             'email': cliente.email,
             'endereco': cliente.endereco,
             'data_nascimento': cliente.data_nascimento,
-            'id_cliente': id_attribuido
+            'id_cliente': str(id_cliente)
         })
+
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
 

@@ -63,3 +63,17 @@ def formatar_dinheiro(valor):
     valor_formatado = locale.currency(valor, grouping=True)
     return valor_formatado
 
+def formatar_id(id):
+    match len(id):
+        case 1:
+            return f"00000{id}"
+        case 2:
+            return f"0000{id}"
+        case 3:
+            return f"000{id}"
+        case 4:
+            return f"00{id}"
+        case 5:
+            return f"0{id}"
+        case 6:
+            return id

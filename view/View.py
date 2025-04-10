@@ -6,6 +6,7 @@ from controller.Controller import PessoaController, ClienteController
 from models.Models import Pessoa, Cliente
 from DAO.DAO import PessoaDAO, ClienteDAO
 from validators import validar_opcao
+from formatters import *
 
 
 class Mercado:
@@ -65,18 +66,17 @@ class Mercado:
         match opcao:
             case 1:
                 nome = "joao"
-                cpf = "12345672901"
-                telefone = "11987654221"
-                email = "joeo@gmail.com"
+                cpf = "12345642901"
+                telefone = "11587654221"
+                email = "jo2o@gmail.com"
                 endereco = "Rua A, 123"
                 data_nascimento = "01012000"
-                id_cliente = '000001'
 
-                ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
+                ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento)
             case 2:
                 clientes = ClienteDAO.listar_clientes()
                 for cliente in clientes:
-                    print(f'Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | ID: {cliente.id_cliente}\n')
+                    print(f'\nID: {formatar_id(cliente.id_cliente)} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento}\n')
             case 3:
                 pass
             case 4:

@@ -29,7 +29,7 @@ class PessoaController:
 
 class ClienteController:
     @classmethod
-    def cadastrar_cliente(cls, nome, cpf, telefone, email, endereco, data_nascimento, id_cliente):
+    def cadastrar_cliente(cls, nome, cpf, telefone, email, endereco, data_nascimento):
         try:
             validar_nome(nome)
             formatar_cpf(cpf)
@@ -37,12 +37,11 @@ class ClienteController:
             validar_email(email)
             validar_endereco(endereco)
             formatar_data(data_nascimento)
-            validar_id(id_cliente)
         except ValueError as e:
             print(f"Erro ao cadastrar cliente: {e}")
             return
         try:
-            cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
+            cliente = Cliente(validar_nome(nome), formatar_cpf(cpf), formatar_telefone(telefone), validar_email(email), validar_endereco(endereco), formatar_data(data_nascimento))
             ClienteDAO.salvar_cliente(cliente)
             print("Cliente cadastrado com sucesso!")
         except ValueError as e:

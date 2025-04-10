@@ -6,7 +6,7 @@
         "email": "joao@gmail.com",
         "endereco": "Rua A, 123",
         "data_nascimento": "01012000",
-        "id_cliente": "000001"
+        "id_cliente": "1"
     },
     {
         "nome": "joao",
@@ -15,6 +15,15 @@
         "email": "joeo@gmail.com",
         "endereco": "Rua A, 123",
         "data_nascimento": "01012000",
-        "id_cliente": 2
+        "id_cliente": "2"
+    },
+    {
+        "nome": "Joao",
+        "cpf": "123.456.429-01",
+        "telefone": "(11) 58765-4221",
+        "email": "jo2o@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "01/01/2000",
+        "id_cliente": "3"
     }
 ]
