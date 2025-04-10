@@ -66,13 +66,16 @@ class Mercado:
         match opcao:
             case 1:
                 nome = "joao"
-                cpf = "12345642901"
+                cpf = "12345212901"
                 telefone = "11587654221"
-                email = "jo2o@gmail.com"
+                email = "jos2o@gmail.com"
                 endereco = "Rua A, 123"
                 data_nascimento = "01012000"
 
-                ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento)
+                if ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento):
+                    print('Cliente cadastrado com sucesso!')
+              
+
             case 2:
                 clientes = ClienteDAO.listar_clientes()
                 for cliente in clientes:

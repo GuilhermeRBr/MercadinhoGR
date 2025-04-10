@@ -40,19 +40,26 @@ class PessoaDAO:
 class ClienteDAO:
     @classmethod
     def salvar_cliente(cls, cliente: Cliente):
+        erros = []
         clientes = []
         id_cliente = 1
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
-            clientes = json.load(arq)
-            for c in clientes:
-                if c['cpf'] == cliente.cpf:
-                    raise ValueError("CPF já cadastrado.")
-                if c['telefone'] == cliente.telefone:
-                    raise ValueError("Telefone já cadastrado.")
-                if c['email'] == cliente.email:
-                    raise ValueError("Email já cadastrado.")
-                if c['id_cliente'] == str(id_cliente):
-                    id_cliente += 1
+        try:
+            with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+                clientes = json.load(arq)
+        except FileNotFoundError:
+            clientes = []
+
+        for c in clientes:
+            if c['id_cliente'] == str(id_cliente):
+                id_cliente += 1
+            if c['cpf'] == cliente.cpf:
+                erros.append(f"Erro: CPF '{cliente.cpf}' já cadastrado.")
+            if c['telefone'] == cliente.telefone:
+                erros.append(f"Erro: Telefone '{cliente.telefone}' já cadastrado.")
+            if c['email'] == cliente.email:
+                erros.append(f"Erro: E-mail '{cliente.email}' já cadastrado.")
+        if erros:
+            raise ValueError('\n'.join(erros))
 
         clientes.append({
             'nome': cliente.nome,
