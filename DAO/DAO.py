@@ -57,11 +57,13 @@ class ClienteDAO:
     def excluir_cliente(cls, cpf):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
-        if cpf in clientes:
-            del clientes[cpf]
-            print(f'Cliente com cpf {cpf} excluído com sucesso!')
-        else:
-            print(f'Cliente com cpf {cpf} não encontrado.')
+        for i, cliente in enumerate(clientes):
+            if cliente['cpf'] == cpf:
+                del clientes[i]
+                print(f'\nCliente com cpf {cpf} excluído com sucesso!')
+                break
+            else:
+                print(f'\nCliente com cpf {cpf} não encontrado.')
 
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
