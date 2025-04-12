@@ -27,20 +27,28 @@ def formatar_data(data_nascimento):
     return data_formatada
  
     
-def formatar_cpf(cpf):   
-    if not cpf.isdigit():
-        raise ValueError("CPF deve conter apenas números.")
-    elif len(cpf) != 11:
-        raise ValueError("CPF deve ter 11 dígitos.")
-    cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
+def formatar_cpf():  
+    while True:
+        cpf = input('Digite o CPF: ') 
+        if not cpf.isdigit():
+            print("CPF deve conter apenas números.")
+        elif len(cpf) != 11:
+            print("CPF deve ter 11 dígitos.")
+        else:
+            break
 
+    cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
     return cpf_formatado
 
-def formatar_cnpj(cnpj):
-    if not cnpj.isdigit():
-        raise ValueError("CNPJ deve conter apenas números.")
-    elif len(cnpj) != 14:
-        raise ValueError("CNPJ deve ter 14 dígitos.")
+def formatar_cnpj():
+    while True:
+        cnpj = input('Digite o CNPJ: ')
+        if not cnpj.isdigit():
+            print("CNPJ deve conter apenas números.")
+        elif len(cnpj) != 14:
+            print("CNPJ deve ter 14 dígitos.")
+        else:
+            break
     cnpj_formatado = f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
 
     return cnpj_formatado

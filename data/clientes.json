@@ -16,14 +16,5 @@
         "endereco": "Rua A, 123",
         "data_nascimento": "01/01/2000",
         "id_cliente": "4"
-    },
-    {
-        "nome": "Jqwo",
-        "cpf": "123.522.129-01",
-        "telefone": "(15) 38765-4221",
-        "email": "joss2o@gmail.com",
-        "endereco": "Rua A, 123",
-        "data_nascimento": "01/11/2000",
-        "id_cliente": "5"
     }
 ]

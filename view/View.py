@@ -83,7 +83,8 @@ class Mercado:
             case 3:
                 pass
             case 4:
-                cpf_excluir = input('Digite o CPF para excluir os dados do cliente: ')
+                print('\n--Exluir cliente--')
+                cpf_excluir = formatar_cpf()
                 ClienteDAO.excluir_cliente(cpf_excluir)
                 
             case 5:
