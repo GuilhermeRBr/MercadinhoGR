@@ -28,15 +28,13 @@ def formatar_data(data_nascimento):
  
     
 def formatar_cpf():  
-    while True:
-        cpf = input('Digite o CPF: ') 
-        if not cpf.isdigit():
-            print("CPF deve conter apenas números.")
-        elif len(cpf) != 11:
-            print("CPF deve ter 11 dígitos.")
-        else:
-            break
-
+    cpf = input('Digite o CPF: ') 
+    if not cpf.isdigit():
+        print("CPF deve conter apenas números.")
+        formatar_cpf()
+    elif len(cpf) != 11:
+        print("CPF deve ter 11 dígitos.")
+        formatar_cpf()
     cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
     return cpf_formatado
 

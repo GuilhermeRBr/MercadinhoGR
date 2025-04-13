@@ -65,4 +65,3 @@ def validar_opcao(opcao):
         else:
             print("Opção inválida. Digite um número.")
             opcao = input("Digite a opção desejada: ")
-

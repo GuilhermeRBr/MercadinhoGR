@@ -18,7 +18,7 @@ class ClienteController:
             except ValueError as e:
                 erros.append(str(e))
             try:
-                cpf= formatar_cpf(cpf)
+                cpf= formatar_cpf()
             except ValueError as e:
                 erros.append(str(e))
             try:
@@ -46,3 +46,17 @@ class ClienteController:
 
         except ValueError as e:
             print(f"\nErro ao cadastrar cliente:\n{e}")
+    
+    @classmethod
+    def listar_clientes(cls):
+        clientes = ClienteDAO.listar_clientes()
+
+        for cliente in clientes:
+             print(f'\nID: {formatar_id(cliente.id_cliente)} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento}\n')
+
+    @classmethod
+    def pesquisar_cliente(cls, cpf):
+        pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
+
+        print(f'\nID: {formatar_id(pesq_cliente.id_cliente)} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
+    

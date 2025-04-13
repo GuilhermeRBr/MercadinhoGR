@@ -56,9 +56,9 @@ class Mercado:
         print('\n == MENU CLIENTES ==\n' \
                  '1. Cadastrar Cliente\n' \
                  '2. Listar Clientes\n' \
-                 '3. Atualizar Cliente\n' \
-                 '4. Excluir Cliente\n' \
-                 '5. Pesquisar Cliente(ID)\n' \
+                 '3. Atualizar Cliente(CPF)\n' \
+                 '4. Excluir Cliente(CPF)\n' \
+                 '5. Pesquisar Cliente(CPF)\n' \
                  '0. Voltar\n' \
                 )
         opcao = validar_opcao(input('Digite a opção desejada: '))
@@ -72,14 +72,10 @@ class Mercado:
                 endereco = "Rua A, 123"
                 data_nascimento = "01122000"
 
-                if ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento):
-                    print('Cliente cadastrado com sucesso!')
+                ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento)
               
-
             case 2:
-                clientes = ClienteDAO.listar_clientes()
-                for cliente in clientes:
-                    print(f'\nID: {formatar_id(cliente.id_cliente)} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento}\n')
+                ClienteController.listar_clientes()
             case 3:
                 pass
             case 4:
@@ -88,8 +84,8 @@ class Mercado:
                 ClienteDAO.excluir_cliente(cpf_excluir)
                 
             case 5:
-                pesq_cliente = ClienteDAO.pesquisar_cliente('3')
-                print(f'\nID: {formatar_id(pesq_cliente.id_cliente)} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
+                cpf_pesquisa = formatar_cpf()
+                ClienteController.pesquisar_cliente(cpf_pesquisa)
             case 0:
                 print('Voltando...')
                 self.menu_principal()

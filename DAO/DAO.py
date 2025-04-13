@@ -69,12 +69,12 @@ class ClienteDAO:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
     @classmethod
-    def pesquisar_cliente(cls, id):
+    def pesquisar_cliente(cls, cpf):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
         
         for c in clientes:
-            if c['id_cliente'] == id:
+            if c['cpf'] == cpf:
                 nome, cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
                 return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
                 
