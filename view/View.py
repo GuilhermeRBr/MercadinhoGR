@@ -88,7 +88,8 @@ class Mercado:
                 ClienteDAO.excluir_cliente(cpf_excluir)
                 
             case 5:
-                pass
+                pesq_cliente = ClienteDAO.pesquisar_cliente('3')
+                print(f'\nID: {formatar_id(pesq_cliente.id_cliente)} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
             case 0:
                 print('Voltando...')
                 self.menu_principal()
