@@ -57,6 +57,7 @@ class ClienteDAO:
     def excluir_cliente(cls, cpf):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
+            
         for i, cliente in enumerate(clientes):
             if cliente['cpf'] == cpf:
                 del clientes[i]
@@ -79,21 +80,27 @@ class ClienteDAO:
                 return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
 
     @classmethod
-    def atualizar_cliente(cls, case, dados):   
+    def atualizar_cliente(cls, opcao, cpf, dados):   
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
 
-        match case:
-            case 1:
-                clientes['nome'] = dados
-            case 2:
-                clientes['telefone'] = dados
-            case 3:
-                clientes['email'] = dados
-            case 4:
-                clientes['endereco'] = dados
-            case 5:
-                clientes['data_nascimento'] = dados      
+        for c in clientes:
+            if c['cpf'] == cpf:
+                    match opcao:
+                        case 1:
+                            c['nome'] = dados
+                        case 2:
+                            c['telefone'] = dados
+                        case 3:
+                            c['email'] = dados
+                        case 4:
+                            c['endereco'] = dados
+                        case 5:
+                            c['data_nascimento'] = dados
+
+
+
+                  
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)

@@ -4,7 +4,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from controller.Controller import ClienteController
 from models.Models import Pessoa, Cliente
-from DAO.DAO import ClienteDAO
 from validators import validar_opcao
 from formatters import *
 
@@ -72,48 +71,46 @@ class Mercado:
                 ClienteController.listar_clientes()
 
             case 3:
-                def atualizar_cliente(cpf_edit):
-                    print('\nEscolha o que deseja editar nesse cliente:')
-                    ClienteController.pesquisar_cliente(edit_cpf)
-                    print('\n1. Editar nome\n' \
-                    '2. Editar telefone\n' \
-                    '3. Editar email\n' \
-                    '4. Editar endereço\n' \
-                    '5. Editar data de nascimento\n' \
-                    '0. Voltar\n')
+                print('\n-- Digite o CPF para atualizar o cliente --')
+                cpf_edit = formatar_cpf()
+                ClienteController.pesquisar_cliente(cpf_edit)
+                print('\nEscolha o que deseja editar nesse cliente:')
+                print('\n1. Editar nome\n' \
+                '2. Editar telefone\n' \
+                '3. Editar email\n' \
+                '4. Editar endereço\n' \
+                '5. Editar data de nascimento\n' \
+                '0. Voltar\n')
 
-                    opcao = validar_opcao()
+                opcao = validar_opcao()
 
-                    match opcao:
-                        case 1:
-                            ClienteController.atualizar_cliente(1)
-                        case 2:
-                            ClienteController.atualizar_cliente(2)
-                        case 3:
-                            ClienteController.atualizar_cliente(3)
-                        case 4:
-                            ClienteController.atualizar_cliente(4)
-                        case 5:
-                            ClienteController.atualizar_cliente(5)
-                        case 0:
-                            print('Voltando...')
-                            self.gerenciar_clientes()
-                        case _:
-                            print('Opção inválida!')
-                            self.gerenciar_clientes()
-
-                edit_cpf = formatar_cpf()
-                atualizar_cliente(edit_cpf)
-
+                match opcao:
+                    case 1:
+                        ClienteController.atualizar_cliente(1, cpf_edit)
+                    case 2:
+                        ClienteController.atualizar_cliente(2, cpf_edit)
+                    case 3:
+                        ClienteController.atualizar_cliente(3, cpf_edit)
+                    case 4:
+                        ClienteController.atualizar_cliente(4, cpf_edit)
+                    case 5:
+                        ClienteController.atualizar_cliente(5, cpf_edit)
+                    case 0:
+                        print('Voltando...')
+                        self.gerenciar_clientes()
+                    case _:
+                        print('Opção inválida!')
+                        self.gerenciar_clientes()
 
             case 4:
-                print('\n--Exluir cliente--')
-                cpf_excluir = formatar_cpf()
-                ClienteDAO.excluir_cliente(cpf_excluir)
+                print('\n-- Digite o CPF para excluir cliente --')
+                ClienteController.excluir_cliente()
                 
             case 5:
-                cpf_pesquisa = formatar_cpf()
-                ClienteController.pesquisar_cliente(cpf_pesquisa)
+                print('\n-- Digite o CPF para pesquisar um cliente --')
+                cpf_pesq = formatar_cpf()
+                ClienteController.pesquisar_cliente(cpf_pesq)
+
             case 0:
                 print('Voltando...')
                 self.menu_principal()

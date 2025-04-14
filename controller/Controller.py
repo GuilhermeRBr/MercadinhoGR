@@ -39,5 +39,25 @@ class ClienteController:
         print(f'\nID: {formatar_id(pesq_cliente.id_cliente)} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
 
     @classmethod
-    def atualizar_cliente(cls, opcao):
-        pass
+    def atualizar_cliente(cls, opcao, cpf):
+        match opcao:
+            case 1:
+                nome = validar_nome()
+                ClienteDAO.atualizar_cliente(1, cpf, nome)
+            case 2:
+                telefone = formatar_telefone()
+                ClienteDAO.atualizar_cliente(2, cpf, telefone)
+            case 3:
+                email = validar_email()
+                ClienteDAO.atualizar_cliente(3, cpf, email)
+            case 4:
+                endereco = validar_endereco()
+                ClienteDAO.atualizar_cliente(4, cpf, endereco)
+            case 5:
+                data_nascimento = formatar_data()
+                ClienteDAO.atualizar_cliente(5, cpf, data_nascimento)
+    
+    @classmethod
+    def excluir_cliente(cls):
+        cpf_excluir = formatar_cpf()
+        ClienteDAO.excluir_cliente(cpf_excluir)
