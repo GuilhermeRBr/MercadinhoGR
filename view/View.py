@@ -53,6 +53,7 @@ class Mercado:
         print('Caixa')
     
     def gerenciar_clientes(self):
+
         print('\n == MENU CLIENTES ==\n' \
                  '1. Cadastrar Cliente\n' \
                  '2. Listar Clientes\n' \
@@ -76,8 +77,42 @@ class Mercado:
               
             case 2:
                 ClienteController.listar_clientes()
+
             case 3:
-                pass
+                def atualizar_cliente(cpf_edit):
+                    print('\nEscolha o que deseja editar nesse cliente:')
+                    ClienteController.pesquisar_cliente(edit_cpf)
+                    print('\n1. Editar nome\n' \
+                    '2. Editar telefone\n' \
+                    '3. Editar email\n' \
+                    '4. Editar endereço\n' \
+                    '5. Editar data de nascimento\n' \
+                    '0. Voltar\n')
+
+                    opcao = validar_opcao(input('Digite a opçao desejada: '))
+
+                    match opcao:
+                        case 1:
+                            pass
+                        case 2:
+                            pass
+                        case 3:
+                            pass
+                        case 4:
+                            pass
+                        case 5:
+                            pass
+                        case 0:
+                            print('Voltando...')
+                            self.gerenciar_clientes()
+                        case _:
+                            print('Opção inválida!')
+                            self.gerenciar_clientes()
+
+                edit_cpf = formatar_cpf()
+                atualizar_cliente(edit_cpf)
+
+
             case 4:
                 print('\n--Exluir cliente--')
                 cpf_excluir = formatar_cpf()
