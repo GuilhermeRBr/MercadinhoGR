@@ -77,5 +77,23 @@ class ClienteDAO:
             if c['cpf'] == cpf:
                 nome, cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
                 return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
-                
+
+    @classmethod
+    def atualizar_cliente(cls, case, dados):   
+        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+            clientes = json.load(arq)
+
+        match case:
+            case 1:
+                clientes['nome'] = dados
+            case 2:
+                clientes['telefone'] = dados
+            case 3:
+                clientes['email'] = dados
+            case 4:
+                clientes['endereco'] = dados
+            case 5:
+                clientes['data_nascimento'] = dados      
         
+        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+            json.dump(clientes, arq, indent=4)

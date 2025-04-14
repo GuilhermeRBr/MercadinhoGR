@@ -27,7 +27,7 @@ class Mercado:
             '0. Sair\n' \
             )
 
-            opcao = validar_opcao(input('Digite a opção desejada: '))
+            opcao = validar_opcao()
 
             match opcao:
                 case 1:
@@ -62,18 +62,11 @@ class Mercado:
                  '5. Pesquisar Cliente(CPF)\n' \
                  '0. Voltar\n' \
                 )
-        opcao = validar_opcao(input('Digite a opção desejada: '))
+        opcao = validar_opcao()
         
         match opcao:
             case 1:
-                nome = "jqwo"
-                cpf = "12352212901"
-                telefone = "15387654221"
-                email = "joss2o@gmail.com"
-                endereco = "Rua A, 123"
-                data_nascimento = "01122000"
-
-                ClienteController.cadastrar_cliente(nome, cpf, telefone, email, endereco, data_nascimento)
+                ClienteController.cadastrar_cliente()
               
             case 2:
                 ClienteController.listar_clientes()
@@ -89,19 +82,19 @@ class Mercado:
                     '5. Editar data de nascimento\n' \
                     '0. Voltar\n')
 
-                    opcao = validar_opcao(input('Digite a opçao desejada: '))
+                    opcao = validar_opcao()
 
                     match opcao:
                         case 1:
-                            pass
+                            ClienteController.atualizar_cliente(1)
                         case 2:
-                            pass
+                            ClienteController.atualizar_cliente(2)
                         case 3:
-                            pass
+                            ClienteController.atualizar_cliente(3)
                         case 4:
-                            pass
+                            ClienteController.atualizar_cliente(4)
                         case 5:
-                            pass
+                            ClienteController.atualizar_cliente(5)
                         case 0:
                             print('Voltando...')
                             self.gerenciar_clientes()
@@ -139,7 +132,7 @@ class Mercado:
                 '0. Voltar\n' 
                 )
         
-        opcao = validar_opcao(input('Digite a opção desejada: '))
+        opcao = validar_opcao()
 
         match opcao:
             case 1:
@@ -168,7 +161,7 @@ class Mercado:
         '5. Pesquisar Produtos(ID)\n' \
         '0. Voltar\n' ) 
 
-        opcao = validar_opcao(input('Digite a opção desejada: '))
+        opcao = validar_opcao()
         match opcao:
             case 1:
                 pass
@@ -196,7 +189,7 @@ class Mercado:
         '5. Pesquisar Fornecedor(ID)\n'
         '0. Voltar\n' 
         )
-        opcao = validar_opcao(input('Digite a opção desejada: '))
+        opcao = validar_opcao()
 
         match opcao:
             case 1:
@@ -226,7 +219,7 @@ class Mercado:
         '0. Voltar\n' 
         )
         
-        opcao = validar_opcao(input('Digite a opção desejada: '))
+        opcao = validar_opcao()
         match opcao:
             case 1:
                 pass
@@ -255,7 +248,7 @@ class Mercado:
                 '6. Relatório de Categorias\n'
                 '0. Voltar\n'   
               )
-        opcao = validar_opcao(input('Digite a opção desejada: '))
+        opcao = validar_opcao()
         match opcao:
             case 1:
                 pass

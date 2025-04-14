@@ -25,5 +25,14 @@
         "endereco": "Rua A, 123",
         "data_nascimento": "01/12/2000",
         "id_cliente": "1"
+    },
+    {
+        "nome": "Gui",
+        "cpf": "233.288.888-89",
+        "telefone": "(88) 37383-9383",
+        "email": "jajj@fd.com",
+        "endereco": "Rua 5",
+        "data_nascimento": "01/01/2000",
+        "id_cliente": "2"
     }
 ]

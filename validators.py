@@ -2,34 +2,43 @@ import re
 from datetime import datetime
 
 
-def validar_nome(nome):
-    if not nome.strip():
-        raise ValueError("Nome não pode ser vazio.")
-    elif not nome.replace(" ", "").isalpha():
-        raise ValueError("Nome deve conter apenas letras.")
-    elif len(nome) < 3:
-        raise ValueError("Nome deve ter pelo menos 3 caracteres.")
-    return nome.title()
+def validar_nome():
+    while True:
+        nome = input('NOME: ')
+        if not nome.strip():
+            print("Nome não pode ser vazio.")
+        elif not nome.replace(" ", "").isalpha():
+            print("Nome deve conter apenas letras.")
+        elif len(nome) < 3:
+            print("Nome deve ter pelo menos 3 caracteres.")
+        else:
+            return nome.title()
 
 
-def validar_email(email):
-    if not email.strip():
-        raise ValueError("Email não pode ser vazio.")
-    elif not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-, email):
-        raise ValueError("Email inválido.")
-    return email.lower()
+def validar_email():
+    while True:
+        email = input('EMAIL: ')
+        if not email.strip():
+            print("Email não pode ser vazio.")
+        elif not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    , email):
+            print("Email inválido.")
+        else:
+            return email.lower()
 
-def validar_endereco(endereco):
-    if not endereco.strip():
-        raise ValueError("Endereço não pode ser vazio.")
-    return endereco.title()
+def validar_endereco():
+    while True:
+        endereco = input('ENDEREÇO: ')
+        if not endereco.strip():
+            print("Endereço não pode ser vazio.")
+        else:
+            return endereco.title()
 
 def validar_id(id):
     if not id.isdigit():
-        raise ValueError("ID deve conter apenas números.")
+        print("ID deve conter apenas números.")
     elif len(id) != 6:
-        raise ValueError("ID deve ter 6 dígitos.")
+        print("ID deve ter 6 dígitos.")
     return id
 
 
@@ -37,31 +46,31 @@ def validar_quantidade(quantidade):
     if not isinstance(quantidade, (int, float)):
         raise TypeError("Quantidade deve ser um número.")
     elif quantidade == 0 or quantidade < 0:
-        raise ValueError("Quantidade não pode ser zero ou negativo.")
+        print("Quantidade não pode ser zero ou negativo.")
     return quantidade
 
 def validar_nome_produto(nome_produto):
     if not nome_produto.strip():
-        raise ValueError("Nome do produto não pode ser vazio.")
+        print("Nome do produto não pode ser vazio.")
     elif not nome_produto.isalpha():
-        raise ValueError("Nome do produto deve conter apenas letras.")
+        print("Nome do produto deve conter apenas letras.")
     elif len(nome_produto) < 3:
-        raise ValueError("Nome do produto deve ter pelo menos 3 caracteres.")
+        print("Nome do produto deve ter pelo menos 3 caracteres.")
     return nome_produto
 
 def validar_nome_categoria(nome_categoria):
     if not nome_categoria.strip():
-        raise ValueError("Nome da categoria não pode ser vazio.")
+        print("Nome da categoria não pode ser vazio.")
     elif not nome_categoria.isalpha():
-        raise ValueError("Nome da categoria deve conter apenas letras.")
+        print("Nome da categoria deve conter apenas letras.")
     elif len(nome_categoria) < 3:
-        raise ValueError("Nome da categoria deve ter pelo menos 3 caracteres.")
+        print("Nome da categoria deve ter pelo menos 3 caracteres.")
     return nome_categoria
 
-def validar_opcao(opcao):
+def validar_opcao():
     while True:
-        if opcao.isdigit():
-           return int(opcao)
-        else:
+        opcao = input('Digite a opção desejada: ')
+        if not opcao.isdigit():
             print("Opção inválida. Digite um número.")
-            opcao = input("Digite a opção desejada: ")
+        else:
+            return int(opcao)
