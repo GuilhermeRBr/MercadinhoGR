@@ -13,8 +13,9 @@ class Mercado:
         self.rodando = True
     
     def menu_principal(self):
-        while self.rodando:
+        print('\nBem-vindo ao sistema de gerenciamento de mercado!')
 
+        while self.rodando:
             print('\n== MENU PRINCIPAL ==\n' \
             '1. Caixa\n' \
             '2. Gerenciar Clientes\n' \
@@ -59,6 +60,7 @@ class Mercado:
                  '3. Atualizar Cliente(CPF)\n' \
                  '4. Excluir Cliente(CPF)\n' \
                  '5. Pesquisar Cliente(CPF)\n' \
+                 '9. Sair\n' \
                  '0. Voltar\n' \
                 )
         opcao = validar_opcao()
@@ -80,46 +82,50 @@ class Mercado:
                     '3. Editar email\n' \
                     '4. Editar endereço\n' \
                     '5. Editar data de nascimento\n' \
-                    '0. Voltar\n')
+                    '9. Sair\n')
+                    '0. Voltar\n'
 
                     opcao = validar_opcao()
 
                     match opcao:
                         case 1:
                             if ClienteController.atualizar_cliente(1, cpf_edit):
-                                print('Nome do cliente alterado com sucesso.')
+                                print('\nNome do cliente alterado com sucesso.')
                             else:
-                                print('Erro ao alterar nome do cliente.')
+                                print('\nErro ao alterar nome do cliente.')
                             atualizar_cliente(cpf_edit)
                         case 2:
                             if ClienteController.atualizar_cliente(2, cpf_edit):
-                                print('Telefone do cliente alterado com sucesso.')
+                                print('\nTelefone do cliente alterado com sucesso.')
                             else:
-                                print('Erro ao alterar telefone do cliente.')
+                                print('\nErro ao alterar telefone do cliente.')
                             atualizar_cliente(cpf_edit)
                         case 3:
                             if ClienteController.atualizar_cliente(3, cpf_edit):
-                                print('Email do cliente alterado com sucesso.')
+                                print('\nEmail do cliente alterado com sucesso.')
                             else:
-                                print('Erro ao alterar email do cliente.')
+                                print('\nErro ao alterar email do cliente.')
                             atualizar_cliente(cpf_edit)
                         case 4:
                             if ClienteController.atualizar_cliente(4, cpf_edit):
-                                print('Endereço do cliente alterado com sucesso.')
+                                print('\nEndereço do cliente alterado com sucesso.')
                             else:
-                                print('Erro ao alterar endereço do cliente.')
+                                print('\nErro ao alterar endereço do cliente.')
                             atualizar_cliente(cpf_edit)
                         case 5:
                             if ClienteController.atualizar_cliente(5, cpf_edit):
-                                print('Data de nascimento do cliente alterado com sucesso.')
+                                print('\nData de nascimento do cliente alterado com sucesso.')
                             else:
-                                print('Erro ao alterar data de nascimento do cliente.')
+                                print('\nErro ao alterar data de nascimento do cliente.')
                             atualizar_cliente(cpf_edit)
+                        case 9:
+                            print('\nSaindo...')
+                            self.rodando = False
                         case 0:
-                            print('Voltando...')
+                            print('\nVoltando...')
                             self.gerenciar_clientes()
                         case _:
-                            print('Opção inválida!')
+                            print('\nOpção inválida!')
                             atualizar_cliente(cpf_edit)
 
                 print('\n-- Digite o CPF para atualizar o cliente --')
@@ -135,11 +141,14 @@ class Mercado:
                 cpf_pesq = formatar_cpf()
                 ClienteController.pesquisar_cliente(cpf_pesq)
 
+            case 9:
+                print('\nSaindo...')
+                self.rodando = False
             case 0:
-                print('Voltando...')
+                print('\nVoltando...')
                 self.menu_principal()
             case _:
-                print('Opção inválida!')
+                print('\nOpção inválida!')
                 self.gerenciar_clientes()
 
     
@@ -150,6 +159,7 @@ class Mercado:
                 '3. Atualizar Funcionário\n' \
                 '4. Excluir Funcionário\n' \
                 '5. Pesquisar Funcionário(ID)\n' \
+                '9. Sair\n' \
                 '0. Voltar\n' 
                 )
         
@@ -166,11 +176,14 @@ class Mercado:
                 pass
             case 5:
                 pass
+            case 9:
+                print('\nSaindo...')
+                self.rodando = False
             case 0:
-                print('Voltando...')
+                print('\nVoltando...')
                 self.menu_principal()
             case _:
-                print('Opção inválida!')
+                print('\nOpção inválida!')
                 self.gerenciar_funcionarios()
     
     def gerenciar_produtos(self):
@@ -180,7 +193,8 @@ class Mercado:
         '3. Atualizar Produtos\n' \
         '4. Excluir Produtos\n' \
         '5. Pesquisar Produtos(ID)\n' \
-        '0. Voltar\n' ) 
+        '9. Sair\n') 
+        '0. Voltar\n'
 
         opcao = validar_opcao()
         match opcao:
@@ -194,11 +208,14 @@ class Mercado:
                 pass
             case 5:
                 pass
+            case 9:
+                print('\nSaindo...')
+                self.rodando = False
             case 0:
-                print('Voltando...')
+                print('\nVoltando...')
                 self.menu_principal()
             case _:
-                print('Opção inválida!')
+                print('\nOpção inválida!')
                 self.gerenciar_produtos()
 
     def gerenciar_fornecedores(self):
@@ -208,6 +225,7 @@ class Mercado:
         '3. Atualizar Fornecedor\n' 
         '4. Excluir Fornecedor\n'
         '5. Pesquisar Fornecedor(ID)\n'
+        '9. Sair\n'
         '0. Voltar\n' 
         )
         opcao = validar_opcao()
@@ -223,11 +241,14 @@ class Mercado:
                 pass
             case 5:
                 pass
+            case 9:
+                print('\nSaindo...')
+                self.rodando = False
             case 0:
-                print('Voltando...')
+                print('\nVoltando...')
                 self.menu_principal()
             case _:
-                print('Opção inválida!')
+                print('\nOpção inválida!')
                 self.gerenciar_fornecedores()
 
     def gerenciar_categorias(self):
@@ -237,6 +258,7 @@ class Mercado:
         '3. Atualizar Categoria\n'
         '4. Excluir Categoria\n'
         '5. Pesquisar Categoria(ID)\n'
+        '9. Sair\n'
         '0. Voltar\n' 
         )
         
@@ -252,11 +274,14 @@ class Mercado:
                 pass
             case 5:
                 pass
+            case 9:
+                print('\nSaindo...')
+                self.rodando = False
             case 0:
-                print('Voltando...')
+                print('\nVoltando...')
                 self.menu_principal()
             case _:
-                print('Opção inválida!')
+                print('\nOpção inválida!')
                 self.gerenciar_categorias()
 
     def relatorios(self):
@@ -267,6 +292,7 @@ class Mercado:
                 '4. Relatório de Produtos\n' 
                 '5. Relatório de Fornecedores\n'
                 '6. Relatório de Categorias\n'
+                '9. Sair\n'
                 '0. Voltar\n'   
               )
         opcao = validar_opcao()
@@ -283,11 +309,14 @@ class Mercado:
                 pass
             case 6:
                 pass
+            case 9:
+                print('\nSaindo...')
+                self.rodando = False
             case 0:
-                print('Voltando...')
+                print('\nVoltando...')
                 self.menu_principal()
             case _:
-                print('Opção inválida!')
+                print('\nOpção inválida!')
                 self.relatorios()
 app = Mercado()
 app.menu_principal()

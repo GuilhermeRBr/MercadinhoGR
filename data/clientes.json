@@ -63,12 +63,12 @@
         "id_cliente": "000006"
     },
     {
-        "nome": "jeorge",
+        "nome": "George",
         "cpf": "453.452.564-01",
-        "telefone": "(65) 34455-4221",
-        "email": "go2522@gmail.com",
+        "telefone": "(55) 92323-3232",
+        "email": "george@gmail.com",
         "endereco": "Rua A, 123",
-        "data_nascimento": "11112000",
+        "data_nascimento": "02/06/1997",
         "id_cliente": "000008"
     }
 ]
