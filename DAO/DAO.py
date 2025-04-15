@@ -3,7 +3,7 @@ import os
 import sys
 from formatters import formatar_id
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from models.Models import Cliente, Pessoa
+from models.Models import Cliente, Funcionario
 
 class ClienteDAO:
     @classmethod
@@ -35,13 +35,13 @@ class ClienteDAO:
             raise ValueError('\n'.join(erros))
         
         clientes.append({
+            'id_cliente': formatar_id(str(id_cliente)),
             'nome': cliente.nome,
             'cpf': cliente.cpf,
             'telefone': cliente.telefone,
             'email': cliente.email,
             'endereco': cliente.endereco,
             'data_nascimento': cliente.data_nascimento,
-            'id_cliente': formatar_id(str(id_cliente)),
         })
 
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
@@ -107,3 +107,47 @@ class ClienteDAO:
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)
+
+class FuncionarioDAO:
+    @classmethod
+    def salvar_funcionario(cls, funcionario: Funcionario):
+        erros = []
+        funcionarios = []
+        try:
+            with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+                funcionarios = json.load(arq)
+        except FileNotFoundError:
+            funcionarios = []
+
+        ids_usados = sorted(int(f['id_funcionario']) for f in funcionarios)
+        id_funcionario = 1
+        for id_exitente in ids_usados:
+            if id_exitente == id_funcionario:
+                id_funcionario += 1
+            else:
+                break
+        
+        for f in funcionarios:
+            if f['cpf'] == funcionario.cpf:
+                erros.append(f'Erro: CPF {funcionario.cpf} já cadastrado.')
+            if f['telefone'] == funcionario.telefone:
+                erros.append(f'Erro: Telefone {funcionario.telefone} já cadastrado.')
+            if f['email'] == funcionario.email:
+                    erros.append(f'Erro: E-mail {funcionario.email} já cadastrado.')
+        if erros:
+            raise ValueError('\n'.join(erros))
+
+        funcionarios.append({
+            'id_funcionario': formatar_id(str(id_funcionario)),
+            'nome': funcionario.nome,
+            'cpf': funcionario.cpf,
+            'telefone': funcionario.telefone,
+            'email': funcionario.email,
+            'endereco': funcionario.endereco,
+            'data_nascimento': funcionario.data_nascimento,
+            'cargo': funcionario.cargo,
+            'salario': funcionario.salario,
+        })
+
+        with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
+            json.dump(funcionarios, arq, indent=4, ensure_ascii=False)

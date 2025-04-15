@@ -1,3 +1,14 @@
 [
-    
+    {  
+        "id_funcionario": "000001",
+        "nome": "valeria",
+        "cpf": "453.342.434-41",
+        "telefone": "(65) 89755-4221",
+        "email": "val232@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "13/04/1990",
+        "cargo": "Gerente",
+        "salario": 10000
+        
+    }
 ]

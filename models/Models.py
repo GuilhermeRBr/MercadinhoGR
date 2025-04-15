@@ -1,21 +1,22 @@
 class Pessoa:
-    def __init__(self, nome, cpf, telefone, email, endereco):
+    def __init__(self, nome, cpf, telefone, email, endereco, data_nascimento):
         self.nome = nome
         self.cpf = cpf
         self.telefone = telefone
         self.email = email
         self.endereco = endereco
+        self.data_nascimento = data_nascimento
 
 class Funcionario(Pessoa):
-    def __init__(self, nome, cpf, telefone, email, endereco, salario, id_funcionario):
-        super().__init__(nome, cpf, telefone, email, endereco)
+    def __init__(self, nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario=None):
+        super().__init__(nome, cpf, telefone, email, endereco, data_nascimento)
+        self.cargo = cargo
         self.salario = salario
         self.id_funcionario = id_funcionario
 
 class Cliente(Pessoa):
     def __init__(self, nome, cpf, telefone, email, endereco, data_nascimento, id_cliente=None):
-        super().__init__(nome, cpf, telefone, email, endereco)
-        self.data_nascimento = data_nascimento
+        super().__init__(nome, cpf, telefone, email, endereco, data_nascimento)
         self.id_cliente = id_cliente
 
 

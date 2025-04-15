@@ -2,8 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController
-from models.Models import Pessoa, Cliente
+from controller.Controller import ClienteController, FuncionarioController
 from validators import validar_opcao
 from formatters import *
 
@@ -16,7 +15,7 @@ class Mercado:
         print('\nBem-vindo ao sistema de gerenciamento de mercado!')
 
         while self.rodando:
-            print('\n== MENU PRINCIPAL ==\n' \
+            print('\n == MENU PRINCIPAL ==\n' \
             '1. Caixa\n' \
             '2. Gerenciar Clientes\n' \
             '3. Gerenciar Funcionários\n' \
@@ -167,7 +166,7 @@ class Mercado:
 
         match opcao:
             case 1:
-                pass
+                FuncionarioController.cadastrar_funcionario()
             case 2:
                 pass
             case 3:
