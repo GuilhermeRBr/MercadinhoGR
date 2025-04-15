@@ -6,7 +6,7 @@
         "email": "jos2o@gmail.com",
         "endereco": "Rua A, 123",
         "data_nascimento": "01/01/2000",
-        "id_cliente": "4"
+        "id_cliente": "000005"
     },
     {
         "nome": "Carlos",
@@ -15,7 +15,7 @@
         "email": "joss2o@gmail.com",
         "endereco": "Rua A, 123",
         "data_nascimento": "01/12/2000",
-        "id_cliente": "1"
+        "id_cliente": "000001"
     },
     {
         "nome": "Gui",
@@ -24,6 +24,51 @@
         "email": "jajj@fd.com",
         "endereco": "Rua 5",
         "data_nascimento": "01/01/2000",
-        "id_cliente": "2"
+        "id_cliente": "000002"
+    },
+    {
+        "nome": "alan",
+        "cpf": "123.452.124-01",
+        "telefone": "(35) 38765-4221",
+        "email": "jossw2o@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "01112000",
+        "id_cliente": "000003"
+    },
+    {
+        "nome": "rick",
+        "cpf": "133.452.124-01",
+        "telefone": "(35) 38265-4221",
+        "email": "jossw22o@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "01112000",
+        "id_cliente": "000007"
+    },
+    {
+        "nome": "jess",
+        "cpf": "143.452.124-01",
+        "telefone": "(35) 39265-4221",
+        "email": "gossw22o@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "11112000",
+        "id_cliente": "000004"
+    },
+    {
+        "nome": "romulo",
+        "cpf": "343.452.564-01",
+        "telefone": "(65) 34555-4221",
+        "email": "go254@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "11112000",
+        "id_cliente": "000006"
+    },
+    {
+        "nome": "jeorge",
+        "cpf": "453.452.564-01",
+        "telefone": "(65) 34455-4221",
+        "email": "go2522@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "11112000",
+        "id_cliente": "000008"
     }
 ]

@@ -11,17 +11,17 @@ from formatters import *
 class ClienteController:
     @classmethod
     def cadastrar_cliente(cls):
-        nome = "jqwo"
-        cpf = "12345212901"
-        telefone = "15387654221"
-        email = "joss2o@gmail.com"
+        nome = "jeorge"
+        cpf = "453.452.564-01"
+        telefone = "(65) 34455-4221"
+        email = "go2522@gmail.com"
         endereco = "Rua A, 123"
-        data_nascimento = "01122000"
+        data_nascimento = "11112000"
 
         try:
             cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento)
             ClienteDAO.salvar_cliente(cliente)
-            print("Cliente cadastrado com sucesso!")
+            print("\nCliente cadastrado com sucesso!")
         except ValueError as e:
             print(f"\nErro ao cadastrar cliente:\n{e}")
     

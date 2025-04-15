@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from formatters import formatar_id
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Models import Cliente, Pessoa
 
@@ -9,16 +10,21 @@ class ClienteDAO:
     def salvar_cliente(cls, cliente: Cliente):
         erros = []
         clientes = []
-        id_cliente = 1
         try:
             with open('data/clientes.json', 'r', encoding='utf-8') as arq:
                 clientes = json.load(arq)
         except FileNotFoundError:
             clientes = []
 
-        for c in clientes:
-            if c['id_cliente'] == str(id_cliente):
+        ids_usados = sorted(int(c['id_cliente']) for c in clientes)
+        id_cliente = 1
+        for id_existente in ids_usados:
+            if id_existente == id_cliente:
                 id_cliente += 1
+            else:
+                break
+
+        for c in clientes:
             if c['cpf'] == cliente.cpf:
                 erros.append(f"Erro: CPF '{cliente.cpf}' já cadastrado.")
             if c['telefone'] == cliente.telefone:
@@ -27,7 +33,7 @@ class ClienteDAO:
                 erros.append(f"Erro: E-mail '{cliente.email}' já cadastrado.")
         if erros:
             raise ValueError('\n'.join(erros))
-
+        
         clientes.append({
             'nome': cliente.nome,
             'cpf': cliente.cpf,
@@ -35,7 +41,7 @@ class ClienteDAO:
             'email': cliente.email,
             'endereco': cliente.endereco,
             'data_nascimento': cliente.data_nascimento,
-            'id_cliente': str(id_cliente)
+            'id_cliente': formatar_id(str(id_cliente)),
         })
 
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
