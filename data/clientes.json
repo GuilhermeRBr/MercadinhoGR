@@ -1,16 +1,7 @@
 [
     {
-        "nome": "joao",
-        "cpf": "12345212901",
-        "telefone": "11587654221",
-        "email": "jo2o@gmail.com",
-        "endereco": "Rua A, 123",
-        "data_nascimento": "01012000",
-        "id_cliente": "3"
-    },
-    {
         "nome": "Guilherme",
-        "cpf": "123.452.129-01",
+        "cpf": "123.452.129-02",
         "telefone": "(11) 58765-4221",
         "email": "jos2o@gmail.com",
         "endereco": "Rua A, 123",
@@ -18,7 +9,7 @@
         "id_cliente": "4"
     },
     {
-        "nome": "Jqwo",
+        "nome": "Carlos",
         "cpf": "111.211.212-12",
         "telefone": "(15) 38765-4221",
         "email": "joss2o@gmail.com",

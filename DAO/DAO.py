@@ -61,10 +61,11 @@ class ClienteDAO:
         for i, cliente in enumerate(clientes):
             if cliente['cpf'] == cpf:
                 del clientes[i]
-                print(f'\nCliente com cpf {cpf} excluído com sucesso!')
-                break
+                with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+                    json.dump(clientes, arq, indent=4, ensure_ascii=False)
+                return True
             else:
-                print(f'\nCliente com cpf {cpf} não encontrado.')
+                return False
 
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
@@ -97,10 +98,6 @@ class ClienteDAO:
                             c['endereco'] = dados
                         case 5:
                             c['data_nascimento'] = dados
-
-
-
-                  
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)

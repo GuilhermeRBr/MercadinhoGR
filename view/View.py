@@ -71,36 +71,60 @@ class Mercado:
                 ClienteController.listar_clientes()
 
             case 3:
+                def atualizar_cliente(cpf_edit):
+                    ClienteController.pesquisar_cliente(cpf_edit)
+
+                    print('\nEscolha o que deseja editar nesse cliente:')
+                    print('\n1. Editar nome\n' \
+                    '2. Editar telefone\n' \
+                    '3. Editar email\n' \
+                    '4. Editar endereço\n' \
+                    '5. Editar data de nascimento\n' \
+                    '0. Voltar\n')
+
+                    opcao = validar_opcao()
+
+                    match opcao:
+                        case 1:
+                            if ClienteController.atualizar_cliente(1, cpf_edit):
+                                print('Nome do cliente alterado com sucesso.')
+                            else:
+                                print('Erro ao alterar nome do cliente.')
+                            atualizar_cliente(cpf_edit)
+                        case 2:
+                            if ClienteController.atualizar_cliente(2, cpf_edit):
+                                print('Telefone do cliente alterado com sucesso.')
+                            else:
+                                print('Erro ao alterar telefone do cliente.')
+                            atualizar_cliente(cpf_edit)
+                        case 3:
+                            if ClienteController.atualizar_cliente(3, cpf_edit):
+                                print('Email do cliente alterado com sucesso.')
+                            else:
+                                print('Erro ao alterar email do cliente.')
+                            atualizar_cliente(cpf_edit)
+                        case 4:
+                            if ClienteController.atualizar_cliente(4, cpf_edit):
+                                print('Endereço do cliente alterado com sucesso.')
+                            else:
+                                print('Erro ao alterar endereço do cliente.')
+                            atualizar_cliente(cpf_edit)
+                        case 5:
+                            if ClienteController.atualizar_cliente(5, cpf_edit):
+                                print('Data de nascimento do cliente alterado com sucesso.')
+                            else:
+                                print('Erro ao alterar data de nascimento do cliente.')
+                            atualizar_cliente(cpf_edit)
+                        case 0:
+                            print('Voltando...')
+                            self.gerenciar_clientes()
+                        case _:
+                            print('Opção inválida!')
+                            atualizar_cliente(cpf_edit)
+
                 print('\n-- Digite o CPF para atualizar o cliente --')
                 cpf_edit = formatar_cpf()
-                ClienteController.pesquisar_cliente(cpf_edit)
-                print('\nEscolha o que deseja editar nesse cliente:')
-                print('\n1. Editar nome\n' \
-                '2. Editar telefone\n' \
-                '3. Editar email\n' \
-                '4. Editar endereço\n' \
-                '5. Editar data de nascimento\n' \
-                '0. Voltar\n')
-
-                opcao = validar_opcao()
-
-                match opcao:
-                    case 1:
-                        ClienteController.atualizar_cliente(1, cpf_edit)
-                    case 2:
-                        ClienteController.atualizar_cliente(2, cpf_edit)
-                    case 3:
-                        ClienteController.atualizar_cliente(3, cpf_edit)
-                    case 4:
-                        ClienteController.atualizar_cliente(4, cpf_edit)
-                    case 5:
-                        ClienteController.atualizar_cliente(5, cpf_edit)
-                    case 0:
-                        print('Voltando...')
-                        self.gerenciar_clientes()
-                    case _:
-                        print('Opção inválida!')
-                        self.gerenciar_clientes()
+                atualizar_cliente(cpf_edit)
 
             case 4:
                 print('\n-- Digite o CPF para excluir cliente --')

@@ -34,30 +34,56 @@ class ClienteController:
 
     @classmethod
     def pesquisar_cliente(cls, cpf):
-        pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
+        try:
+            pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
+            print(f'\nID: {formatar_id(pesq_cliente.id_cliente)} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
+        except:
+            print(f"\nCliente com CPF {cpf} não encontrado!")
 
-        print(f'\nID: {formatar_id(pesq_cliente.id_cliente)} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
 
     @classmethod
     def atualizar_cliente(cls, opcao, cpf):
         match opcao:
             case 1:
                 nome = validar_nome()
-                ClienteDAO.atualizar_cliente(1, cpf, nome)
+                try:
+                    ClienteDAO.atualizar_cliente(1, cpf, nome)
+                    return True
+                except:
+                    return False
             case 2:
                 telefone = formatar_telefone()
-                ClienteDAO.atualizar_cliente(2, cpf, telefone)
+                try:
+                    ClienteDAO.atualizar_cliente(2, cpf, telefone)
+                    return True
+                except:
+                    return False
             case 3:
                 email = validar_email()
-                ClienteDAO.atualizar_cliente(3, cpf, email)
+                try:
+                    ClienteDAO.atualizar_cliente(3, cpf, email)
+                    return True
+                except:
+                    return False
             case 4:
                 endereco = validar_endereco()
-                ClienteDAO.atualizar_cliente(4, cpf, endereco)
+                try:
+                    ClienteDAO.atualizar_cliente(4, cpf, endereco)
+                    return True
+                except:
+                    return False
             case 5:
                 data_nascimento = formatar_data()
-                ClienteDAO.atualizar_cliente(5, cpf, data_nascimento)
+                try:
+                    ClienteDAO.atualizar_cliente(5, cpf, data_nascimento)
+                    return True
+                except:
+                    return False
     
     @classmethod
     def excluir_cliente(cls):
         cpf_excluir = formatar_cpf()
-        ClienteDAO.excluir_cliente(cpf_excluir)
+        if ClienteDAO.excluir_cliente(cpf_excluir) == True:
+            print(f'\nCliente com CPF {cpf_excluir} excluído com sucesso!')
+        else:
+            print(f'\nCliente com CPF {cpf_excluir} não encontrado.')
