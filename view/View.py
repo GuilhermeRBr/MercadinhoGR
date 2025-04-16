@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController
 from validators import validar_opcao
 from formatters import *
 
@@ -262,8 +262,8 @@ class Mercado:
         print('\n == MENU PRODUTOS ==\n' \
         '1. Cadastrar Produtos\n' \
         '2. Listar Produtos\n' \
-        '3. Atualizar Produtos\n' \
-        '4. Excluir Produtos\n' \
+        '3. Atualizar Produtos(ID)\n' \
+        '4. Excluir Produtos(ID)\n' \
         '5. Pesquisar Produtos(ID)\n' \
         '9. Sair\n') 
         '0. Voltar\n'
@@ -271,7 +271,7 @@ class Mercado:
         opcao = validar_opcao()
         match opcao:
             case 1:
-                pass
+                ProdutoController.cadastrar_produto()
             case 2:
                 pass
             case 3:

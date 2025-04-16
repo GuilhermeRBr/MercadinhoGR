@@ -3,8 +3,8 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import ClienteDAO, FuncionarioDAO
-from models.Models import Cliente, Funcionario
+from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO
+from models.Models import Cliente, Funcionario, Produto
 from validators import *
 from formatters import *
 
@@ -90,14 +90,14 @@ class ClienteController:
 class FuncionarioController:
     @classmethod
     def cadastrar_funcionario(cls):
-        nome = "felipe" 
-        cpf = "453.452.434-41"
-        telefone = "(65) 21255-4221"
-        email = "go2532@gmail.com"
-        endereco = "Rua A, 123"
-        data_nascimento = "11112000"
-        cargo = "Gerente"
-        salario = 10000
+        nome = validar_nome() 
+        cpf = formatar_cpf()
+        telefone = formatar_telefone()
+        email = validar_email()
+        endereco = validar_endereco()
+        data_nascimento = formatar_data()
+        cargo = validar_cargo()
+        salario = formatar_dinheiro()
 
         try:
             funcionario = Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario)
@@ -180,3 +180,19 @@ class FuncionarioController:
             print(f'\nID: {pesq_funcionario.id_funcionario} | NOME: {pesq_funcionario.nome} | CPF: {pesq_funcionario.cpf} | TELEFONE: {pesq_funcionario.telefone} | EMAIL: {pesq_funcionario.email} | ENDEREÇO: {pesq_funcionario.endereco} | DATA DE NASCIMENTO: {pesq_funcionario.data_nascimento} | CARGO: {pesq_funcionario.cargo} | SALÁRIO: {pesq_funcionario.salario}\n')
         except:
             print(f"\nFuncionário com CPF {cpf} não encontrado!")
+
+class ProdutoController:
+    @classmethod
+    def cadastrar_produto(cls):
+        nome = 'Biscoito'
+        descricao = 'Biscoito rechado com chocolate'
+        preco = 'R$ 2,50'
+        quantidade = 20
+
+        try:
+            produto = Produto(nome, descricao, preco, quantidade)
+            ProdutoDAO.salvar_produto(produto)
+            print("\nProduto cadastrado com sucesso!")
+        except ValueError as e:
+            print(f"\nErro ao cadastrar produto:\n{e}")
+

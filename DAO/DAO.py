@@ -3,7 +3,7 @@ import os
 import sys
 from formatters import formatar_id
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from models.Models import Cliente, Funcionario
+from models.Models import Cliente, Funcionario, Produto
 
 class ClienteDAO:
     @classmethod
@@ -213,5 +213,38 @@ class FuncionarioDAO:
                 
                 return Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario)
             
+class ProdutoDAO:
+    @classmethod
+    def salvar_produto(cls, produto: Produto):
+        erros = []
+        produtos = []
+        try:
+            with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+                produtos = json.load(arq)
+        except FileNotFoundError:
+            produtos = []
 
+        ids_usados = sorted(int(p['id_produto']) for p in produtos)
+        id_produto = 1
+        for id_exitente in ids_usados:
+            if id_exitente == id_produto:
+                id_produto += 1
+            else:
+                break
+        for p in produtos:
+            if p['descricao'] == produto.descricao:
+                erros.append(f'Erro: Descrição {produto.descricao} já cadastrada.')
+        if erros:
+            raise ValueError('\n'.join(erros))
+        
+        produtos.append({
+            'id_produto': formatar_id(str(id_produto)),
+            'nome': produto.nome,
+            'descricao': produto.descricao,
+            'preco': produto.preco,
+            'quantidade': produto.quantidade
+        })
+
+        with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+            json.dump(produtos, arq, indent=4, ensure_ascii=False)
         
