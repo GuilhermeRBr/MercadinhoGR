@@ -273,7 +273,7 @@ class Mercado:
             case 1:
                 ProdutoController.cadastrar_produto()
             case 2:
-                pass
+                ProdutoController.listar_produtos()
             case 3:
                 pass
             case 4:

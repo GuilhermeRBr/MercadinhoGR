@@ -196,3 +196,9 @@ class ProdutoController:
         except ValueError as e:
             print(f"\nErro ao cadastrar produto:\n{e}")
 
+    @classmethod
+    def listar_produtos(cls):
+        produtos = ProdutoDAO.listar_produtos()
+        
+        for produto in produtos:
+            print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} | Quantidade: {produto.quantidade}\n')

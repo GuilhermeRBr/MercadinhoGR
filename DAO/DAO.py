@@ -247,4 +247,16 @@ class ProdutoDAO:
 
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4, ensure_ascii=False)
-        
+
+    @classmethod
+    def listar_produtos(cls):
+        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+            produtos = json.load(arq)
+            lista_produtos = []
+
+            for p in produtos:
+                id_produto, nome, descricao, preco, quantidade = p.values()
+                produto = Produto(nome, descricao, preco, quantidade, id_produto)
+                lista_produtos.append(produto)
+
+            return lista_produtos
