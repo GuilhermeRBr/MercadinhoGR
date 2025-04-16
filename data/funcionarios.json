@@ -1,14 +1,24 @@
 [
-    {  
-        "id_funcionario": "000001",
-        "nome": "valeria",
-        "cpf": "453.342.434-41",
-        "telefone": "(65) 89755-4221",
-        "email": "val232@gmail.com",
+    {
+        "id_funcionario": "000002",
+        "nome": "marcos",
+        "cpf": "673.342.434-41",
+        "telefone": "(89) 89755-4221",
+        "email": "val32212@gmail.com",
         "endereco": "Rua A, 123",
         "data_nascimento": "13/04/1990",
+        "cargo": "Operador de caixa",
+        "salario": 1500
+    },
+    {
+        "id_funcionario": "000001",
+        "nome": "felipe",
+        "cpf": "453.452.434-41",
+        "telefone": "(65) 21255-4221",
+        "email": "go2532@gmail.com",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "11112000",
         "cargo": "Gerente",
         "salario": 10000
-        
     }
 ]

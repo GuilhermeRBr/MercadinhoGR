@@ -33,15 +33,6 @@ class ClienteController:
              print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento}\n')
 
     @classmethod
-    def pesquisar_cliente(cls, cpf):
-        try:
-            pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
-            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
-        except:
-            print(f"\nCliente com CPF {cpf} não encontrado!")
-
-
-    @classmethod
     def atualizar_cliente(cls, opcao, cpf):
         match opcao:
             case 1:
@@ -88,15 +79,23 @@ class ClienteController:
         else:
             print(f'\nCliente com CPF {cpf_excluir} não encontrado.')
 
+    @classmethod
+    def pesquisar_cliente(cls, cpf):
+        try:
+            pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
+            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
+        except:
+            print(f"\nCliente com CPF {cpf} não encontrado!")
+
 class FuncionarioController:
     @classmethod
     def cadastrar_funcionario(cls):
-        nome = "valeria"
-        cpf = "453.342.434-41"
-        telefone = "(65) 89755-4221"
-        email = "val232@gmail.com"
+        nome = "felipe" 
+        cpf = "453.452.434-41"
+        telefone = "(65) 21255-4221"
+        email = "go2532@gmail.com"
         endereco = "Rua A, 123"
-        data_nascimento = "13/04/1990"
+        data_nascimento = "11112000"
         cargo = "Gerente"
         salario = 10000
 
@@ -112,3 +111,11 @@ class FuncionarioController:
         funcionarios = FuncionarioDAO.listar_funcionarios()
         for funcionario in funcionarios:
             print(f'\nID: {funcionario.id_funcionario} | Nome: {funcionario.nome} | CPF: {funcionario.cpf} | Telefone: {funcionario.telefone} | Email: {funcionario.email}, Endereço: {funcionario.endereco} | Data de Nascimento: {funcionario.data_nascimento} | Cargo: {funcionario.cargo} | Salário: {funcionario.salario}\n')
+
+    @classmethod
+    def excluir_funcionario(cls):
+        cpf_excluir = formatar_cpf()
+        if FuncionarioDAO.excluir_funcionario(cpf_excluir) == True:
+            print(f'\nFuncionário com CPF {cpf_excluir} excluído com sucesso!')
+        else:
+            print(f'\nFuncionário com CPF {cpf_excluir} não encontrado.')

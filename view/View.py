@@ -155,9 +155,9 @@ class Mercado:
         print('\n == MENU FUNCIONÁRIOS ==\n' \
                 '1. Cadastrar Funcionário\n' \
                 '2. Listar Funcionários\n' \
-                '3. Atualizar Funcionário\n' \
-                '4. Excluir Funcionário\n' \
-                '5. Pesquisar Funcionário(ID)\n' \
+                '3. Atualizar Funcionário(CPF)\n' \
+                '4. Excluir Funcionário(CPF)\n' \
+                '5. Pesquisar Funcionário(CPF)\n' \
                 '9. Sair\n' \
                 '0. Voltar\n' 
                 )
@@ -172,7 +172,7 @@ class Mercado:
             case 3:
                 pass
             case 4:
-                pass
+                FuncionarioController.excluir_funcionario()
             case 5:
                 pass
             case 9:

@@ -59,33 +59,6 @@ class ClienteDAO:
 
             return lista_clientes
         
-    @classmethod        
-    def excluir_cliente(cls, cpf):
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
-            clientes = json.load(arq)
-            
-        for i, cliente in enumerate(clientes):
-            if cliente['cpf'] == cpf:
-                del clientes[i]
-                with open('data/clientes.json', 'w', encoding='utf-8') as arq:
-                    json.dump(clientes, arq, indent=4, ensure_ascii=False)
-                return True
-            else:
-                return False
-
-        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
-            json.dump(clientes, arq, indent=4, ensure_ascii=False)
-
-    @classmethod
-    def pesquisar_cliente(cls, cpf):
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
-            clientes = json.load(arq)
-        
-        for c in clientes:
-            if c['cpf'] == cpf:
-                nome, cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
-                return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
-
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados):   
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
@@ -107,6 +80,31 @@ class ClienteDAO:
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)
+
+
+    @classmethod        
+    def excluir_cliente(cls, cpf):
+        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+            clientes = json.load(arq)
+            
+        for i, cliente in enumerate(clientes):
+            if cliente['cpf'] == cpf:
+                del clientes[i]
+                with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+                    json.dump(clientes, arq, indent=4, ensure_ascii=False)
+                return True
+            else:
+                return False
+
+    @classmethod
+    def pesquisar_cliente(cls, cpf):
+        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+            clientes = json.load(arq)
+        
+        for c in clientes:
+            if c['cpf'] == cpf:
+                nome, cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
+                return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
 
 class FuncionarioDAO:
     @classmethod
@@ -164,3 +162,20 @@ class FuncionarioDAO:
                 lista_funcionarios.append(funcionario)
 
             return lista_funcionarios
+        
+    @classmethod
+    def excluir_funcionario(cls, cpf):
+        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            funcionarios = json.load(arq)
+        
+        for i, funcionario in enumerate(funcionarios):
+            if funcionario['cpf'] == cpf:
+                del funcionarios[i]
+                with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
+                    json.dump(funcionarios, arq, indent=4, ensure_ascii=False)
+                return True
+            else:
+                return False
+        
+
+        
