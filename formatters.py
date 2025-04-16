@@ -59,15 +59,19 @@ def formatar_telefone():
             telefone_formatado = f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
             return telefone_formatado
 
-def formatar_dinheiro(valor):
-    if not isinstance(valor, (int, float)):
-        raise TypeError("Valor deve ser um número.")
-    elif valor < 0 or valor == 0:
-        raise ValueError("Valor não pode ser zero ou negativo.")
-    
-    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-    valor_formatado = locale.currency(valor, grouping=True)
-    return valor_formatado
+def formatar_dinheiro():
+    while True:
+        valor = input('VALOR: ')
+        if valor.replace(".", "").replace(",", "").isdigit():
+            valor = float(valor.replace(",", "."))
+            if valor < 0 or valor == 0:
+                print("Valor não pode ser zero ou negativo.")
+            
+            locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+            valor_formatado = locale.currency(valor, grouping=True)
+            return valor_formatado
+        else:
+            print("Valor deve conter apenas números.")
 
 def formatar_id(id):
     match len(id):

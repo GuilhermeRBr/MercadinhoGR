@@ -74,3 +74,15 @@ def validar_opcao():
             print("Opção inválida. Digite um número.")
         else:
             return int(opcao)
+
+def validar_cargo():
+    while True:
+        cargo = input('CARGO: ')
+        if not cargo.strip():
+            print("Cargo não pode ser vazio.")
+        elif not cargo.isalpha():
+            print("Cargo deve conter apenas letras.")
+        elif len(cargo) < 3:
+            print("Cargo deve ter pelo menos 3 caracteres.")
+        else:
+            return cargo.title()

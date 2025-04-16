@@ -164,6 +164,31 @@ class FuncionarioDAO:
             return lista_funcionarios
         
     @classmethod
+    def atualizar_funcionario(cls, opcao, cpf, dados):
+        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            funcionarios = json.load(arq)
+        for f in funcionarios:
+            if f['cpf'] == cpf:
+                    match opcao:
+                        case 1:
+                            f['nome'] = dados
+                        case 2:
+                            f['telefone'] = dados
+                        case 3:
+                            f['email'] = dados
+                        case 4:
+                            f['endereco'] = dados
+                        case 5:
+                            f['data_nascimento'] = dados
+                        case 6:
+                            f['cargo'] = dados
+                        case 7:
+                            f['salario'] = dados
+
+        with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
+            json.dump(funcionarios, arq, indent=4)
+
+    @classmethod
     def excluir_funcionario(cls, cpf):
         with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)

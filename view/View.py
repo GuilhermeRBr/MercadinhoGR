@@ -76,11 +76,11 @@ class Mercado:
                     ClienteController.pesquisar_cliente(cpf_edit)
 
                     print('\nEscolha o que deseja editar nesse cliente:')
-                    print('\n1. Editar nome\n' \
-                    '2. Editar telefone\n' \
-                    '3. Editar email\n' \
-                    '4. Editar endereço\n' \
-                    '5. Editar data de nascimento\n' \
+                    print('\n1. Editar Nome\n' \
+                    '2. Editar Telefone\n' \
+                    '3. Editar Email\n' \
+                    '4. Editar Endereço\n' \
+                    '5. Editar Data de nascimento\n' \
                     '9. Sair\n')
                     '0. Voltar\n'
 
@@ -158,7 +158,7 @@ class Mercado:
                 '3. Atualizar Funcionário(CPF)\n' \
                 '4. Excluir Funcionário(CPF)\n' \
                 '5. Pesquisar Funcionário(CPF)\n' \
-                '9. Sair\n' \
+                '9. Sair\n' 
                 '0. Voltar\n' 
                 )
         
@@ -170,7 +170,77 @@ class Mercado:
             case 2:
                 FuncionarioController.listar_funcionarios()
             case 3:
-                pass
+                def atualizar_funcionario(cpf_edit):
+                    FuncionarioController.pesquisar_funcionario(cpf_edit)
+
+                    print('\nEscolha o que deseja editar nesse funcionário:')
+                    print('\n1. Editar Nome\n' \
+                    '2. Editar Telefone\n' \
+                    '3. Editar Email\n' \
+                    '4. Editar Endereço\n' \
+                    '5. Editar Data de nascimento\n' \
+                    '6. Editar Cargo\n' \
+                    '7. Editar Salário\n' \
+                    '9. Sair\n'
+                    '0. Voltar\n')
+
+                    opcao = validar_opcao()
+
+                    match opcao:
+                        case 1:
+                            if FuncionarioController.atualizar_funcionario(1, cpf_edit):
+                                print('\nNome do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar nome do funcionário.')
+                            atualizar_funcionario(cpf_edit)
+                        case 2:
+                            if FuncionarioController.atualizar_funcionario(2, cpf_edit):
+                                print('\nTelefone do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar telefone do funcionário.')
+                            atualizar_funcionario(cpf_edit)
+                        case 3:
+                            if FuncionarioController.atualizar_funcionario(3, cpf_edit):
+                                print('\nEmail do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar email do funcionário.')
+                            atualizar_funcionario(cpf_edit)
+                        case 4:
+                            if FuncionarioController.atualizar_funcionario(4, cpf_edit):
+                                print('\nEndereço do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar endereço do funcionário.')
+                            atualizar_funcionario(cpf_edit)
+                        case 5:
+                            if FuncionarioController.atualizar_funcionario(5, cpf_edit):
+                                print('\nData de nascimento do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar data de nascimento do funcionário.')
+                        case 6:
+                            if FuncionarioController.atualizar_funcionario(6, cpf_edit):
+                                print('\nCargo do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar cargo do funcionário.')
+                            atualizar_funcionario(cpf_edit)
+                        case 7:
+                            if FuncionarioController.atualizar_funcionario(7, cpf_edit):
+                                print('\nSalário do funcionário alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar salario do funcionário.')
+                        case 9:
+                            print('\nSaindo...')
+                            self.rodando = False
+                        case 0:
+                            print('\nVoltando...')
+                            self.gerenciar_clientes()
+                        case _:
+                            print('\nOpção inválida!')
+                            atualizar_funcionario(cpf_edit)
+
+
+                print('\n-- Digite o CPF para atualizar o funcionário --\n')
+                cpf_edit = formatar_cpf()
+                atualizar_funcionario(cpf_edit)
             case 4:
                 print('\n-- Digite o CPF para excluir funcionário --\n')
                 FuncionarioController.excluir_funcionario()

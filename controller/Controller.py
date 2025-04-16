@@ -113,6 +113,59 @@ class FuncionarioController:
             print(f'\nID: {funcionario.id_funcionario} | Nome: {funcionario.nome} | CPF: {funcionario.cpf} | Telefone: {funcionario.telefone} | Email: {funcionario.email}, Endereço: {funcionario.endereco} | Data de Nascimento: {funcionario.data_nascimento} | Cargo: {funcionario.cargo} | Salário: {funcionario.salario}\n')
 
     @classmethod
+    def atualizar_funcionario(cls, opcao, cpf):
+        match opcao:
+            case 1:
+                nome = validar_nome()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(1, cpf, nome)
+                    return True
+                except:
+                    return False
+            case 2:
+                telefone = formatar_telefone()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(2, cpf, telefone)
+                    return True
+                except:
+                    return False
+            case 3:
+                email = validar_email()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(3, cpf, email)
+                    return True
+                except:
+                    return False
+            case 4:
+                endereco = validar_endereco()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(4, cpf, endereco)
+                    return True
+                except:
+                    return False
+            case 5:
+                data_nascimento = formatar_data()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(5, cpf, data_nascimento)
+                    return True
+                except:
+                    return False
+            case 6:
+                cargo = validar_cargo()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(6, cpf, cargo)
+                    return True
+                except:
+                    return False
+            case 7:
+                salario = formatar_dinheiro()
+                try:
+                    FuncionarioDAO.atualizar_funcionario(7, cpf, salario)
+                    return True
+                except:
+                    return False
+
+    @classmethod
     def excluir_funcionario(cls):
         cpf_excluir = formatar_cpf()
         if FuncionarioDAO.excluir_funcionario(cpf_excluir) == True:
