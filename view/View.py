@@ -172,9 +172,12 @@ class Mercado:
             case 3:
                 pass
             case 4:
+                print('\n-- Digite o CPF para excluir funcionário --\n')
                 FuncionarioController.excluir_funcionario()
             case 5:
-                pass
+                print('\n-- Digite o CPF para pesquisar um funcionário --\n')
+                pesq_funcionario = formatar_cpf()
+                FuncionarioController.pesquisar_funcionario(pesq_funcionario)
             case 9:
                 print('\nSaindo...')
                 self.rodando = False

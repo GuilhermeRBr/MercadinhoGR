@@ -103,7 +103,7 @@ class ClienteDAO:
         
         for c in clientes:
             if c['cpf'] == cpf:
-                nome, cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
+                id_cliente, nome, cpf, telefone, email, endereco, data_nascimento = c.values()
                 return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
 
 class FuncionarioDAO:
@@ -176,6 +176,17 @@ class FuncionarioDAO:
                 return True
             else:
                 return False
-        
+
+    @classmethod
+    def pesquisar_funcionario(cls, cpf):
+        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            funcionarios = json.load(arq)
+
+        for f in funcionarios:
+            if f['cpf'] == cpf:
+                id_funcionario, nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario = f.values()
+                
+                return Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario)
+            
 
         

@@ -119,3 +119,11 @@ class FuncionarioController:
             print(f'\nFuncionário com CPF {cpf_excluir} excluído com sucesso!')
         else:
             print(f'\nFuncionário com CPF {cpf_excluir} não encontrado.')
+    
+    @classmethod
+    def pesquisar_funcionario(cls, cpf):
+        try:
+            pesq_funcionario = FuncionarioDAO.pesquisar_funcionario(cpf)
+            print(f'\nID: {pesq_funcionario.id_funcionario} | NOME: {pesq_funcionario.nome} | CPF: {pesq_funcionario.cpf} | TELEFONE: {pesq_funcionario.telefone} | EMAIL: {pesq_funcionario.email} | ENDEREÇO: {pesq_funcionario.endereco} | DATA DE NASCIMENTO: {pesq_funcionario.data_nascimento} | CARGO: {pesq_funcionario.cargo} | SALÁRIO: {pesq_funcionario.salario}\n')
+        except:
+            print(f"\nFuncionário com CPF {cpf} não encontrado!")
