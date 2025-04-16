@@ -168,7 +168,7 @@ class Mercado:
             case 1:
                 FuncionarioController.cadastrar_funcionario()
             case 2:
-                pass
+                FuncionarioController.listar_funcionarios()
             case 3:
                 pass
             case 4:

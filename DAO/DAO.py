@@ -53,7 +53,7 @@ class ClienteDAO:
             clientes = json.load(arq)
             lista_clientes = []
             for c in clientes:
-                nome,  cpf, telefone, email, endereco, data_nascimento, id_cliente = c.values()
+                id_cliente, nome,  cpf, telefone, email, endereco, data_nascimento= c.values()
                 cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
                 lista_clientes.append(cliente)
 
@@ -151,3 +151,16 @@ class FuncionarioDAO:
 
         with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
             json.dump(funcionarios, arq, indent=4, ensure_ascii=False)
+
+    @classmethod
+    def listar_funcionarios(cls):
+        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            funcionarios = json.load(arq)
+            lista_funcionarios = []
+            
+            for f in funcionarios:
+                id_funcionario, nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario = f.values()
+                funcionario = Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario)
+                lista_funcionarios.append(funcionario)
+
+            return lista_funcionarios

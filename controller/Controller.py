@@ -99,11 +99,16 @@ class FuncionarioController:
         data_nascimento = "13/04/1990"
         cargo = "Gerente"
         salario = 10000
-        
+
         try:
             funcionario = Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario)
             FuncionarioDAO.salvar_funcionario(funcionario)
             print("\nFuncionário cadastrado com sucesso!") 
         except ValueError as e:
             print(f"\nErro ao cadastrar funcionário:\n{e}")
-            
+
+    @classmethod
+    def listar_funcionarios(cls):
+        funcionarios = FuncionarioDAO.listar_funcionarios()
+        for funcionario in funcionarios:
+            print(f'\nID: {funcionario.id_funcionario} | Nome: {funcionario.nome} | CPF: {funcionario.cpf} | Telefone: {funcionario.telefone} | Email: {funcionario.email}, Endereço: {funcionario.endereco} | Data de Nascimento: {funcionario.data_nascimento} | Cargo: {funcionario.cargo} | Salário: {funcionario.salario}\n')
