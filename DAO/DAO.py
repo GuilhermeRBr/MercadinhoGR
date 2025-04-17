@@ -260,3 +260,37 @@ class ProdutoDAO:
                 lista_produtos.append(produto)
 
             return lista_produtos
+        
+
+    @classmethod
+    def atualizar_produto(cls, opcao, id_produto, dados):
+        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+            produtos = json.load(arq)
+
+        for p in produtos:
+            if p['id_produto'] == id_produto:
+                    match opcao:
+                        case 1:
+                            p['nome'] = dados
+                        case 2:
+                            p['descricao'] = dados
+                        case 3:
+                            p['preco'] = dados
+                        case 4:
+                            p['quantidade'] = dados
+            
+        with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+            json.dump(produtos, arq, indent=4)
+
+    
+    @classmethod
+    def pesquisar_produto(cls, id_produto):
+        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+            produtos = json.load(arq)
+        
+        for p in produtos:
+            if p['id_produto'] == id_produto:
+                id_produto, nome, descricao, preco, quantidade = p.values()
+
+                return Produto(nome, descricao, preco, quantidade, id_produto)
+               

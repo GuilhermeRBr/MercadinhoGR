@@ -199,6 +199,51 @@ class ProdutoController:
     @classmethod
     def listar_produtos(cls):
         produtos = ProdutoDAO.listar_produtos()
-        
+
         for produto in produtos:
             print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} | Quantidade: {produto.quantidade}\n')
+        
+
+    @classmethod
+    def atualizar_produto(cls, opcao, id_produto):
+        match opcao:
+            case 1:
+                nome = validar_nome_produto()
+                try:
+                    ProdutoDAO.atualizar_produto(1, id_produto, nome)
+                    return True
+                except:
+                    return False
+            case 2:
+                descricao = validar_descricao()
+                try:
+                    ProdutoDAO.atualizar_produto(2, id_produto, descricao)
+                    return True
+                except:
+                    return False
+            case 3:
+                preco = formatar_dinheiro()
+                try:
+                    ProdutoDAO.atualizar_produto(3, id_produto, preco)
+                    return True
+                except:
+                    return False
+            case 4:
+                quantidade = validar_quantidade()
+                try:
+                    ProdutoDAO.atualizar_produto(4, id_produto, quantidade)
+                    return True
+                except:
+                    return False
+                
+
+    @classmethod
+    def pesquisar_produto(cls, id_produto):
+
+        try:
+            pesq_produto = ProdutoDAO.pesquisar_produto(id_produto)
+            print(f'\nID: {pesq_produto.id_produto} | Nome: {pesq_produto.nome} | Descrição: {pesq_produto.descricao} | Preço: {pesq_produto.preco} | Quantidade: {pesq_produto.quantidade}\n')
+        except:
+            print(f"\nProduto com ID {id_produto} não encontrado!")
+
+    

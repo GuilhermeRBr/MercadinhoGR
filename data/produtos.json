@@ -9,7 +9,7 @@
     {
         "id_produto": "000002",
         "nome": "Biscoito",
-        "descricao": "Biscoito rechado com chocolate",
+        "descricao": "Biscoito recheado com chocolate",
         "preco": "R$ 2,50",
         "quantidade": 20
     }

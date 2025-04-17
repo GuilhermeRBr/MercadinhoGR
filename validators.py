@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+from formatters import formatar_id
 
 
 def validar_nome():
@@ -13,7 +14,6 @@ def validar_nome():
             print("Nome deve ter pelo menos 3 caracteres.")
         else:
             return nome.title()
-
 
 def validar_email():
     while True:
@@ -34,29 +34,47 @@ def validar_endereco():
         else:
             return endereco.title()
 
-def validar_id(id):
-    if not id.isdigit():
-        print("ID deve conter apenas números.")
-    elif len(id) != 6:
-        print("ID deve ter 6 dígitos.")
-    return id
+def validar_id():
+    while True:
+        id = input('ID: ')
+        if not id.isdigit():
+            print("ID deve conter apenas números.")
+        elif len(id) > 6:
+            print("ID deve ter no maximo 6 dígitos.")
+        else:
+            return formatar_id(id)
 
 
-def validar_quantidade(quantidade):
-    if not isinstance(quantidade, (int, float)):
-        raise TypeError("Quantidade deve ser um número.")
-    elif quantidade == 0 or quantidade < 0:
-        print("Quantidade não pode ser zero ou negativo.")
-    return quantidade
+def validar_quantidade():
+    while True:
+        quantidade = input('QUANTIDADE: ')
+        if not quantidade.isdigit():
+            print("Quantidade deve conter apenas números.")
+        elif int(quantidade) < 0 or int(quantidade) == 0:
+            print("Quantidade não pode ser zero ou negativo.")
+        else:
+            return quantidade
 
-def validar_nome_produto(nome_produto):
-    if not nome_produto.strip():
-        print("Nome do produto não pode ser vazio.")
-    elif not nome_produto.isalpha():
-        print("Nome do produto deve conter apenas letras.")
-    elif len(nome_produto) < 3:
-        print("Nome do produto deve ter pelo menos 3 caracteres.")
-    return nome_produto
+
+def validar_nome_produto():
+    while True:
+        nome_produto = input('NOME DO PRODUTO: ')
+        if not nome_produto.strip():
+            print("Nome do produto não pode ser vazio.")
+        elif len(nome_produto) < 3:
+            print("Nome do produto deve ter pelo menos 3 caracteres.")
+        else:
+            return nome_produto.title()
+
+def validar_descricao():
+    while True:
+        descricao = input('DESCRIÇÃO: ')
+        if not descricao.strip():
+            print("Descrição não pode ser vazia.")
+        elif len(descricao) < 3:
+            print("Descrição deve ter pelo menos 3 caracteres.")
+        else:
+            return descricao.title() 
 
 def validar_nome_categoria(nome_categoria):
     if not nome_categoria.strip():

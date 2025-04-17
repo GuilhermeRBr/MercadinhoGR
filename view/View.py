@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from controller.Controller import ClienteController, FuncionarioController, ProdutoController
-from validators import validar_opcao
+from validators import *
 from formatters import *
 
 
@@ -279,7 +279,9 @@ class Mercado:
             case 4:
                 pass
             case 5:
-                pass
+                print('\n-- Digite o ID para pesquisar um produto --\n')
+                pesq_produto = validar_id()
+                ProdutoController.pesquisar_produto(pesq_produto)
             case 9:
                 print('\nSaindo...')
                 self.rodando = False
