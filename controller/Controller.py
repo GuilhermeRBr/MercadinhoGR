@@ -187,10 +187,11 @@ class ProdutoController:
         nome = 'Biscoito'
         descricao = 'Biscoito rechado com chocolate'
         preco = 'R$ 2,50'
+        categoria = 'Alimentos'
         quantidade = 20
 
         try:
-            produto = Produto(nome, descricao, preco, quantidade)
+            produto = Produto(nome, descricao, preco, categoria, quantidade)
             ProdutoDAO.salvar_produto(produto)
             print("\nProduto cadastrado com sucesso!")
         except ValueError as e:
@@ -201,7 +202,7 @@ class ProdutoController:
         produtos = ProdutoDAO.listar_produtos()
 
         for produto in produtos:
-            print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} | Quantidade: {produto.quantidade}\n')
+            print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} |Categoria: {produto.categoria} | Quantidade: {produto.quantidade}\n')
         
 
     @classmethod
@@ -235,6 +236,13 @@ class ProdutoController:
                     return True
                 except:
                     return False
+            case 5:
+                    categoria = validar_categoria()
+                    try:
+                        ProdutoDAO.atualizar_produto(5, id_produto, categoria)
+                        return True
+                    except:
+                        return False
                 
 
     @classmethod
@@ -242,7 +250,7 @@ class ProdutoController:
 
         try:
             pesq_produto = ProdutoDAO.pesquisar_produto(id_produto)
-            print(f'\nID: {pesq_produto.id_produto} | Nome: {pesq_produto.nome} | Descrição: {pesq_produto.descricao} | Preço: {pesq_produto.preco} | Quantidade: {pesq_produto.quantidade}\n')
+            print(f'\nID: {pesq_produto.id_produto} | Nome: {pesq_produto.nome} | Descrição: {pesq_produto.descricao} | Preço: {pesq_produto.preco} |Categoria: {pesq_produto.categoria} | Quantidade: {pesq_produto.quantidade}\n')
         except:
             print(f"\nProduto com ID {id_produto} não encontrado!")
 

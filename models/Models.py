@@ -21,11 +21,12 @@ class Cliente(Pessoa):
 
 
 class Produto:
-    def __init__(self, nome ,descricao, preco, quantidade, id_produto=None):
+    def __init__(self, nome ,descricao, preco,categoria, quantidade, id_produto=None):
         self.id_produto = id_produto
         self.nome = nome
         self.descricao = descricao
         self.preco = preco
+        self.categoria = categoria
         self.quantidade = quantidade
 
 class Fornecedor:

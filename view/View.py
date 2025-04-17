@@ -325,11 +325,11 @@ class Mercado:
                             atualizar_produto(id_produto)
                         case 5:
                             pass
-                            # if ProdutoController.atualizar_produto(5, id_produto):
-                            #     print('\nCategoria do produto alterado com sucesso.')
-                            # else:
-                            #     print('\nErro ao alterar categoria do produto.')
-                            # atualizar_produto(id_produto)
+                            if ProdutoController.atualizar_produto(5, id_produto):
+                                print('\nCategoria do produto alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar categoria do produto.')
+                            atualizar_produto(id_produto)
                         case 9:
                                 print('\nSaindo...')
                                 self.rodando = False

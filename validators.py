@@ -76,14 +76,15 @@ def validar_descricao():
         else:
             return descricao.title() 
 
-def validar_nome_categoria(nome_categoria):
-    if not nome_categoria.strip():
-        print("Nome da categoria não pode ser vazio.")
-    elif not nome_categoria.isalpha():
-        print("Nome da categoria deve conter apenas letras.")
-    elif len(nome_categoria) < 3:
-        print("Nome da categoria deve ter pelo menos 3 caracteres.")
-    return nome_categoria
+def validar_categoria():
+    while True:
+        categoria = input('CATEGORIA: ')
+        if not categoria.strip():
+            print("Categoria não pode ser vazia.")
+        elif len(categoria) < 3:
+            print("Categoria deve ter pelo menos 3 caracteres.")
+        else:
+            return categoria.title()
 
 def validar_opcao():
     while True:

@@ -242,7 +242,9 @@ class ProdutoDAO:
             'nome': produto.nome,
             'descricao': produto.descricao,
             'preco': produto.preco,
+            'categoria': produto.categoria,
             'quantidade': produto.quantidade
+
         })
 
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
@@ -255,8 +257,8 @@ class ProdutoDAO:
             lista_produtos = []
 
             for p in produtos:
-                id_produto, nome, descricao, preco, quantidade = p.values()
-                produto = Produto(nome, descricao, preco, quantidade, id_produto)
+                id_produto, nome, descricao, preco, categoria, quantidade = p.values()
+                produto = Produto(nome, descricao, preco, categoria, quantidade, id_produto)
                 lista_produtos.append(produto)
 
             return lista_produtos
@@ -290,7 +292,7 @@ class ProdutoDAO:
         
         for p in produtos:
             if p['id_produto'] == id_produto:
-                id_produto, nome, descricao, preco, quantidade = p.values()
+                id_produto, nome, descricao, preco, categoria, quantidade = p.values()
 
-                return Produto(nome, descricao, preco, quantidade, id_produto)
+                return Produto(nome, descricao, preco, categoria, quantidade, id_produto)
                
