@@ -67,10 +67,10 @@ class Mercado:
         match opcao:
             case 1:
                 ClienteController.cadastrar_cliente()
-              
+                self.gerenciar_clientes()
             case 2:
                 ClienteController.listar_clientes()
-
+                self.gerenciar_clientes()
             case 3:
                 def atualizar_cliente(cpf_edit):
                     ClienteController.pesquisar_cliente(cpf_edit)
@@ -130,15 +130,18 @@ class Mercado:
                 print('\n-- Digite o CPF para atualizar o cliente --')
                 cpf_edit = formatar_cpf()
                 atualizar_cliente(cpf_edit)
+                self.gerenciar_clientes()
 
             case 4:
                 print('\n-- Digite o CPF para excluir cliente --')
                 ClienteController.excluir_cliente()
+                self.gerenciar_clientes()
                 
             case 5:
                 print('\n-- Digite o CPF para pesquisar um cliente --')
                 cpf_pesq = formatar_cpf()
                 ClienteController.pesquisar_cliente(cpf_pesq)
+                self.gerenciar_clientes()
 
             case 9:
                 print('\nSaindo...')
@@ -167,8 +170,10 @@ class Mercado:
         match opcao:
             case 1:
                 FuncionarioController.cadastrar_funcionario()
+                self.gerenciar_funcionarios()
             case 2:
                 FuncionarioController.listar_funcionarios()
+                self.gerenciar_funcionarios()
             case 3:
                 def atualizar_funcionario(cpf_edit):
                     FuncionarioController.pesquisar_funcionario(cpf_edit)
@@ -216,6 +221,7 @@ class Mercado:
                                 print('\nData de nascimento do funcionário alterado com sucesso.')
                             else:
                                 print('\nErro ao alterar data de nascimento do funcionário.')
+                            atualizar_funcionario(cpf_edit)
                         case 6:
                             if FuncionarioController.atualizar_funcionario(6, cpf_edit):
                                 print('\nCargo do funcionário alterado com sucesso.')
@@ -227,6 +233,7 @@ class Mercado:
                                 print('\nSalário do funcionário alterado com sucesso.')
                             else:
                                 print('\nErro ao alterar salario do funcionário.')
+                            atualizar_funcionario(cpf_edit)
                         case 9:
                             print('\nSaindo...')
                             self.rodando = False
@@ -241,13 +248,16 @@ class Mercado:
                 print('\n-- Digite o CPF para atualizar o funcionário --\n')
                 cpf_edit = formatar_cpf()
                 atualizar_funcionario(cpf_edit)
+                self.gerenciar_funcionarios()
             case 4:
                 print('\n-- Digite o CPF para excluir funcionário --\n')
                 FuncionarioController.excluir_funcionario()
+                self.gerenciar_funcionarios()
             case 5:
                 print('\n-- Digite o CPF para pesquisar um funcionário --\n')
                 pesq_funcionario = formatar_cpf()
                 FuncionarioController.pesquisar_funcionario(pesq_funcionario)
+                self.gerenciar_funcionarios()
             case 9:
                 print('\nSaindo...')
                 self.rodando = False
@@ -272,16 +282,73 @@ class Mercado:
         match opcao:
             case 1:
                 ProdutoController.cadastrar_produto()
+                self.gerenciar_produtos()
             case 2:
                 ProdutoController.listar_produtos()
+                self.gerenciar_produtos()
             case 3:
-                pass
-            case 4:
-                pass
+                def atualizar_produto(id_produto):
+                    ProdutoController.pesquisar_produto(id_produto)
+                    print('\nEscolha o que deseja editar nesse produto:')
+                    print('1. Nome\n'
+                    '2. Descrição\n'
+                    '3. Preço\n'
+                    '4. Quantidade\n'
+                    '5. Categoria\n'
+                    '9. Sair\n'
+                    '0. Voltar\n')
+                    opcao = validar_opcao()
+                    match opcao:
+                        case 1:
+                            if ProdutoController.atualizar_produto(1, id_produto):
+                                print('\nNome do produto alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar nome do produto.')
+                            atualizar_produto(id_produto)
+                        case 2:
+                            if ProdutoController.atualizar_produto(2, id_produto):
+                                print('\nDescrição do produto alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar descrição do produto.')
+                            atualizar_produto(id_produto)
+                        case 3:
+                            if ProdutoController.atualizar_produto(3, id_produto):
+                                print('\nPreço do produto alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar preço do produto.')
+                            atualizar_produto(id_produto)
+                        case 4:
+                            if ProdutoController.atualizar_produto(4, id_produto):
+                                print('\nQuantidade do produto alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar quantidade do produto.')
+                            atualizar_produto(id_produto)
+                        case 5:
+                            pass
+                            # if ProdutoController.atualizar_produto(5, id_produto):
+                            #     print('\nCategoria do produto alterado com sucesso.')
+                            # else:
+                            #     print('\nErro ao alterar categoria do produto.')
+                            # atualizar_produto(id_produto)
+                        case 9:
+                                print('\nSaindo...')
+                                self.rodando = False
+                        case 0:
+                                print('\nVoltando...')
+                                self.gerenciar_produtos()
+                        case _:
+                            print('\nOpção inválida!')
+                            atualizar_produto(id_produto)
+                        
+                print('\n-- Digite o ID para atualizar o produto --\n')
+                id_produto = validar_id()
+                atualizar_produto(id_produto)
+                self.gerenciar_produtos()
             case 5:
                 print('\n-- Digite o ID para pesquisar um produto --\n')
                 pesq_produto = validar_id()
                 ProdutoController.pesquisar_produto(pesq_produto)
+                self.gerenciar_produtos()
             case 9:
                 print('\nSaindo...')
                 self.rodando = False
