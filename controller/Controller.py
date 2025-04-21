@@ -285,6 +285,38 @@ class FornecedorController:
             print(f'\nID: {fornecedor.id_fornecedor} | Nome: {fornecedor.nome} | CNPJ: {fornecedor.cnpj} | Telefone: {fornecedor.telefone} | Email: {fornecedor.email} | Endereço: {fornecedor.endereco}\n')
 
     @classmethod
+    def atualizar_fornecedor(cls, opcao, cnpj):
+        match opcao:
+            case 1:
+                nome = validar_nome()
+                try:
+                    FornecedorDAO.atualizar_fornecedor(1, cnpj, nome)
+                    return True
+                except:
+                    return False
+            case 2:
+                    telefone = formatar_telefone()
+                    try:
+                        FornecedorDAO.atualizar_fornecedor(2, cnpj, telefone)
+                        return True
+                    except:
+                        return False
+            case 3:
+                    email = validar_email()
+                    try:
+                        FornecedorDAO.atualizar_fornecedor(3, cnpj, email)
+                        return True
+                    except:
+                        return False
+            case 4:
+                    endereco = validar_endereco()
+                    try:
+                        FornecedorDAO.atualizar_fornecedor(4, cnpj, endereco)
+                        return True
+                    except:
+                        return False
+
+    @classmethod
     def excluir_fornecedor(cls):
         cnpj_excluir = formatar_cnpj()
         if FornecedorDAO.excluir_fornecedor(cnpj_excluir) == True:

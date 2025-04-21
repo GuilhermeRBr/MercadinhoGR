@@ -144,7 +144,6 @@ class Mercado:
                 print('\nOpção inválida!')
                 self.gerenciar_clientes()
 
-    
     def gerenciar_funcionarios(self):
         print('\n == MENU FUNCIONÁRIOS ==\n' \
                 '1. Cadastrar Funcionário\n' \
@@ -357,7 +356,53 @@ class Mercado:
                 FornecedorController.listar_fornecedores()
                 self.gerenciar_fornecedores()
             case 3:
-                pass
+                
+                def atualizar_fornecedor(cnpj):
+                    FornecedorController.pesquisar_fornecedor(cnpj)
+                    print('\nEscolha o que deseja editar nesse fornecedor:')
+                    print('1. Nome\n'
+                    '2. Telefone\n'
+                    '3. Email\n'
+                    '4. Endereço\n'
+                    '0. Voltar\n')
+                    opcao = validar_opcao()
+                    match opcao:
+                        case 1:
+                            if FornecedorController.atualizar_fornecedor(1, cnpj):
+                                print('\nNome do fornecedor alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar nome do fornecedor.')
+                            atualizar_fornecedor(cnpj)
+                        case 2:
+                            if FornecedorController.atualizar_fornecedor(2, cnpj):
+                                print('\nTelefone do fornecedor alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar telefone do fornecedor.')
+                            atualizar_fornecedor(cnpj)
+                        case 3:
+                            if FornecedorController.atualizar_fornecedor(3, cnpj):
+                                print('\nEmail do fornecedor alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar email do fornecedor.')
+                            atualizar_fornecedor(cnpj)
+                        case 4:
+                            if FornecedorController.atualizar_fornecedor(4, cnpj):
+                                print('\nEndereço do fornecedor alterado com sucesso.')
+                            else:
+                                print('\nErro ao alterar endereço do fornecedor.')
+                            atualizar_fornecedor(cnpj)
+                        case 0:
+                                print('\nVoltando...')
+                                self.gerenciar_fornecedores()
+                        case _:
+                            print('\nOpção inválida!')
+                            atualizar_fornecedor(cnpj)  
+
+
+                print('\n-- Digite o CNPJ para atualizar o fornecedor --\n')
+                cnpj = formatar_cnpj()
+                atualizar_fornecedor(cnpj)
+            
             case 4:
                 print('\n-- Digite o CNPJ para excluir um fornecedor --\n')
                 FornecedorController.excluir_fornecedor()
