@@ -357,7 +357,10 @@ class Mercado:
             case 4:
                 pass
             case 5:
-                pass
+                print('\n-- Digite o CNPJ para pesquisar um fornecedor --\n')
+                pesq_fornecedor = formatar_cnpj()
+                FornecedorController.pesquisar_fornecedor(pesq_fornecedor)
+                self.gerenciar_fornecedores()
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()

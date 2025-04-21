@@ -262,7 +262,6 @@ class ProdutoDAO:
                 lista_produtos.append(produto)
 
             return lista_produtos
-        
 
     @classmethod
     def atualizar_produto(cls, opcao, id_produto, dados):
@@ -283,7 +282,6 @@ class ProdutoDAO:
             
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4)
-
     
     @classmethod
     def pesquisar_produto(cls, id_produto):
@@ -351,4 +349,14 @@ class FornecedorDAO:
 
         return lista_fornecedores
     
-    
+    @classmethod
+    def pesquisar_fornecedor(cls, cnpj):
+        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+            fornecedores = json.load(arq)
+
+        for f in fornecedores:
+            if f['cnpj'] == cnpj:
+                id_fornecedor, nome, cnpj, telefone, email, endereco = f.values()
+
+                return Fornecedor(nome, cnpj, telefone, email, endereco, id_fornecedor)
+            

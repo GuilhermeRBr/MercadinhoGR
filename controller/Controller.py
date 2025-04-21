@@ -204,7 +204,6 @@ class ProdutoController:
         for produto in produtos:
             print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} |Categoria: {produto.categoria} | Quantidade: {produto.quantidade}\n')
         
-
     @classmethod
     def atualizar_produto(cls, opcao, id_produto):
         match opcao:
@@ -244,7 +243,6 @@ class ProdutoController:
                     except:
                         return False
                 
-
     @classmethod
     def pesquisar_produto(cls, id_produto):
 
@@ -253,6 +251,7 @@ class ProdutoController:
             print(f'\nID: {pesq_produto.id_produto} | Nome: {pesq_produto.nome} | Descrição: {pesq_produto.descricao} | Preço: {pesq_produto.preco} |Categoria: {pesq_produto.categoria} | Quantidade: {pesq_produto.quantidade}\n')
         except:
             print(f"\nProduto com ID {id_produto} não encontrado!")
+
 
 class FornecedorController:
     @classmethod
@@ -276,3 +275,11 @@ class FornecedorController:
 
         for fornecedor in fornecedores:
             print(f'\nID: {fornecedor.id_fornecedor} | Nome: {fornecedor.nome} | CNPJ: {fornecedor.cnpj} | Telefone: {fornecedor.telefone} | Email: {fornecedor.email} | Endereço: {fornecedor.endereco}\n')
+
+    @classmethod
+    def pesquisar_fornecedor(cls, cnpj):
+        try:
+            pesq_fornecedor = FornecedorDAO.pesquisar_fornecedor(cnpj)
+            print(f'\nID: {pesq_fornecedor.id_fornecedor} | Nome: {pesq_fornecedor.nome} | CNPJ: {pesq_fornecedor.cnpj} | Telefone: {pesq_fornecedor.telefone} | Email: {pesq_fornecedor.email} | Endereço: {pesq_fornecedor.endereco}\n')
+        except:
+            print(f"\nFornecedor com CNPJ {cnpj} não encontrado!")
