@@ -6,5 +6,13 @@
         "telefone": "(65) 21255-4221",
         "email": "coca@cola.com",
         "endereco": "Rua A, 123"
+    },
+    {
+        "id_fornecedor": "000002",
+        "nome": "Unilever",
+        "cnpj": "12.345.678/0001-90",
+        "telefone": "(11) 98765-4321",
+        "email": "unilever@gmail.com",
+        "endereco": "Rua A, 123"
     }
 ]

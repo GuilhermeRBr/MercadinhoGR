@@ -359,7 +359,9 @@ class Mercado:
             case 3:
                 pass
             case 4:
-                pass
+                print('\n-- Digite o CNPJ para excluir um fornecedor --\n')
+                FornecedorController.excluir_fornecedor()
+                self.gerenciar_fornecedores()
             case 5:
                 print('\n-- Digite o CNPJ para pesquisar um fornecedor --\n')
                 pesq_fornecedor = formatar_cnpj()

@@ -364,6 +364,20 @@ class FornecedorDAO:
         return lista_fornecedores
     
     @classmethod
+    def excluir_fornecedor(cls, cnpj):
+        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+            fornecedores = json.load(arq)
+
+        for i, fornecedor in enumerate(fornecedores):
+            if fornecedor['cnpj'] == cnpj:
+                del fornecedores[i]
+                with open('data/fornecedores.json', 'w', encoding='utf-8') as arq:
+                    json.dump(fornecedores, arq, indent=4, ensure_ascii=False)
+                return True
+            else:
+                return False
+
+    @classmethod
     def pesquisar_fornecedor(cls, cnpj):
         with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
             fornecedores = json.load(arq)
@@ -374,3 +388,5 @@ class FornecedorDAO:
 
                 return Fornecedor(nome, cnpj, telefone, email, endereco, id_fornecedor)
             
+
+

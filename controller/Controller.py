@@ -264,10 +264,10 @@ class ProdutoController:
 class FornecedorController:
     @classmethod
     def cadastrar_fornecedor(cls):
-        nome = 'Coca Cola'
-        cnpj = '12.345.678/9012-34'
-        telefone = '(65) 21255-4221'
-        email = 'coca@cola.com'
+        nome = 'Unilever'
+        cnpj = '12.345.678/0001-90'
+        telefone = '(11) 98765-4321'
+        email = 'unilever@gmail.com'
         endereco = 'Rua A, 123'
 
         try:
@@ -283,6 +283,14 @@ class FornecedorController:
 
         for fornecedor in fornecedores:
             print(f'\nID: {fornecedor.id_fornecedor} | Nome: {fornecedor.nome} | CNPJ: {fornecedor.cnpj} | Telefone: {fornecedor.telefone} | Email: {fornecedor.email} | Endereço: {fornecedor.endereco}\n')
+
+    @classmethod
+    def excluir_fornecedor(cls):
+        cnpj_excluir = formatar_cnpj()
+        if FornecedorDAO.excluir_fornecedor(cnpj_excluir) == True:
+            print(f'\nFornecedor com ID {cnpj_excluir} excluído com sucesso!')
+        else:
+            print(f'\nFornecedor com ID {cnpj_excluir} não encontrado.')
 
     @classmethod
     def pesquisar_fornecedor(cls, cnpj):
