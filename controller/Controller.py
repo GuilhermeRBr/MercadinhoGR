@@ -242,7 +242,15 @@ class ProdutoController:
                         return True
                     except:
                         return False
-                
+
+    @classmethod
+    def excluir_produto(cls):
+        id_excluir = validar_id()
+        if ProdutoDAO.excluir_produto(id_excluir) == True:
+            print(f'\nProduto com ID {id_excluir} excluído com sucesso!')
+        else:
+            print(f'\nProduto com ID {id_excluir} não encontrado.')
+
     @classmethod
     def pesquisar_produto(cls, id_produto):
 

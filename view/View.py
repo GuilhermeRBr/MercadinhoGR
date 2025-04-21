@@ -322,6 +322,10 @@ class Mercado:
                 id_produto = validar_id()
                 atualizar_produto(id_produto)
                 self.gerenciar_produtos()
+            case 4:
+                print('\n-- Digite o ID para excluir o produto --\n')
+                ProdutoController.excluir_produto()
+                self.gerenciar_produtos()
             case 5:
                 print('\n-- Digite o ID para pesquisar um produto --\n')
                 pesq_produto = validar_id()

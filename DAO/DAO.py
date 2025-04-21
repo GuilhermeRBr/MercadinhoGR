@@ -284,6 +284,20 @@ class ProdutoDAO:
             json.dump(produtos, arq, indent=4)
     
     @classmethod
+    def excluir_produto(cls, id_produto):
+        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+            produtos = json.load(arq)
+        
+        for i, produto in enumerate(produtos):
+            if produto['id_produto'] == id_produto:
+                del produtos[i]
+                with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+                    json.dump(produtos, arq, indent=4, ensure_ascii=False)
+                return True
+            else:
+                return False
+
+    @classmethod
     def pesquisar_produto(cls, id_produto):
         with open('data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)

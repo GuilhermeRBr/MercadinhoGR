@@ -1,13 +1,5 @@
 [
     {
-        "id_produto": "000001",
-        "nome": "Leite Integral",
-        "descricao": "leite integral 1L",
-        "preco": "R$ 4,50",
-        "categoria": "Alimentos",
-        "quantidade": 10
-    },
-    {
         "id_produto": "000002",
         "nome": "Bolacha",
         "descricao": "Bolacha Recheada Com Chocolate 200G",
