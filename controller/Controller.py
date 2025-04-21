@@ -3,8 +3,8 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO
-from models.Models import Cliente, Funcionario, Produto
+from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO
+from models.Models import Cliente, Funcionario, Produto, Fornecedor
 from validators import *
 from formatters import *
 
@@ -254,4 +254,25 @@ class ProdutoController:
         except:
             print(f"\nProduto com ID {id_produto} não encontrado!")
 
-    
+class FornecedorController:
+    @classmethod
+    def cadastrar_fornecedor(cls):
+        nome = 'Coca Cola'
+        cnpj = '12.345.678/9012-34'
+        telefone = '(65) 21255-4221'
+        email = 'coca@cola.com'
+        endereco = 'Rua A, 123'
+
+        try:
+            fornecedor = Fornecedor(nome, cnpj, telefone, email, endereco)
+            FornecedorDAO.salvar_fornecedor(fornecedor)
+            print("\nFornecedor cadastrado com sucesso!")
+        except ValueError as e:
+            print(f"\nErro ao cadastrar fornecedor:\n{e}")
+
+    @classmethod
+    def listar_fornecedores(cls):
+        fornecedores = FornecedorDAO.listar_fornecedores()
+
+        for fornecedor in fornecedores:
+            print(f'\nID: {fornecedor.id_fornecedor} | Nome: {fornecedor.nome} | CNPJ: {fornecedor.cnpj} | Telefone: {fornecedor.telefone} | Email: {fornecedor.email} | Endereço: {fornecedor.endereco}\n')

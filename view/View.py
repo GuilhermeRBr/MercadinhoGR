@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController
 from validators import *
 from formatters import *
 
@@ -59,7 +59,6 @@ class Mercado:
                  '3. Atualizar Cliente(CPF)\n' \
                  '4. Excluir Cliente(CPF)\n' \
                  '5. Pesquisar Cliente(CPF)\n' \
-                 '9. Sair\n' \
                  '0. Voltar\n' \
                 )
         opcao = validar_opcao()
@@ -81,8 +80,7 @@ class Mercado:
                     '3. Editar Email\n' \
                     '4. Editar Endereço\n' \
                     '5. Editar Data de nascimento\n' \
-                    '9. Sair\n')
-                    '0. Voltar\n'
+                    '0. Voltar\n')
 
                     opcao = validar_opcao()
 
@@ -117,9 +115,6 @@ class Mercado:
                             else:
                                 print('\nErro ao alterar data de nascimento do cliente.')
                             atualizar_cliente(cpf_edit)
-                        case 9:
-                            print('\nSaindo...')
-                            self.rodando = False
                         case 0:
                             print('\nVoltando...')
                             self.gerenciar_clientes()
@@ -142,10 +137,6 @@ class Mercado:
                 cpf_pesq = formatar_cpf()
                 ClienteController.pesquisar_cliente(cpf_pesq)
                 self.gerenciar_clientes()
-
-            case 9:
-                print('\nSaindo...')
-                self.rodando = False
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()
@@ -161,7 +152,6 @@ class Mercado:
                 '3. Atualizar Funcionário(CPF)\n' \
                 '4. Excluir Funcionário(CPF)\n' \
                 '5. Pesquisar Funcionário(CPF)\n' \
-                '9. Sair\n' 
                 '0. Voltar\n' 
                 )
         
@@ -186,7 +176,6 @@ class Mercado:
                     '5. Editar Data de nascimento\n' \
                     '6. Editar Cargo\n' \
                     '7. Editar Salário\n' \
-                    '9. Sair\n'
                     '0. Voltar\n')
 
                     opcao = validar_opcao()
@@ -234,9 +223,6 @@ class Mercado:
                             else:
                                 print('\nErro ao alterar salario do funcionário.')
                             atualizar_funcionario(cpf_edit)
-                        case 9:
-                            print('\nSaindo...')
-                            self.rodando = False
                         case 0:
                             print('\nVoltando...')
                             self.gerenciar_clientes()
@@ -258,9 +244,6 @@ class Mercado:
                 pesq_funcionario = formatar_cpf()
                 FuncionarioController.pesquisar_funcionario(pesq_funcionario)
                 self.gerenciar_funcionarios()
-            case 9:
-                print('\nSaindo...')
-                self.rodando = False
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()
@@ -275,8 +258,7 @@ class Mercado:
         '3. Atualizar Produtos(ID)\n' \
         '4. Excluir Produtos(ID)\n' \
         '5. Pesquisar Produtos(ID)\n' \
-        '9. Sair\n') 
-        '0. Voltar\n'
+        '0. Voltar\n')
 
         opcao = validar_opcao()
         match opcao:
@@ -295,7 +277,6 @@ class Mercado:
                     '3. Preço\n'
                     '4. Quantidade\n'
                     '5. Categoria\n'
-                    '9. Sair\n'
                     '0. Voltar\n')
                     opcao = validar_opcao()
                     match opcao:
@@ -329,10 +310,7 @@ class Mercado:
                                 print('\nCategoria do produto alterado com sucesso.')
                             else:
                                 print('\nErro ao alterar categoria do produto.')
-                            atualizar_produto(id_produto)
-                        case 9:
-                                print('\nSaindo...')
-                                self.rodando = False
+                            atualizar_produto(id_produto)     
                         case 0:
                                 print('\nVoltando...')
                                 self.gerenciar_produtos()
@@ -349,9 +327,6 @@ class Mercado:
                 pesq_produto = validar_id()
                 ProdutoController.pesquisar_produto(pesq_produto)
                 self.gerenciar_produtos()
-            case 9:
-                print('\nSaindo...')
-                self.rodando = False
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()
@@ -363,28 +338,26 @@ class Mercado:
         print('\n == MENU FORNECEDORES ==\n' 
         '1. Cadastrar Fornecedor\n'
         '2. Listar Fornecedores\n' 
-        '3. Atualizar Fornecedor\n' 
-        '4. Excluir Fornecedor\n'
-        '5. Pesquisar Fornecedor(ID)\n'
-        '9. Sair\n'
+        '3. Atualizar Fornecedor(CNPJ)\n' 
+        '4. Excluir Fornecedor(CNPJ)\n'
+        '5. Pesquisar Fornecedor(CNPJ)\n'
         '0. Voltar\n' 
         )
         opcao = validar_opcao()
 
         match opcao:
             case 1:
-                pass
+                FornecedorController.cadastrar_fornecedor()
+                self.gerenciar_fornecedores()
             case 2:
-                pass
+                FornecedorController.listar_fornecedores()
+                self.gerenciar_fornecedores()
             case 3:
                 pass
             case 4:
                 pass
             case 5:
                 pass
-            case 9:
-                print('\nSaindo...')
-                self.rodando = False
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()
@@ -399,7 +372,6 @@ class Mercado:
         '3. Atualizar Categoria\n'
         '4. Excluir Categoria\n'
         '5. Pesquisar Categoria(ID)\n'
-        '9. Sair\n'
         '0. Voltar\n' 
         )
         
@@ -415,9 +387,6 @@ class Mercado:
                 pass
             case 5:
                 pass
-            case 9:
-                print('\nSaindo...')
-                self.rodando = False
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()
@@ -433,7 +402,6 @@ class Mercado:
                 '4. Relatório de Produtos\n' 
                 '5. Relatório de Fornecedores\n'
                 '6. Relatório de Categorias\n'
-                '9. Sair\n'
                 '0. Voltar\n'   
               )
         opcao = validar_opcao()
@@ -450,9 +418,6 @@ class Mercado:
                 pass
             case 6:
                 pass
-            case 9:
-                print('\nSaindo...')
-                self.rodando = False
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()

@@ -3,7 +3,7 @@ import os
 import sys
 from formatters import formatar_id
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from models.Models import Cliente, Funcionario, Produto
+from models.Models import Cliente, Funcionario, Produto, Fornecedor
 
 class ClienteDAO:
     @classmethod
@@ -295,4 +295,60 @@ class ProdutoDAO:
                 id_produto, nome, descricao, preco, categoria, quantidade = p.values()
 
                 return Produto(nome, descricao, preco, categoria, quantidade, id_produto)
-               
+
+class FornecedorDAO:
+    @classmethod
+    def salvar_fornecedor(cls, fornecedor: Fornecedor):
+        erros = []
+        fornecedores = []
+        try:
+            with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+                fornecedores = json.load(arq)
+        except FileNotFoundError:
+            fornecedores = []
+        
+        ids_usados = sorted(int(f['id_fornecedor']) for f in fornecedores)
+        id_fornecedor = 1
+        for id_exitente in ids_usados:
+            if id_exitente == id_fornecedor:
+                id_fornecedor += 1
+            else:
+                break
+        
+        for f in fornecedores:
+            if f['cnpj'] == fornecedor.cnpj:
+                erros.append(f'Erro: CNPJ {fornecedor.cnpj} já cadastrado.')
+            if f['telefone'] == fornecedor.telefone:
+                erros.append(f'Erro: Telefone {fornecedor.telefone} já cadastrado.')
+            if f['email'] == fornecedor.email:
+                erros.append(f'Erro: E-mail {fornecedor.email} já cadastrado.')
+        
+        if erros:
+            raise ValueError('\n'.join(erros))
+        
+        fornecedores.append({
+            'id_fornecedor': formatar_id(str(id_fornecedor)),
+            'nome': fornecedor.nome,
+            'cnpj': fornecedor.cnpj,
+            'telefone': fornecedor.telefone,
+            'email': fornecedor.email,
+            'endereco': fornecedor.endereco
+        })
+
+        with open('data/fornecedores.json', 'w', encoding='utf-8') as arq:
+            json.dump(fornecedores, arq, indent=4, ensure_ascii=False)
+
+    @classmethod
+    def listar_fornecedores(cls):
+        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+            fornecedores = json.load(arq)
+            lista_fornecedores = []
+        
+        for f in fornecedores:
+                id_fornecedor, nome, cnpj, telefone, email, endereco = f.values()
+                fornecedor = Fornecedor(nome, cnpj, telefone, email, endereco, id_fornecedor)
+                lista_fornecedores.append(fornecedor)
+
+        return lista_fornecedores
+    
+    
