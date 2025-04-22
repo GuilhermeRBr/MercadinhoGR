@@ -13,15 +13,22 @@ from generator import *
 class CaixaController:
     @classmethod
     def logar_caixa(cls):
-        id_funcionario = validar_id()
-        senha = validar_senha()
-        caixa = CaixaDAO.login_funcionario(id_funcionario, senha)
+        tentativas = 1
+        while tentativas > 0:
+            id_funcionario = validar_id()
+            senha = validar_senha()
 
-        if caixa == True:
-            print('\nLogado com sucesso!' \
-            'O CAIXA AGORA ESTÁ ABERTO')
-        else:
-            print(f'\nUsuário ou senha inválidos!')
+            if CaixaDAO.login_funcionario(id_funcionario, senha):
+                print('\nLogado com sucesso!\n' \
+                '\nO CAIXA AGORA ESTÁ ABERTO\n')
+                return True
+            else:
+                tentativas -= 1
+                print(f'\nUsuário ou senha inválidos!')
+                if tentativas == 0:
+                    print('\nLOGIN BLOQUEADO')
+                    return False
+                print(f'\nVocê tem {tentativas} tentativas restantes.')
 
 class ClienteController:
     @classmethod

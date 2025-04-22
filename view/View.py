@@ -8,8 +8,10 @@ from formatters import *
 
 
 class Mercado:
+
     def __init__(self):
         self.rodando = True
+        self.caixa_aberto = False
     
     def menu_principal(self):
         print('\nBem-vindo ao sistema de gerenciamento de mercado!')
@@ -29,7 +31,10 @@ class Mercado:
 
             match opcao:
                 case 1:
-                    self.caixa()
+                    if self.caixa_aberto:
+                        print('\nO caixa já está aberto!')
+                    else:
+                        self.caixa()
                 case 2:
                     self.gerenciar_clientes()
                 case 3 :
@@ -47,7 +52,7 @@ class Mercado:
                     print('Opção inválida!')
     def caixa(self):
         print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
-        CaixaController.logar_caixa()
+        self.caixa_aberto = CaixaController.logar_caixa()
     
     def gerenciar_clientes(self):
 
