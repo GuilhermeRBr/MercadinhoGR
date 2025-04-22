@@ -21,8 +21,7 @@ class Mercado:
             '3. Gerenciar Funcionários\n' \
             '4. Gerenciar Produtos\n' \
             '5. Gerenciar Fornecedores\n' \
-            '6. Gerenciar Categorias\n' \
-            '7. Relatórios\n' \
+            '6. Relatórios\n' \
             '0. Sair\n' \
             )
 
@@ -40,8 +39,6 @@ class Mercado:
                 case 5:
                     self.gerenciar_fornecedores()
                 case 6:
-                    self.gerenciar_categorias()
-                case 7:
                     self.relatorios()
                 case 0:
                     print('Saindo...')
@@ -419,35 +416,6 @@ class Mercado:
                 print('\nOpção inválida!')
                 self.gerenciar_fornecedores()
 
-    def gerenciar_categorias(self):
-        print('\n == MENU CATEGORIAS ==\n'
-        '1. Cadastrar Categoria\n'
-        '2. Listar Categorias\n'
-        '3. Atualizar Categoria\n'
-        '4. Excluir Categoria\n'
-        '5. Pesquisar Categoria(ID)\n'
-        '0. Voltar\n' 
-        )
-        
-        opcao = validar_opcao()
-        match opcao:
-            case 1:
-                pass
-            case 2:
-                pass
-            case 3:
-                pass
-            case 4:
-                pass
-            case 5:
-                pass
-            case 0:
-                print('\nVoltando...')
-                self.menu_principal()
-            case _:
-                print('\nOpção inválida!')
-                self.gerenciar_categorias()
-
     def relatorios(self):
         print('\n == MENU RELATÓRIOS ==\n'
                 '1. Relatório de Vendas\n'
@@ -455,7 +423,6 @@ class Mercado:
                 '3. Relatório de Funcionários\n'
                 '4. Relatório de Produtos\n' 
                 '5. Relatório de Fornecedores\n'
-                '6. Relatório de Categorias\n'
                 '0. Voltar\n'   
               )
         opcao = validar_opcao()
@@ -469,8 +436,6 @@ class Mercado:
             case 4:
                 pass
             case 5:
-                pass
-            case 6:
                 pass
             case 0:
                 print('\nVoltando...')

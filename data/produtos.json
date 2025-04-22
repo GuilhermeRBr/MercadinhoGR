@@ -1,18 +1,4002 @@
 [
     {
+        "id_produto": "000001",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1L",
+        "preco": "R$ 12,65",
+        "categoria": "Papelaria",
+        "quantidade": 7
+    },
+    {
         "id_produto": "000002",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1L",
+        "preco": "R$ 15,00",
+        "categoria": "Papelaria",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000003",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 5UN",
+        "preco": "R$ 6,11",
+        "categoria": "Papelaria",
+        "quantidade": 20
+    },
+    {
+        "id_produto": "000004",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 500ML",
+        "preco": "R$ 12,33",
+        "categoria": "Papelaria",
+        "quantidade": 82
+    },
+    {
+        "id_produto": "000005",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1KG",
+        "preco": "R$ 4,27",
+        "categoria": "Bebidas",
+        "quantidade": 57
+    },
+    {
+        "id_produto": "000006",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 1KG",
+        "preco": "R$ 9,37",
+        "categoria": "Limpeza",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000007",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 2L",
+        "preco": "R$ 14,16",
+        "categoria": "Bebidas",
+        "quantidade": 57
+    },
+    {
+        "id_produto": "000008",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 5UN",
+        "preco": "R$ 3,71",
+        "categoria": "Limpeza",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000009",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 2L",
+        "preco": "R$ 8,72",
+        "categoria": "Papelaria",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000010",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 1KG",
+        "preco": "R$ 14,56",
+        "categoria": "Alimentos",
+        "quantidade": 57
+    },
+    {
+        "id_produto": "000011",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 500ML",
+        "preco": "R$ 5,85",
+        "categoria": "Papelaria",
+        "quantidade": 55
+    },
+    {
+        "id_produto": "000012",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 250ML",
+        "preco": "R$ 5,72",
+        "categoria": "Limpeza",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000013",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 1KG",
+        "preco": "R$ 12,90",
+        "categoria": "Alimentos",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000014",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 100ML",
+        "preco": "R$ 1,87",
+        "categoria": "Bebidas",
+        "quantidade": 57
+    },
+    {
+        "id_produto": "000015",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1L",
+        "preco": "R$ 9,28",
+        "categoria": "Limpeza",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000016",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 2L",
+        "preco": "R$ 2,62",
+        "categoria": "Higiene",
+        "quantidade": 65
+    },
+    {
+        "id_produto": "000017",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 250ML",
+        "preco": "R$ 7,21",
+        "categoria": "Limpeza",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000018",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 5UN",
+        "preco": "R$ 4,99",
+        "categoria": "Papelaria",
+        "quantidade": 8
+    },
+    {
+        "id_produto": "000019",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 5UN",
+        "preco": "R$ 1,58",
+        "categoria": "Papelaria",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000020",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 500ML",
+        "preco": "R$ 12,42",
+        "categoria": "Higiene",
+        "quantidade": 47
+    },
+    {
+        "id_produto": "000021",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 2L",
+        "preco": "R$ 2,16",
+        "categoria": "Limpeza",
+        "quantidade": 50
+    },
+    {
+        "id_produto": "000022",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 8,66",
+        "categoria": "Limpeza",
+        "quantidade": 64
+    },
+    {
+        "id_produto": "000023",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 100ML",
+        "preco": "R$ 8,99",
+        "categoria": "Bebidas",
+        "quantidade": 76
+    },
+    {
+        "id_produto": "000024",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 1UN",
+        "preco": "R$ 14,61",
+        "categoria": "Limpeza",
+        "quantidade": 40
+    },
+    {
+        "id_produto": "000025",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 5UN",
+        "preco": "R$ 11,78",
+        "categoria": "Bebidas",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000026",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1L",
+        "preco": "R$ 2,13",
+        "categoria": "Alimentos",
+        "quantidade": 10
+    },
+    {
+        "id_produto": "000027",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 5UN",
+        "preco": "R$ 10,25",
+        "categoria": "Papelaria",
+        "quantidade": 100
+    },
+    {
+        "id_produto": "000028",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 250ML",
+        "preco": "R$ 7,42",
+        "categoria": "Alimentos",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000029",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 5UN",
+        "preco": "R$ 13,60",
+        "categoria": "Alimentos",
+        "quantidade": 16
+    },
+    {
+        "id_produto": "000030",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 200G",
+        "preco": "R$ 3,23",
+        "categoria": "Higiene",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000031",
         "nome": "Bolacha",
-        "descricao": "Bolacha Recheada Com Chocolate 200G",
-        "preco": "R$ 2,50",
+        "descricao": "Bolacha - Embalagem 1UN",
+        "preco": "R$ 12,67",
+        "categoria": "Alimentos",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000032",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 250ML",
+        "preco": "R$ 7,44",
+        "categoria": "Bebidas",
+        "quantidade": 27
+    },
+    {
+        "id_produto": "000033",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1KG",
+        "preco": "R$ 1,82",
+        "categoria": "Higiene",
+        "quantidade": 34
+    },
+    {
+        "id_produto": "000034",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 100ML",
+        "preco": "R$ 7,97",
+        "categoria": "Limpeza",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000035",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 1KG",
+        "preco": "R$ 2,34",
+        "categoria": "Bebidas",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000036",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1L",
+        "preco": "R$ 8,57",
+        "categoria": "Papelaria",
+        "quantidade": 56
+    },
+    {
+        "id_produto": "000037",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1KG",
+        "preco": "R$ 6,04",
+        "categoria": "Alimentos",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000038",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 300G",
+        "preco": "R$ 2,96",
+        "categoria": "Higiene",
+        "quantidade": 17
+    },
+    {
+        "id_produto": "000039",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 500ML",
+        "preco": "R$ 3,50",
+        "categoria": "Bebidas",
+        "quantidade": 18
+    },
+    {
+        "id_produto": "000040",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 200G",
+        "preco": "R$ 11,37",
+        "categoria": "Alimentos",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000041",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 100ML",
+        "preco": "R$ 14,15",
+        "categoria": "Higiene",
+        "quantidade": 58
+    },
+    {
+        "id_produto": "000042",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1KG",
+        "preco": "R$ 13,58",
+        "categoria": "Alimentos",
+        "quantidade": 77
+    },
+    {
+        "id_produto": "000043",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 100ML",
+        "preco": "R$ 10,42",
+        "categoria": "Alimentos",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000044",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 300G",
+        "preco": "R$ 3,44",
+        "categoria": "Higiene",
+        "quantidade": 11
+    },
+    {
+        "id_produto": "000045",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 200G",
+        "preco": "R$ 3,44",
         "categoria": "Alimentos",
         "quantidade": 20
     },
     {
-        "id_produto": "000003",
+        "id_produto": "000046",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 500ML",
+        "preco": "R$ 3,97",
+        "categoria": "Alimentos",
+        "quantidade": 33
+    },
+    {
+        "id_produto": "000047",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 300G",
+        "preco": "R$ 4,82",
+        "categoria": "Papelaria",
+        "quantidade": 82
+    },
+    {
+        "id_produto": "000048",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 1UN",
+        "preco": "R$ 9,61",
+        "categoria": "Alimentos",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000049",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 2L",
+        "preco": "R$ 11,41",
+        "categoria": "Higiene",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000050",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 300G",
+        "preco": "R$ 11,00",
+        "categoria": "Alimentos",
+        "quantidade": 40
+    },
+    {
+        "id_produto": "000051",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 300G",
+        "preco": "R$ 13,15",
+        "categoria": "Bebidas",
+        "quantidade": 41
+    },
+    {
+        "id_produto": "000052",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 1L",
+        "preco": "R$ 6,72",
+        "categoria": "Limpeza",
+        "quantidade": 40
+    },
+    {
+        "id_produto": "000053",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1KG",
+        "preco": "R$ 8,55",
+        "categoria": "Higiene",
+        "quantidade": 74
+    },
+    {
+        "id_produto": "000054",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 100ML",
+        "preco": "R$ 2,00",
+        "categoria": "Higiene",
+        "quantidade": 40
+    },
+    {
+        "id_produto": "000055",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 300G",
+        "preco": "R$ 12,25",
+        "categoria": "Limpeza",
+        "quantidade": 36
+    },
+    {
+        "id_produto": "000056",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 1UN",
+        "preco": "R$ 3,94",
+        "categoria": "Limpeza",
+        "quantidade": 28
+    },
+    {
+        "id_produto": "000057",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 2L",
+        "preco": "R$ 13,74",
+        "categoria": "Higiene",
+        "quantidade": 67
+    },
+    {
+        "id_produto": "000058",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 250ML",
+        "preco": "R$ 4,77",
+        "categoria": "Higiene",
+        "quantidade": 61
+    },
+    {
+        "id_produto": "000059",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 200G",
+        "preco": "R$ 3,47",
+        "categoria": "Bebidas",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000060",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 2L",
+        "preco": "R$ 5,74",
+        "categoria": "Alimentos",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000061",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 500ML",
+        "preco": "R$ 5,06",
+        "categoria": "Bebidas",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000062",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 5UN",
+        "preco": "R$ 3,91",
+        "categoria": "Higiene",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000063",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 4,12",
+        "categoria": "Limpeza",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000064",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 1UN",
+        "preco": "R$ 5,53",
+        "categoria": "Bebidas",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000065",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 1UN",
+        "preco": "R$ 8,97",
+        "categoria": "Papelaria",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000066",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 1L",
+        "preco": "R$ 3,24",
+        "categoria": "Limpeza",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000067",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 2L",
+        "preco": "R$ 14,05",
+        "categoria": "Limpeza",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000068",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 200G",
+        "preco": "R$ 4,01",
+        "categoria": "Papelaria",
+        "quantidade": 29
+    },
+    {
+        "id_produto": "000069",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1UN",
+        "preco": "R$ 2,48",
+        "categoria": "Higiene",
+        "quantidade": 17
+    },
+    {
+        "id_produto": "000070",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 100ML",
+        "preco": "R$ 4,80",
+        "categoria": "Limpeza",
+        "quantidade": 31
+    },
+    {
+        "id_produto": "000071",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 1KG",
+        "preco": "R$ 9,46",
+        "categoria": "Bebidas",
+        "quantidade": 22
+    },
+    {
+        "id_produto": "000072",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 250ML",
+        "preco": "R$ 5,67",
+        "categoria": "Alimentos",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000073",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 100ML",
+        "preco": "R$ 10,61",
+        "categoria": "Higiene",
+        "quantidade": 84
+    },
+    {
+        "id_produto": "000074",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 1L",
+        "preco": "R$ 7,61",
+        "categoria": "Alimentos",
+        "quantidade": 12
+    },
+    {
+        "id_produto": "000075",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 500ML",
+        "preco": "R$ 12,89",
+        "categoria": "Alimentos",
+        "quantidade": 12
+    },
+    {
+        "id_produto": "000076",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 2L",
+        "preco": "R$ 12,24",
+        "categoria": "Alimentos",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000077",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 4,13",
+        "categoria": "Limpeza",
+        "quantidade": 32
+    },
+    {
+        "id_produto": "000078",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 100ML",
+        "preco": "R$ 14,68",
+        "categoria": "Higiene",
+        "quantidade": 61
+    },
+    {
+        "id_produto": "000079",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 1L",
+        "preco": "R$ 11,49",
+        "categoria": "Limpeza",
+        "quantidade": 5
+    },
+    {
+        "id_produto": "000080",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 250ML",
+        "preco": "R$ 9,62",
+        "categoria": "Alimentos",
+        "quantidade": 12
+    },
+    {
+        "id_produto": "000081",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 300G",
+        "preco": "R$ 10,31",
+        "categoria": "Higiene",
+        "quantidade": 81
+    },
+    {
+        "id_produto": "000082",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 200G",
+        "preco": "R$ 7,26",
+        "categoria": "Bebidas",
+        "quantidade": 57
+    },
+    {
+        "id_produto": "000083",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 200G",
+        "preco": "R$ 4,56",
+        "categoria": "Bebidas",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000084",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 200G",
+        "preco": "R$ 5,79",
+        "categoria": "Limpeza",
+        "quantidade": 29
+    },
+    {
+        "id_produto": "000085",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 100ML",
+        "preco": "R$ 14,38",
+        "categoria": "Papelaria",
+        "quantidade": 22
+    },
+    {
+        "id_produto": "000086",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 1L",
+        "preco": "R$ 4,68",
+        "categoria": "Papelaria",
+        "quantidade": 49
+    },
+    {
+        "id_produto": "000087",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 5,80",
+        "categoria": "Limpeza",
+        "quantidade": 97
+    },
+    {
+        "id_produto": "000088",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1L",
+        "preco": "R$ 14,74",
+        "categoria": "Higiene",
+        "quantidade": 53
+    },
+    {
+        "id_produto": "000089",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 5UN",
+        "preco": "R$ 3,79",
+        "categoria": "Higiene",
+        "quantidade": 8
+    },
+    {
+        "id_produto": "000090",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1UN",
+        "preco": "R$ 3,77",
+        "categoria": "Higiene",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000091",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1L",
+        "preco": "R$ 14,48",
+        "categoria": "Bebidas",
+        "quantidade": 10
+    },
+    {
+        "id_produto": "000092",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 100ML",
+        "preco": "R$ 14,47",
+        "categoria": "Higiene",
+        "quantidade": 11
+    },
+    {
+        "id_produto": "000093",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 100ML",
+        "preco": "R$ 6,67",
+        "categoria": "Papelaria",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000094",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1L",
+        "preco": "R$ 2,98",
+        "categoria": "Papelaria",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000095",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 5UN",
+        "preco": "R$ 11,67",
+        "categoria": "Limpeza",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000096",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 200G",
+        "preco": "R$ 5,23",
+        "categoria": "Alimentos",
+        "quantidade": 95
+    },
+    {
+        "id_produto": "000097",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 200G",
+        "preco": "R$ 2,86",
+        "categoria": "Limpeza",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000098",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 500ML",
+        "preco": "R$ 7,41",
+        "categoria": "Limpeza",
+        "quantidade": 49
+    },
+    {
+        "id_produto": "000099",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 100ML",
+        "preco": "R$ 14,57",
+        "categoria": "Bebidas",
+        "quantidade": 9
+    },
+    {
+        "id_produto": "000100",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 5UN",
+        "preco": "R$ 3,41",
+        "categoria": "Bebidas",
+        "quantidade": 87
+    },
+    {
+        "id_produto": "000101",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 200G",
+        "preco": "R$ 14,29",
+        "categoria": "Bebidas",
+        "quantidade": 65
+    },
+    {
+        "id_produto": "000102",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 11,51",
+        "categoria": "Limpeza",
+        "quantidade": 50
+    },
+    {
+        "id_produto": "000103",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 200G",
+        "preco": "R$ 10,46",
+        "categoria": "Bebidas",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000104",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 250ML",
+        "preco": "R$ 3,42",
+        "categoria": "Higiene",
+        "quantidade": 87
+    },
+    {
+        "id_produto": "000105",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 100ML",
+        "preco": "R$ 5,87",
+        "categoria": "Higiene",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000106",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 100ML",
+        "preco": "R$ 4,04",
+        "categoria": "Bebidas",
+        "quantidade": 22
+    },
+    {
+        "id_produto": "000107",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 250ML",
+        "preco": "R$ 11,32",
+        "categoria": "Alimentos",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000108",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 250ML",
+        "preco": "R$ 2,80",
+        "categoria": "Limpeza",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000109",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 100ML",
+        "preco": "R$ 1,68",
+        "categoria": "Higiene",
+        "quantidade": 34
+    },
+    {
+        "id_produto": "000110",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 300G",
+        "preco": "R$ 8,97",
+        "categoria": "Alimentos",
+        "quantidade": 56
+    },
+    {
+        "id_produto": "000111",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 250ML",
+        "preco": "R$ 7,94",
+        "categoria": "Limpeza",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000112",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 100ML",
+        "preco": "R$ 14,61",
+        "categoria": "Alimentos",
+        "quantidade": 78
+    },
+    {
+        "id_produto": "000113",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 300G",
+        "preco": "R$ 3,23",
+        "categoria": "Papelaria",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000114",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 100ML",
+        "preco": "R$ 14,15",
+        "categoria": "Papelaria",
+        "quantidade": 8
+    },
+    {
+        "id_produto": "000115",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1KG",
+        "preco": "R$ 12,69",
+        "categoria": "Papelaria",
+        "quantidade": 69
+    },
+    {
+        "id_produto": "000116",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 2L",
+        "preco": "R$ 4,54",
+        "categoria": "Bebidas",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000117",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 300G",
+        "preco": "R$ 7,32",
+        "categoria": "Limpeza",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000118",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 5UN",
+        "preco": "R$ 13,01",
+        "categoria": "Alimentos",
+        "quantidade": 28
+    },
+    {
+        "id_produto": "000119",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 9,08",
+        "categoria": "Limpeza",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000120",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 200G",
+        "preco": "R$ 9,58",
+        "categoria": "Limpeza",
+        "quantidade": 44
+    },
+    {
+        "id_produto": "000121",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 5UN",
+        "preco": "R$ 13,79",
+        "categoria": "Papelaria",
+        "quantidade": 38
+    },
+    {
+        "id_produto": "000122",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1L",
+        "preco": "R$ 2,15",
+        "categoria": "Alimentos",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000123",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1UN",
+        "preco": "R$ 4,26",
+        "categoria": "Limpeza",
+        "quantidade": 79
+    },
+    {
+        "id_produto": "000124",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 100ML",
+        "preco": "R$ 14,10",
+        "categoria": "Papelaria",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000125",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 300G",
+        "preco": "R$ 2,26",
+        "categoria": "Limpeza",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000126",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 2L",
+        "preco": "R$ 10,04",
+        "categoria": "Limpeza",
+        "quantidade": 25
+    },
+    {
+        "id_produto": "000127",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1L",
+        "preco": "R$ 7,46",
+        "categoria": "Papelaria",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000128",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 100ML",
+        "preco": "R$ 10,28",
+        "categoria": "Bebidas",
+        "quantidade": 12
+    },
+    {
+        "id_produto": "000129",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 1KG",
+        "preco": "R$ 10,05",
+        "categoria": "Papelaria",
+        "quantidade": 86
+    },
+    {
+        "id_produto": "000130",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 2L",
+        "preco": "R$ 11,88",
+        "categoria": "Higiene",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000131",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 250ML",
+        "preco": "R$ 6,50",
+        "categoria": "Bebidas",
+        "quantidade": 87
+    },
+    {
+        "id_produto": "000132",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 100ML",
+        "preco": "R$ 13,21",
+        "categoria": "Limpeza",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000133",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1UN",
+        "preco": "R$ 9,21",
+        "categoria": "Alimentos",
+        "quantidade": 77
+    },
+    {
+        "id_produto": "000134",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 1KG",
+        "preco": "R$ 12,16",
+        "categoria": "Bebidas",
+        "quantidade": 97
+    },
+    {
+        "id_produto": "000135",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1KG",
+        "preco": "R$ 6,10",
+        "categoria": "Higiene",
+        "quantidade": 26
+    },
+    {
+        "id_produto": "000136",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 300G",
+        "preco": "R$ 8,36",
+        "categoria": "Alimentos",
+        "quantidade": 67
+    },
+    {
+        "id_produto": "000137",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 100ML",
+        "preco": "R$ 12,47",
+        "categoria": "Bebidas",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000138",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 2L",
+        "preco": "R$ 4,86",
+        "categoria": "Higiene",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000139",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1UN",
+        "preco": "R$ 8,53",
+        "categoria": "Papelaria",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000140",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 1KG",
+        "preco": "R$ 10,55",
+        "categoria": "Higiene",
+        "quantidade": 34
+    },
+    {
+        "id_produto": "000141",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 2L",
+        "preco": "R$ 11,39",
+        "categoria": "Papelaria",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000142",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 200G",
+        "preco": "R$ 14,99",
+        "categoria": "Higiene",
+        "quantidade": 29
+    },
+    {
+        "id_produto": "000143",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 500ML",
+        "preco": "R$ 8,58",
+        "categoria": "Higiene",
+        "quantidade": 100
+    },
+    {
+        "id_produto": "000144",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 5UN",
+        "preco": "R$ 14,21",
+        "categoria": "Bebidas",
+        "quantidade": 6
+    },
+    {
+        "id_produto": "000145",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 2,16",
+        "categoria": "Limpeza",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000146",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 250ML",
+        "preco": "R$ 7,88",
+        "categoria": "Limpeza",
+        "quantidade": 18
+    },
+    {
+        "id_produto": "000147",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 100ML",
+        "preco": "R$ 2,72",
+        "categoria": "Limpeza",
+        "quantidade": 74
+    },
+    {
+        "id_produto": "000148",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1L",
+        "preco": "R$ 10,06",
+        "categoria": "Papelaria",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000149",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 250ML",
+        "preco": "R$ 13,74",
+        "categoria": "Bebidas",
+        "quantidade": 59
+    },
+    {
+        "id_produto": "000150",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 1KG",
+        "preco": "R$ 4,83",
+        "categoria": "Limpeza",
+        "quantidade": 90
+    },
+    {
+        "id_produto": "000151",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 250ML",
+        "preco": "R$ 11,65",
+        "categoria": "Bebidas",
+        "quantidade": 11
+    },
+    {
+        "id_produto": "000152",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 250ML",
+        "preco": "R$ 6,91",
+        "categoria": "Bebidas",
+        "quantidade": 38
+    },
+    {
+        "id_produto": "000153",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 300G",
+        "preco": "R$ 4,99",
+        "categoria": "Limpeza",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000154",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1UN",
+        "preco": "R$ 14,23",
+        "categoria": "Papelaria",
+        "quantidade": 72
+    },
+    {
+        "id_produto": "000155",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 500ML",
+        "preco": "R$ 13,87",
+        "categoria": "Bebidas",
+        "quantidade": 99
+    },
+    {
+        "id_produto": "000156",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1UN",
+        "preco": "R$ 2,94",
+        "categoria": "Alimentos",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000157",
         "nome": "Biscoito",
-        "descricao": "Biscoito rechado com chocolate",
-        "preco": "R$ 2,50",
+        "descricao": "Biscoito - Embalagem 1KG",
+        "preco": "R$ 9,65",
+        "categoria": "Alimentos",
+        "quantidade": 92
+    },
+    {
+        "id_produto": "000158",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1UN",
+        "preco": "R$ 12,35",
+        "categoria": "Papelaria",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000159",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 5UN",
+        "preco": "R$ 13,48",
+        "categoria": "Limpeza",
+        "quantidade": 85
+    },
+    {
+        "id_produto": "000160",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 1KG",
+        "preco": "R$ 7,12",
+        "categoria": "Alimentos",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000161",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 300G",
+        "preco": "R$ 4,35",
+        "categoria": "Bebidas",
+        "quantidade": 85
+    },
+    {
+        "id_produto": "000162",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 2L",
+        "preco": "R$ 6,63",
+        "categoria": "Papelaria",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000163",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 5UN",
+        "preco": "R$ 13,89",
+        "categoria": "Bebidas",
+        "quantidade": 8
+    },
+    {
+        "id_produto": "000164",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 2L",
+        "preco": "R$ 5,87",
+        "categoria": "Higiene",
+        "quantidade": 38
+    },
+    {
+        "id_produto": "000165",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1KG",
+        "preco": "R$ 11,66",
+        "categoria": "Papelaria",
+        "quantidade": 36
+    },
+    {
+        "id_produto": "000166",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1KG",
+        "preco": "R$ 6,19",
+        "categoria": "Higiene",
+        "quantidade": 85
+    },
+    {
+        "id_produto": "000167",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 200G",
+        "preco": "R$ 14,95",
+        "categoria": "Limpeza",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000168",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 1L",
+        "preco": "R$ 4,85",
+        "categoria": "Alimentos",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000169",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 200G",
+        "preco": "R$ 10,38",
+        "categoria": "Limpeza",
+        "quantidade": 33
+    },
+    {
+        "id_produto": "000170",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 200G",
+        "preco": "R$ 2,98",
+        "categoria": "Alimentos",
+        "quantidade": 85
+    },
+    {
+        "id_produto": "000171",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1UN",
+        "preco": "R$ 5,36",
+        "categoria": "Bebidas",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000172",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 1KG",
+        "preco": "R$ 10,72",
+        "categoria": "Higiene",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000173",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 500ML",
+        "preco": "R$ 7,82",
+        "categoria": "Limpeza",
+        "quantidade": 9
+    },
+    {
+        "id_produto": "000174",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 1KG",
+        "preco": "R$ 12,92",
+        "categoria": "Higiene",
+        "quantidade": 64
+    },
+    {
+        "id_produto": "000175",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 300G",
+        "preco": "R$ 9,24",
+        "categoria": "Higiene",
+        "quantidade": 87
+    },
+    {
+        "id_produto": "000176",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 2L",
+        "preco": "R$ 4,88",
+        "categoria": "Papelaria",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000177",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 300G",
+        "preco": "R$ 6,83",
+        "categoria": "Papelaria",
+        "quantidade": 53
+    },
+    {
+        "id_produto": "000178",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 300G",
+        "preco": "R$ 4,05",
+        "categoria": "Alimentos",
+        "quantidade": 56
+    },
+    {
+        "id_produto": "000179",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 5UN",
+        "preco": "R$ 14,57",
+        "categoria": "Limpeza",
+        "quantidade": 60
+    },
+    {
+        "id_produto": "000180",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 1UN",
+        "preco": "R$ 13,48",
+        "categoria": "Limpeza",
+        "quantidade": 61
+    },
+    {
+        "id_produto": "000181",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 500ML",
+        "preco": "R$ 10,34",
+        "categoria": "Papelaria",
+        "quantidade": 64
+    },
+    {
+        "id_produto": "000182",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 100ML",
+        "preco": "R$ 4,30",
+        "categoria": "Limpeza",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000183",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 200G",
+        "preco": "R$ 6,97",
+        "categoria": "Alimentos",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000184",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 1UN",
+        "preco": "R$ 7,58",
+        "categoria": "Limpeza",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000185",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 250ML",
+        "preco": "R$ 1,73",
+        "categoria": "Limpeza",
+        "quantidade": 14
+    },
+    {
+        "id_produto": "000186",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1L",
+        "preco": "R$ 13,03",
+        "categoria": "Papelaria",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000187",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1KG",
+        "preco": "R$ 6,99",
+        "categoria": "Papelaria",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000188",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 500ML",
+        "preco": "R$ 8,78",
+        "categoria": "Higiene",
+        "quantidade": 90
+    },
+    {
+        "id_produto": "000189",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 1UN",
+        "preco": "R$ 3,19",
         "categoria": "Alimentos",
         "quantidade": 20
+    },
+    {
+        "id_produto": "000190",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 2L",
+        "preco": "R$ 6,33",
+        "categoria": "Alimentos",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000191",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 100ML",
+        "preco": "R$ 1,63",
+        "categoria": "Bebidas",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000192",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 500ML",
+        "preco": "R$ 1,51",
+        "categoria": "Limpeza",
+        "quantidade": 22
+    },
+    {
+        "id_produto": "000193",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 100ML",
+        "preco": "R$ 10,79",
+        "categoria": "Higiene",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000194",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1UN",
+        "preco": "R$ 11,23",
+        "categoria": "Limpeza",
+        "quantidade": 86
+    },
+    {
+        "id_produto": "000195",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 250ML",
+        "preco": "R$ 13,37",
+        "categoria": "Alimentos",
+        "quantidade": 88
+    },
+    {
+        "id_produto": "000196",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 500ML",
+        "preco": "R$ 7,28",
+        "categoria": "Higiene",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000197",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 300G",
+        "preco": "R$ 11,45",
+        "categoria": "Alimentos",
+        "quantidade": 55
+    },
+    {
+        "id_produto": "000198",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 200G",
+        "preco": "R$ 9,06",
+        "categoria": "Alimentos",
+        "quantidade": 36
+    },
+    {
+        "id_produto": "000199",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 300G",
+        "preco": "R$ 3,01",
+        "categoria": "Papelaria",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000200",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 200G",
+        "preco": "R$ 8,49",
+        "categoria": "Limpeza",
+        "quantidade": 69
+    },
+    {
+        "id_produto": "000201",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 200G",
+        "preco": "R$ 14,25",
+        "categoria": "Alimentos",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000202",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 250ML",
+        "preco": "R$ 7,96",
+        "categoria": "Bebidas",
+        "quantidade": 35
+    },
+    {
+        "id_produto": "000203",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 1KG",
+        "preco": "R$ 11,40",
+        "categoria": "Alimentos",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000204",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 500ML",
+        "preco": "R$ 9,69",
+        "categoria": "Bebidas",
+        "quantidade": 44
+    },
+    {
+        "id_produto": "000205",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 5UN",
+        "preco": "R$ 7,13",
+        "categoria": "Papelaria",
+        "quantidade": 81
+    },
+    {
+        "id_produto": "000206",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 200G",
+        "preco": "R$ 2,97",
+        "categoria": "Alimentos",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000207",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 500ML",
+        "preco": "R$ 13,91",
+        "categoria": "Limpeza",
+        "quantidade": 25
+    },
+    {
+        "id_produto": "000208",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 300G",
+        "preco": "R$ 8,91",
+        "categoria": "Alimentos",
+        "quantidade": 10
+    },
+    {
+        "id_produto": "000209",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1L",
+        "preco": "R$ 5,50",
+        "categoria": "Papelaria",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000210",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 2L",
+        "preco": "R$ 8,67",
+        "categoria": "Papelaria",
+        "quantidade": 68
+    },
+    {
+        "id_produto": "000211",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 2L",
+        "preco": "R$ 13,15",
+        "categoria": "Limpeza",
+        "quantidade": 67
+    },
+    {
+        "id_produto": "000212",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 300G",
+        "preco": "R$ 3,02",
+        "categoria": "Papelaria",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000213",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 2L",
+        "preco": "R$ 5,28",
+        "categoria": "Bebidas",
+        "quantidade": 53
+    },
+    {
+        "id_produto": "000214",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 500ML",
+        "preco": "R$ 8,22",
+        "categoria": "Bebidas",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000215",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 500ML",
+        "preco": "R$ 1,77",
+        "categoria": "Higiene",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000216",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 2L",
+        "preco": "R$ 13,64",
+        "categoria": "Alimentos",
+        "quantidade": 47
+    },
+    {
+        "id_produto": "000217",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 1UN",
+        "preco": "R$ 12,66",
+        "categoria": "Bebidas",
+        "quantidade": 89
+    },
+    {
+        "id_produto": "000218",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 500ML",
+        "preco": "R$ 2,34",
+        "categoria": "Bebidas",
+        "quantidade": 33
+    },
+    {
+        "id_produto": "000219",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 5UN",
+        "preco": "R$ 9,61",
+        "categoria": "Papelaria",
+        "quantidade": 53
+    },
+    {
+        "id_produto": "000220",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 2L",
+        "preco": "R$ 7,07",
+        "categoria": "Papelaria",
+        "quantidade": 84
+    },
+    {
+        "id_produto": "000221",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 250ML",
+        "preco": "R$ 7,69",
+        "categoria": "Limpeza",
+        "quantidade": 78
+    },
+    {
+        "id_produto": "000222",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 300G",
+        "preco": "R$ 3,63",
+        "categoria": "Bebidas",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000223",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 1L",
+        "preco": "R$ 14,93",
+        "categoria": "Limpeza",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000224",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 1UN",
+        "preco": "R$ 10,66",
+        "categoria": "Alimentos",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000225",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 250ML",
+        "preco": "R$ 12,76",
+        "categoria": "Limpeza",
+        "quantidade": 59
+    },
+    {
+        "id_produto": "000226",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 1UN",
+        "preco": "R$ 8,41",
+        "categoria": "Alimentos",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000227",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 250ML",
+        "preco": "R$ 4,22",
+        "categoria": "Alimentos",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000228",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1L",
+        "preco": "R$ 9,17",
+        "categoria": "Limpeza",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000229",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 250ML",
+        "preco": "R$ 2,30",
+        "categoria": "Papelaria",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000230",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 250ML",
+        "preco": "R$ 4,99",
+        "categoria": "Alimentos",
+        "quantidade": 35
+    },
+    {
+        "id_produto": "000231",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 1L",
+        "preco": "R$ 11,48",
+        "categoria": "Limpeza",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000232",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1KG",
+        "preco": "R$ 8,12",
+        "categoria": "Papelaria",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000233",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 100ML",
+        "preco": "R$ 4,51",
+        "categoria": "Higiene",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000234",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 250ML",
+        "preco": "R$ 4,35",
+        "categoria": "Limpeza",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000235",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 5UN",
+        "preco": "R$ 2,73",
+        "categoria": "Papelaria",
+        "quantidade": 58
+    },
+    {
+        "id_produto": "000236",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 10,63",
+        "categoria": "Limpeza",
+        "quantidade": 67
+    },
+    {
+        "id_produto": "000237",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 300G",
+        "preco": "R$ 1,95",
+        "categoria": "Higiene",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000238",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1UN",
+        "preco": "R$ 6,04",
+        "categoria": "Papelaria",
+        "quantidade": 32
+    },
+    {
+        "id_produto": "000239",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 250ML",
+        "preco": "R$ 12,81",
+        "categoria": "Alimentos",
+        "quantidade": 12
+    },
+    {
+        "id_produto": "000240",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 1UN",
+        "preco": "R$ 12,96",
+        "categoria": "Bebidas",
+        "quantidade": 55
+    },
+    {
+        "id_produto": "000241",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1UN",
+        "preco": "R$ 11,76",
+        "categoria": "Higiene",
+        "quantidade": 42
+    },
+    {
+        "id_produto": "000242",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 200G",
+        "preco": "R$ 12,05",
+        "categoria": "Higiene",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000243",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 500ML",
+        "preco": "R$ 10,65",
+        "categoria": "Alimentos",
+        "quantidade": 56
+    },
+    {
+        "id_produto": "000244",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1UN",
+        "preco": "R$ 14,70",
+        "categoria": "Higiene",
+        "quantidade": 5
+    },
+    {
+        "id_produto": "000245",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 1KG",
+        "preco": "R$ 3,28",
+        "categoria": "Limpeza",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000246",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 2L",
+        "preco": "R$ 1,99",
+        "categoria": "Bebidas",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000247",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 200G",
+        "preco": "R$ 12,03",
+        "categoria": "Bebidas",
+        "quantidade": 77
+    },
+    {
+        "id_produto": "000248",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 2L",
+        "preco": "R$ 10,48",
+        "categoria": "Bebidas",
+        "quantidade": 97
+    },
+    {
+        "id_produto": "000249",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 100ML",
+        "preco": "R$ 13,94",
+        "categoria": "Limpeza",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000250",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 1L",
+        "preco": "R$ 6,70",
+        "categoria": "Papelaria",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000251",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 5UN",
+        "preco": "R$ 5,44",
+        "categoria": "Alimentos",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000252",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 2L",
+        "preco": "R$ 14,47",
+        "categoria": "Higiene",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000253",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 1L",
+        "preco": "R$ 9,92",
+        "categoria": "Limpeza",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000254",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 100ML",
+        "preco": "R$ 5,40",
+        "categoria": "Limpeza",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000255",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 1L",
+        "preco": "R$ 11,27",
+        "categoria": "Bebidas",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000256",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 500ML",
+        "preco": "R$ 2,18",
+        "categoria": "Alimentos",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000257",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 250ML",
+        "preco": "R$ 3,50",
+        "categoria": "Higiene",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000258",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 100ML",
+        "preco": "R$ 8,00",
+        "categoria": "Bebidas",
+        "quantidade": 17
+    },
+    {
+        "id_produto": "000259",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 100ML",
+        "preco": "R$ 8,07",
+        "categoria": "Alimentos",
+        "quantidade": 9
+    },
+    {
+        "id_produto": "000260",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 500ML",
+        "preco": "R$ 11,13",
+        "categoria": "Limpeza",
+        "quantidade": 6
+    },
+    {
+        "id_produto": "000261",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 200G",
+        "preco": "R$ 13,24",
+        "categoria": "Limpeza",
+        "quantidade": 35
+    },
+    {
+        "id_produto": "000262",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1L",
+        "preco": "R$ 2,52",
+        "categoria": "Alimentos",
+        "quantidade": 37
+    },
+    {
+        "id_produto": "000263",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 300G",
+        "preco": "R$ 1,99",
+        "categoria": "Bebidas",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000264",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 2L",
+        "preco": "R$ 13,16",
+        "categoria": "Papelaria",
+        "quantidade": 34
+    },
+    {
+        "id_produto": "000265",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 100ML",
+        "preco": "R$ 11,09",
+        "categoria": "Higiene",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000266",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 5UN",
+        "preco": "R$ 9,42",
+        "categoria": "Bebidas",
+        "quantidade": 67
+    },
+    {
+        "id_produto": "000267",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 1KG",
+        "preco": "R$ 6,56",
+        "categoria": "Limpeza",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000268",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 1KG",
+        "preco": "R$ 9,22",
+        "categoria": "Papelaria",
+        "quantidade": 58
+    },
+    {
+        "id_produto": "000269",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 100ML",
+        "preco": "R$ 6,64",
+        "categoria": "Bebidas",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000270",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 2L",
+        "preco": "R$ 4,66",
+        "categoria": "Papelaria",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000271",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 100ML",
+        "preco": "R$ 11,24",
+        "categoria": "Alimentos",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000272",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 250ML",
+        "preco": "R$ 10,32",
+        "categoria": "Bebidas",
+        "quantidade": 19
+    },
+    {
+        "id_produto": "000273",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1UN",
+        "preco": "R$ 12,66",
+        "categoria": "Papelaria",
+        "quantidade": 35
+    },
+    {
+        "id_produto": "000274",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 5UN",
+        "preco": "R$ 3,22",
+        "categoria": "Alimentos",
+        "quantidade": 33
+    },
+    {
+        "id_produto": "000275",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1L",
+        "preco": "R$ 5,86",
+        "categoria": "Higiene",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000276",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 100ML",
+        "preco": "R$ 9,39",
+        "categoria": "Papelaria",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000277",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1L",
+        "preco": "R$ 4,46",
+        "categoria": "Papelaria",
+        "quantidade": 86
+    },
+    {
+        "id_produto": "000278",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1UN",
+        "preco": "R$ 2,72",
+        "categoria": "Bebidas",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000279",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 5UN",
+        "preco": "R$ 3,94",
+        "categoria": "Alimentos",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000280",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 300G",
+        "preco": "R$ 14,60",
+        "categoria": "Higiene",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000281",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 1KG",
+        "preco": "R$ 5,42",
+        "categoria": "Papelaria",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000282",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1UN",
+        "preco": "R$ 6,99",
+        "categoria": "Papelaria",
+        "quantidade": 44
+    },
+    {
+        "id_produto": "000283",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 1UN",
+        "preco": "R$ 6,96",
+        "categoria": "Higiene",
+        "quantidade": 27
+    },
+    {
+        "id_produto": "000284",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 200G",
+        "preco": "R$ 2,29",
+        "categoria": "Bebidas",
+        "quantidade": 5
+    },
+    {
+        "id_produto": "000285",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 200G",
+        "preco": "R$ 14,85",
+        "categoria": "Alimentos",
+        "quantidade": 29
+    },
+    {
+        "id_produto": "000286",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 250ML",
+        "preco": "R$ 4,82",
+        "categoria": "Bebidas",
+        "quantidade": 28
+    },
+    {
+        "id_produto": "000287",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 1UN",
+        "preco": "R$ 3,03",
+        "categoria": "Bebidas",
+        "quantidade": 35
+    },
+    {
+        "id_produto": "000288",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 500ML",
+        "preco": "R$ 3,44",
+        "categoria": "Papelaria",
+        "quantidade": 40
+    },
+    {
+        "id_produto": "000289",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 100ML",
+        "preco": "R$ 7,27",
+        "categoria": "Papelaria",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000290",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 500ML",
+        "preco": "R$ 7,53",
+        "categoria": "Alimentos",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000291",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 5UN",
+        "preco": "R$ 11,34",
+        "categoria": "Bebidas",
+        "quantidade": 63
+    },
+    {
+        "id_produto": "000292",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 300G",
+        "preco": "R$ 13,22",
+        "categoria": "Bebidas",
+        "quantidade": 41
+    },
+    {
+        "id_produto": "000293",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 250ML",
+        "preco": "R$ 13,95",
+        "categoria": "Bebidas",
+        "quantidade": 27
+    },
+    {
+        "id_produto": "000294",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 5,44",
+        "categoria": "Limpeza",
+        "quantidade": 78
+    },
+    {
+        "id_produto": "000295",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 100ML",
+        "preco": "R$ 10,39",
+        "categoria": "Alimentos",
+        "quantidade": 63
+    },
+    {
+        "id_produto": "000296",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 5UN",
+        "preco": "R$ 3,76",
+        "categoria": "Alimentos",
+        "quantidade": 8
+    },
+    {
+        "id_produto": "000297",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 300G",
+        "preco": "R$ 3,20",
+        "categoria": "Alimentos",
+        "quantidade": 20
+    },
+    {
+        "id_produto": "000298",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 250ML",
+        "preco": "R$ 13,19",
+        "categoria": "Higiene",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000299",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 300G",
+        "preco": "R$ 3,33",
+        "categoria": "Bebidas",
+        "quantidade": 89
+    },
+    {
+        "id_produto": "000300",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 500ML",
+        "preco": "R$ 12,34",
+        "categoria": "Bebidas",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000301",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 300G",
+        "preco": "R$ 5,69",
+        "categoria": "Alimentos",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000302",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 100ML",
+        "preco": "R$ 3,50",
+        "categoria": "Bebidas",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000303",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 1KG",
+        "preco": "R$ 12,65",
+        "categoria": "Limpeza",
+        "quantidade": 38
+    },
+    {
+        "id_produto": "000304",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1KG",
+        "preco": "R$ 11,78",
+        "categoria": "Alimentos",
+        "quantidade": 8
+    },
+    {
+        "id_produto": "000305",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 300G",
+        "preco": "R$ 7,60",
+        "categoria": "Papelaria",
+        "quantidade": 32
+    },
+    {
+        "id_produto": "000306",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 500ML",
+        "preco": "R$ 9,36",
+        "categoria": "Alimentos",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000307",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1KG",
+        "preco": "R$ 13,32",
+        "categoria": "Alimentos",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000308",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 1L",
+        "preco": "R$ 7,38",
+        "categoria": "Alimentos",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000309",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 300G",
+        "preco": "R$ 7,28",
+        "categoria": "Papelaria",
+        "quantidade": 50
+    },
+    {
+        "id_produto": "000310",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 2L",
+        "preco": "R$ 2,33",
+        "categoria": "Limpeza",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000311",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 5UN",
+        "preco": "R$ 11,16",
+        "categoria": "Alimentos",
+        "quantidade": 46
+    },
+    {
+        "id_produto": "000312",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1L",
+        "preco": "R$ 13,33",
+        "categoria": "Higiene",
+        "quantidade": 31
+    },
+    {
+        "id_produto": "000313",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 300G",
+        "preco": "R$ 8,59",
+        "categoria": "Higiene",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000314",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 1KG",
+        "preco": "R$ 11,70",
+        "categoria": "Alimentos",
+        "quantidade": 81
+    },
+    {
+        "id_produto": "000315",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 200G",
+        "preco": "R$ 4,97",
+        "categoria": "Limpeza",
+        "quantidade": 50
+    },
+    {
+        "id_produto": "000316",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 250ML",
+        "preco": "R$ 5,78",
+        "categoria": "Limpeza",
+        "quantidade": 18
+    },
+    {
+        "id_produto": "000317",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 1UN",
+        "preco": "R$ 7,59",
+        "categoria": "Alimentos",
+        "quantidade": 99
+    },
+    {
+        "id_produto": "000318",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 2L",
+        "preco": "R$ 11,36",
+        "categoria": "Bebidas",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000319",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 1KG",
+        "preco": "R$ 9,76",
+        "categoria": "Alimentos",
+        "quantidade": 81
+    },
+    {
+        "id_produto": "000320",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 1KG",
+        "preco": "R$ 9,96",
+        "categoria": "Limpeza",
+        "quantidade": 90
+    },
+    {
+        "id_produto": "000321",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1KG",
+        "preco": "R$ 8,51",
+        "categoria": "Limpeza",
+        "quantidade": 69
+    },
+    {
+        "id_produto": "000322",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 100ML",
+        "preco": "R$ 8,83",
+        "categoria": "Bebidas",
+        "quantidade": 84
+    },
+    {
+        "id_produto": "000323",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 100ML",
+        "preco": "R$ 13,64",
+        "categoria": "Higiene",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000324",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 300G",
+        "preco": "R$ 9,85",
+        "categoria": "Bebidas",
+        "quantidade": 97
+    },
+    {
+        "id_produto": "000325",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 1UN",
+        "preco": "R$ 10,49",
+        "categoria": "Bebidas",
+        "quantidade": 10
+    },
+    {
+        "id_produto": "000326",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 500ML",
+        "preco": "R$ 10,28",
+        "categoria": "Bebidas",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000327",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 2L",
+        "preco": "R$ 8,54",
+        "categoria": "Papelaria",
+        "quantidade": 64
+    },
+    {
+        "id_produto": "000328",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 250ML",
+        "preco": "R$ 1,92",
+        "categoria": "Limpeza",
+        "quantidade": 92
+    },
+    {
+        "id_produto": "000329",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 5UN",
+        "preco": "R$ 11,98",
+        "categoria": "Limpeza",
+        "quantidade": 44
+    },
+    {
+        "id_produto": "000330",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 100ML",
+        "preco": "R$ 1,73",
+        "categoria": "Bebidas",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000331",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 500ML",
+        "preco": "R$ 13,06",
+        "categoria": "Alimentos",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000332",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 500ML",
+        "preco": "R$ 8,17",
+        "categoria": "Papelaria",
+        "quantidade": 96
+    },
+    {
+        "id_produto": "000333",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 250ML",
+        "preco": "R$ 9,73",
+        "categoria": "Papelaria",
+        "quantidade": 68
+    },
+    {
+        "id_produto": "000334",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1KG",
+        "preco": "R$ 3,55",
+        "categoria": "Limpeza",
+        "quantidade": 88
+    },
+    {
+        "id_produto": "000335",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 250ML",
+        "preco": "R$ 3,27",
+        "categoria": "Alimentos",
+        "quantidade": 40
+    },
+    {
+        "id_produto": "000336",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 5UN",
+        "preco": "R$ 7,02",
+        "categoria": "Bebidas",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000337",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1L",
+        "preco": "R$ 11,68",
+        "categoria": "Papelaria",
+        "quantidade": 89
+    },
+    {
+        "id_produto": "000338",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 100ML",
+        "preco": "R$ 11,90",
+        "categoria": "Higiene",
+        "quantidade": 60
+    },
+    {
+        "id_produto": "000339",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 100ML",
+        "preco": "R$ 14,75",
+        "categoria": "Bebidas",
+        "quantidade": 18
+    },
+    {
+        "id_produto": "000340",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 5UN",
+        "preco": "R$ 5,24",
+        "categoria": "Limpeza",
+        "quantidade": 49
+    },
+    {
+        "id_produto": "000341",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 500ML",
+        "preco": "R$ 1,83",
+        "categoria": "Papelaria",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000342",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1KG",
+        "preco": "R$ 11,97",
+        "categoria": "Higiene",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000343",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 1KG",
+        "preco": "R$ 3,82",
+        "categoria": "Papelaria",
+        "quantidade": 90
+    },
+    {
+        "id_produto": "000344",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1UN",
+        "preco": "R$ 14,88",
+        "categoria": "Bebidas",
+        "quantidade": 79
+    },
+    {
+        "id_produto": "000345",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 200G",
+        "preco": "R$ 12,24",
+        "categoria": "Alimentos",
+        "quantidade": 36
+    },
+    {
+        "id_produto": "000346",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 1L",
+        "preco": "R$ 11,82",
+        "categoria": "Alimentos",
+        "quantidade": 90
+    },
+    {
+        "id_produto": "000347",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 1UN",
+        "preco": "R$ 12,21",
+        "categoria": "Bebidas",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000348",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 5UN",
+        "preco": "R$ 8,15",
+        "categoria": "Limpeza",
+        "quantidade": 46
+    },
+    {
+        "id_produto": "000349",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 300G",
+        "preco": "R$ 14,44",
+        "categoria": "Limpeza",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000350",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1KG",
+        "preco": "R$ 8,81",
+        "categoria": "Higiene",
+        "quantidade": 78
+    },
+    {
+        "id_produto": "000351",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 300G",
+        "preco": "R$ 13,58",
+        "categoria": "Papelaria",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000352",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 5UN",
+        "preco": "R$ 3,23",
+        "categoria": "Papelaria",
+        "quantidade": 22
+    },
+    {
+        "id_produto": "000353",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 500ML",
+        "preco": "R$ 6,68",
+        "categoria": "Limpeza",
+        "quantidade": 18
+    },
+    {
+        "id_produto": "000354",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 250ML",
+        "preco": "R$ 12,63",
+        "categoria": "Bebidas",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000355",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 100ML",
+        "preco": "R$ 10,71",
+        "categoria": "Papelaria",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000356",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 6,83",
+        "categoria": "Limpeza",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000357",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 5UN",
+        "preco": "R$ 6,32",
+        "categoria": "Higiene",
+        "quantidade": 60
+    },
+    {
+        "id_produto": "000358",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 5UN",
+        "preco": "R$ 9,13",
+        "categoria": "Papelaria",
+        "quantidade": 41
+    },
+    {
+        "id_produto": "000359",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 100ML",
+        "preco": "R$ 9,47",
+        "categoria": "Bebidas",
+        "quantidade": 17
+    },
+    {
+        "id_produto": "000360",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 200G",
+        "preco": "R$ 7,54",
+        "categoria": "Bebidas",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000361",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 500ML",
+        "preco": "R$ 2,82",
+        "categoria": "Bebidas",
+        "quantidade": 77
+    },
+    {
+        "id_produto": "000362",
+        "nome": "Cereal",
+        "descricao": "Cereal - Embalagem 250ML",
+        "preco": "R$ 14,78",
+        "categoria": "Alimentos",
+        "quantidade": 32
+    },
+    {
+        "id_produto": "000363",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 500ML",
+        "preco": "R$ 5,59",
+        "categoria": "Papelaria",
+        "quantidade": 72
+    },
+    {
+        "id_produto": "000364",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1L",
+        "preco": "R$ 13,66",
+        "categoria": "Bebidas",
+        "quantidade": 14
+    },
+    {
+        "id_produto": "000365",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 300G",
+        "preco": "R$ 4,29",
+        "categoria": "Alimentos",
+        "quantidade": 79
+    },
+    {
+        "id_produto": "000366",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 5UN",
+        "preco": "R$ 14,33",
+        "categoria": "Limpeza",
+        "quantidade": 47
+    },
+    {
+        "id_produto": "000367",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 300G",
+        "preco": "R$ 6,72",
+        "categoria": "Papelaria",
+        "quantidade": 34
+    },
+    {
+        "id_produto": "000368",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 100ML",
+        "preco": "R$ 5,77",
+        "categoria": "Alimentos",
+        "quantidade": 68
+    },
+    {
+        "id_produto": "000369",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1UN",
+        "preco": "R$ 11,02",
+        "categoria": "Higiene",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000370",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 300G",
+        "preco": "R$ 13,32",
+        "categoria": "Higiene",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000371",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 1L",
+        "preco": "R$ 4,49",
+        "categoria": "Bebidas",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000372",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 500ML",
+        "preco": "R$ 1,81",
+        "categoria": "Bebidas",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000373",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 5UN",
+        "preco": "R$ 14,63",
+        "categoria": "Limpeza",
+        "quantidade": 100
+    },
+    {
+        "id_produto": "000374",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 250ML",
+        "preco": "R$ 11,63",
+        "categoria": "Alimentos",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000375",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1L",
+        "preco": "R$ 8,98",
+        "categoria": "Alimentos",
+        "quantidade": 97
+    },
+    {
+        "id_produto": "000376",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 100ML",
+        "preco": "R$ 11,45",
+        "categoria": "Bebidas",
+        "quantidade": 27
+    },
+    {
+        "id_produto": "000377",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 500ML",
+        "preco": "R$ 13,73",
+        "categoria": "Bebidas",
+        "quantidade": 22
+    },
+    {
+        "id_produto": "000378",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 1L",
+        "preco": "R$ 8,00",
+        "categoria": "Bebidas",
+        "quantidade": 67
+    },
+    {
+        "id_produto": "000379",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 5UN",
+        "preco": "R$ 11,49",
+        "categoria": "Higiene",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000380",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 500ML",
+        "preco": "R$ 9,82",
+        "categoria": "Limpeza",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000381",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 1KG",
+        "preco": "R$ 10,34",
+        "categoria": "Limpeza",
+        "quantidade": 13
+    },
+    {
+        "id_produto": "000382",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 100ML",
+        "preco": "R$ 12,15",
+        "categoria": "Higiene",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000383",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 500ML",
+        "preco": "R$ 7,86",
+        "categoria": "Alimentos",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000384",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 100ML",
+        "preco": "R$ 9,03",
+        "categoria": "Alimentos",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000385",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 300G",
+        "preco": "R$ 4,55",
+        "categoria": "Higiene",
+        "quantidade": 23
+    },
+    {
+        "id_produto": "000386",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 500ML",
+        "preco": "R$ 13,59",
+        "categoria": "Alimentos",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000387",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 1KG",
+        "preco": "R$ 14,60",
+        "categoria": "Limpeza",
+        "quantidade": 9
+    },
+    {
+        "id_produto": "000388",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1KG",
+        "preco": "R$ 2,00",
+        "categoria": "Higiene",
+        "quantidade": 35
+    },
+    {
+        "id_produto": "000389",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 1UN",
+        "preco": "R$ 10,35",
+        "categoria": "Bebidas",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000390",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 500ML",
+        "preco": "R$ 1,58",
+        "categoria": "Bebidas",
+        "quantidade": 52
+    },
+    {
+        "id_produto": "000391",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 5UN",
+        "preco": "R$ 14,32",
+        "categoria": "Limpeza",
+        "quantidade": 100
+    },
+    {
+        "id_produto": "000392",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 500ML",
+        "preco": "R$ 10,54",
+        "categoria": "Higiene",
+        "quantidade": 65
+    },
+    {
+        "id_produto": "000393",
+        "nome": "Shampoo",
+        "descricao": "Shampoo - Embalagem 300G",
+        "preco": "R$ 4,18",
+        "categoria": "Higiene",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000394",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 1L",
+        "preco": "R$ 11,24",
+        "categoria": "Papelaria",
+        "quantidade": 78
+    },
+    {
+        "id_produto": "000395",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 1KG",
+        "preco": "R$ 9,89",
+        "categoria": "Bebidas",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000396",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1UN",
+        "preco": "R$ 4,12",
+        "categoria": "Papelaria",
+        "quantidade": 20
+    },
+    {
+        "id_produto": "000397",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 5UN",
+        "preco": "R$ 13,13",
+        "categoria": "Higiene",
+        "quantidade": 6
+    },
+    {
+        "id_produto": "000398",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 10,48",
+        "categoria": "Limpeza",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000399",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 1KG",
+        "preco": "R$ 2,83",
+        "categoria": "Bebidas",
+        "quantidade": 63
+    },
+    {
+        "id_produto": "000400",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 200G",
+        "preco": "R$ 4,54",
+        "categoria": "Higiene",
+        "quantidade": 79
+    },
+    {
+        "id_produto": "000401",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 2L",
+        "preco": "R$ 6,88",
+        "categoria": "Bebidas",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000402",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 1KG",
+        "preco": "R$ 1,85",
+        "categoria": "Bebidas",
+        "quantidade": 84
+    },
+    {
+        "id_produto": "000403",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 1UN",
+        "preco": "R$ 13,42",
+        "categoria": "Bebidas",
+        "quantidade": 60
+    },
+    {
+        "id_produto": "000404",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 9,49",
+        "categoria": "Limpeza",
+        "quantidade": 87
+    },
+    {
+        "id_produto": "000405",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 1KG",
+        "preco": "R$ 7,45",
+        "categoria": "Higiene",
+        "quantidade": 85
+    },
+    {
+        "id_produto": "000406",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 1KG",
+        "preco": "R$ 3,96",
+        "categoria": "Limpeza",
+        "quantidade": 25
+    },
+    {
+        "id_produto": "000407",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 200G",
+        "preco": "R$ 10,50",
+        "categoria": "Higiene",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000408",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 1UN",
+        "preco": "R$ 14,13",
+        "categoria": "Bebidas",
+        "quantidade": 50
+    },
+    {
+        "id_produto": "000409",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 100ML",
+        "preco": "R$ 10,18",
+        "categoria": "Bebidas",
+        "quantidade": 47
+    },
+    {
+        "id_produto": "000410",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1KG",
+        "preco": "R$ 12,01",
+        "categoria": "Higiene",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000411",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 200G",
+        "preco": "R$ 5,66",
+        "categoria": "Alimentos",
+        "quantidade": 6
+    },
+    {
+        "id_produto": "000412",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 200G",
+        "preco": "R$ 10,90",
+        "categoria": "Limpeza",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000413",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1L",
+        "preco": "R$ 13,03",
+        "categoria": "Alimentos",
+        "quantidade": 72
+    },
+    {
+        "id_produto": "000414",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 250ML",
+        "preco": "R$ 14,70",
+        "categoria": "Bebidas",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000415",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 2L",
+        "preco": "R$ 9,28",
+        "categoria": "Papelaria",
+        "quantidade": 90
+    },
+    {
+        "id_produto": "000416",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 1UN",
+        "preco": "R$ 10,56",
+        "categoria": "Papelaria",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000417",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 200G",
+        "preco": "R$ 3,38",
+        "categoria": "Higiene",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000418",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1UN",
+        "preco": "R$ 12,38",
+        "categoria": "Alimentos",
+        "quantidade": 34
+    },
+    {
+        "id_produto": "000419",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 1KG",
+        "preco": "R$ 9,17",
+        "categoria": "Higiene",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000420",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 2L",
+        "preco": "R$ 13,32",
+        "categoria": "Limpeza",
+        "quantidade": 88
+    },
+    {
+        "id_produto": "000421",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 5UN",
+        "preco": "R$ 11,11",
+        "categoria": "Limpeza",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000422",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 300G",
+        "preco": "R$ 3,24",
+        "categoria": "Papelaria",
+        "quantidade": 100
+    },
+    {
+        "id_produto": "000423",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 500ML",
+        "preco": "R$ 5,85",
+        "categoria": "Bebidas",
+        "quantidade": 85
+    },
+    {
+        "id_produto": "000424",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 2L",
+        "preco": "R$ 2,89",
+        "categoria": "Papelaria",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000425",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 100ML",
+        "preco": "R$ 13,96",
+        "categoria": "Bebidas",
+        "quantidade": 26
+    },
+    {
+        "id_produto": "000426",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 250ML",
+        "preco": "R$ 2,34",
+        "categoria": "Papelaria",
+        "quantidade": 97
+    },
+    {
+        "id_produto": "000427",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 300G",
+        "preco": "R$ 11,35",
+        "categoria": "Limpeza",
+        "quantidade": 79
+    },
+    {
+        "id_produto": "000428",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 1UN",
+        "preco": "R$ 12,21",
+        "categoria": "Higiene",
+        "quantidade": 7
+    },
+    {
+        "id_produto": "000429",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 500ML",
+        "preco": "R$ 3,80",
+        "categoria": "Papelaria",
+        "quantidade": 32
+    },
+    {
+        "id_produto": "000430",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 1UN",
+        "preco": "R$ 6,46",
+        "categoria": "Bebidas",
+        "quantidade": 5
+    },
+    {
+        "id_produto": "000431",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 1UN",
+        "preco": "R$ 6,18",
+        "categoria": "Papelaria",
+        "quantidade": 72
+    },
+    {
+        "id_produto": "000432",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 5UN",
+        "preco": "R$ 4,37",
+        "categoria": "Higiene",
+        "quantidade": 45
+    },
+    {
+        "id_produto": "000433",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 2L",
+        "preco": "R$ 3,63",
+        "categoria": "Higiene",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000434",
+        "nome": "Biscoito",
+        "descricao": "Biscoito - Embalagem 1L",
+        "preco": "R$ 12,01",
+        "categoria": "Alimentos",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000435",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 300G",
+        "preco": "R$ 7,01",
+        "categoria": "Papelaria",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000436",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 1KG",
+        "preco": "R$ 12,20",
+        "categoria": "Limpeza",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000437",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 500ML",
+        "preco": "R$ 11,88",
+        "categoria": "Papelaria",
+        "quantidade": 70
+    },
+    {
+        "id_produto": "000438",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 2L",
+        "preco": "R$ 11,81",
+        "categoria": "Bebidas",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000439",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 5UN",
+        "preco": "R$ 13,09",
+        "categoria": "Higiene",
+        "quantidade": 25
+    },
+    {
+        "id_produto": "000440",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 100ML",
+        "preco": "R$ 8,22",
+        "categoria": "Higiene",
+        "quantidade": 74
+    },
+    {
+        "id_produto": "000441",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 2L",
+        "preco": "R$ 2,69",
+        "categoria": "Limpeza",
+        "quantidade": 64
+    },
+    {
+        "id_produto": "000442",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 250ML",
+        "preco": "R$ 12,86",
+        "categoria": "Bebidas",
+        "quantidade": 72
+    },
+    {
+        "id_produto": "000443",
+        "nome": "Detergente",
+        "descricao": "Detergente - Embalagem 2L",
+        "preco": "R$ 3,13",
+        "categoria": "Limpeza",
+        "quantidade": 80
+    },
+    {
+        "id_produto": "000444",
+        "nome": "Multiuso",
+        "descricao": "Multiuso - Embalagem 200G",
+        "preco": "R$ 9,64",
+        "categoria": "Limpeza",
+        "quantidade": 48
+    },
+    {
+        "id_produto": "000445",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 100ML",
+        "preco": "R$ 9,15",
+        "categoria": "Bebidas",
+        "quantidade": 77
+    },
+    {
+        "id_produto": "000446",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 500ML",
+        "preco": "R$ 13,97",
+        "categoria": "Bebidas",
+        "quantidade": 81
+    },
+    {
+        "id_produto": "000447",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 1KG",
+        "preco": "R$ 11,82",
+        "categoria": "Bebidas",
+        "quantidade": 27
+    },
+    {
+        "id_produto": "000448",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 1UN",
+        "preco": "R$ 10,10",
+        "categoria": "Higiene",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000449",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 5UN",
+        "preco": "R$ 11,74",
+        "categoria": "Alimentos",
+        "quantidade": 20
+    },
+    {
+        "id_produto": "000450",
+        "nome": "Apontador",
+        "descricao": "Apontador - Embalagem 250ML",
+        "preco": "R$ 5,76",
+        "categoria": "Papelaria",
+        "quantidade": 14
+    },
+    {
+        "id_produto": "000451",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 250ML",
+        "preco": "R$ 7,29",
+        "categoria": "Higiene",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000452",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1KG",
+        "preco": "R$ 7,26",
+        "categoria": "Higiene",
+        "quantidade": 66
+    },
+    {
+        "id_produto": "000453",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 5UN",
+        "preco": "R$ 3,62",
+        "categoria": "Limpeza",
+        "quantidade": 65
+    },
+    {
+        "id_produto": "000454",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 300G",
+        "preco": "R$ 10,62",
+        "categoria": "Limpeza",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000455",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 5UN",
+        "preco": "R$ 13,37",
+        "categoria": "Bebidas",
+        "quantidade": 9
+    },
+    {
+        "id_produto": "000456",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 300G",
+        "preco": "R$ 11,33",
+        "categoria": "Limpeza",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000457",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 250ML",
+        "preco": "R$ 14,99",
+        "categoria": "Papelaria",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000458",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 300G",
+        "preco": "R$ 13,34",
+        "categoria": "Papelaria",
+        "quantidade": 15
+    },
+    {
+        "id_produto": "000459",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 300G",
+        "preco": "R$ 2,31",
+        "categoria": "Alimentos",
+        "quantidade": 53
+    },
+    {
+        "id_produto": "000460",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 250ML",
+        "preco": "R$ 1,61",
+        "categoria": "Higiene",
+        "quantidade": 84
+    },
+    {
+        "id_produto": "000461",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1KG",
+        "preco": "R$ 4,02",
+        "categoria": "Higiene",
+        "quantidade": 98
+    },
+    {
+        "id_produto": "000462",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 300G",
+        "preco": "R$ 11,17",
+        "categoria": "Bebidas",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000463",
+        "nome": "Pão",
+        "descricao": "Pão - Embalagem 1L",
+        "preco": "R$ 8,66",
+        "categoria": "Alimentos",
+        "quantidade": 39
+    },
+    {
+        "id_produto": "000464",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 1L",
+        "preco": "R$ 6,18",
+        "categoria": "Bebidas",
+        "quantidade": 24
+    },
+    {
+        "id_produto": "000465",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1KG",
+        "preco": "R$ 9,38",
+        "categoria": "Higiene",
+        "quantidade": 93
+    },
+    {
+        "id_produto": "000466",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 1KG",
+        "preco": "R$ 10,26",
+        "categoria": "Papelaria",
+        "quantidade": 60
+    },
+    {
+        "id_produto": "000467",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1L",
+        "preco": "R$ 14,08",
+        "categoria": "Bebidas",
+        "quantidade": 19
+    },
+    {
+        "id_produto": "000468",
+        "nome": "Refrigerante",
+        "descricao": "Refrigerante - Embalagem 500ML",
+        "preco": "R$ 10,17",
+        "categoria": "Bebidas",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000469",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 100ML",
+        "preco": "R$ 9,51",
+        "categoria": "Higiene",
+        "quantidade": 88
+    },
+    {
+        "id_produto": "000470",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 300G",
+        "preco": "R$ 7,77",
+        "categoria": "Papelaria",
+        "quantidade": 80
+    },
+    {
+        "id_produto": "000471",
+        "nome": "Sabão em pó",
+        "descricao": "Sabão em pó - Embalagem 500ML",
+        "preco": "R$ 8,26",
+        "categoria": "Limpeza",
+        "quantidade": 81
+    },
+    {
+        "id_produto": "000472",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 1KG",
+        "preco": "R$ 11,88",
+        "categoria": "Bebidas",
+        "quantidade": 12
+    },
+    {
+        "id_produto": "000473",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 300G",
+        "preco": "R$ 9,76",
+        "categoria": "Alimentos",
+        "quantidade": 31
+    },
+    {
+        "id_produto": "000474",
+        "nome": "Bolo",
+        "descricao": "Bolo - Embalagem 100ML",
+        "preco": "R$ 13,40",
+        "categoria": "Alimentos",
+        "quantidade": 63
+    },
+    {
+        "id_produto": "000475",
+        "nome": "Água sanitária",
+        "descricao": "Água sanitária - Embalagem 500ML",
+        "preco": "R$ 4,37",
+        "categoria": "Limpeza",
+        "quantidade": 9
+    },
+    {
+        "id_produto": "000476",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 1KG",
+        "preco": "R$ 12,73",
+        "categoria": "Higiene",
+        "quantidade": 21
+    },
+    {
+        "id_produto": "000477",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 5UN",
+        "preco": "R$ 5,80",
+        "categoria": "Bebidas",
+        "quantidade": 62
+    },
+    {
+        "id_produto": "000478",
+        "nome": "Chá",
+        "descricao": "Chá - Embalagem 500ML",
+        "preco": "R$ 13,28",
+        "categoria": "Bebidas",
+        "quantidade": 96
+    },
+    {
+        "id_produto": "000479",
+        "nome": "Lápis",
+        "descricao": "Lápis - Embalagem 1L",
+        "preco": "R$ 11,19",
+        "categoria": "Papelaria",
+        "quantidade": 75
+    },
+    {
+        "id_produto": "000480",
+        "nome": "Caderno",
+        "descricao": "Caderno - Embalagem 200G",
+        "preco": "R$ 7,53",
+        "categoria": "Papelaria",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000481",
+        "nome": "Cerveja",
+        "descricao": "Cerveja - Embalagem 300G",
+        "preco": "R$ 9,60",
+        "categoria": "Bebidas",
+        "quantidade": 73
+    },
+    {
+        "id_produto": "000482",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 300G",
+        "preco": "R$ 10,89",
+        "categoria": "Limpeza",
+        "quantidade": 25
+    },
+    {
+        "id_produto": "000483",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 2L",
+        "preco": "R$ 1,71",
+        "categoria": "Limpeza",
+        "quantidade": 77
+    },
+    {
+        "id_produto": "000484",
+        "nome": "Sabonete",
+        "descricao": "Sabonete - Embalagem 200G",
+        "preco": "R$ 5,54",
+        "categoria": "Higiene",
+        "quantidade": 86
+    },
+    {
+        "id_produto": "000485",
+        "nome": "Energético",
+        "descricao": "Energético - Embalagem 500ML",
+        "preco": "R$ 2,25",
+        "categoria": "Bebidas",
+        "quantidade": 89
+    },
+    {
+        "id_produto": "000486",
+        "nome": "Suco",
+        "descricao": "Suco - Embalagem 250ML",
+        "preco": "R$ 3,01",
+        "categoria": "Bebidas",
+        "quantidade": 47
+    },
+    {
+        "id_produto": "000487",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 200G",
+        "preco": "R$ 2,50",
+        "categoria": "Higiene",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000488",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 100ML",
+        "preco": "R$ 6,40",
+        "categoria": "Bebidas",
+        "quantidade": 43
+    },
+    {
+        "id_produto": "000489",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 1KG",
+        "preco": "R$ 11,71",
+        "categoria": "Alimentos",
+        "quantidade": 71
+    },
+    {
+        "id_produto": "000490",
+        "nome": "Desodorante",
+        "descricao": "Desodorante - Embalagem 250ML",
+        "preco": "R$ 1,77",
+        "categoria": "Higiene",
+        "quantidade": 83
+    },
+    {
+        "id_produto": "000491",
+        "nome": "Bolacha",
+        "descricao": "Bolacha - Embalagem 250ML",
+        "preco": "R$ 14,03",
+        "categoria": "Alimentos",
+        "quantidade": 80
+    },
+    {
+        "id_produto": "000492",
+        "nome": "Condicionador",
+        "descricao": "Condicionador - Embalagem 1KG",
+        "preco": "R$ 2,67",
+        "categoria": "Higiene",
+        "quantidade": 51
+    },
+    {
+        "id_produto": "000493",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 1L",
+        "preco": "R$ 15,00",
+        "categoria": "Bebidas",
+        "quantidade": 54
+    },
+    {
+        "id_produto": "000494",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 500ML",
+        "preco": "R$ 10,16",
+        "categoria": "Alimentos",
+        "quantidade": 96
+    },
+    {
+        "id_produto": "000495",
+        "nome": "Caneta",
+        "descricao": "Caneta - Embalagem 100ML",
+        "preco": "R$ 5,55",
+        "categoria": "Papelaria",
+        "quantidade": 16
+    },
+    {
+        "id_produto": "000496",
+        "nome": "Creme dental",
+        "descricao": "Creme dental - Embalagem 2L",
+        "preco": "R$ 7,71",
+        "categoria": "Higiene",
+        "quantidade": 84
+    },
+    {
+        "id_produto": "000497",
+        "nome": "Salgadinho",
+        "descricao": "Salgadinho - Embalagem 1L",
+        "preco": "R$ 9,02",
+        "categoria": "Alimentos",
+        "quantidade": 94
+    },
+    {
+        "id_produto": "000498",
+        "nome": "Desinfetante",
+        "descricao": "Desinfetante - Embalagem 500ML",
+        "preco": "R$ 12,28",
+        "categoria": "Limpeza",
+        "quantidade": 91
+    },
+    {
+        "id_produto": "000499",
+        "nome": "Borracha",
+        "descricao": "Borracha - Embalagem 100ML",
+        "preco": "R$ 5,35",
+        "categoria": "Papelaria",
+        "quantidade": 30
+    },
+    {
+        "id_produto": "000500",
+        "nome": "Água",
+        "descricao": "Água - Embalagem 1KG",
+        "preco": "R$ 6,34",
+        "categoria": "Bebidas",
+        "quantidade": 53
     }
 ]

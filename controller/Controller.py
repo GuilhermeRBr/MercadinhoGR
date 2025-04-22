@@ -90,17 +90,18 @@ class ClienteController:
 class FuncionarioController:
     @classmethod
     def cadastrar_funcionario(cls):
-        nome = validar_nome() 
-        cpf = formatar_cpf()
-        telefone = formatar_telefone()
-        email = validar_email()
-        endereco = validar_endereco()
-        data_nascimento = formatar_data()
-        cargo = validar_cargo()
-        salario = formatar_dinheiro()
+        nome = 'Felipe'
+        cpf = '453.453.434-41'
+        telefone = '(65) 21255-4321'
+        email = 'felipe@gmail.com'
+        senha = '123456'
+        endereco = 'Rua A, 123'
+        data_nascimento = '11112000'
+        cargo = 'Caixa'
+        salario = 'R$ 1.500,00'
 
         try:
-            funcionario = Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario)
+            funcionario = Funcionario(nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario)
             FuncionarioDAO.salvar_funcionario(funcionario)
             print("\nFuncionário cadastrado com sucesso!") 
         except ValueError as e:

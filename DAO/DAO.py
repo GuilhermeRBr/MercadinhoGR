@@ -141,6 +141,7 @@ class FuncionarioDAO:
             'cpf': funcionario.cpf,
             'telefone': funcionario.telefone,
             'email': funcionario.email,
+            'senha': funcionario.senha,
             'endereco': funcionario.endereco,
             'data_nascimento': funcionario.data_nascimento,
             'cargo': funcionario.cargo,

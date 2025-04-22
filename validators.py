@@ -105,3 +105,13 @@ def validar_cargo():
             print("Cargo deve ter pelo menos 3 caracteres.")
         else:
             return cargo.title()
+
+def validar_senha():
+    while True:
+        senha = input('SENHA: ')
+        if not senha.strip():
+            print("Senha não pode ser vazia.")
+        elif len(senha) < 6:
+            print("Senha deve ter pelo menos 6 caracteres.")
+        else:
+            return senha

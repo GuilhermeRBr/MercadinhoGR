@@ -8,10 +8,11 @@ class Pessoa:
         self.data_nascimento = data_nascimento
 
 class Funcionario(Pessoa):
-    def __init__(self, nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario=None):
+    def __init__(self, nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario, id_funcionario=None):
         super().__init__(nome, cpf, telefone, email, endereco, data_nascimento)
         self.cargo = cargo
         self.salario = salario
+        self.senha = senha
         self.id_funcionario = id_funcionario
 
 class Cliente(Pessoa):
@@ -51,11 +52,6 @@ class Estoque:
         self.id_estoque = id_estoque
         self.id_produto = id_produto
         self.quantidade = quantidade
-
-class Categoria:
-    def __init__(self, id_categoria, nome_categoria):
-        self.id_categoria = id_categoria
-        self.nome_categoria = nome_categoria
 
 class Caixa:
     def __init__(self, id_caixa, id_funcionario, data_abertura, data_fechamento):

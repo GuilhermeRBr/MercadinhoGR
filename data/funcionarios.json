@@ -5,6 +5,7 @@
         "cpf": "673.342.434-41",
         "telefone": "(89) 89755-4221",
         "email": "val32212@gmail.com",
+        "senha": "645123",
         "endereco": "Rua A, 123",
         "data_nascimento": "13/04/1990",
         "cargo": "Empacotador",
@@ -16,6 +17,7 @@
         "cpf": "453.452.434-41",
         "telefone": "(65) 21255-4221",
         "email": "go2532@gmail.com",
+        "senha": "856949",
         "endereco": "Rua A, 123",
         "data_nascimento": "11112000",
         "cargo": "Gerente",
@@ -27,9 +29,22 @@
         "cpf": "567.656.597-89",
         "telefone": "(99) 65456-4564",
         "email": "gui@gmail.com",
+        "senha": "542123",
         "endereco": "Centro, 545",
         "data_nascimento": "14/06/1996",
         "cargo": "Dono",
         "salario": "R$ 500.000,00"
+    },
+    {
+        "id_funcionario": "000004",
+        "nome": "Felipe",
+        "cpf": "453.453.434-41",
+        "telefone": "(65) 21255-4321",
+        "email": "felipe@gmail.com",
+        "senha": "123456",
+        "endereco": "Rua A, 123",
+        "data_nascimento": "11112000",
+        "cargo": "Caixa",
+        "salario": "R$ 1.500,00"
     }
 ]
