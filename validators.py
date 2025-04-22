@@ -42,7 +42,7 @@ def validar_id():
         elif len(id) > 6:
             print("ID deve ter no maximo 6 dígitos.")
         else:
-            return formatar_id(id)
+            return formatar_id(str(id))
 
 
 def validar_quantidade():
@@ -114,4 +114,4 @@ def validar_senha():
         elif len(senha) < 6:
             print("Senha deve ter pelo menos 6 caracteres.")
         else:
-            return senha
+            return str(senha)

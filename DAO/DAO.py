@@ -1,9 +1,19 @@
 import json
-import os
-import sys
 from generator import gerar_id
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Models import Cliente, Funcionario, Produto, Fornecedor
+
+
+class CaixaDAO:
+    @classmethod
+    def login_funcionario(cls, id, senha):
+        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            funcionarios = json.load(arq)
+        
+        for f in funcionarios:
+            if f['id_funcionario'] == id and f['senha'] == senha:
+                return True
+        
+                    
 
 class ClienteDAO:
     @classmethod
@@ -390,5 +400,6 @@ class FornecedorDAO:
 
                 return Fornecedor(nome, cnpj, telefone, email, endereco, id_fornecedor)
             
+    
 
 

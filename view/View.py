@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController
 from validators import *
 from formatters import *
 
@@ -46,7 +46,8 @@ class Mercado:
                 case _:
                     print('Opção inválida!')
     def caixa(self):
-        print('Caixa')
+        print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
+        CaixaController.logar_caixa()
     
     def gerenciar_clientes(self):
 

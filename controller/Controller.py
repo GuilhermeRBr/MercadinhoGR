@@ -3,11 +3,25 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO
-from models.Models import Cliente, Funcionario, Produto, Fornecedor
+from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO, CaixaDAO
+from models.Models import Cliente, Funcionario, Produto, Fornecedor, Caixa
 from validators import *
 from formatters import *
 from generator import *
+
+
+class CaixaController:
+    @classmethod
+    def logar_caixa(cls):
+        id_funcionario = validar_id()
+        senha = validar_senha()
+        caixa = CaixaDAO.login_funcionario(id_funcionario, senha)
+
+        if caixa == True:
+            print('\nLogado com sucesso!' \
+            'O CAIXA AGORA ESTÁ ABERTO')
+        else:
+            print(f'\nUsuário ou senha inválidos!')
 
 class ClienteController:
     @classmethod
@@ -261,7 +275,6 @@ class ProdutoController:
             print(f'\nID: {pesq_produto.id_produto} | Nome: {pesq_produto.nome} | Descrição: {pesq_produto.descricao} | Preço: {pesq_produto.preco} |Categoria: {pesq_produto.categoria} | Quantidade: {pesq_produto.quantidade}\n')
         except:
             print(f"\nProduto com ID {id_produto} não encontrado!")
-
 
 class FornecedorController:
     @classmethod
