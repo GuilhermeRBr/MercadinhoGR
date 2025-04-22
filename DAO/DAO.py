@@ -1,7 +1,7 @@
 import json
 import os
 import sys
-from formatters import formatar_id
+from generator import gerar_id
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.Models import Cliente, Funcionario, Produto, Fornecedor
 
@@ -16,15 +16,10 @@ class ClienteDAO:
         except FileNotFoundError:
             clientes = []
 
-        ids_usados = sorted(int(c['id_cliente']) for c in clientes)
-        id_cliente = 1
-        for id_existente in ids_usados:
-            if id_existente == id_cliente:
-                id_cliente += 1
-            else:
-                break
-
+        id_cliente = gerar_id()
         for c in clientes:
+            if c['id_cliente'] == id_cliente:
+                id_cliente = gerar_id()
             if c['cpf'] == cliente.cpf:
                 erros.append(f"Erro: CPF '{cliente.cpf}' já cadastrado.")
             if c['telefone'] == cliente.telefone:
@@ -35,7 +30,7 @@ class ClienteDAO:
             raise ValueError('\n'.join(erros))
         
         clientes.append({
-            'id_cliente': formatar_id(str(id_cliente)),
+            'id_cliente': id_cliente,
             'nome': cliente.nome,
             'cpf': cliente.cpf,
             'telefone': cliente.telefone,
@@ -117,15 +112,10 @@ class FuncionarioDAO:
         except FileNotFoundError:
             funcionarios = []
 
-        ids_usados = sorted(int(f['id_funcionario']) for f in funcionarios)
-        id_funcionario = 1
-        for id_exitente in ids_usados:
-            if id_exitente == id_funcionario:
-                id_funcionario += 1
-            else:
-                break
-        
+        id_funcionario = gerar_id()
         for f in funcionarios:
+            if f['id_funcionario'] == id_funcionario:
+                id_funcionario = gerar_id()
             if f['cpf'] == funcionario.cpf:
                 erros.append(f'Erro: CPF {funcionario.cpf} já cadastrado.')
             if f['telefone'] == funcionario.telefone:
@@ -136,7 +126,7 @@ class FuncionarioDAO:
             raise ValueError('\n'.join(erros))
 
         funcionarios.append({
-            'id_funcionario': formatar_id(str(id_funcionario)),
+            'id_funcionario': id_funcionario,
             'nome': funcionario.nome,
             'cpf': funcionario.cpf,
             'telefone': funcionario.telefone,
@@ -158,8 +148,8 @@ class FuncionarioDAO:
             lista_funcionarios = []
             
             for f in funcionarios:
-                id_funcionario, nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario = f.values()
-                funcionario = Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario)
+                id_funcionario, nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario = f.values()
+                funcionario = Funcionario(nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario, id_funcionario)
                 lista_funcionarios.append(funcionario)
 
             return lista_funcionarios
@@ -210,9 +200,9 @@ class FuncionarioDAO:
 
         for f in funcionarios:
             if f['cpf'] == cpf:
-                id_funcionario, nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario = f.values()
+                id_funcionario, nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario = f.values()
                 
-                return Funcionario(nome, cpf, telefone, email, endereco, data_nascimento, cargo, salario, id_funcionario)
+                return Funcionario(nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario, id_funcionario)
             
 class ProdutoDAO:
     @classmethod
@@ -225,21 +215,17 @@ class ProdutoDAO:
         except FileNotFoundError:
             produtos = []
 
-        ids_usados = sorted(int(p['id_produto']) for p in produtos)
-        id_produto = 1
-        for id_exitente in ids_usados:
-            if id_exitente == id_produto:
-                id_produto += 1
-            else:
-                break
+        id_produto = gerar_id()
         for p in produtos:
+            if p['id_produto'] == id_produto:
+                id_produto = gerar_id()
             if p['descricao'] == produto.descricao:
                 erros.append(f'Erro: Descrição {produto.descricao} já cadastrada.')
         if erros:
             raise ValueError('\n'.join(erros))
         
         produtos.append({
-            'id_produto': formatar_id(str(id_produto)),
+            'id_produto': id_produto,
             'nome': produto.nome,
             'descricao': produto.descricao,
             'preco': produto.preco,
@@ -319,16 +305,11 @@ class FornecedorDAO:
                 fornecedores = json.load(arq)
         except FileNotFoundError:
             fornecedores = []
-        
-        ids_usados = sorted(int(f['id_fornecedor']) for f in fornecedores)
-        id_fornecedor = 1
-        for id_exitente in ids_usados:
-            if id_exitente == id_fornecedor:
-                id_fornecedor += 1
-            else:
-                break
-        
+
+        id_fornecedor = gerar_id()
         for f in fornecedores:
+            if f['id_fornecedor'] == id_fornecedor:
+                id_fornecedor = gerar_id()
             if f['cnpj'] == fornecedor.cnpj:
                 erros.append(f'Erro: CNPJ {fornecedor.cnpj} já cadastrado.')
             if f['telefone'] == fornecedor.telefone:
@@ -340,7 +321,7 @@ class FornecedorDAO:
             raise ValueError('\n'.join(erros))
         
         fornecedores.append({
-            'id_fornecedor': formatar_id(str(id_fornecedor)),
+            'id_fornecedor': id_fornecedor,
             'nome': fornecedor.nome,
             'cnpj': fornecedor.cnpj,
             'telefone': fornecedor.telefone,

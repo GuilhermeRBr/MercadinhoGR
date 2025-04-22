@@ -7,6 +7,7 @@ from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO
 from models.Models import Cliente, Funcionario, Produto, Fornecedor
 from validators import *
 from formatters import *
+from generator import *
 
 class ClienteController:
     @classmethod
@@ -90,14 +91,14 @@ class ClienteController:
 class FuncionarioController:
     @classmethod
     def cadastrar_funcionario(cls):
-        nome = 'Felipe'
-        cpf = '453.453.434-41'
-        telefone = '(65) 21255-4321'
-        email = 'felipe@gmail.com'
-        senha = '123456'
-        endereco = 'Rua A, 123'
-        data_nascimento = '11112000'
-        cargo = 'Caixa'
+        nome = 'Ana Maria'
+        cpf = '783.752.564-41'
+        telefone = '(55) 21765-4221'
+        email = 'Anam@gmail.com'
+        senha = gerar_senha()
+        endereco = 'Rua A, endereço 123'
+        data_nascimento = '30/12/2000'
+        cargo = 'Caixa 4'
         salario = 'R$ 1.500,00'
 
         try:

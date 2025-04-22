@@ -46,5 +46,41 @@
         "data_nascimento": "11112000",
         "cargo": "Caixa",
         "salario": "R$ 1.500,00"
+    },
+    {
+        "id_funcionario": "132642",
+        "nome": "Maria",
+        "cpf": "453.752.434-41",
+        "telefone": "(55) 21255-4221",
+        "email": "maria@gmail.com",
+        "senha": "wAssri",
+        "endereco": "Rua A, endereço 123",
+        "data_nascimento": "30/12/2000",
+        "cargo": "Caixa 2",
+        "salario": "R$ 1.500,00"
+    },
+    {
+        "id_funcionario": "703910",
+        "nome": "Ana",
+        "cpf": "453.752.564-41",
+        "telefone": "(55) 21675-4221",
+        "email": "Ana@gmail.com",
+        "senha": "M4kurk",
+        "endereco": "Rua A, endereço 123",
+        "data_nascimento": "30/12/2000",
+        "cargo": "Caixa 3",
+        "salario": "R$ 1.500,00"
+    },
+    {
+        "id_funcionario": "099449",
+        "nome": "Ana Maria",
+        "cpf": "783.752.564-41",
+        "telefone": "(55) 21765-4221",
+        "email": "Anam@gmail.com",
+        "senha": "coIVzw",
+        "endereco": "Rua A, endereço 123",
+        "data_nascimento": "30/12/2000",
+        "cargo": "Caixa 4",
+        "salario": "R$ 1.500,00"
     }
 ]
