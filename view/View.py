@@ -53,13 +53,17 @@ class Mercado:
             print('\nDigite O ID e Senha do gerente para desbloquear o caixa:')
             self.caixa_bloqueado = CaixaController.desbloquear_caixa()
 
+
+
+
         if self.caixa_bloqueado == False:
             print('\nCAIXA BLOQUEADO!')
             desbloquear_caixa()
-        else:       
-            print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
-            self.caixa_aberto = CaixaController.logar_caixa()
-            self.caixa_bloqueado = self.caixa_aberto
+        else: 
+            if self.caixa_aberto == False:      
+                print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
+                self.caixa_aberto = CaixaController.logar_caixa()
+                self.caixa_bloqueado = self.caixa_aberto
 
 
 
