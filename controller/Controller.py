@@ -24,11 +24,24 @@ class CaixaController:
                 return True
             else:
                 tentativas -= 1
-                print(f'\nUsuário ou senha inválidos!')
+                print(f'\nID ou senha inválidos!')
                 if tentativas == 0:
                     print('\nLOGIN BLOQUEADO')
                     return False
                 print(f'\nVocê tem {tentativas} tentativas restantes.')
+
+    @classmethod
+    def desbloquear_caixa(cls):
+        id_gerente = validar_id()
+        senha = validar_senha()
+
+        if CaixaDAO.desbloquear_caixa(id_gerente, senha):
+            print('\nO CAIXA AGORA ESTÁ DESBLOQUEADO\n')
+            return True
+        else:
+            print('\nID ou senha inválidos!')
+            return False
+
 
 class ClienteController:
     @classmethod

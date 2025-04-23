@@ -12,6 +12,7 @@ class Mercado:
     def __init__(self):
         self.rodando = True
         self.caixa_aberto = False
+        self.caixa_bloqueado = True
     
     def menu_principal(self):
         print('\nBem-vindo ao sistema de gerenciamento de mercado!')
@@ -30,11 +31,8 @@ class Mercado:
             opcao = validar_opcao()
 
             match opcao:
-                case 1:
-                    if self.caixa_aberto:
-                        print('\nO caixa já está aberto!')
-                    else:
-                        self.caixa()
+                case 1: 
+                    self.caixa()
                 case 2:
                     self.gerenciar_clientes()
                 case 3 :
@@ -51,9 +49,20 @@ class Mercado:
                 case _:
                     print('Opção inválida!')
     def caixa(self):
-        print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
-        self.caixa_aberto = CaixaController.logar_caixa()
-    
+        def desbloquear_caixa():
+            print('\nDigite O ID e Senha do gerente para desbloquear o caixa:')
+            self.caixa_bloqueado = CaixaController.desbloquear_caixa()
+
+        if self.caixa_bloqueado == False:
+            print('\nCAIXA BLOQUEADO!')
+            desbloquear_caixa()
+        else:       
+            print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
+            self.caixa_aberto = CaixaController.logar_caixa()
+            self.caixa_bloqueado = self.caixa_aberto
+
+
+
     def gerenciar_clientes(self):
 
         print('\n == MENU CLIENTES ==\n' \
