@@ -15,8 +15,8 @@ class CaixaController:
     def logar_caixa(cls):
         tentativas = 1
         while tentativas > 0:
-            id_funcionario = validar_id()
-            senha = validar_senha()
+            id_funcionario = '132642'
+            senha = 'wAssri'
 
             if CaixaDAO.login_funcionario(id_funcionario, senha):
                 print('\nLogado com sucesso!\n' \
@@ -41,6 +41,30 @@ class CaixaController:
         else:
             print('\nID ou senha inválidos!')
             return False
+    
+    @classmethod
+    def realizar_venda(cls):
+        total = 0
+        while True:
+            print('\nDigite o ID do produto:')
+            id_produto = validar_id()
+            
+            venda = CaixaDAO.realizar_venda(id_produto)
+
+            if venda == None:
+                print('\nProduto não encontrado!')
+                continue
+
+            while True:
+                for v in venda:
+                    print(f'\nProduto: {v.nome} | Preço: {v.preco}')
+                    total += dinheiro_para_float(v.preco)
+                    break
+                break
+
+            print(f'\nTotal: {float_para_dinheiro(total)}')
+           
+
 
 
 class ClienteController:

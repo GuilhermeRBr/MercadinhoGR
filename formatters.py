@@ -73,6 +73,17 @@ def formatar_dinheiro():
         else:
             print("Valor deve conter apenas números.")
 
+def dinheiro_para_float(valor_str):
+    valor_limpo = valor_str.replace("R$", "").strip().replace(",", ".")
+ 
+    return float(valor_limpo)
+
+def float_para_dinheiro(valor_float):
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+    return locale.currency(valor_float, grouping=True)
+
+
+
 def formatar_id(id):
     match len(id):
         case 1:

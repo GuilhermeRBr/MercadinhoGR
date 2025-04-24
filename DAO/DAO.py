@@ -22,7 +22,22 @@ class CaixaDAO:
             if f['cargo'].lower() == 'gerente':
                 if f['id_funcionario'] == id and f['senha'] == senha:
                     return True
-                    
+    
+    @classmethod
+    def realizar_venda(cls, id_produto):
+        with open ('data/produtos.json', 'r', encoding='utf-8') as arq:
+            produtos = json.load(arq)
+            venda = []
+        for p in produtos:
+            if p['id_produto'] == id_produto:
+                p['quantidade'] -= 1
+                id_produto, nome, descricao, preco, categoria, quantidade = p.values()
+                produto = Produto(nome, descricao, preco, categoria, quantidade, id_produto)
+                venda.append(produto)
+                return venda
+
+        with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+            json.dump(produtos, arq, indent=4)
 
 class ClienteDAO:
     @classmethod
