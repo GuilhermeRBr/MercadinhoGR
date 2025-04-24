@@ -30,11 +30,17 @@ class CaixaDAO:
             venda = []
         for p in produtos:
             if p['id_produto'] == id_produto:
-                p['quantidade'] -= 1
-                id_produto, nome, descricao, preco, categoria, quantidade = p.values()
-                produto = Produto(nome, descricao, preco, categoria, quantidade, id_produto)
-                venda.append(produto)
-                return venda
+                if p['quantidade'] == 0:
+                    return False
+                else:
+                    p['quantidade'] -= 1
+                    id_produto, nome, descricao, preco, categoria, quantidade = p.values()
+                    produto = Produto(nome, descricao, preco, categoria, quantidade, id_produto)
+                    venda.append(produto)
+
+                    with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+                        json.dump(produtos, arq, indent=4, ensure_ascii=False)
+                    return venda
 
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4)

@@ -1,11 +1,11 @@
 [
     {
         "id_produto": "528533",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1UN",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1UN",
         "preco": "R$ 8,09",
         "categoria": "Limpeza",
-        "quantidade": 11
+        "quantidade": 38
     },
     {
         "id_produto": "597547",
@@ -25,8 +25,8 @@
     },
     {
         "id_produto": "311326",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 2L",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 2L",
         "preco": "R$ 1,68",
         "categoria": "Bebidas",
         "quantidade": 77
@@ -57,8 +57,8 @@
     },
     {
         "id_produto": "712668",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 250ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 250ML",
         "preco": "R$ 6,81",
         "categoria": "Limpeza",
         "quantidade": 20
@@ -97,8 +97,8 @@
     },
     {
         "id_produto": "385437",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 300G",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 300G",
         "preco": "R$ 2,59",
         "categoria": "Papelaria",
         "quantidade": 74
@@ -169,8 +169,8 @@
     },
     {
         "id_produto": "432936",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 1UN",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 1UN",
         "preco": "R$ 3,99",
         "categoria": "Bebidas",
         "quantidade": 69
@@ -193,8 +193,8 @@
     },
     {
         "id_produto": "888877",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 1UN",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 1UN",
         "preco": "R$ 14,77",
         "categoria": "Bebidas",
         "quantidade": 78
@@ -217,16 +217,16 @@
     },
     {
         "id_produto": "586277",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 500ML",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 500ML",
         "preco": "R$ 9,12",
         "categoria": "Bebidas",
         "quantidade": 15
     },
     {
         "id_produto": "433587",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 2L",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 2L",
         "preco": "R$ 4,12",
         "categoria": "Limpeza",
         "quantidade": 51
@@ -289,8 +289,8 @@
     },
     {
         "id_produto": "235590",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 300G",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 300G",
         "preco": "R$ 2,24",
         "categoria": "Bebidas",
         "quantidade": 72
@@ -345,16 +345,16 @@
     },
     {
         "id_produto": "848332",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 200G",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 200G",
         "preco": "R$ 7,46",
         "categoria": "Bebidas",
         "quantidade": 92
     },
     {
         "id_produto": "766982",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 300G",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 300G",
         "preco": "R$ 1,68",
         "categoria": "Limpeza",
         "quantidade": 93
@@ -441,8 +441,8 @@
     },
     {
         "id_produto": "698860",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1L",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1L",
         "preco": "R$ 4,63",
         "categoria": "Limpeza",
         "quantidade": 39
@@ -465,8 +465,8 @@
     },
     {
         "id_produto": "759983",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 2L",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 2L",
         "preco": "R$ 6,76",
         "categoria": "Papelaria",
         "quantidade": 17
@@ -513,8 +513,8 @@
     },
     {
         "id_produto": "908072",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 500ML",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 500ML",
         "preco": "R$ 8,40",
         "categoria": "Bebidas",
         "quantidade": 19
@@ -561,8 +561,8 @@
     },
     {
         "id_produto": "395457",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1L",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1L",
         "preco": "R$ 2,80",
         "categoria": "Alimentos",
         "quantidade": 46
@@ -585,8 +585,8 @@
     },
     {
         "id_produto": "770946",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 250ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 250ML",
         "preco": "R$ 11,41",
         "categoria": "Limpeza",
         "quantidade": 12
@@ -609,8 +609,8 @@
     },
     {
         "id_produto": "420076",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 1L",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 1L",
         "preco": "R$ 10,37",
         "categoria": "Limpeza",
         "quantidade": 18
@@ -649,8 +649,8 @@
     },
     {
         "id_produto": "693851",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 100ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 100ML",
         "preco": "R$ 5,78",
         "categoria": "Limpeza",
         "quantidade": 99
@@ -665,8 +665,8 @@
     },
     {
         "id_produto": "709474",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 2L",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 2L",
         "preco": "R$ 7,53",
         "categoria": "Papelaria",
         "quantidade": 55
@@ -697,8 +697,8 @@
     },
     {
         "id_produto": "560522",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 250ML",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 250ML",
         "preco": "R$ 7,54",
         "categoria": "Bebidas",
         "quantidade": 18
@@ -729,8 +729,8 @@
     },
     {
         "id_produto": "777262",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 2L",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 2L",
         "preco": "R$ 3,95",
         "categoria": "Limpeza",
         "quantidade": 69
@@ -745,8 +745,8 @@
     },
     {
         "id_produto": "949426",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1KG",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1KG",
         "preco": "R$ 14,40",
         "categoria": "Alimentos",
         "quantidade": 19
@@ -849,8 +849,8 @@
     },
     {
         "id_produto": "785665",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 5UN",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 5UN",
         "preco": "R$ 2,88",
         "categoria": "Bebidas",
         "quantidade": 8
@@ -865,8 +865,8 @@
     },
     {
         "id_produto": "742203",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 1KG",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 1KG",
         "preco": "R$ 12,75",
         "categoria": "Limpeza",
         "quantidade": 98
@@ -897,8 +897,8 @@
     },
     {
         "id_produto": "957796",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 2L",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 2L",
         "preco": "R$ 3,47",
         "categoria": "Limpeza",
         "quantidade": 26
@@ -921,8 +921,8 @@
     },
     {
         "id_produto": "764871",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 12,07",
         "categoria": "Papelaria",
         "quantidade": 20
@@ -953,8 +953,8 @@
     },
     {
         "id_produto": "816559",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 200G",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 200G",
         "preco": "R$ 7,00",
         "categoria": "Papelaria",
         "quantidade": 21
@@ -977,8 +977,8 @@
     },
     {
         "id_produto": "269717",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 11,30",
         "categoria": "Papelaria",
         "quantidade": 72
@@ -1001,8 +1001,8 @@
     },
     {
         "id_produto": "134353",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 7,39",
         "categoria": "Papelaria",
         "quantidade": 65
@@ -1017,8 +1017,8 @@
     },
     {
         "id_produto": "687524",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 300G",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 300G",
         "preco": "R$ 7,17",
         "categoria": "Bebidas",
         "quantidade": 82
@@ -1041,8 +1041,8 @@
     },
     {
         "id_produto": "769323",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1UN",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1UN",
         "preco": "R$ 10,16",
         "categoria": "Limpeza",
         "quantidade": 70
@@ -1289,16 +1289,16 @@
     },
     {
         "id_produto": "818915",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 1KG",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 1KG",
         "preco": "R$ 9,68",
         "categoria": "Bebidas",
         "quantidade": 7
     },
     {
         "id_produto": "678544",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 300G",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 300G",
         "preco": "R$ 1,94",
         "categoria": "Limpeza",
         "quantidade": 85
@@ -1313,8 +1313,8 @@
     },
     {
         "id_produto": "995430",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 1KG",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 1KG",
         "preco": "R$ 5,64",
         "categoria": "Limpeza",
         "quantidade": 38
@@ -1337,8 +1337,8 @@
     },
     {
         "id_produto": "117713",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 250ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 250ML",
         "preco": "R$ 7,18",
         "categoria": "Limpeza",
         "quantidade": 87
@@ -1393,16 +1393,16 @@
     },
     {
         "id_produto": "630110",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1UN",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1UN",
         "preco": "R$ 1,96",
         "categoria": "Limpeza",
         "quantidade": 33
     },
     {
         "id_produto": "999173",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 300G",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 300G",
         "preco": "R$ 10,13",
         "categoria": "Alimentos",
         "quantidade": 65
@@ -1433,8 +1433,8 @@
     },
     {
         "id_produto": "169685",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1UN",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1UN",
         "preco": "R$ 4,42",
         "categoria": "Alimentos",
         "quantidade": 52
@@ -1489,8 +1489,8 @@
     },
     {
         "id_produto": "399028",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 1UN",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 1UN",
         "preco": "R$ 4,20",
         "categoria": "Bebidas",
         "quantidade": 20
@@ -1529,8 +1529,8 @@
     },
     {
         "id_produto": "205080",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 250ML",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 250ML",
         "preco": "R$ 2,76",
         "categoria": "Bebidas",
         "quantidade": 34
@@ -1577,8 +1577,8 @@
     },
     {
         "id_produto": "255016",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 1L",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 1L",
         "preco": "R$ 5,94",
         "categoria": "Bebidas",
         "quantidade": 40
@@ -1617,8 +1617,8 @@
     },
     {
         "id_produto": "256782",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 100ML",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 100ML",
         "preco": "R$ 4,30",
         "categoria": "Bebidas",
         "quantidade": 69
@@ -1697,8 +1697,8 @@
     },
     {
         "id_produto": "254578",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 1L",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 1L",
         "preco": "R$ 7,27",
         "categoria": "Bebidas",
         "quantidade": 9
@@ -1729,8 +1729,8 @@
     },
     {
         "id_produto": "698217",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 500ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 500ML",
         "preco": "R$ 4,11",
         "categoria": "Limpeza",
         "quantidade": 96
@@ -1809,8 +1809,8 @@
     },
     {
         "id_produto": "384495",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 200G",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 200G",
         "preco": "R$ 1,53",
         "categoria": "Bebidas",
         "quantidade": 41
@@ -1849,8 +1849,8 @@
     },
     {
         "id_produto": "421005",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 200G",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 200G",
         "preco": "R$ 7,37",
         "categoria": "Bebidas",
         "quantidade": 67
@@ -1889,8 +1889,8 @@
     },
     {
         "id_produto": "940955",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 12,56",
         "categoria": "Papelaria",
         "quantidade": 77
@@ -1913,8 +1913,8 @@
     },
     {
         "id_produto": "566957",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 200G",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 200G",
         "preco": "R$ 11,60",
         "categoria": "Limpeza",
         "quantidade": 36
@@ -2001,24 +2001,24 @@
     },
     {
         "id_produto": "804169",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 2L",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 2L",
         "preco": "R$ 5,64",
         "categoria": "Bebidas",
         "quantidade": 81
     },
     {
         "id_produto": "663022",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 250ML",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 250ML",
         "preco": "R$ 3,35",
         "categoria": "Limpeza",
         "quantidade": 51
     },
     {
         "id_produto": "804611",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 300G",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 300G",
         "preco": "R$ 4,80",
         "categoria": "Bebidas",
         "quantidade": 87
@@ -2121,8 +2121,8 @@
     },
     {
         "id_produto": "189210",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 7,91",
         "categoria": "Papelaria",
         "quantidade": 36
@@ -2153,8 +2153,8 @@
     },
     {
         "id_produto": "133598",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1L",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1L",
         "preco": "R$ 11,57",
         "categoria": "Alimentos",
         "quantidade": 91
@@ -2169,8 +2169,8 @@
     },
     {
         "id_produto": "952579",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 500ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 500ML",
         "preco": "R$ 7,49",
         "categoria": "Limpeza",
         "quantidade": 98
@@ -2193,8 +2193,8 @@
     },
     {
         "id_produto": "117601",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 250ML",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 250ML",
         "preco": "R$ 9,35",
         "categoria": "Alimentos",
         "quantidade": 28
@@ -2225,8 +2225,8 @@
     },
     {
         "id_produto": "685456",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1UN",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1UN",
         "preco": "R$ 6,84",
         "categoria": "Limpeza",
         "quantidade": 85
@@ -2305,8 +2305,8 @@
     },
     {
         "id_produto": "683196",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 5UN",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 5UN",
         "preco": "R$ 1,64",
         "categoria": "Papelaria",
         "quantidade": 39
@@ -2345,8 +2345,8 @@
     },
     {
         "id_produto": "839285",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 2L",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 2L",
         "preco": "R$ 6,04",
         "categoria": "Bebidas",
         "quantidade": 48
@@ -2369,8 +2369,8 @@
     },
     {
         "id_produto": "586852",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 200G",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 200G",
         "preco": "R$ 2,93",
         "categoria": "Bebidas",
         "quantidade": 16
@@ -2425,16 +2425,16 @@
     },
     {
         "id_produto": "617356",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 1L",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 1L",
         "preco": "R$ 7,46",
         "categoria": "Limpeza",
         "quantidade": 98
     },
     {
         "id_produto": "876010",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1KG",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1KG",
         "preco": "R$ 5,11",
         "categoria": "Alimentos",
         "quantidade": 30
@@ -2473,16 +2473,16 @@
     },
     {
         "id_produto": "661731",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 250ML",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 250ML",
         "preco": "R$ 3,63",
         "categoria": "Bebidas",
         "quantidade": 37
     },
     {
         "id_produto": "786269",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 2L",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 2L",
         "preco": "R$ 7,02",
         "categoria": "Bebidas",
         "quantidade": 52
@@ -2497,8 +2497,8 @@
     },
     {
         "id_produto": "399358",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 6,72",
         "categoria": "Papelaria",
         "quantidade": 56
@@ -2513,8 +2513,8 @@
     },
     {
         "id_produto": "505861",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 1UN",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 1UN",
         "preco": "R$ 3,00",
         "categoria": "Limpeza",
         "quantidade": 21
@@ -2529,8 +2529,8 @@
     },
     {
         "id_produto": "270697",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 5UN",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 5UN",
         "preco": "R$ 8,69",
         "categoria": "Papelaria",
         "quantidade": 26
@@ -2545,16 +2545,16 @@
     },
     {
         "id_produto": "850115",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 300G",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 300G",
         "preco": "R$ 13,59",
         "categoria": "Limpeza",
         "quantidade": 49
     },
     {
         "id_produto": "805059",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 2L",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 2L",
         "preco": "R$ 10,08",
         "categoria": "Limpeza",
         "quantidade": 74
@@ -2657,8 +2657,8 @@
     },
     {
         "id_produto": "939215",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 12,52",
         "categoria": "Papelaria",
         "quantidade": 44
@@ -2745,8 +2745,8 @@
     },
     {
         "id_produto": "745764",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 1UN",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 1UN",
         "preco": "R$ 7,84",
         "categoria": "Bebidas",
         "quantidade": 25
@@ -2769,8 +2769,8 @@
     },
     {
         "id_produto": "387378",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 500ML",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 500ML",
         "preco": "R$ 4,88",
         "categoria": "Limpeza",
         "quantidade": 89
@@ -2785,8 +2785,8 @@
     },
     {
         "id_produto": "656205",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1L",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1L",
         "preco": "R$ 4,60",
         "categoria": "Alimentos",
         "quantidade": 24
@@ -2833,8 +2833,8 @@
     },
     {
         "id_produto": "505735",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 300G",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 300G",
         "preco": "R$ 1,77",
         "categoria": "Limpeza",
         "quantidade": 97
@@ -2849,16 +2849,16 @@
     },
     {
         "id_produto": "516423",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 1KG",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 1KG",
         "preco": "R$ 10,69",
         "categoria": "Bebidas",
         "quantidade": 56
     },
     {
         "id_produto": "419083",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1L",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1L",
         "preco": "R$ 13,93",
         "categoria": "Limpeza",
         "quantidade": 28
@@ -2897,8 +2897,8 @@
     },
     {
         "id_produto": "460393",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 2L",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 2L",
         "preco": "R$ 4,94",
         "categoria": "Limpeza",
         "quantidade": 77
@@ -2953,8 +2953,8 @@
     },
     {
         "id_produto": "546987",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 100ML",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 100ML",
         "preco": "R$ 2,85",
         "categoria": "Alimentos",
         "quantidade": 22
@@ -2985,8 +2985,8 @@
     },
     {
         "id_produto": "561378",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 500ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 500ML",
         "preco": "R$ 9,64",
         "categoria": "Papelaria",
         "quantidade": 17
@@ -3017,8 +3017,8 @@
     },
     {
         "id_produto": "234189",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 500ML",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 500ML",
         "preco": "R$ 12,60",
         "categoria": "Limpeza",
         "quantidade": 44
@@ -3033,8 +3033,8 @@
     },
     {
         "id_produto": "305866",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 100ML",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 100ML",
         "preco": "R$ 3,58",
         "categoria": "Bebidas",
         "quantidade": 88
@@ -3065,8 +3065,8 @@
     },
     {
         "id_produto": "617849",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 1L",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 1L",
         "preco": "R$ 6,91",
         "categoria": "Bebidas",
         "quantidade": 84
@@ -3121,8 +3121,8 @@
     },
     {
         "id_produto": "760699",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 500ML",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 500ML",
         "preco": "R$ 4,63",
         "categoria": "Bebidas",
         "quantidade": 81
@@ -3153,24 +3153,24 @@
     },
     {
         "id_produto": "333259",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 200G",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 200G",
         "preco": "R$ 7,67",
         "categoria": "Limpeza",
         "quantidade": 47
     },
     {
         "id_produto": "459540",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 100ML",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 100ML",
         "preco": "R$ 14,84",
         "categoria": "Bebidas",
         "quantidade": 14
     },
     {
         "id_produto": "149277",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 1KG",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 1KG",
         "preco": "R$ 4,50",
         "categoria": "Alimentos",
         "quantidade": 34
@@ -3217,8 +3217,8 @@
     },
     {
         "id_produto": "237110",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 300G",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 300G",
         "preco": "R$ 11,75",
         "categoria": "Limpeza",
         "quantidade": 61
@@ -3265,8 +3265,8 @@
     },
     {
         "id_produto": "610976",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1UN",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1UN",
         "preco": "R$ 8,88",
         "categoria": "Limpeza",
         "quantidade": 63
@@ -3297,8 +3297,8 @@
     },
     {
         "id_produto": "748693",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 1L",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 1L",
         "preco": "R$ 9,97",
         "categoria": "Limpeza",
         "quantidade": 59
@@ -3337,8 +3337,8 @@
     },
     {
         "id_produto": "846284",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 100ML",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 100ML",
         "preco": "R$ 3,63",
         "categoria": "Limpeza",
         "quantidade": 32
@@ -3377,8 +3377,8 @@
     },
     {
         "id_produto": "805859",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 100ML",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 100ML",
         "preco": "R$ 9,95",
         "categoria": "Bebidas",
         "quantidade": 83
@@ -3393,8 +3393,8 @@
     },
     {
         "id_produto": "103993",
-        "nome": "Chá",
-        "descricao": "Chá - Embalagem 300G",
+        "nome": "Ch\u00e1",
+        "descricao": "Ch\u00e1 - Embalagem 300G",
         "preco": "R$ 14,03",
         "categoria": "Bebidas",
         "quantidade": 6
@@ -3457,8 +3457,8 @@
     },
     {
         "id_produto": "217031",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 100ML",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 100ML",
         "preco": "R$ 6,22",
         "categoria": "Alimentos",
         "quantidade": 70
@@ -3481,8 +3481,8 @@
     },
     {
         "id_produto": "388295",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 1KG",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 1KG",
         "preco": "R$ 11,53",
         "categoria": "Papelaria",
         "quantidade": 44
@@ -3625,8 +3625,8 @@
     },
     {
         "id_produto": "416098",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 250ML",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 250ML",
         "preco": "R$ 4,22",
         "categoria": "Bebidas",
         "quantidade": 76
@@ -3641,8 +3641,8 @@
     },
     {
         "id_produto": "126475",
-        "nome": "Água",
-        "descricao": "Água - Embalagem 1KG",
+        "nome": "\u00c1gua",
+        "descricao": "\u00c1gua - Embalagem 1KG",
         "preco": "R$ 1,81",
         "categoria": "Bebidas",
         "quantidade": 67
@@ -3681,16 +3681,16 @@
     },
     {
         "id_produto": "953094",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 200G",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 200G",
         "preco": "R$ 10,05",
         "categoria": "Bebidas",
         "quantidade": 37
     },
     {
         "id_produto": "615685",
-        "nome": "Energético",
-        "descricao": "Energético - Embalagem 2L",
+        "nome": "Energ\u00e9tico",
+        "descricao": "Energ\u00e9tico - Embalagem 2L",
         "preco": "R$ 5,27",
         "categoria": "Bebidas",
         "quantidade": 18
@@ -3737,8 +3737,8 @@
     },
     {
         "id_produto": "144563",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 250ML",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 250ML",
         "preco": "R$ 3,93",
         "categoria": "Alimentos",
         "quantidade": 62
@@ -3753,8 +3753,8 @@
     },
     {
         "id_produto": "681115",
-        "nome": "Sabão em pó",
-        "descricao": "Sabão em pó - Embalagem 5UN",
+        "nome": "Sab\u00e3o em p\u00f3",
+        "descricao": "Sab\u00e3o em p\u00f3 - Embalagem 5UN",
         "preco": "R$ 9,04",
         "categoria": "Limpeza",
         "quantidade": 77
@@ -3769,8 +3769,8 @@
     },
     {
         "id_produto": "889983",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 100ML",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 100ML",
         "preco": "R$ 2,12",
         "categoria": "Papelaria",
         "quantidade": 85
@@ -3849,8 +3849,8 @@
     },
     {
         "id_produto": "265269",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 300G",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 300G",
         "preco": "R$ 2,41",
         "categoria": "Alimentos",
         "quantidade": 44
@@ -3881,8 +3881,8 @@
     },
     {
         "id_produto": "713771",
-        "nome": "Água sanitária",
-        "descricao": "Água sanitária - Embalagem 100ML",
+        "nome": "\u00c1gua sanit\u00e1ria",
+        "descricao": "\u00c1gua sanit\u00e1ria - Embalagem 100ML",
         "preco": "R$ 10,56",
         "categoria": "Limpeza",
         "quantidade": 33
@@ -3905,8 +3905,8 @@
     },
     {
         "id_produto": "427271",
-        "nome": "Pão",
-        "descricao": "Pão - Embalagem 250ML",
+        "nome": "P\u00e3o",
+        "descricao": "P\u00e3o - Embalagem 250ML",
         "preco": "R$ 1,81",
         "categoria": "Alimentos",
         "quantidade": 92
@@ -3929,8 +3929,8 @@
     },
     {
         "id_produto": "207409",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 1L",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 1L",
         "preco": "R$ 1,51",
         "categoria": "Papelaria",
         "quantidade": 24
@@ -3961,8 +3961,8 @@
     },
     {
         "id_produto": "286496",
-        "nome": "Lápis",
-        "descricao": "Lápis - Embalagem 1UN",
+        "nome": "L\u00e1pis",
+        "descricao": "L\u00e1pis - Embalagem 1UN",
         "preco": "R$ 3,68",
         "categoria": "Papelaria",
         "quantidade": 27

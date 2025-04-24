@@ -37,12 +37,12 @@ def validar_endereco():
 def validar_id():
     while True:
         id = input('ID: ')
+        if id == '0':
+            return formatar_id(str(id))
         if not id.isdigit():
             print("ID deve conter apenas números.")
         elif len(id) > 6:
             print("ID deve ter no maximo 6 dígitos.")
-        elif len(id) < 6:
-            print("ID deve ter no minimo 6 dígitos.")
         else:
             return formatar_id(str(id))
 

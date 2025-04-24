@@ -46,13 +46,19 @@ class CaixaController:
     def realizar_venda(cls):
         total = 0
         while True:
-            print('\nDigite o ID do produto:')
+            print('\nDigite o ID do produto: [0 para sair]')
             id_produto = validar_id()
-            
+
+            if id_produto == '000000':
+                break
+
             venda = CaixaDAO.realizar_venda(id_produto)
 
             if venda == None:
                 print('\nProduto não encontrado!')
+                continue
+            if venda == False:
+                print('\nProduto fora de estoque!')
                 continue
 
             while True:
