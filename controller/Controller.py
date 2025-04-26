@@ -44,9 +44,38 @@ class CaixaController:
     
     @classmethod
     def realizar_venda(cls):
+        def meio_pagamento():
+            print('\nDigite o metodo de pagamento:' \
+            '\n1. Dinheiro' \
+            '\n2. Pix' \
+            '\n3. Credito' \
+            '\n4. Debito' \
+            '\n5. Fiado' \
+            '\n0. Cancelar')
+
+            opcao = validar_opcao()
+
+            match opcao:
+                case 1:
+                    print('\nPagamento em dinheiro!')
+                case 2:
+                    print('\nPagamento em pix!')
+                case 3:
+                    print('\nPagamento em credito!')
+                case 4:
+                    print('\nPagamento em debito!')
+                case 5:
+                    print('\nPagamento em fiado!')
+                case 0:
+                    print('\nCancelando venda...')
+                    CaixaController.realizar_venda()
+                case _:
+                    print('\nOpção inválida!\n')
+                    meio_pagamento()
+
         total = 0
         while True:
-            print('\nDigite o ID do produto: [0 para sair]')
+            print('\nDigite o ID do produto: [0 para ir para o pagamento]')
             id_produto = validar_id()
 
             if id_produto == '000000':
@@ -69,7 +98,11 @@ class CaixaController:
                 break
 
             print(f'\nTotal: {float_para_dinheiro(total)}')
-           
+
+        meio_pagamento()
+        
+
+        
 
 
 
