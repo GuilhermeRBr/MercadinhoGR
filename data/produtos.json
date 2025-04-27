@@ -13,7 +13,7 @@
         "descricao": "Desinfetante - Embalagem 1L",
         "preco": "R$ 7,60",
         "categoria": "Limpeza",
-        "quantidade": 30
+        "quantidade": 29
     },
     {
         "id_produto": "441147",
@@ -29,7 +29,7 @@
         "descricao": "Chá - Embalagem 2L",
         "preco": "R$ 1,68",
         "categoria": "Bebidas",
-        "quantidade": 77
+        "quantidade": 71
     },
     {
         "id_produto": "254382",
@@ -37,7 +37,7 @@
         "descricao": "Creme dental - Embalagem 250ML",
         "preco": "R$ 7,97",
         "categoria": "Higiene",
-        "quantidade": 33
+        "quantidade": 32
     },
     {
         "id_produto": "389666",
@@ -53,7 +53,7 @@
         "descricao": "Multiuso - Embalagem 200G",
         "preco": "R$ 10,13",
         "categoria": "Limpeza",
-        "quantidade": 28
+        "quantidade": 20
     },
     {
         "id_produto": "712668",

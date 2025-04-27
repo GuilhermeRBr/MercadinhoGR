@@ -8,6 +8,8 @@ from models.Models import Cliente, Funcionario, Produto, Fornecedor, Caixa
 from validators import *
 from formatters import *
 from generator import *
+import qrcode
+from pixqrcode import PixQrCode
 
 
 class CaixaController:
@@ -59,7 +61,24 @@ class CaixaController:
                 case 1:
                     print('\nPagamento em dinheiro!')
                 case 2:
+
+                    def gerar_payload_pix(chave, valor, nome, cidade):
+    # Formatação do payload Pix
+                        payload = f"""000201260014br.gov.bcb.pix01{len(chave):02}{chave}52040000530398654{len(f"{valor:.2f}".replace(".", "")):02}{valor:.2f}5802BR59{len(nome):02}{nome}60{len(cidade):02}{cidade}62070503***"""
+                        payload = payload.replace("\n", "")  
+                        return payload
+                                        
                     print('\nPagamento em pix!')
+                    chave= '06011842542'
+                    nome = 'Guilherme'
+                    cidade = 'ibiassucê'
+
+                    payload = gerar_payload_pix(chave, total, nome, cidade)
+
+                    qr = qrcode.QRCode()
+                    qr.add_data(payload)
+                    qr.make()
+                    qr.print_ascii(invert=True)
                 case 3:
                     print('\nPagamento em credito!')
                 case 4:
@@ -79,7 +98,12 @@ class CaixaController:
             id_produto = validar_id()
 
             if id_produto == '000000':
-                break
+                if total == 0:
+                    print('\nNenhum produto adicionado!')
+                    continue
+                else:
+                    print(f'\nTotal a pagar: {float_para_dinheiro(total)}')
+                    break
 
             venda = CaixaDAO.realizar_venda(id_produto)
 
