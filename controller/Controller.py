@@ -60,6 +60,14 @@ class CaixaController:
             match opcao:
                 case 1:
                     print('\nPagamento em dinheiro!')
+                    print('\nDigite o dinheiro recebido:')
+                    dinheiro = dinheiro_para_float(formatar_dinheiro())
+                    troco = dinheiro - total
+                    
+                    print(f'\nO valor a ser pago é: R$ {float_para_dinheiro(total)} e o troco é: R$ {float_para_dinheiro(troco)}')
+
+                    CaixaController.realizar_venda()
+        
                 case 2:
 
                     def gerar_payload_pix(chave, valor, nome, cidade):
