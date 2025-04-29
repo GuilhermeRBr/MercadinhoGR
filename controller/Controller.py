@@ -60,12 +60,28 @@ class CaixaController:
             match opcao:
                 case 1:
                     print('\nPagamento em dinheiro!')
+
+                    print(f'\nTOTAL: {float_para_dinheiro(total)}')
+
                     print('\nDigite o dinheiro recebido:')
                     dinheiro = dinheiro_para_float(formatar_dinheiro())
                     troco = dinheiro - total
-                    
-                    print(f'\nO valor a ser pago é: R$ {float_para_dinheiro(total)} e o troco é: R$ {float_para_dinheiro(troco)}')
 
+                    if troco < 0:
+                        print('\nDinheiro insuficiente!')
+                        meio_pagamento()
+                    else:
+                        print(f'\nTROCO: {float_para_dinheiro(troco)}')
+
+                    print('\n[Digite 0 para finalizar a venda!]\n')
+
+                    while True:
+                        opcao = validar_opcao()
+                        if opcao == 0:
+                            break
+                        else:
+                            print('\nOpção inválida!\n')
+                    print('\nPagamento confirmado!')
                     CaixaController.realizar_venda()
         
                 case 2:
@@ -113,6 +129,7 @@ class CaixaController:
                     meio_pagamento()
 
         total = 0
+        print('\n -- NOVA VENDA --')
         while True:
             print('\nDigite o ID do produto: [0 para ir para o pagamento]')
             id_produto = validar_id()
