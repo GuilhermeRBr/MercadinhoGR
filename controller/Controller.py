@@ -73,15 +73,21 @@ class CaixaController:
                     else:
                         print(f'\nTROCO: {float_para_dinheiro(troco)}')
 
-                    print('\n[Digite 0 para finalizar a venda!]\n')
+                    print('\n[Digite 0 para finalizar a venda!]' \
+                    '\n[Digite 9 para alterar meio de pagamento!]')
 
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
                             break
+                        if opcao == 9:
+                            print('\nAlterando meio de pagamento!')
+                            meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
+
                     print('\nPagamento confirmado!')
+
                     CaixaController.realizar_venda()
         
                 case 2:
@@ -104,15 +110,21 @@ class CaixaController:
                     qr.make()
                     qr.print_ascii(invert=True)
                     
-                    print('\n[Digite 0 para finalizar a venda!]\n')
+                    print('\n[Digite 0 para finalizar a venda!]' \
+                    '\n[Digite 9 para alterar meio de pagamento!]\n')
+
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
                             break
+                        if opcao == 9:
+                            print('\nAlterando meio de pagamento!')
+                            meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
-
+                            
                     print('\nPagamento confirmado!')
+
                     CaixaController.realizar_venda()
 
                 case 3:
@@ -134,21 +146,48 @@ class CaixaController:
 
                     print(f'\nPAGAMENTO EM {parcelas} PARCELAS')
                     print(f'\nVALOR DA PARCELA: {float_para_dinheiro(total / parcelas)} APROVADO NO CREDITO')
-                    
-                    print('\nPagamento confirmado!')
+                     
         
-                    print('\n[Digite 0 para finalizar a venda!]\n')
+                    print('\n[Digite 0 para finalizar a venda!]' \
+                    '\n[Digite 9 para alterar meio de pagamento!]\n')
+
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
                             break
+                        if opcao == 9:
+                            print('\nAlterando meio de pagamento!')
+                            meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
+                            
+                    print('\nPagamento confirmado!')
+                    print('\nPagamento confirmado!')
                     
                     CaixaController.realizar_venda()
 
                 case 4:
-                    print('\nPagamento em debito!')
+                    print('\nPagamento no debito!')
+                    print(f'\nTOTAL: {float_para_dinheiro(total)}')
+
+
+                    print('\n[Digite 0 para finalizar a venda!]' \
+                    '\n[Digite 9 para alterar meio de pagamento!]\n')
+
+                    while True:
+                        opcao = validar_opcao()
+                        if opcao == 0:
+                            break
+                        if opcao == 9:
+                            print('\nAlterando meio de pagamento!')
+                            meio_pagamento()
+                        else:
+                            print('\nOpção inválida!\n')
+                            
+                    print('\nPagamento confirmado!')
+
+
+                    CaixaController.realizar_venda()
                 case 5:
                     print('\nPagamento em fiado!')
                 case 0:
