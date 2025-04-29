@@ -117,3 +117,13 @@ def validar_senha():
             print("Senha deve ter pelo menos 6 caracteres.")
         else:
             return str(senha)
+
+def validar_parcelas():
+    while True:
+        parcelas = input('PARCELAS: ')
+        if not parcelas.isdigit():
+            print("Parcelas deve conter apenas números.")
+        elif int(parcelas) < 1 or int(parcelas) > 12:
+            print("Parcelas deve ser entre 1 e 12.")
+        else:
+            return int(parcelas)

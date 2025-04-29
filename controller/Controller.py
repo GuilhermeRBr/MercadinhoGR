@@ -117,6 +117,36 @@ class CaixaController:
 
                 case 3:
                     print('\nPagamento em credito!')
+                    print(f'\nTOTAL: {float_para_dinheiro(total)}')
+
+                    while True:
+                        parcelas = input('\nDigite o numero de parcelas: ')
+
+                        if not parcelas.isdigit:
+                            print('\nParcelas inválidas!')
+
+                        if int(parcelas) < 1 or int(parcelas) > 12:
+                            print('\nParcelas inválidas!')
+                        
+                        else:
+                            parcelas = int(parcelas)
+                            break
+
+                    print(f'\nPAGAMENTO EM {parcelas} PARCELAS')
+                    print(f'\nVALOR DA PARCELA: {float_para_dinheiro(total / parcelas)} APROVADO NO CREDITO')
+                    
+                    print('\nPagamento confirmado!')
+        
+                    print('\n[Digite 0 para finalizar a venda!]\n')
+                    while True:
+                        opcao = validar_opcao()
+                        if opcao == 0:
+                            break
+                        else:
+                            print('\nOpção inválida!\n')
+                    
+                    CaixaController.realizar_venda()
+
                 case 4:
                     print('\nPagamento em debito!')
                 case 5:
