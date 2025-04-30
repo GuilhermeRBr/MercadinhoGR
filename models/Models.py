@@ -40,13 +40,15 @@ class Fornecedor:
         self.endereco = endereco
 
 class Venda:
-    def __init__(self, id_funcionario, id_produtos, id_caixa, valor_total, data_venda=None,  id_venda=None):
-        self.id_venda = id_venda
+    def __init__(self, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento,  data_venda=None, id_venda=None, id_pagamento=None):
         self.funcionario = id_funcionario
         self.id_produtos = id_produtos 
         self.id_caixa = id_caixa
         self.valor_total = valor_total
+        self.forma_pagamento = forma_pagamento
         self.data_venda = data_venda
+        self.id_venda = id_venda
+        self.id_pagamento = id_pagamento
 
 class Caixa:
     def __init__(self, id_caixa, id_funcionario, data_abertura, data_fechamento):
@@ -54,11 +56,3 @@ class Caixa:
         self.id_funcionario = id_funcionario
         self.data_abertura = data_abertura
         self.data_fechamento = data_fechamento
-
-class Pagamento:
-    def __init__(self, id_venda, id_caixa, valor, forma_pagamento, id_pagamento=None):
-        self.id_pagamento = id_pagamento
-        self.id_venda = id_venda
-        self.id_caixa = id_caixa
-        self.valor = valor
-        self.forma_pagamento = forma_pagamento

@@ -443,11 +443,14 @@ class VendaDAO:
             vendas = []
         
         id_venda = gerar_id()
+        id_pagamento = gerar_id()
         data_venda = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
         
         for v in vendas:
             if v['id_venda'] == id_venda:
                 id_venda = gerar_id()
+            if v['id_pagamento'] == id_pagamento:
+                id_pagamento = gerar_id()
         
         if erros:
             raise ValueError('\n'.join(erros))
@@ -459,6 +462,8 @@ class VendaDAO:
             'id_produtos': venda.id_produtos,
             'id_caixa': venda.id_caixa,
             'valor_total': venda.valor_total,
+            'id_pagamento': id_pagamento,
+            'forma_pagamento': venda.forma_pagamento,
             'data_venda': data_venda
         })
 

@@ -285,7 +285,7 @@
         "descricao": "Cerveja - Embalagem 500ML",
         "preco": "R$ 5,13",
         "categoria": "Bebidas",
-        "quantidade": 44
+        "quantidade": 43
     },
     {
         "id_produto": "235590",
@@ -325,7 +325,7 @@
         "descricao": "Refrigerante - Embalagem 2L",
         "preco": "R$ 14,73",
         "categoria": "Bebidas",
-        "quantidade": 81
+        "quantidade": 80
     },
     {
         "id_produto": "263808",
@@ -397,7 +397,7 @@
         "descricao": "Biscoito - Embalagem 300G",
         "preco": "R$ 14,99",
         "categoria": "Alimentos",
-        "quantidade": 58
+        "quantidade": 57
     },
     {
         "id_produto": "633890",
@@ -517,7 +517,7 @@
         "descricao": "Energético - Embalagem 500ML",
         "preco": "R$ 8,40",
         "categoria": "Bebidas",
-        "quantidade": 19
+        "quantidade": 18
     },
     {
         "id_produto": "350945",
@@ -541,7 +541,7 @@
         "descricao": "Creme dental - Embalagem 500ML",
         "preco": "R$ 13,45",
         "categoria": "Higiene",
-        "quantidade": 8
+        "quantidade": 7
     },
     {
         "id_produto": "184471",
@@ -549,7 +549,7 @@
         "descricao": "Suco - Embalagem 2L",
         "preco": "R$ 9,34",
         "categoria": "Bebidas",
-        "quantidade": 50
+        "quantidade": 46
     },
     {
         "id_produto": "594820",
@@ -573,7 +573,7 @@
         "descricao": "Desodorante - Embalagem 100ML",
         "preco": "R$ 8,75",
         "categoria": "Higiene",
-        "quantidade": 39
+        "quantidade": 38
     },
     {
         "id_produto": "659555",

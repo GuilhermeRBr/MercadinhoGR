@@ -100,7 +100,7 @@ class CaixaController:
                     print('\nPagamento confirmado!')
                     
                     
-                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total))
+                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Dinheiro')
 
                     produtos.clear()
                     total = 0
@@ -140,6 +140,10 @@ class CaixaController:
                             print('\nOpção inválida!\n')
                             
                     print('\nPagamento confirmado!')
+
+                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Pix')
+
+                    produtos.clear()
                     total = 0
 
                     CaixaController.realizar_venda()
@@ -179,6 +183,10 @@ class CaixaController:
                             print('\nOpção inválida!\n')
                             
                     print('\nPagamento confirmado!')
+
+                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Credito')
+
+                    produtos.clear()
                     total = 0
                     
                     CaixaController.realizar_venda()
@@ -202,6 +210,10 @@ class CaixaController:
                             print('\nOpção inválida!\n')
                             
                     print('\nPagamento confirmado!')
+
+                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Debito')
+
+                    produtos.clear()
                     total = 0
 
 
@@ -590,10 +602,10 @@ class FornecedorController:
 
 class VendaController:
     @classmethod
-    def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total):
+    def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento):
 
         try:
-            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total)
+            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento)
 
             VendaDAO.salvar_venda(venda)
             print("\nVenda cadastrada com sucesso!")
