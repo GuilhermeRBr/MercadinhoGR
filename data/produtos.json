@@ -93,7 +93,7 @@
         "descricao": "Refrigerante - Embalagem 1KG",
         "preco": "R$ 10,48",
         "categoria": "Bebidas",
-        "quantidade": 20
+        "quantidade": 2
     },
     {
         "id_produto": "385437",
@@ -173,7 +173,7 @@
         "descricao": "Chá - Embalagem 1UN",
         "preco": "R$ 3,99",
         "categoria": "Bebidas",
-        "quantidade": 69
+        "quantidade": 63
     },
     {
         "id_produto": "642358",
@@ -205,7 +205,7 @@
         "descricao": "Detergente - Embalagem 5UN",
         "preco": "R$ 10,05",
         "categoria": "Limpeza",
-        "quantidade": 78
+        "quantidade": 70
     },
     {
         "id_produto": "296367",
@@ -285,7 +285,7 @@
         "descricao": "Cerveja - Embalagem 500ML",
         "preco": "R$ 5,13",
         "categoria": "Bebidas",
-        "quantidade": 54
+        "quantidade": 44
     },
     {
         "id_produto": "235590",

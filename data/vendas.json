@@ -1,3 +1,24 @@
 [
-    
+    {
+        "id_venda": "200918",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "404036"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 5,13",
+        "data_venda": "30/04/2025 14:25:41"
+    },
+    {
+        "id_venda": "268976",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "404036",
+            "404036",
+            "404036"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 10,26",
+        "data_venda": "30/04/2025 14:27:26"
+    }
 ]

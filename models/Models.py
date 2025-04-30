@@ -40,10 +40,12 @@ class Fornecedor:
         self.endereco = endereco
 
 class Venda:
-    def __init__(self, id_funcionario, id_produtos, data_venda, id_venda=None):
+    def __init__(self, id_funcionario, id_produtos, id_caixa, valor_total, data_venda=None,  id_venda=None):
         self.id_venda = id_venda
         self.funcionario = id_funcionario
         self.id_produtos = id_produtos 
+        self.id_caixa = id_caixa
+        self.valor_total = valor_total
         self.data_venda = data_venda
 
 class Caixa:

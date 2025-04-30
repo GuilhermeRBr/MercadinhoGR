@@ -1,6 +1,7 @@
 import json
+from datetime import datetime
 from generator import gerar_id
-from models.Models import Cliente, Funcionario, Produto, Fornecedor
+from models.Models import Cliente, Funcionario, Produto, Fornecedor, Venda
 
 
 class CaixaDAO:
@@ -429,7 +430,40 @@ class FornecedorDAO:
                 id_fornecedor, nome, cnpj, telefone, email, endereco = f.values()
 
                 return Fornecedor(nome, cnpj, telefone, email, endereco, id_fornecedor)
-            
+
+class VendaDAO:
+    @classmethod
+    def salvar_venda(cls, venda: Venda):
+        erros = []
+        vendas = []
+        try:
+            with open('data/vendas.json', 'r', encoding='utf-8') as arq:
+                vendas = json.load(arq)
+        except FileNotFoundError:
+            vendas = []
+        
+        id_venda = gerar_id()
+        data_venda = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+        
+        for v in vendas:
+            if v['id_venda'] == id_venda:
+                id_venda = gerar_id()
+        
+        if erros:
+            raise ValueError('\n'.join(erros))
+        
+
+        vendas.append({
+            'id_venda': id_venda,
+            'id_funcionario': venda.funcionario,
+            'id_produtos': venda.id_produtos,
+            'id_caixa': venda.id_caixa,
+            'valor_total': venda.valor_total,
+            'data_venda': data_venda
+        })
+
+        with open('data/vendas.json', 'w', encoding='utf-8') as arq:
+            json.dump(vendas, arq, indent=4, ensure_ascii=False)
     
 
 

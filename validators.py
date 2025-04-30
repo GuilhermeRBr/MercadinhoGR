@@ -90,7 +90,7 @@ def validar_categoria():
 
 def validar_opcao():
     while True:
-        opcao = input('Digite a opção desejada: ')
+        opcao = input('\nDigite a opção desejada: ')
         if not opcao.isdigit():
             print("Opção inválida. Digite um número.")
         else:
