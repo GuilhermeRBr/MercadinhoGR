@@ -316,7 +316,7 @@ class ProdutoDAO:
                         case 3:
                             p['preco'] = dados
                         case 4:
-                            p['quantidade'] = dados
+                            p['quantidade'] = int(dados)
             
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4)

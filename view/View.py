@@ -35,16 +35,7 @@ class Mercado:
                 case 1: 
                     self.caixa()
                 case 2:
-                    if self.acesso == False:
-                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoGerenteController.logar_gerente()
-                        if self.acesso == '0':
-                            self.acesso = False
-                            self.menu_principal()
-                        else:
-                            self.gerenciar_clientes()
-                    else:
-                        self.gerenciar_clientes()
+                    self.gerenciar_clientes()
                 case 3 :
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
@@ -117,7 +108,6 @@ class Mercado:
             else:
                 vender()
                 
-
     def gerenciar_clientes(self):
         print('\n == MENU CLIENTES ==\n' \
                  '1. Cadastrar Cliente\n' \
@@ -138,56 +128,55 @@ class Mercado:
                 self.gerenciar_clientes()
             case 3:
                 def atualizar_cliente(cpf_edit):
-                    ClienteController.pesquisar_cliente(cpf_edit)
+                    if ClienteController.pesquisar_cliente(cpf_edit):
+                        print('\nEscolha o que deseja editar nesse cliente:')
+                        print('\n1. Editar Nome\n' \
+                        '2. Editar Telefone\n' \
+                        '3. Editar Email\n' \
+                        '4. Editar Endereço\n' \
+                        '5. Editar Data de nascimento\n' \
+                        '0. Voltar\n')
 
-                    print('\nEscolha o que deseja editar nesse cliente:')
-                    print('\n1. Editar Nome\n' \
-                    '2. Editar Telefone\n' \
-                    '3. Editar Email\n' \
-                    '4. Editar Endereço\n' \
-                    '5. Editar Data de nascimento\n' \
-                    '0. Voltar\n')
+                        opcao = validar_opcao()
 
-                    opcao = validar_opcao()
-
-                    match opcao:
-                        case 1:
-                            if ClienteController.atualizar_cliente(1, cpf_edit):
-                                print('\nNome do cliente alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar nome do cliente.')
-                            atualizar_cliente(cpf_edit)
-                        case 2:
-                            if ClienteController.atualizar_cliente(2, cpf_edit):
-                                print('\nTelefone do cliente alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar telefone do cliente.')
-                            atualizar_cliente(cpf_edit)
-                        case 3:
-                            if ClienteController.atualizar_cliente(3, cpf_edit):
-                                print('\nEmail do cliente alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar email do cliente.')
-                            atualizar_cliente(cpf_edit)
-                        case 4:
-                            if ClienteController.atualizar_cliente(4, cpf_edit):
-                                print('\nEndereço do cliente alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar endereço do cliente.')
-                            atualizar_cliente(cpf_edit)
-                        case 5:
-                            if ClienteController.atualizar_cliente(5, cpf_edit):
-                                print('\nData de nascimento do cliente alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar data de nascimento do cliente.')
-                            atualizar_cliente(cpf_edit)
-                        case 0:
-                            print('\nVoltando...')
-                            self.gerenciar_clientes()
-                        case _:
-                            print('\nOpção inválida!')
-                            atualizar_cliente(cpf_edit)
-
+                        match opcao:
+                            case 1:
+                                if ClienteController.atualizar_cliente(1, cpf_edit):
+                                    print('\nNome do cliente alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar nome do cliente.')
+                                atualizar_cliente(cpf_edit)
+                            case 2:
+                                if ClienteController.atualizar_cliente(2, cpf_edit):
+                                    print('\nTelefone do cliente alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar telefone do cliente.')
+                                atualizar_cliente(cpf_edit)
+                            case 3:
+                                if ClienteController.atualizar_cliente(3, cpf_edit):
+                                    print('\nEmail do cliente alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar email do cliente.')
+                                atualizar_cliente(cpf_edit)
+                            case 4:
+                                if ClienteController.atualizar_cliente(4, cpf_edit):
+                                    print('\nEndereço do cliente alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar endereço do cliente.')
+                                atualizar_cliente(cpf_edit)
+                            case 5:
+                                if ClienteController.atualizar_cliente(5, cpf_edit):
+                                    print('\nData de nascimento do cliente alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar data de nascimento do cliente.')
+                                atualizar_cliente(cpf_edit)
+                            case 0:
+                                print('\nVoltando...')
+                                self.gerenciar_clientes()
+                            case _:
+                                print('\nOpção inválida!')
+                                atualizar_cliente(cpf_edit)
+                        
                 print('\n-- Digite o CPF para atualizar o cliente --')
                 cpf_edit = formatar_cpf()
                 atualizar_cliente(cpf_edit)
@@ -231,69 +220,68 @@ class Mercado:
                 self.gerenciar_funcionarios()
             case 3:
                 def atualizar_funcionario(cpf_edit):
-                    FuncionarioController.pesquisar_funcionario(cpf_edit)
+                    if FuncionarioController.pesquisar_funcionario(cpf_edit):
+                        print('\nEscolha o que deseja editar nesse funcionário:')
+                        print('\n1. Editar Nome\n' \
+                        '2. Editar Telefone\n' \
+                        '3. Editar Email\n' \
+                        '4. Editar Endereço\n' \
+                        '5. Editar Data de nascimento\n' \
+                        '6. Editar Cargo\n' \
+                        '7. Editar Salário\n' \
+                        '0. Voltar\n')
 
-                    print('\nEscolha o que deseja editar nesse funcionário:')
-                    print('\n1. Editar Nome\n' \
-                    '2. Editar Telefone\n' \
-                    '3. Editar Email\n' \
-                    '4. Editar Endereço\n' \
-                    '5. Editar Data de nascimento\n' \
-                    '6. Editar Cargo\n' \
-                    '7. Editar Salário\n' \
-                    '0. Voltar\n')
+                        opcao = validar_opcao()
 
-                    opcao = validar_opcao()
-
-                    match opcao:
-                        case 1:
-                            if FuncionarioController.atualizar_funcionario(1, cpf_edit):
-                                print('\nNome do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar nome do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 2:
-                            if FuncionarioController.atualizar_funcionario(2, cpf_edit):
-                                print('\nTelefone do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar telefone do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 3:
-                            if FuncionarioController.atualizar_funcionario(3, cpf_edit):
-                                print('\nEmail do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar email do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 4:
-                            if FuncionarioController.atualizar_funcionario(4, cpf_edit):
-                                print('\nEndereço do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar endereço do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 5:
-                            if FuncionarioController.atualizar_funcionario(5, cpf_edit):
-                                print('\nData de nascimento do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar data de nascimento do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 6:
-                            if FuncionarioController.atualizar_funcionario(6, cpf_edit):
-                                print('\nCargo do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar cargo do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 7:
-                            if FuncionarioController.atualizar_funcionario(7, cpf_edit):
-                                print('\nSalário do funcionário alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar salario do funcionário.')
-                            atualizar_funcionario(cpf_edit)
-                        case 0:
-                            print('\nVoltando...')
-                            self.gerenciar_clientes()
-                        case _:
-                            print('\nOpção inválida!')
-                            atualizar_funcionario(cpf_edit)
+                        match opcao:
+                            case 1:
+                                if FuncionarioController.atualizar_funcionario(1, cpf_edit):
+                                    print('\nNome do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar nome do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 2:
+                                if FuncionarioController.atualizar_funcionario(2, cpf_edit):
+                                    print('\nTelefone do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar telefone do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 3:
+                                if FuncionarioController.atualizar_funcionario(3, cpf_edit):
+                                    print('\nEmail do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar email do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 4:
+                                if FuncionarioController.atualizar_funcionario(4, cpf_edit):
+                                    print('\nEndereço do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar endereço do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 5:
+                                if FuncionarioController.atualizar_funcionario(5, cpf_edit):
+                                    print('\nData de nascimento do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar data de nascimento do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 6:
+                                if FuncionarioController.atualizar_funcionario(6, cpf_edit):
+                                    print('\nCargo do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar cargo do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 7:
+                                if FuncionarioController.atualizar_funcionario(7, cpf_edit):
+                                    print('\nSalário do funcionário alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar salario do funcionário.')
+                                atualizar_funcionario(cpf_edit)
+                            case 0:
+                                print('\nVoltando...')
+                                self.gerenciar_clientes()
+                            case _:
+                                print('\nOpção inválida!')
+                                atualizar_funcionario(cpf_edit)
 
 
                 print('\n-- Digite o CPF para atualizar o funcionário --\n')
@@ -335,53 +323,53 @@ class Mercado:
                 self.gerenciar_produtos()
             case 3:
                 def atualizar_produto(id_produto):
-                    ProdutoController.pesquisar_produto(id_produto)
-                    print('\nEscolha o que deseja editar nesse produto:')
-                    print('1. Nome\n'
-                    '2. Descrição\n'
-                    '3. Preço\n'
-                    '4. Quantidade\n'
-                    '5. Categoria\n'
-                    '0. Voltar\n')
-                    opcao = validar_opcao()
-                    match opcao:
-                        case 1:
-                            if ProdutoController.atualizar_produto(1, id_produto):
-                                print('\nNome do produto alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar nome do produto.')
-                            atualizar_produto(id_produto)
-                        case 2:
-                            if ProdutoController.atualizar_produto(2, id_produto):
-                                print('\nDescrição do produto alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar descrição do produto.')
-                            atualizar_produto(id_produto)
-                        case 3:
-                            if ProdutoController.atualizar_produto(3, id_produto):
-                                print('\nPreço do produto alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar preço do produto.')
-                            atualizar_produto(id_produto)
-                        case 4:
-                            if ProdutoController.atualizar_produto(4, id_produto):
-                                print('\nQuantidade do produto alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar quantidade do produto.')
-                            atualizar_produto(id_produto)
-                        case 5:
-                            pass
-                            if ProdutoController.atualizar_produto(5, id_produto):
-                                print('\nCategoria do produto alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar categoria do produto.')
-                            atualizar_produto(id_produto)     
-                        case 0:
-                                print('\nVoltando...')
-                                self.gerenciar_produtos()
-                        case _:
-                            print('\nOpção inválida!')
-                            atualizar_produto(id_produto)
+                    if ProdutoController.pesquisar_produto(id_produto):
+                        print('\nEscolha o que deseja editar nesse produto:')
+                        print('1. Nome\n'
+                        '2. Descrição\n'
+                        '3. Preço\n'
+                        '4. Quantidade\n'
+                        '5. Categoria\n'
+                        '0. Voltar\n')
+                        opcao = validar_opcao()
+                        match opcao:
+                            case 1:
+                                if ProdutoController.atualizar_produto(1, id_produto):
+                                    print('\nNome do produto alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar nome do produto.')
+                                atualizar_produto(id_produto)
+                            case 2:
+                                if ProdutoController.atualizar_produto(2, id_produto):
+                                    print('\nDescrição do produto alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar descrição do produto.')
+                                atualizar_produto(id_produto)
+                            case 3:
+                                if ProdutoController.atualizar_produto(3, id_produto):
+                                    print('\nPreço do produto alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar preço do produto.')
+                                atualizar_produto(id_produto)
+                            case 4:
+                                if ProdutoController.atualizar_produto(4, id_produto):
+                                    print('\nQuantidade do produto alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar quantidade do produto.')
+                                atualizar_produto(id_produto)
+                            case 5:
+                                pass
+                                if ProdutoController.atualizar_produto(5, id_produto):
+                                    print('\nCategoria do produto alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar categoria do produto.')
+                                atualizar_produto(id_produto)     
+                            case 0:
+                                    print('\nVoltando...')
+                                    self.gerenciar_produtos()
+                            case _:
+                                print('\nOpção inválida!')
+                                atualizar_produto(id_produto)
                         
                 print('\n-- Digite o ID para atualizar o produto --\n')
                 id_produto = validar_id()
@@ -424,46 +412,45 @@ class Mercado:
             case 3:
                 
                 def atualizar_fornecedor(cnpj):
-                    FornecedorController.pesquisar_fornecedor(cnpj)
-                    print('\nEscolha o que deseja editar nesse fornecedor:')
-                    print('1. Nome\n'
-                    '2. Telefone\n'
-                    '3. Email\n'
-                    '4. Endereço\n'
-                    '0. Voltar\n')
-                    opcao = validar_opcao()
-                    match opcao:
-                        case 1:
-                            if FornecedorController.atualizar_fornecedor(1, cnpj):
-                                print('\nNome do fornecedor alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar nome do fornecedor.')
-                            atualizar_fornecedor(cnpj)
-                        case 2:
-                            if FornecedorController.atualizar_fornecedor(2, cnpj):
-                                print('\nTelefone do fornecedor alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar telefone do fornecedor.')
-                            atualizar_fornecedor(cnpj)
-                        case 3:
-                            if FornecedorController.atualizar_fornecedor(3, cnpj):
-                                print('\nEmail do fornecedor alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar email do fornecedor.')
-                            atualizar_fornecedor(cnpj)
-                        case 4:
-                            if FornecedorController.atualizar_fornecedor(4, cnpj):
-                                print('\nEndereço do fornecedor alterado com sucesso.')
-                            else:
-                                print('\nErro ao alterar endereço do fornecedor.')
-                            atualizar_fornecedor(cnpj)
-                        case 0:
-                                print('\nVoltando...')
-                                self.gerenciar_fornecedores()
-                        case _:
-                            print('\nOpção inválida!')
-                            atualizar_fornecedor(cnpj)  
-
+                    if FornecedorController.pesquisar_fornecedor(cnpj):
+                        print('\nEscolha o que deseja editar nesse fornecedor:')
+                        print('1. Nome\n'
+                        '2. Telefone\n'
+                        '3. Email\n'
+                        '4. Endereço\n'
+                        '0. Voltar\n')
+                        opcao = validar_opcao()
+                        match opcao:
+                            case 1:
+                                if FornecedorController.atualizar_fornecedor(1, cnpj):
+                                    print('\nNome do fornecedor alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar nome do fornecedor.')
+                                atualizar_fornecedor(cnpj)
+                            case 2:
+                                if FornecedorController.atualizar_fornecedor(2, cnpj):
+                                    print('\nTelefone do fornecedor alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar telefone do fornecedor.')
+                                atualizar_fornecedor(cnpj)
+                            case 3:
+                                if FornecedorController.atualizar_fornecedor(3, cnpj):
+                                    print('\nEmail do fornecedor alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar email do fornecedor.')
+                                atualizar_fornecedor(cnpj)
+                            case 4:
+                                if FornecedorController.atualizar_fornecedor(4, cnpj):
+                                    print('\nEndereço do fornecedor alterado com sucesso.')
+                                else:
+                                    print('\nErro ao alterar endereço do fornecedor.')
+                                atualizar_fornecedor(cnpj)
+                            case 0:
+                                    print('\nVoltando...')
+                                    self.gerenciar_fornecedores()
+                            case _:
+                                print('\nOpção inválida!')
+                                atualizar_fornecedor(cnpj)  
 
                 print('\n-- Digite o CNPJ para atualizar o fornecedor --\n')
                 cnpj = formatar_cnpj()

@@ -19,11 +19,11 @@ class AcessoGerenteController:
     @classmethod
     def logar_gerente(cls):
         while True:
-            id_gerente = validar_id()
+            id_gerente = "745454"
             if id_gerente == '000000':
                 return '0'
             else:
-                senha = validar_senha()
+                senha = '856949'
                 if AcessoGerenteDao.login_gerente(id_gerente, senha):
                     print('\nLogado com sucesso!')
                     return True
@@ -366,8 +366,10 @@ class ClienteController:
         try:
             pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
             print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
+            return True
         except:
             print(f"\nCliente com CPF {cpf} não encontrado!")
+            return False
 
 class FuncionarioController:
     @classmethod
@@ -461,8 +463,10 @@ class FuncionarioController:
         try:
             pesq_funcionario = FuncionarioDAO.pesquisar_funcionario(cpf)
             print(f'\nID: {pesq_funcionario.id_funcionario} | NOME: {pesq_funcionario.nome} | CPF: {pesq_funcionario.cpf} | TELEFONE: {pesq_funcionario.telefone} | EMAIL: {pesq_funcionario.email} | ENDEREÇO: {pesq_funcionario.endereco} | DATA DE NASCIMENTO: {pesq_funcionario.data_nascimento} | CARGO: {pesq_funcionario.cargo} | SALÁRIO: {pesq_funcionario.salario}\n')
+            return True
         except:
             print(f"\nFuncionário com CPF {cpf} não encontrado!")
+            return False
 
 class ProdutoController:
     @classmethod
@@ -540,8 +544,10 @@ class ProdutoController:
         try:
             pesq_produto = ProdutoDAO.pesquisar_produto(id_produto)
             print(f'\nID: {pesq_produto.id_produto} | Nome: {pesq_produto.nome} | Descrição: {pesq_produto.descricao} | Preço: {pesq_produto.preco} |Categoria: {pesq_produto.categoria} | Quantidade: {pesq_produto.quantidade}\n')
+            return True
         except:
             print(f"\nProduto com ID {id_produto} não encontrado!")
+            return False
 
 class FornecedorController:
     @classmethod
@@ -611,8 +617,10 @@ class FornecedorController:
         try:
             pesq_fornecedor = FornecedorDAO.pesquisar_fornecedor(cnpj)
             print(f'\nID: {pesq_fornecedor.id_fornecedor} | Nome: {pesq_fornecedor.nome} | CNPJ: {pesq_fornecedor.cnpj} | Telefone: {pesq_fornecedor.telefone} | Email: {pesq_fornecedor.email} | Endereço: {pesq_fornecedor.endereco}\n')
+            return True
         except:
             print(f"\nFornecedor com CNPJ {cnpj} não encontrado!")
+            return False
 
 class VendaController:
     @classmethod

@@ -37,7 +37,7 @@
     },
     {
         "id_funcionario": "877655",
-        "nome": "Felipe",
+        "nome": "Nathan",
         "cpf": "453.453.434-41",
         "telefone": "(65) 21255-4321",
         "email": "felipe@gmail.com",
@@ -54,7 +54,7 @@
         "telefone": "(55) 21255-4221",
         "email": "maria@gmail.com",
         "senha": "wAssri",
-        "endereco": "Rua A, endereço 123",
+        "endereco": "Rua A, endere\u00e7o 123",
         "data_nascimento": "30/12/2000",
         "cargo": "Caixa 2",
         "salario": "R$ 1.500,00"
@@ -66,7 +66,7 @@
         "telefone": "(55) 21675-4221",
         "email": "Ana@gmail.com",
         "senha": "M4kurk",
-        "endereco": "Rua A, endereço 123",
+        "endereco": "Rua A, endere\u00e7o 123",
         "data_nascimento": "30/12/2000",
         "cargo": "Caixa 3",
         "salario": "R$ 1.500,00"
@@ -78,7 +78,7 @@
         "telefone": "(55) 21765-4221",
         "email": "Anam@gmail.com",
         "senha": "coIVzw",
-        "endereco": "Rua A, endereço 123",
+        "endereco": "Rua A, endere\u00e7o 123",
         "data_nascimento": "30/12/2000",
         "cargo": "Caixa 4",
         "salario": "R$ 1.500,00"
