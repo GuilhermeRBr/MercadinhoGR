@@ -7,6 +7,9 @@ def gerar_senha():
     return str(senha)
 
 def gerar_id():
+    ids_bloqueados = ['000000']
     caracteres = string.digits
-    id = ''.join(random.choice(caracteres) for _ in range(6))
-    return str(id)
+    while True:
+        id = ''.join(random.choice(caracteres) for _ in range(6))
+        if id not in ids_bloqueados:
+            return str(id)

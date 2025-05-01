@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO, CaixaDAO, VendaDAO
+from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO, CaixaDAO, VendaDAO, AcessoGerenteDao
 from models.Models import Cliente, Funcionario, Produto, Fornecedor, Caixa, Venda
 from validators import *
 from formatters import *
@@ -14,6 +14,23 @@ from pixqrcode import PixQrCode
 total = 0
 id_caixa, id_funcionario = '  '
 produtos = []
+
+class AcessoGerenteController:
+    @classmethod
+    def logar_gerente(cls):
+        while True:
+            id_gerente = validar_id()
+            if id_gerente == '000000':
+                return '0'
+            else:
+                senha = validar_senha()
+                if AcessoGerenteDao.login_gerente(id_gerente, senha):
+                    print('\nLogado com sucesso!')
+                    return True
+                else:
+                    print(f'\nID ou senha inválidos! Tente novamente!')
+                    
+                
 
 class CaixaController:
     @classmethod
@@ -46,7 +63,7 @@ class CaixaController:
         id_gerente = validar_id()
         senha = validar_senha()
 
-        if CaixaDAO.desbloquear_caixa(id_gerente, senha):
+        if CaixaDAO.senha_gerente(id_gerente, senha):
             print('\nO CAIXA AGORA ESTÁ DESBLOQUEADO\n')
             return True
         else:
@@ -272,9 +289,7 @@ class CaixaController:
         venda_produtos()
         print(produtos)
         meio_pagamento()
-        
-
-        
+               
 class ClienteController:
     @classmethod
     def cadastrar_cliente(cls):
@@ -598,7 +613,6 @@ class FornecedorController:
             print(f'\nID: {pesq_fornecedor.id_fornecedor} | Nome: {pesq_fornecedor.nome} | CNPJ: {pesq_fornecedor.cnpj} | Telefone: {pesq_fornecedor.telefone} | Email: {pesq_fornecedor.email} | Endereço: {pesq_fornecedor.endereco}\n')
         except:
             print(f"\nFornecedor com CNPJ {cnpj} não encontrado!")
-
 
 class VendaController:
     @classmethod

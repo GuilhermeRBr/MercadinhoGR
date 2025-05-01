@@ -3,6 +3,16 @@ from datetime import datetime
 from generator import gerar_id
 from models.Models import Cliente, Funcionario, Produto, Fornecedor, Venda
 
+class AcessoGerenteDao:
+    @classmethod
+    def login_gerente(cls, id, senha):
+        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            funcionarios = json.load(arq)
+
+        for f in funcionarios:
+            if f['cargo'].lower() == 'gerente':
+                if f['id_funcionario'] == id and f['senha'] == senha:
+                    return True
 
 class CaixaDAO:
     @classmethod
@@ -15,7 +25,7 @@ class CaixaDAO:
                 return True
     
     @classmethod
-    def desbloquear_caixa(cls, id, senha):
+    def senha_gerente(cls, id, senha):
         with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
 

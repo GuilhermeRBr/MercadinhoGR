@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoGerenteController
 from validators import *
 from formatters import *
 
@@ -13,7 +13,8 @@ class Mercado:
         self.rodando = True
         self.caixa_aberto = False
         self.caixa_bloqueado = True
-    
+        self.acesso = False
+
     def menu_principal(self):
         print('\nBem-vindo ao sistema de gerenciamento de mercado!')
 
@@ -34,15 +35,60 @@ class Mercado:
                 case 1: 
                     self.caixa()
                 case 2:
-                    self.gerenciar_clientes()
+                    if self.acesso == False:
+                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
+                        self.acesso = AcessoGerenteController.logar_gerente()
+                        if self.acesso == '0':
+                            self.acesso = False
+                            self.menu_principal()
+                        else:
+                            self.gerenciar_clientes()
+                    else:
+                        self.gerenciar_clientes()
                 case 3 :
-                    self.gerenciar_funcionarios()
+                    if self.acesso == False:
+                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
+                        self.acesso = AcessoGerenteController.logar_gerente()
+                        if self.acesso == '0':
+                            self.acesso = False
+                            self.menu_principal()
+                        else:
+                            self.gerenciar_funcionarios()
+                    else:
+                        self.gerenciar_funcionarios()
                 case 4:
-                    self.gerenciar_produtos()
+                    if self.acesso == False:
+                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
+                        self.acesso = AcessoGerenteController.logar_gerente()
+                        if self.acesso == '0':
+                            self.acesso = False
+                            self.menu_principal()
+                        else:
+                            self.gerenciar_produtos()
+                    else:
+                        self.gerenciar_produtos()
                 case 5:
-                    self.gerenciar_fornecedores()
+                    if self.acesso == False:
+                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
+                        self.acesso = AcessoGerenteController.logar_gerente()
+                        if self.acesso == '0':
+                            self.acesso = False
+                            self.menu_principal()
+                        else:
+                            self.gerenciar_fornecedores()
+                    else:
+                        self.gerenciar_fornecedores()
                 case 6:
-                    self.relatorios()
+                    if self.acesso == False:
+                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
+                        self.acesso = AcessoGerenteController.logar_gerente()
+                        if self.acesso == '0':
+                            self.acesso = False
+                            self.menu_principal()
+                        else:
+                            self.relatorios()
+                    else:
+                        self.relatorios()
                 case 0:
                     print('Saindo...')
                     self.rodando = False
@@ -55,7 +101,6 @@ class Mercado:
     
         def vender():
             CaixaController.realizar_venda()
-
 
 
         if self.caixa_bloqueado == False:
@@ -73,10 +118,7 @@ class Mercado:
                 vender()
                 
 
-
-
     def gerenciar_clientes(self):
-
         print('\n == MENU CLIENTES ==\n' \
                  '1. Cadastrar Cliente\n' \
                  '2. Listar Clientes\n' \

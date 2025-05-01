@@ -23,5 +23,17 @@
         "id_pagamento": "816997",
         "forma_pagamento": "Credito",
         "data_venda": "30/04/2025 14:51:31"
+    },
+    {
+        "id_venda": "021462",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "184471"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 9,34",
+        "id_pagamento": "390582",
+        "forma_pagamento": "Cartão de Credito",
+        "data_venda": "01/05/2025 10:48:11"
     }
 ]
