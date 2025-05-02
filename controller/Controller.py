@@ -258,13 +258,18 @@ class CaixaController:
                                     break
                             case 2:
                                 print('\nCadastrando cliente...')
-                                print('\nDigite o CPF do cliente:')
+                                
+                                nome = validar_nome()
                                 cpf = formatar_cpf()
-                                nome = input('\nDigite o nome do cliente: ')
-                                telefone = input('\nDigite o telefone do cliente: ')
-                                endereco = input('\nDigite o endereço do cliente: ')
-                                ClienteController.cadastrar_cliente(cpf, nome, telefone, endereco)
-                                cliente = ClienteController.pesquisar_cliente(cpf)
+                                telefone = formatar_telefone()
+                                email = validar_email()
+                                endereco = validar_endereco()
+                                data_nascimento = formatar_data()
+                                divida = float_para_dinheiro(total)
+
+                                ClienteController.cliente_fiado(nome, cpf, telefone, email, endereco, data_nascimento, divida)
+
+                                ClienteController.pesquisar_cliente(cpf)
 
                                 CaixaController.realizar_venda()
                                 break
@@ -422,6 +427,15 @@ class ClienteController:
         except:
             print(f"\nCliente com CPF {cpf} não encontrado!")
             return False
+    
+    @classmethod
+    def cliente_fiado(cls,nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda=None):
+        try:
+            cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda)
+            ClienteDAO.salvar_cliente(cliente)
+            print("\nCliente cadastrado com sucesso!")
+        except ValueError as e:
+            print(f"\nErro ao cadastrar cliente:\n{e}")
 
 class FuncionarioController:
     @classmethod

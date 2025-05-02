@@ -565,7 +565,7 @@
         "descricao": "Pão - Embalagem 1L",
         "preco": "R$ 2,95",
         "categoria": "Alimentos",
-        "quantidade": 50
+        "quantidade": 49
     },
     {
         "id_produto": "577479",
@@ -605,7 +605,7 @@
         "descricao": "Creme dental - Embalagem 500ML",
         "preco": "R$ 12,37",
         "categoria": "Higiene",
-        "quantidade": 71
+        "quantidade": 69
     },
     {
         "id_produto": "420076",

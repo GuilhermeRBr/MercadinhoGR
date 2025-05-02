@@ -20,5 +20,27 @@
         "data_nascimento": "12/04/2000",
         "total_divida": "R$ 615,30",
         "id_venda": "274538"
+    },
+    {
+        "id_cliente": "963417",
+        "nome": "Guilherme",
+        "cpf": "000.202.003-00",
+        "telefone": "(99) 99999-9999",
+        "email": "fas@ds.com",
+        "endereco": "Rauad",
+        "data_nascimento": "19/02/2000",
+        "total_divida": 15.32,
+        "id_venda": null
+    },
+    {
+        "id_cliente": "458003",
+        "nome": "Alan",
+        "cpf": "888.888.888-88",
+        "telefone": "(77) 77777-7777",
+        "email": "ada@d.com",
+        "endereco": "Dsads",
+        "data_nascimento": "12/02/1998",
+        "total_divida": "R$ 12,37",
+        "id_venda": null
     }
 ]
