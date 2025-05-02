@@ -14,5 +14,13 @@
         "telefone": "(11) 98765-4321",
         "email": "unilever@gmail.com",
         "endereco": "Rua A, 123"
+    },
+    {
+        "id_fornecedor": "881466",
+        "nome": "Pepsi",
+        "cnpj": "95.869.594/0959-49",
+        "telefone": "(85) 95949-4949",
+        "email": "pepsi.@gmail.com",
+        "endereco": "Rua Pepsico"
     }
 ]

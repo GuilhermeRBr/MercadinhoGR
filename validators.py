@@ -55,7 +55,7 @@ def validar_quantidade():
         elif int(quantidade) < 0 or int(quantidade) == 0:
             print("Quantidade não pode ser zero ou negativo.")
         else:
-            return quantidade
+            return int(quantidade)
 
 
 def validar_nome_produto():

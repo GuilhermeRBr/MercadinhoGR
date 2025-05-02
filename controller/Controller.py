@@ -30,8 +30,6 @@ class AcessoGerenteController:
                 else:
                     print(f'\nID ou senha inválidos! Tente novamente!')
                     
-                
-
 class CaixaController:
     @classmethod
     def logar_caixa(cls):
@@ -238,7 +236,44 @@ class CaixaController:
 
                 case 5:
                     print('\nPagamento em fiado!')
+                    print(f'\nTOTAL: {float_para_dinheiro(total)}')
+                    while True:
+                        print('\nO cliente já é cadastrado? [1. Sim /2. Não]')
+                        opcao = validar_opcao()
+                        match opcao:
+                            case 1:
+                                print('\nDigite o CPF do cliente:')
+                                cpf = formatar_cpf()
+                                cliente = ClienteController.pesquisar_cliente(cpf)
+                                if cliente == False:
+                                    print('\nCliente não encontrado!')
+                                    continue
+                                else:
+                                    ClienteDAO.atualizar_divida(cpf, total)
+                                    print(f'\nDivida atualizada com sucesso!')
 
+                                    ClienteController.pesquisar_cliente(cpf)
+
+                                    CaixaController.realizar_venda()
+                                    break
+                            case 2:
+                                print('\nCadastrando cliente...')
+                                print('\nDigite o CPF do cliente:')
+                                cpf = formatar_cpf()
+                                nome = input('\nDigite o nome do cliente: ')
+                                telefone = input('\nDigite o telefone do cliente: ')
+                                endereco = input('\nDigite o endereço do cliente: ')
+                                ClienteController.cadastrar_cliente(cpf, nome, telefone, endereco)
+                                cliente = ClienteController.pesquisar_cliente(cpf)
+
+                                CaixaController.realizar_venda()
+                                break
+                            case 0:
+                                print('\nCancelando venda...')
+                                return
+                            case _:
+                                print('\nOpção inválida!')
+                                continue
                     total = 0
                 case 9:
                     print('\nVoltando para adicionar mais produtos!')
@@ -292,16 +327,17 @@ class CaixaController:
                
 class ClienteController:
     @classmethod
-    def cadastrar_cliente(cls):
-        nome = "felipe"
-        cpf = "453.452.434-41"
-        telefone = "(65) 21255-4221"
-        email = "go2532@gmail.com"
-        endereco = "Rua A, 123"
-        data_nascimento = "11112000"
-
+    def cadastrar_cliente(cls, idVenda=None):
+        nome = validar_nome()
+        cpf = formatar_cpf()
+        telefone = formatar_telefone()
+        email = validar_email()
+        endereco = validar_endereco()
+        data_nascimento = formatar_data()
+        total_divida = formatar_dinheiro()
+        id_venda = idVenda
         try:
-            cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento)
+            cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda)
             ClienteDAO.salvar_cliente(cliente)
             print("\nCliente cadastrado com sucesso!")
         except ValueError as e:
@@ -310,9 +346,11 @@ class ClienteController:
     @classmethod
     def listar_clientes(cls):
         clientes = ClienteDAO.listar_clientes()
-
-        for cliente in clientes:
-             print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento}\n')
+        if len(clientes) == 0:
+            print('\nNenhum cliente cadastrado!')
+        else:
+            for cliente in clientes:
+                print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {cliente.id_venda} \n')
 
     @classmethod
     def atualizar_cliente(cls, opcao, cpf):
@@ -352,6 +390,20 @@ class ClienteController:
                     return True
                 except:
                     return False
+            case 6:
+                total_divida = formatar_dinheiro()
+                try:
+                    ClienteDAO.atualizar_cliente(6, cpf, total_divida)
+                    return True
+                except:
+                    return False
+            case 7:
+                id_venda = validar_id()
+                try:
+                    ClienteDAO.atualizar_cliente(7, cpf, id_venda)
+                    return True
+                except:
+                    return False
     
     @classmethod
     def excluir_cliente(cls):
@@ -365,7 +417,7 @@ class ClienteController:
     def pesquisar_cliente(cls, cpf):
         try:
             pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
-            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento}')
+            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento} | TOTAL DE DIVIDAS: {pesq_cliente.total_divida} | ID DAS COMPRAS: {pesq_cliente.id_venda}\n')
             return True
         except:
             print(f"\nCliente com CPF {cpf} não encontrado!")
@@ -374,15 +426,15 @@ class ClienteController:
 class FuncionarioController:
     @classmethod
     def cadastrar_funcionario(cls):
-        nome = 'Ana Maria'
-        cpf = '783.752.564-41'
-        telefone = '(55) 21765-4221'
-        email = 'Anam@gmail.com'
+        nome = validar_nome()
+        cpf = formatar_cpf()
+        telefone = formatar_telefone()
+        email = validar_email()
         senha = gerar_senha()
-        endereco = 'Rua A, endereço 123'
-        data_nascimento = '30/12/2000'
-        cargo = 'Caixa 4'
-        salario = 'R$ 1.500,00'
+        endereco = validar_endereco()
+        data_nascimento =  formatar_data()
+        cargo = validar_cargo()
+        salario = formatar_dinheiro()
 
         try:
             funcionario = Funcionario(nome, cpf, telefone, email, senha, endereco, data_nascimento, cargo, salario)
@@ -394,8 +446,11 @@ class FuncionarioController:
     @classmethod
     def listar_funcionarios(cls):
         funcionarios = FuncionarioDAO.listar_funcionarios()
-        for funcionario in funcionarios:
-            print(f'\nID: {funcionario.id_funcionario} | Nome: {funcionario.nome} | CPF: {funcionario.cpf} | Telefone: {funcionario.telefone} | Email: {funcionario.email}, Endereço: {funcionario.endereco} | Data de Nascimento: {funcionario.data_nascimento} | Cargo: {funcionario.cargo} | Salário: {funcionario.salario}\n')
+        if len(funcionarios) == 0:
+            print('\nNenhum funcionário cadastrado!')
+        else:
+            for funcionario in funcionarios:
+                print(f'\nID: {funcionario.id_funcionario} | Nome: {funcionario.nome} | CPF: {funcionario.cpf} | Telefone: {funcionario.telefone} | Email: {funcionario.email}, Endereço: {funcionario.endereco} | Data de Nascimento: {funcionario.data_nascimento} | Cargo: {funcionario.cargo} | Salário: {funcionario.salario}\n')
 
     @classmethod
     def atualizar_funcionario(cls, opcao, cpf):
@@ -471,11 +526,11 @@ class FuncionarioController:
 class ProdutoController:
     @classmethod
     def cadastrar_produto(cls):
-        nome = 'Biscoito'
-        descricao = 'Biscoito rechado com chocolate'
-        preco = 'R$ 2,50'
-        categoria = 'Alimentos'
-        quantidade = 20
+        nome = validar_nome_produto()
+        descricao = validar_descricao()
+        preco = formatar_dinheiro()
+        categoria = validar_categoria()
+        quantidade = validar_quantidade()
 
         try:
             produto = Produto(nome, descricao, preco, categoria, quantidade)
@@ -487,9 +542,11 @@ class ProdutoController:
     @classmethod
     def listar_produtos(cls):
         produtos = ProdutoDAO.listar_produtos()
-
-        for produto in produtos:
-            print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} |Categoria: {produto.categoria} | Quantidade: {produto.quantidade}\n')
+        if len(produtos) == 0:
+            print('\nNenhum produto cadastrado!')
+        else:
+            for produto in produtos:
+                print(f'\nID: {produto.id_produto} | Nome: {produto.nome} | Descrição: {produto.descricao} | Preço: {produto.preco} |Categoria: {produto.categoria} | Quantidade: {produto.quantidade}\n')
         
     @classmethod
     def atualizar_produto(cls, opcao, id_produto):
@@ -552,11 +609,11 @@ class ProdutoController:
 class FornecedorController:
     @classmethod
     def cadastrar_fornecedor(cls):
-        nome = 'Unilever'
-        cnpj = '12.345.678/0001-90'
-        telefone = '(11) 98765-4321'
-        email = 'unilever@gmail.com'
-        endereco = 'Rua A, 123'
+        nome = validar_nome()
+        cnpj = formatar_cnpj()
+        telefone = formatar_telefone()
+        email = validar_email()
+        endereco = validar_endereco()
 
         try:
             fornecedor = Fornecedor(nome, cnpj, telefone, email, endereco)
@@ -568,9 +625,11 @@ class FornecedorController:
     @classmethod
     def listar_fornecedores(cls):
         fornecedores = FornecedorDAO.listar_fornecedores()
-
-        for fornecedor in fornecedores:
-            print(f'\nID: {fornecedor.id_fornecedor} | Nome: {fornecedor.nome} | CNPJ: {fornecedor.cnpj} | Telefone: {fornecedor.telefone} | Email: {fornecedor.email} | Endereço: {fornecedor.endereco}\n')
+        if len(fornecedores) == 0:
+            print('\nNenhum fornecedor cadastrado!')
+        else:
+            for fornecedor in fornecedores:
+                print(f'\nID: {fornecedor.id_fornecedor} | Nome: {fornecedor.nome} | CNPJ: {fornecedor.cnpj} | Telefone: {fornecedor.telefone} | Email: {fornecedor.email} | Endereço: {fornecedor.endereco}\n')
 
     @classmethod
     def atualizar_fornecedor(cls, opcao, cnpj):

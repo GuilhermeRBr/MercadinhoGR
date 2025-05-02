@@ -85,6 +85,7 @@ class Mercado:
                     self.rodando = False
                 case _:
                     print('Opção inválida!')
+                    
     def caixa(self):
         def desbloquear_caixa():
             print('\nDigite O ID e Senha do gerente para desbloquear o caixa:')
@@ -136,6 +137,8 @@ class Mercado:
                             '3. Editar Email\n' \
                             '4. Editar Endereço\n' \
                             '5. Editar Data de nascimento\n' \
+                            '6. Editar Total de divida\n' \
+                            '7. Editar compras\n' \
                             '0. Voltar\n')
 
                             opcao = validar_opcao()
@@ -166,6 +169,16 @@ class Mercado:
                                         print('\nData de nascimento do cliente alterado com sucesso.')
                                     else:
                                         print('\nErro ao alterar data de nascimento do cliente.')
+                                case 6:
+                                    if ClienteController.atualizar_cliente(6, cpf_edit):
+                                        print('\nTotal de dividas do cliente alterado com sucesso.')
+                                    else:
+                                        print('\nErro ao alterar total de divida do cliente.')
+                                case 7:
+                                    if ClienteController.atualizar_cliente(7, cpf_edit):
+                                        print('\nCompras do cliente alterado com sucesso.')
+                                    else:
+                                        print('\nErro ao alterar compras do cliente.')
                                 case 0:
                                     print('\nVoltando...')
                                     break

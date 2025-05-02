@@ -16,9 +16,11 @@ class Funcionario(Pessoa):
         self.id_funcionario = id_funcionario
 
 class Cliente(Pessoa):
-    def __init__(self, nome, cpf, telefone, email, endereco, data_nascimento, id_cliente=None):
+    def __init__(self, nome, cpf, telefone, email, endereco, data_nascimento,total_divida, id_venda=None, id_cliente=None):
         super().__init__(nome, cpf, telefone, email, endereco, data_nascimento)
         self.id_cliente = id_cliente
+        self.total_divida = total_divida
+        self.id_venda = id_venda
 
 
 class Produto:

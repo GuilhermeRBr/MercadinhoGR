@@ -2,6 +2,7 @@ import json
 from datetime import datetime
 from generator import gerar_id
 from models.Models import Cliente, Funcionario, Produto, Fornecedor, Venda
+from formatters import *
 
 class AcessoGerenteDao:
     @classmethod
@@ -58,7 +59,7 @@ class CaixaDAO:
 
 class ClienteDAO:
     @classmethod
-    def salvar_cliente(cls, cliente: Cliente):
+    def salvar_cliente(cls, cliente: Cliente,):
         erros = []
         clientes = []
         try:
@@ -88,6 +89,8 @@ class ClienteDAO:
             'email': cliente.email,
             'endereco': cliente.endereco,
             'data_nascimento': cliente.data_nascimento,
+            'total_divida': cliente.total_divida,
+            'id_venda': cliente.id_venda
         })
 
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
@@ -99,8 +102,8 @@ class ClienteDAO:
             clientes = json.load(arq)
             lista_clientes = []
             for c in clientes:
-                id_cliente, nome,  cpf, telefone, email, endereco, data_nascimento= c.values()
-                cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
+                id_cliente, nome,  cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda= c.values()
+                cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda, id_cliente)
                 lista_clientes.append(cliente)
 
             return lista_clientes
@@ -123,6 +126,10 @@ class ClienteDAO:
                             c['endereco'] = dados
                         case 5:
                             c['data_nascimento'] = dados
+                        case 6:
+                            c['total_divida'] = dados
+                        case 7:
+                            c['id_venda'] = dados
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)
@@ -149,8 +156,22 @@ class ClienteDAO:
         
         for c in clientes:
             if c['cpf'] == cpf:
-                id_cliente, nome, cpf, telefone, email, endereco, data_nascimento = c.values()
-                return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, id_cliente)
+                id_cliente, nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda = c.values()
+                return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda, id_cliente)
+            
+    @classmethod
+    def atualizar_divida(cls, cpf, valor):
+        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+            clientes = json.load(arq)
+
+        for c in clientes:
+            if c['cpf'] == cpf:
+                float_dinheiro = dinheiro_para_float(c['total_divida'] )
+                float_dinheiro += valor
+                c['total_divida'] = float_para_dinheiro(float_dinheiro)
+        
+        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+            json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
 class FuncionarioDAO:
     @classmethod
@@ -479,6 +500,8 @@ class VendaDAO:
 
         with open('data/vendas.json', 'w', encoding='utf-8') as arq:
             json.dump(vendas, arq, indent=4, ensure_ascii=False)
+    
+
     
 
 
