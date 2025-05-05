@@ -18,7 +18,7 @@
         "email": "dasd@g.com",
         "endereco": "Rua",
         "data_nascimento": "12/04/2000",
-        "total_divida": "R$ 615,30",
+        "total_divida": "R$ 644,38",
         "id_venda": "274538"
     },
     {
@@ -29,7 +29,7 @@
         "email": "fas@ds.com",
         "endereco": "Rauad",
         "data_nascimento": "19/02/2000",
-        "total_divida": 15.32,
+        "total_divida": "R$ 12,37",
         "id_venda": null
     },
     {
@@ -42,5 +42,16 @@
         "data_nascimento": "12/02/1998",
         "total_divida": "R$ 12,37",
         "id_venda": null
+    },
+    {
+        "id_cliente": "804354",
+        "nome": "Roberto",
+        "cpf": "344.434.444-43",
+        "telefone": "(56) 54545-4545",
+        "email": "asdj@kd.com",
+        "endereco": "Rreeed",
+        "data_nascimento": "20/01/2000",
+        "total_divida": "R$ 0,00",
+        "id_venda": "Não à dívidas"
     }
 ]

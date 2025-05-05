@@ -78,6 +78,7 @@ class ClienteDAO:
                 erros.append(f"Erro: Telefone '{cliente.telefone}' já cadastrado.")
             if c['email'] == cliente.email:
                 erros.append(f"Erro: E-mail '{cliente.email}' já cadastrado.")
+
         if erros:
             raise ValueError('\n'.join(erros))
         

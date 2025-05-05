@@ -35,5 +35,29 @@
         "id_pagamento": "390582",
         "forma_pagamento": "Cartão de Credito",
         "data_venda": "01/05/2025 10:48:11"
+    },
+    {
+        "id_venda": "302109",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "254578"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 7,27",
+        "id_pagamento": "256192",
+        "forma_pagamento": "Cartão de Debito",
+        "data_venda": "05/05/2025 11:11:15"
+    },
+    {
+        "id_venda": "058715",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "254578"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 7,27",
+        "id_pagamento": "802308",
+        "forma_pagamento": "Cartão de Debito",
+        "data_venda": "05/05/2025 11:19:29"
     }
 ]

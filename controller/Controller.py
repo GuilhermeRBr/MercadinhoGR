@@ -254,7 +254,6 @@ class CaixaController:
 
                                     ClienteController.pesquisar_cliente(cpf)
 
-                                    CaixaController.realizar_venda()
                                     break
                             case 2:
                                 print('\nCadastrando cliente...')
@@ -271,7 +270,6 @@ class CaixaController:
 
                                 ClienteController.pesquisar_cliente(cpf)
 
-                                CaixaController.realizar_venda()
                                 break
                             case 0:
                                 print('\nCancelando venda...')
@@ -279,7 +277,13 @@ class CaixaController:
                             case _:
                                 print('\nOpção inválida!')
                                 continue
+                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Debito')
+
+                    produtos.clear()
                     total = 0
+                    
+                    CaixaController.realizar_venda()
+
                 case 9:
                     print('\nVoltando para adicionar mais produtos!')
                     venda_produtos()
@@ -340,7 +344,11 @@ class ClienteController:
         endereco = validar_endereco()
         data_nascimento = formatar_data()
         total_divida = formatar_dinheiro()
-        id_venda = idVenda
+        if total_divida == 'R$ 0,00':
+            id_venda = 'Não à dívidas'
+        else:
+            id_venda = idVenda
+
         try:
             cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda)
             ClienteDAO.salvar_cliente(cliente)
