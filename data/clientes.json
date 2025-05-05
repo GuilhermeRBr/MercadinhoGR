@@ -20,7 +20,7 @@
         "email": "dasd@g.com",
         "endereco": "Rua",
         "data_nascimento": "12/04/2000",
-        "total_divida": "R$ 687,94",
+        "total_divida": "R$ 708,44",
         "id_venda": [
             "274538",
             "041041",
@@ -28,7 +28,9 @@
             "620228",
             "888777",
             "026879",
-            "104146"
+            "104146",
+            "561070",
+            "917163"
         ]
     },
     {
@@ -68,6 +70,19 @@
         "total_divida": "R$ 0,00",
         "id_venda": [
             "Não à dívidas"
+        ]
+    },
+    {
+        "id_cliente": "753624",
+        "nome": "Jose",
+        "cpf": "999.989.998-98",
+        "telefone": "(77) 88887-8888",
+        "email": "faj@kjks.com",
+        "endereco": "Diajs",
+        "data_nascimento": "04/06/1998",
+        "total_divida": "R$ 14,92",
+        "id_venda": [
+            "172523"
         ]
     }
 ]

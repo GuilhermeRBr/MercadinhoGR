@@ -1741,7 +1741,7 @@
         "descricao": "Bolacha - Embalagem 200G",
         "preco": "R$ 7,26",
         "categoria": "Alimentos",
-        "quantidade": 83
+        "quantidade": 79
     },
     {
         "id_produto": "787306",
@@ -1749,7 +1749,7 @@
         "descricao": "Suco - Embalagem 5UN",
         "preco": "R$ 13,24",
         "categoria": "Bebidas",
-        "quantidade": 12
+        "quantidade": 11
     },
     {
         "id_produto": "656902",
@@ -2429,7 +2429,7 @@
         "descricao": "Água sanitária - Embalagem 1L",
         "preco": "R$ 7,46",
         "categoria": "Limpeza",
-        "quantidade": 98
+        "quantidade": 94
     },
     {
         "id_produto": "876010",

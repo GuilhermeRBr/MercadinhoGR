@@ -239,7 +239,7 @@ class CaixaController:
                     print('\nPagamento em fiado!')
                     print(f'\nTOTAL: {float_para_dinheiro(total)}')
                     while True:
-                        print('\nO cliente já é cadastrado? [1. Sim /2. Não]')
+                        print('\nO cliente já é cadastrado? [1. Sim / 2. Não / 0. Cancelar] ')
                         opcao = validar_opcao()
 
                         vendas = VendaDAO.listar_venda()
@@ -283,7 +283,14 @@ class CaixaController:
 
                                 ClienteController.cliente_fiado(nome, cpf, telefone, email, endereco, data_nascimento, divida)
 
+                                ClienteDAO.atualizar_divida(cpf, total, id_vendas)
+
                                 ClienteController.pesquisar_cliente(cpf)
+
+                                VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado', id_vendas)
+
+                                produtos.clear()
+                                total = 0
 
                                 break
                             case 0:
@@ -344,7 +351,6 @@ class CaixaController:
                 print(f'\nTotal: {float_para_dinheiro(total)}')
 
         venda_produtos()
-        print(produtos)
         meio_pagamento()
                
 class ClienteController:
@@ -718,7 +724,7 @@ class FornecedorController:
 
 class VendaController:
     @classmethod
-    def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda):
+    def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda=None):
         try:
             venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda)
 

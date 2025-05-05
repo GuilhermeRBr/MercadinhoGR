@@ -161,7 +161,7 @@ class ClienteDAO:
                 return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda, id_cliente)
             
     @classmethod
-    def atualizar_divida(cls, cpf, valor, id_venda):
+    def atualizar_divida(cls, cpf, valor, id_venda=None):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
 
@@ -170,7 +170,10 @@ class ClienteDAO:
                 float_dinheiro = dinheiro_para_float(c['total_divida'] )
                 float_dinheiro += valor
                 c['total_divida'] = float_para_dinheiro(float_dinheiro)
-                c['id_venda'].append(id_venda)
+                if 'id_venda' not in c or not isinstance(c['id_venda'], list):
+                    c['id_venda'] = []
+                if id_venda is not None:
+                    c['id_venda'].append(id_venda)
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
