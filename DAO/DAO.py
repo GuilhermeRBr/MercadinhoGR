@@ -161,7 +161,7 @@ class ClienteDAO:
                 return Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda, id_cliente)
             
     @classmethod
-    def atualizar_divida(cls, cpf, valor):
+    def atualizar_divida(cls, cpf, valor, id_venda):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
 
@@ -170,9 +170,11 @@ class ClienteDAO:
                 float_dinheiro = dinheiro_para_float(c['total_divida'] )
                 float_dinheiro += valor
                 c['total_divida'] = float_para_dinheiro(float_dinheiro)
+                c['id_venda'].append(id_venda)
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
+
 
 class FuncionarioDAO:
     @classmethod
@@ -474,13 +476,18 @@ class VendaDAO:
         except FileNotFoundError:
             vendas = []
         
-        id_venda = gerar_id()
+
         id_pagamento = gerar_id()
         data_venda = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
         
         for v in vendas:
-            if v['id_venda'] == id_venda:
+
+            if venda.id_venda == None:
                 id_venda = gerar_id()
+                if v['id_venda'] == id_venda:
+                    id_venda = gerar_id()
+            else:
+                id_venda = venda.id_venda
             if v['id_pagamento'] == id_pagamento:
                 id_pagamento = gerar_id()
         
@@ -502,7 +509,17 @@ class VendaDAO:
         with open('data/vendas.json', 'w', encoding='utf-8') as arq:
             json.dump(vendas, arq, indent=4, ensure_ascii=False)
     
+    @classmethod
+    def listar_venda(cls):
+        with open('data/vendas.json', 'r', encoding='utf-8') as arq:
+            vendas = json.load(arq)
+            lista_vendas = []
 
-    
+        for v in vendas:
+            id_venda, id_funcionario, id_produtos, id_caixa, valor_total, id_pagamento, forma_pagamento, data_venda = v.values()
+            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, data_venda, id_venda)
+            lista_vendas.append(venda)
+
+        return lista_vendas
 
 

@@ -14,6 +14,7 @@ from pixqrcode import PixQrCode
 total = 0
 id_caixa, id_funcionario = '  '
 produtos = []
+id_venda = []
 
 class AcessoGerenteController:
     @classmethod
@@ -240,6 +241,15 @@ class CaixaController:
                     while True:
                         print('\nO cliente já é cadastrado? [1. Sim /2. Não]')
                         opcao = validar_opcao()
+
+                        vendas = VendaDAO.listar_venda()
+
+                        id_vendas = gerar_id()
+                        for v in vendas:
+                            if v.id_venda == id_vendas:
+                                id_vendas = gerar_id()
+                                break
+
                         match opcao:
                             case 1:
                                 print('\nDigite o CPF do cliente:')
@@ -249,10 +259,15 @@ class CaixaController:
                                     print('\nCliente não encontrado!')
                                     continue
                                 else:
-                                    ClienteDAO.atualizar_divida(cpf, total)
+                                    ClienteDAO.atualizar_divida(cpf, total, id_vendas)
                                     print(f'\nDivida atualizada com sucesso!')
 
                                     ClienteController.pesquisar_cliente(cpf)
+
+                                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado', id_vendas)
+
+                                    produtos.clear()
+                                    total = 0
 
                                     break
                             case 2:
@@ -277,10 +292,8 @@ class CaixaController:
                             case _:
                                 print('\nOpção inválida!')
                                 continue
-                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Debito')
+            
 
-                    produtos.clear()
-                    total = 0
                     
                     CaixaController.realizar_venda()
 
@@ -705,10 +718,9 @@ class FornecedorController:
 
 class VendaController:
     @classmethod
-    def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento):
-
+    def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda):
         try:
-            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento)
+            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda)
 
             VendaDAO.salvar_venda(venda)
             print("\nVenda cadastrada com sucesso!")

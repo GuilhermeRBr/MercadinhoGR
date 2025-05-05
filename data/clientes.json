@@ -8,7 +8,9 @@
         "endereco": "Rua Centro",
         "data_nascimento": "23/09/1996",
         "total_divida": "R$ 200,00",
-        "id_venda": null
+        "id_venda": [
+            null
+        ]
     },
     {
         "id_cliente": "338469",
@@ -18,8 +20,16 @@
         "email": "dasd@g.com",
         "endereco": "Rua",
         "data_nascimento": "12/04/2000",
-        "total_divida": "R$ 644,38",
-        "id_venda": "274538"
+        "total_divida": "R$ 687,94",
+        "id_venda": [
+            "274538",
+            "041041",
+            "009942",
+            "620228",
+            "888777",
+            "026879",
+            "104146"
+        ]
     },
     {
         "id_cliente": "963417",
@@ -30,7 +40,9 @@
         "endereco": "Rauad",
         "data_nascimento": "19/02/2000",
         "total_divida": "R$ 12,37",
-        "id_venda": null
+        "id_venda": [
+            null
+        ]
     },
     {
         "id_cliente": "458003",
@@ -41,7 +53,9 @@
         "endereco": "Dsads",
         "data_nascimento": "12/02/1998",
         "total_divida": "R$ 12,37",
-        "id_venda": null
+        "id_venda": [
+            null
+        ]
     },
     {
         "id_cliente": "804354",
@@ -52,6 +66,8 @@
         "endereco": "Rreeed",
         "data_nascimento": "20/01/2000",
         "total_divida": "R$ 0,00",
-        "id_venda": "Não à dívidas"
+        "id_venda": [
+            "Não à dívidas"
+        ]
     }
 ]
