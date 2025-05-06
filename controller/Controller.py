@@ -384,8 +384,11 @@ class ClienteController:
             for cliente in clientes:
                 print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {cliente.id_venda} \n')
 
+
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados_venda=None):
+        clientes = ClienteDAO.listar_clientes()
+
         acoes = {
             1: validar_nome,
             2: formatar_telefone,
@@ -399,8 +402,15 @@ class ClienteController:
         if opcao in acoes:
             if opcao == 7:
                 valor = acoes[opcao]()
-                erro = ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
-                return erro
+                if dados_venda == 1:
+                    ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
+                    return True
+                else:
+                    for cliente in clientes:
+                        if valor in cliente.id_venda:
+                            ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
+                            return True
+                        
             try:
                 valor = acoes[opcao]()
                 ClienteDAO.atualizar_cliente(opcao, cpf, valor)

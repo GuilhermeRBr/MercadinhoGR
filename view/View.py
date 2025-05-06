@@ -155,7 +155,8 @@ class Mercado:
 
                             if opcao == 0:
                                 print('\nVoltando...')
-
+                                break
+                            
                             elif opcao in mensagens:
                                 if opcao == 7:
                                     print("\n-- Submenu de Compras --"

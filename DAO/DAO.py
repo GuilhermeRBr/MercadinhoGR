@@ -133,10 +133,7 @@ class ClienteDAO:
                             if dados_venda == 1:
                                 c['id_venda'].append(dados)
                             else:
-                                if dados in c['id_venda']:
-                                    c['id_venda'].remove(dados)
-                                else:
-                                    return False
+                                c['id_venda'].remove(dados)
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)
 
