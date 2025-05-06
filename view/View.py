@@ -138,52 +138,56 @@ class Mercado:
                             '4. Editar Endereço\n' \
                             '5. Editar Data de nascimento\n' \
                             '6. Editar Total de divida\n' \
-                            '7. Editar compras\n' \
+                            '7. Editar Compras\n' \
                             '0. Voltar\n')
 
                             opcao = validar_opcao()
 
-                            match opcao:
-                                case 1:
-                                    if ClienteController.atualizar_cliente(1, cpf_edit):
-                                        print('\nNome do cliente alterado com sucesso.')
+                            mensagens = {
+                                1: "Nome",
+                                2: "Telefone",
+                                3: "Email",
+                                4: "Endereço",
+                                5: "Data de nascimento",
+                                6: "Total de dívidas",
+                                7: "Compras"
+                            }
+
+                            if opcao == 0:
+                                print('\nVoltando...')
+
+                            elif opcao in mensagens:
+                                if opcao == 7:
+                                    print("\n-- Submenu de Compras --"
+                                        "\n1. Adicionar ID de venda"
+                                        "\n2. Remover ID de venda" \
+                                        "\n0. Voltar")
+                                    subopcao = validar_opcao()
+
+                                    match subopcao:
+                                        case 1:
+                                            if ClienteController.atualizar_cliente(7, cpf_edit, subopcao): 
+                                                print("\nID de venda adicionado com sucesso.")
+                                            else:
+                                                print("\nErro ao adicionar ID de venda.")
+                                        case 2:
+                                            if ClienteController.atualizar_cliente(7,cpf_edit, subopcao):
+                                                print("\nID de venda removido com sucesso.")
+                                            else:
+                                                print("\nErro ao remover ID de venda.")
+                                        case 0:
+                                            print("\nVoltando...")
+                                            atualizar_cliente(cpf_edit)
+                                        case _:
+                                            print("\nOpção inválida.")
+                                else:
+                                    if ClienteController.atualizar_cliente(opcao, cpf_edit):
+                                        print(f'\n{mensagens[opcao]} do cliente alterado com sucesso.')
                                     else:
-                                        print('\nErro ao alterar nome do cliente.')
-                                case 2:
-                                    if ClienteController.atualizar_cliente(2, cpf_edit):
-                                        print('\nTelefone do cliente alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar telefone do cliente.')
-                                case 3:
-                                    if ClienteController.atualizar_cliente(3, cpf_edit):
-                                        print('\nEmail do cliente alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar email do cliente.')
-                                case 4:
-                                    if ClienteController.atualizar_cliente(4, cpf_edit):
-                                        print('\nEndereço do cliente alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar endereço do cliente.')
-                                case 5:
-                                    if ClienteController.atualizar_cliente(5, cpf_edit):
-                                        print('\nData de nascimento do cliente alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar data de nascimento do cliente.')
-                                case 6:
-                                    if ClienteController.atualizar_cliente(6, cpf_edit):
-                                        print('\nTotal de dividas do cliente alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar total de divida do cliente.')
-                                case 7:
-                                    if ClienteController.atualizar_cliente(7, cpf_edit):
-                                        print('\nCompras do cliente alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar compras do cliente.')
-                                case 0:
-                                    print('\nVoltando...')
-                                    break
-                                case _:
-                                    print('\nOpção inválida!')   
+                                        print(f'\nErro ao alterar {mensagens[opcao].lower()} do cliente.')
+
+                            else:
+                                print('\nOpção inválida!')
                         else:
                             break
                         

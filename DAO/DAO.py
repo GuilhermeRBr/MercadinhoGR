@@ -110,7 +110,7 @@ class ClienteDAO:
             return lista_clientes
         
     @classmethod
-    def atualizar_cliente(cls, opcao, cpf, dados):   
+    def atualizar_cliente(cls, opcao, cpf, dados, dados_venda=None):   
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
 
@@ -130,8 +130,13 @@ class ClienteDAO:
                         case 6:
                             c['total_divida'] = dados
                         case 7:
-                            c['id_venda'] = dados
-        
+                            if dados_venda == 1:
+                                c['id_venda'].append(dados)
+                            else:
+                                if dados in c['id_venda']:
+                                    c['id_venda'].remove(dados)
+                                else:
+                                    return False
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4)
 

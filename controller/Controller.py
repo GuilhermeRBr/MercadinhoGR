@@ -385,58 +385,30 @@ class ClienteController:
                 print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {cliente.id_venda} \n')
 
     @classmethod
-    def atualizar_cliente(cls, opcao, cpf):
-        match opcao:
-            case 1:
-                nome = validar_nome()
-                try:
-                    ClienteDAO.atualizar_cliente(1, cpf, nome)
-                    return True
-                except:
-                    return False
-            case 2:
-                telefone = formatar_telefone()
-                try:
-                    ClienteDAO.atualizar_cliente(2, cpf, telefone)
-                    return True
-                except:
-                    return False
-            case 3:
-                email = validar_email()
-                try:
-                    ClienteDAO.atualizar_cliente(3, cpf, email)
-                    return True
-                except:
-                    return False
-            case 4:
-                endereco = validar_endereco()
-                try:
-                    ClienteDAO.atualizar_cliente(4, cpf, endereco)
-                    return True
-                except:
-                    return False
-            case 5:
-                data_nascimento = formatar_data()
-                try:
-                    ClienteDAO.atualizar_cliente(5, cpf, data_nascimento)
-                    return True
-                except:
-                    return False
-            case 6:
-                total_divida = formatar_dinheiro()
-                try:
-                    ClienteDAO.atualizar_cliente(6, cpf, total_divida)
-                    return True
-                except:
-                    return False
-            case 7:
-                id_venda = validar_id()
-                try:
-                    ClienteDAO.atualizar_cliente(7, cpf, id_venda)
-                    return True
-                except:
-                    return False
-    
+    def atualizar_cliente(cls, opcao, cpf, dados_venda=None):
+        acoes = {
+            1: validar_nome,
+            2: formatar_telefone,
+            3: validar_email,
+            4: validar_endereco,
+            5: formatar_data,
+            6: formatar_dinheiro,
+            7: validar_id
+        }
+
+        if opcao in acoes:
+            if opcao == 7:
+                valor = acoes[opcao]()
+                erro = ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
+                return erro
+            try:
+                valor = acoes[opcao]()
+                ClienteDAO.atualizar_cliente(opcao, cpf, valor)
+                return True
+            except:
+                return False
+        return False
+
     @classmethod
     def excluir_cliente(cls):
         cpf_excluir = formatar_cpf()

@@ -7,20 +7,20 @@
         "email": "mar@gma.com",
         "endereco": "Rua Centro",
         "data_nascimento": "23/09/1996",
-        "total_divida": "R$ 200,00",
+        "total_divida": "R$ 0,00",
         "id_venda": [
-            null
+            "N\u00e3o \u00e0 d\u00edvidas"
         ]
     },
     {
         "id_cliente": "338469",
-        "nome": "Marcos",
+        "nome": "Marc\u00e3o",
         "cpf": "111.111.111-11",
         "telefone": "(11) 11111-1111",
         "email": "dasd@g.com",
         "endereco": "Rua",
         "data_nascimento": "12/04/2000",
-        "total_divida": "R$ 708,44",
+        "total_divida": "R$ 508,44",
         "id_venda": [
             "274538",
             "041041",
@@ -30,7 +30,9 @@
             "026879",
             "104146",
             "561070",
-            "917163"
+            "917163",
+            "982187",
+            "982187"
         ]
     },
     {
@@ -69,7 +71,7 @@
         "data_nascimento": "20/01/2000",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "Não à dívidas"
+            "N\u00e3o \u00e0 d\u00edvidas"
         ]
     },
     {
