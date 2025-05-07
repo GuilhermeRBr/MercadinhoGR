@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO, CaixaDAO, VendaDAO, AcessoGerenteDao
+from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO, CaixaDAO, VendaDAO, AcessoSistemaDao
 from models.Models import Cliente, Funcionario, Produto, Fornecedor, Caixa, Venda
 from validators import *
 from formatters import *
@@ -16,20 +16,41 @@ id_caixa, id_funcionario = '  '
 produtos = []
 id_venda = []
 
-class AcessoGerenteController:
+class AcessoSistemaController:
     @classmethod
     def logar_gerente(cls):
         while True:
-            id_gerente = "745454"
+            id_gerente = validar_id()
             if id_gerente == '000000':
                 return '0'
             else:
                 senha = '856949'
-                if AcessoGerenteDao.login_gerente(id_gerente, senha):
+                if AcessoSistemaDao.login_gerente(id_gerente, senha):
                     print('\nLogado com sucesso!')
                     return True
                 else:
                     print(f'\nID ou senha inválidos! Tente novamente!')
+    
+    @classmethod
+    def logar_funcionario(cls):
+            global id_funcionario
+            tentativas = 1
+            while tentativas > 0:
+                id_funcionario = validar_id()
+                if id_funcionario == '000000':
+                    return '0'
+                else:
+                    senha = 'wAssri'
+                    if CaixaDAO.login_funcionario(id_funcionario, senha):
+                        print('\nLogado com sucesso!')
+                        return True
+                    else:
+                        tentativas -= 1
+                        print(f'\nID ou senha inválidos!')
+                        if tentativas == 0:
+                            print('\nLOGIN BLOQUEADO')
+                            return False
+                        print(f'\nVocê tem {tentativas} tentativas restantes.')
                     
 class CaixaController:
     @classmethod
@@ -37,38 +58,28 @@ class CaixaController:
         global id_caixa, id_funcionario
         tentativas = 1
         while tentativas > 0:
-            id_funcionario = '132642'
-            senha = 'wAssri'
-
-            if CaixaDAO.login_funcionario(id_funcionario, senha):
-                print('\nLogado com sucesso!')
-                print('\nDigite o ID do caixa: ')
-                id_caixa = '000001'
-
-                print('\nO CAIXA AGORA ESTÁ ABERTO')
-                return True
+            id_funcionario = validar_id()
+            if id_funcionario == '000000':
+                return '0'
             else:
-                tentativas -= 1
-                print(f'\nID ou senha inválidos!')
-                if tentativas == 0:
-                    print('\nLOGIN BLOQUEADO')
-                    return False
-                print(f'\nVocê tem {tentativas} tentativas restantes.')
-        
+                senha = 'wAssri'
+                if CaixaDAO.login_funcionario(id_funcionario, senha):
+                    print('\nLogado com sucesso!')
+                    print('\nDigite o ID do caixa: ')
+                    id_caixa = '000001'
+
+                    print('\nO CAIXA AGORA ESTÁ ABERTO')
+                    return True
+                else:
+                    tentativas -= 1
+                    print(f'\nID ou senha inválidos!')
+                    if tentativas == 0:
+                        print('\nLOGIN BLOQUEADO')
+                        return False
+                    print(f'\nVocê tem {tentativas} tentativas restantes.')
+            
 
 
-    @classmethod
-    def desbloquear_caixa(cls):
-        id_gerente = validar_id()
-        senha = validar_senha()
-
-        if CaixaDAO.senha_gerente(id_gerente, senha):
-            print('\nO CAIXA AGORA ESTÁ DESBLOQUEADO\n')
-            return True
-        else:
-            print('\nID ou senha inválidos!')
-            return False
-    
     @classmethod
     def realizar_venda(cls):
         def meio_pagamento():
@@ -410,13 +421,13 @@ class ClienteController:
                         if valor in cliente.id_venda:
                             ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
                             return True
-                        
-            try:
-                valor = acoes[opcao]()
-                ClienteDAO.atualizar_cliente(opcao, cpf, valor)
-                return True
-            except:
-                return False
+            else:          
+                try:
+                    valor = acoes[opcao]()
+                    ClienteDAO.atualizar_cliente(opcao, cpf, valor)
+                    return True
+                except:
+                    return False
         return False
 
     @classmethod

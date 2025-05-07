@@ -4,7 +4,7 @@ from generator import gerar_id
 from models.Models import Cliente, Funcionario, Produto, Fornecedor, Venda
 from formatters import *
 
-class AcessoGerenteDao:
+class AcessoSistemaDao:
     @classmethod
     def login_gerente(cls, id, senha):
         with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
@@ -24,17 +24,7 @@ class CaixaDAO:
         for f in funcionarios:
             if f['id_funcionario'] == id and f['senha'] == senha:
                 return True
-    
-    @classmethod
-    def senha_gerente(cls, id, senha):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
-            funcionarios = json.load(arq)
 
-        for f in funcionarios:
-            if f['cargo'].lower() == 'gerente':
-                if f['id_funcionario'] == id and f['senha'] == senha:
-                    return True
-    
     @classmethod
     def realizar_venda(cls, id_produto):
         with open ('data/produtos.json', 'r', encoding='utf-8') as arq:

@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoGerenteController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoSistemaController
 from validators import *
 from formatters import *
 
@@ -12,7 +12,7 @@ class Mercado:
     def __init__(self):
         self.rodando = True
         self.caixa_aberto = False
-        self.caixa_bloqueado = True
+        self.caixa_desbloqueado = True
         self.acesso = False
 
     def menu_principal(self):
@@ -35,11 +35,27 @@ class Mercado:
                 case 1: 
                     self.caixa()
                 case 2:
-                    self.gerenciar_clientes()
+                    if self.caixa_desbloqueado == False:
+                        print('\nACESSO BLOQUEADO!')
+                        print('Digite o ID e Senha do gerente para desbloquear o acesso:')
+                        self.caixa_desbloqueado = AcessoSistemaController.logar_gerente()
+                    else: 
+                        if self.caixa_aberto == False:      
+                            print('\nDigite seu ID e Senha de funcionario para acessar a aba de clientes: [Digite 0 para voltar]')
+                            self.caixa_aberto = AcessoSistemaController.logar_funcionario()
+                            if self.caixa_aberto == '0':
+                                self.caixa_aberto = False
+                                self.menu_principal()
+                            else:
+                                self.caixa_desbloqueado = self.caixa_aberto
+                                if self.caixa_aberto == True:
+                                    self.gerenciar_clientes()
+                        else:     
+                            self.gerenciar_clientes()
                 case 3 :
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoGerenteController.logar_gerente()
+                        self.acesso = AcessoSistemaController.logar_gerente()
                         if self.acesso == '0':
                             self.acesso = False
                             self.menu_principal()
@@ -50,7 +66,7 @@ class Mercado:
                 case 4:
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoGerenteController.logar_gerente()
+                        self.acesso = AcessoSistemaController.logar_gerente()
                         if self.acesso == '0':
                             self.acesso = False
                             self.menu_principal()
@@ -61,7 +77,7 @@ class Mercado:
                 case 5:
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoGerenteController.logar_gerente()
+                        self.acesso = AcessoSistemaController.logar_gerente()
                         if self.acesso == '0':
                             self.acesso = False
                             self.menu_principal()
@@ -72,7 +88,7 @@ class Mercado:
                 case 6:
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoGerenteController.logar_gerente()
+                        self.acesso = AcessoSistemaController.logar_gerente()
                         if self.acesso == '0':
                             self.acesso = False
                             self.menu_principal()
@@ -87,22 +103,20 @@ class Mercado:
                     print('Opção inválida!')
                     
     def caixa(self):
-        def desbloquear_caixa():
-            print('\nDigite O ID e Senha do gerente para desbloquear o caixa:')
-            self.caixa_bloqueado = CaixaController.desbloquear_caixa()
-    
         def vender():
             CaixaController.realizar_venda()
 
 
-        if self.caixa_bloqueado == False:
+        if self.caixa_desbloqueado == False:
             print('\nCAIXA BLOQUEADO!')
-            desbloquear_caixa()
+            print('\nDigite O ID e Senha do gerente para desbloquear o caixa:')
+            self.caixa_desbloqueado = AcessoSistemaController.logar_gerente()
+
         else: 
             if self.caixa_aberto == False:      
                 print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
                 self.caixa_aberto = CaixaController.logar_caixa()
-                self.caixa_bloqueado = self.caixa_aberto
+                self.caixa_desbloqueado = self.caixa_aberto
                 if self.caixa_aberto == True:
                     vender()
                     
