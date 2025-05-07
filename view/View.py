@@ -12,8 +12,8 @@ class Mercado:
     def __init__(self):
         self.rodando = True
         self.caixa_aberto = False
-        self.caixa_desbloqueado = True
         self.acesso = False
+        self.caixa_desbloqueado = True
 
     def menu_principal(self):
         print('\nBem-vindo ao sistema de gerenciamento de mercado!')
@@ -35,23 +35,36 @@ class Mercado:
                 case 1: 
                     self.caixa()
                 case 2:
-                    if self.caixa_desbloqueado == False:
+                    if not self.caixa_desbloqueado:
                         print('\nACESSO BLOQUEADO!')
-                        print('Digite o ID e Senha do gerente para desbloquear o acesso:')
-                        self.caixa_desbloqueado = AcessoSistemaController.logar_gerente()
-                    else: 
-                        if self.caixa_aberto == False:      
-                            print('\nDigite seu ID e Senha de funcionario para acessar a aba de clientes: [Digite 0 para voltar]')
-                            self.caixa_aberto = AcessoSistemaController.logar_funcionario()
-                            if self.caixa_aberto == '0':
-                                self.caixa_aberto = False
-                                self.menu_principal()
-                            else:
-                                self.caixa_desbloqueado = self.caixa_aberto
-                                if self.caixa_aberto == True:
-                                    self.gerenciar_clientes()
-                        else:     
+                        print('Digite o ID e Senha do gerente para desbloquear o acesso à aba de clientes [Digite 0 para voltar]:')
+                        resultado = AcessoSistemaController.logar_gerente()
+                        if resultado == '0':
+                            self.menu_principal()
+                            return
+                        elif resultado == True:
+                            self.caixa_desbloqueado = True
+                            self.caixa_aberto = True
+                            self.acesso = True
                             self.gerenciar_clientes()
+                        else:
+                            self.menu_principal()
+                        
+                    if not self.caixa_aberto:
+                        print('\nDigite seu ID e Senha de funcionário para acessar a aba de clientes: [Digite 0 para voltar]')
+                        resultado = AcessoSistemaController.logar_funcionario()
+                        if resultado == '0':
+                            self.menu_principal()
+                            return
+                        elif resultado == True:
+                            self.caixa_aberto = True
+                            self.gerenciar_clientes()
+                        else:
+                            self.caixa_desbloqueado = False
+                            self.menu_principal()
+                    else:
+                        self.gerenciar_clientes()
+                    
                 case 3 :
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
@@ -106,23 +119,36 @@ class Mercado:
         def vender():
             CaixaController.realizar_venda()
 
-
-        if self.caixa_desbloqueado == False:
-            print('\nCAIXA BLOQUEADO!')
-            print('\nDigite O ID e Senha do gerente para desbloquear o caixa:')
-            self.caixa_desbloqueado = AcessoSistemaController.logar_gerente()
-
-        else: 
-            if self.caixa_aberto == False:      
-                print('\nDigite seu ID e Senha de funcionario para abrir o caixa:')
-                self.caixa_aberto = CaixaController.logar_caixa()
-                self.caixa_desbloqueado = self.caixa_aberto
-                if self.caixa_aberto == True:
-                    vender()
-                    
-            else:
+        if not self.caixa_desbloqueado:
+            print('\nACESSO BLOQUEADO!')
+            print('Digite o ID e Senha do gerente para desbloquear o caixa [Digite 0 para voltar]:')
+            resultado = AcessoSistemaController.logar_gerente()
+            if resultado == '0':
+                self.menu_principal()
+                return
+            elif resultado == True:
+                self.caixa_desbloqueado = True
+                self.caixa_aberto = True
+                self.acesso = True
                 vender()
-                
+            else:
+                self.menu_principal()
+
+        if not self.caixa_aberto:
+            print('\nDigite seu ID e Senha de funcionário para abrir o caixa: [Digite 0 para voltar]')
+            resultado = AcessoSistemaController.logar_funcionario()
+            if resultado == '0':
+                self.menu_principal()
+                return
+            elif resultado == True:
+                self.caixa_aberto = True
+                vender()
+            else:
+                self.caixa_desbloqueado = False
+                self.menu_principal()
+        else:
+            vender()
+    
     def gerenciar_clientes(self):
         print('\n == MENU CLIENTES ==\n' \
                  '1. Cadastrar Cliente\n' \

@@ -9,7 +9,7 @@
         "data_nascimento": "23/09/1996",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "N\u00e3o \u00e0 d\u00edvidas"
+            "Não à dívidas"
         ]
     },
     {
@@ -41,9 +41,9 @@
         "email": "fas@ds.com",
         "endereco": "Rauad",
         "data_nascimento": "19/02/2000",
-        "total_divida": "R$ 12,37",
+        "total_divida": "R$ 0,00",
         "id_venda": [
-            null
+            "Não à dívidas"
         ]
     },
     {
@@ -54,9 +54,9 @@
         "email": "ada@d.com",
         "endereco": "Dsads",
         "data_nascimento": "12/02/1998",
-        "total_divida": "R$ 12,37",
+        "total_divida": "R$ 0,00",
         "id_venda": [
-            null
+            "Não à dívidas"
         ]
     },
     {
@@ -69,7 +69,7 @@
         "data_nascimento": "20/01/2000",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "N\u00e3o \u00e0 d\u00edvidas"
+            "Não à dívidas"
         ]
     },
     {
