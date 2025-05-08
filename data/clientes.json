@@ -9,7 +9,7 @@
         "data_nascimento": "23/09/1996",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "Não à dívidas"
+            "N\u00e3o \u00e0 d\u00edvidas"
         ]
     },
     {
@@ -43,7 +43,7 @@
         "data_nascimento": "19/02/2000",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "Não à dívidas"
+            "N\u00e3o \u00e0 d\u00edvidas"
         ]
     },
     {
@@ -56,7 +56,7 @@
         "data_nascimento": "12/02/1998",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "Não à dívidas"
+            "N\u00e3o \u00e0 d\u00edvidas"
         ]
     },
     {
@@ -69,7 +69,7 @@
         "data_nascimento": "20/01/2000",
         "total_divida": "R$ 0,00",
         "id_venda": [
-            "Não à dívidas"
+            "N\u00e3o \u00e0 d\u00edvidas"
         ]
     },
     {
@@ -80,9 +80,10 @@
         "email": "faj@kjks.com",
         "endereco": "Diajs",
         "data_nascimento": "04/06/1998",
-        "total_divida": "R$ 14,92",
+        "total_divida": "R$ 25,14",
         "id_venda": [
-            "172523"
+            "172523",
+            "757869"
         ]
     }
 ]

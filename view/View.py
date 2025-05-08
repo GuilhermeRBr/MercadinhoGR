@@ -68,22 +68,25 @@ class Mercado:
                 case 3 :
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoSistemaController.logar_gerente()
-                        if self.acesso == '0':
+                        resultado = AcessoSistemaController.logar_gerente()
+                        if resultado == '0':
                             self.acesso = False
                             self.menu_principal()
+                        
                         else:
+                            self.acesso = True
                             self.gerenciar_funcionarios()
                     else:
                         self.gerenciar_funcionarios()
                 case 4:
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoSistemaController.logar_gerente()
-                        if self.acesso == '0':
+                        resultado = AcessoSistemaController.logar_gerente()
+                        if resultado == '0':
                             self.acesso = False
                             self.menu_principal()
                         else:
+                            self.acesso = True
                             self.gerenciar_produtos()
                     else:
                         self.gerenciar_produtos()
@@ -101,11 +104,12 @@ class Mercado:
                 case 6:
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
-                        self.acesso = AcessoSistemaController.logar_gerente()
-                        if self.acesso == '0':
+                        resultado = AcessoSistemaController.logar_gerente()
+                        if resultado == '0':
                             self.acesso = False
                             self.menu_principal()
                         else:
+                            self.acesso = True
                             self.relatorios()
                     else:
                         self.relatorios()

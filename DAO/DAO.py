@@ -505,14 +505,14 @@ class VendaDAO:
             json.dump(vendas, arq, indent=4, ensure_ascii=False)
     
     @classmethod
-    def listar_venda(cls):
+    def listar_vendas(cls):
         with open('data/vendas.json', 'r', encoding='utf-8') as arq:
             vendas = json.load(arq)
             lista_vendas = []
 
         for v in vendas:
             id_venda, id_funcionario, id_produtos, id_caixa, valor_total, id_pagamento, forma_pagamento, data_venda = v.values()
-            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, data_venda, id_venda)
+            venda = Venda(id_funcionario, id_produtos, id_caixa, valor_total, id_pagamento, forma_pagamento, data_venda, id_venda)
             lista_vendas.append(venda)
 
         return lista_vendas

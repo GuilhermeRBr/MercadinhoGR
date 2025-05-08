@@ -191,5 +191,18 @@
         "id_pagamento": "197889",
         "forma_pagamento": "Fiado",
         "data_venda": "05/05/2025 16:22:07"
+    },
+    {
+        "id_venda": "757869",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "876010",
+            "876010"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 10,22",
+        "id_pagamento": "074457",
+        "forma_pagamento": "Fiado",
+        "data_venda": "08/05/2025 20:10:29"
     }
 ]

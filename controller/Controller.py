@@ -20,7 +20,7 @@ class AcessoSistemaController:
     @classmethod
     def logar_gerente(cls):
         while True:
-            id_gerente = validar_id()
+            id_gerente = "745454"
             if id_gerente == '000000':
                 return '0'
             else:
@@ -36,7 +36,7 @@ class AcessoSistemaController:
             global id_funcionario
             tentativas = 1
             while tentativas > 0:
-                id_funcionario = validar_id()
+                id_funcionario = '132642'
                 if id_funcionario == '000000':
                     return '0'
                 else:
@@ -58,7 +58,7 @@ class CaixaController:
         global id_caixa, id_funcionario
         tentativas = 1
         while tentativas > 0:
-            id_funcionario = validar_id()
+            id_funcionario = '132642'
             if id_funcionario == '000000':
                 return '0'
             else:
@@ -399,6 +399,8 @@ class ClienteController:
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados_venda=None):
         clientes = ClienteDAO.listar_clientes()
+        vendas = VendaDAO.listar_vendas()
+        
 
         acoes = {
             1: validar_nome,
@@ -413,9 +415,12 @@ class ClienteController:
         if opcao in acoes:
             if opcao == 7:
                 valor = acoes[opcao]()
+                
                 if dados_venda == 1:
-                    ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
-                    return True
+                    for venda in vendas:
+                        if valor in venda.id_venda:
+                            ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
+                            return True
                 else:
                     for cliente in clientes:
                         if valor in cliente.id_venda:
