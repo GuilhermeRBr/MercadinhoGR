@@ -141,7 +141,7 @@ class Mercado:
 
         if not self.caixa_aberto:
             print('\nDigite seu ID e Senha de funcionário para abrir o caixa: [Digite 0 para voltar]')
-            resultado = AcessoSistemaController.logar_funcionario()
+            resultado = CaixaController.logar_caixa()
             if resultado == '0':
                 self.menu_principal()
                 return

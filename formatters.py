@@ -64,12 +64,12 @@ def formatar_dinheiro():
         valor = input('VALOR: ')
         if valor.replace(".", "").replace(",", "").isdigit():
             valor = float(valor.replace(",", "."))
-            if valor < 0 or valor == 0:
-                print("Valor não pode ser zero ou negativo.")
-            
-            locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-            valor_formatado = locale.currency(valor, grouping=True)
-            return valor_formatado
+            if valor < 0 :
+                print("Valor não pode ser negativo.")
+            else:
+                locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+                valor_formatado = locale.currency(valor, grouping=True)
+                return valor_formatado
         else:
             print("Valor deve conter apenas números.")
 

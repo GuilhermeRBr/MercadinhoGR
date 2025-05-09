@@ -68,5 +68,27 @@
         "data_nascimento": "04/06/1998",
         "total_divida": "R$ 0,00",
         "id_venda": []
+    },
+    {
+        "id_cliente": "099075",
+        "nome": "Alan",
+        "cpf": "999.999.999-93",
+        "telefone": "(77) 77777-7767",
+        "email": "hila@c.vom",
+        "endereco": "Dasijd",
+        "data_nascimento": "23/07/2000",
+        "total_divida": "R$ 0,00",
+        "id_venda": []
+    },
+    {
+        "id_cliente": "792137",
+        "nome": "Robson",
+        "cpf": "444.444.444-45",
+        "telefone": "(33) 33333-3333",
+        "email": "adoiakj@asolk.com",
+        "endereco": "Diaksjhd",
+        "data_nascimento": "12/04/2000",
+        "total_divida": "R$ 0,00",
+        "id_venda": []
     }
 ]

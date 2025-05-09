@@ -82,7 +82,7 @@ class CaixaController:
     @classmethod
     def realizar_venda(cls):
         def meio_pagamento():
-            global total, venda_temporaria
+            global total, id_caixa
             print('\nDigite o metodo de pagamento:' \
             '\n1. Dinheiro' \
             '\n2. Pix' \
@@ -299,8 +299,6 @@ class CaixaController:
 
                                 ClienteController.cliente_fiado(nome, cpf, telefone, email, endereco, data_nascimento, divida)
 
-                                print('\nCliente cadastrado com sucesso!')
-
                                 ClienteDAO.atualizar_divida(cpf, total, id_vendas)
 
                                 ClienteController.pesquisar_cliente(cpf)
@@ -358,8 +356,10 @@ class CaixaController:
                     else:
                         print(f'\nTotal a pagar: {float_para_dinheiro(total)}')
                         meio_pagamento()
+                        continue
 
                 produto = ProdutoDAO.pesquisar_produto(id_produto)
+
                 if produto and produto.quantidade > 0:
                     print(f'\nProduto: {produto.nome} | Preço: {produto.preco}')
                     venda_temporaria.append(produto.id_produto)
@@ -381,7 +381,7 @@ class CaixaController:
                
 class ClienteController:
     @classmethod
-    def cadastrar_cliente(cls, idVenda=None):
+    def cadastrar_cliente(cls):
         nome = validar_nome()
         cpf = formatar_cpf()
         telefone = formatar_telefone()
@@ -389,10 +389,7 @@ class ClienteController:
         endereco = validar_endereco()
         data_nascimento = formatar_data()
         total_divida = formatar_dinheiro()
-        if total_divida == 'R$ 0,00':
-            id_venda = 'Não à dívidas'
-        else:
-            id_venda = idVenda
+        id_venda = []
 
         try:
             cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda)
@@ -483,7 +480,7 @@ class ClienteController:
             return False
     
     @classmethod
-    def cliente_fiado(cls,nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda=None):
+    def cliente_fiado(cls, nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda=None):
         try:
             cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda)
             ClienteDAO.salvar_cliente(cliente)

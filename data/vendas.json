@@ -211,7 +211,7 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "553406",
         "forma_pagamento": "Dinheiro",
@@ -223,7 +223,7 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "548517",
         "forma_pagamento": "Dinheiro",
@@ -235,7 +235,7 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "175603",
         "forma_pagamento": "Pix",
@@ -247,7 +247,7 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "065213",
         "forma_pagamento": "Pix",
@@ -259,7 +259,7 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "142205",
         "forma_pagamento": "Cartão de Debito",
@@ -271,7 +271,7 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "247486",
         "forma_pagamento": "Dinheiro",
@@ -283,10 +283,166 @@
         "id_produtos": [
             "528533"
         ],
-        "id_caixa": " ",
+        "id_caixa": "000001",
         "valor_total": "R$ 8,09",
         "id_pagamento": "296713",
         "forma_pagamento": "Fiado",
         "data_venda": "09/05/2025 14:24:58"
+    },
+    {
+        "id_venda": "574038",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "385627",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "09/05/2025 14:42:44"
+    },
+    {
+        "id_venda": "260382",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "926432",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:44:04"
+    },
+    {
+        "id_venda": "261034",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "454543",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:44:56"
+    },
+    {
+        "id_venda": "335547",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "892478",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:45:52"
+    },
+    {
+        "id_venda": "139860",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "513817",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:54:28"
+    },
+    {
+        "id_venda": "232578",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "624141",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:55:48"
+    },
+    {
+        "id_venda": "999973",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "173065",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:57:27"
+    },
+    {
+        "id_venda": "009999",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "102196",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 15:00:48"
+    },
+    {
+        "id_venda": "234637",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "198710",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 15:03:16"
+    },
+    {
+        "id_venda": "626649",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "700767",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 15:03:58"
+    },
+    {
+        "id_venda": "908886",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "175651",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 15:07:29"
+    },
+    {
+        "id_venda": "780345",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "495569",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 15:39:09"
+    },
+    {
+        "id_venda": "660465",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 12,80",
+        "id_pagamento": "278629",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 15:45:17"
     }
 ]
