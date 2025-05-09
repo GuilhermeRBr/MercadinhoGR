@@ -29,23 +29,14 @@ class CaixaDAO:
     def realizar_venda(cls, id_produto):
         with open ('data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)
-            venda = []
-        for p in produtos:
-            if p['id_produto'] == id_produto:
-                if p['quantidade'] == 0:
-                    return False
-                else:
+
+        for i in id_produto:
+            for p in produtos:
+                if p['id_produto'] == i:
                     p['quantidade'] -= 1
-                    id_produto, nome, descricao, preco, categoria, quantidade = p.values()
-                    produto = Produto(nome, descricao, preco, categoria, quantidade, id_produto)
-                    venda.append(produto)
-
-                    with open('data/produtos.json', 'w', encoding='utf-8') as arq:
-                        json.dump(produtos, arq, indent=4, ensure_ascii=False)
-                    return venda
-
+                    
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
-            json.dump(produtos, arq, indent=4)
+            json.dump(produtos, arq, indent=4, ensure_ascii=False)
 
 class ClienteDAO:
     @classmethod
@@ -126,7 +117,7 @@ class ClienteDAO:
                             else:
                                 c['id_venda'].remove(dados)
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
-            json.dump(clientes, arq, indent=4)
+            json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
 
     @classmethod        
@@ -248,7 +239,7 @@ class FuncionarioDAO:
                             f['salario'] = dados
 
         with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
-            json.dump(funcionarios, arq, indent=4)
+            json.dump(funcionarios, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def excluir_funcionario(cls, cpf):
@@ -339,7 +330,7 @@ class ProdutoDAO:
                             p['quantidade'] = int(dados)
             
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
-            json.dump(produtos, arq, indent=4)
+            json.dump(produtos, arq, indent=4, ensure_ascii=False)
     
     @classmethod
     def excluir_produto(cls, id_produto):
@@ -494,7 +485,7 @@ class VendaDAO:
         vendas.append({
             'id_venda': id_venda,
             'id_funcionario': venda.funcionario,
-            'id_produtos': venda.id_produtos,
+            'id_produtos': venda.id_produtos,   
             'id_caixa': venda.id_caixa,
             'valor_total': venda.valor_total,
             'id_pagamento': id_pagamento,

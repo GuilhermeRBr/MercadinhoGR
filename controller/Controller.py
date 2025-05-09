@@ -12,10 +12,8 @@ import qrcode
 from pixqrcode import PixQrCode
 
 total = 0
-id_caixa, id_funcionario = '  '
-produtos = []
-id_venda = []
-sair = ' '
+id_caixa, id_funcionario, sair = '   '
+produtos,id_venda, venda_temporaria = [], [], []
 
 class AcessoSistemaController:
     @classmethod
@@ -84,7 +82,7 @@ class CaixaController:
     @classmethod
     def realizar_venda(cls):
         def meio_pagamento():
-            global total
+            global total, venda_temporaria
             print('\nDigite o metodo de pagamento:' \
             '\n1. Dinheiro' \
             '\n2. Pix' \
@@ -118,21 +116,21 @@ class CaixaController:
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
+                            print('\nPagamento confirmado!')
+                            CaixaDAO.realizar_venda(venda_temporaria)
+
+                            VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Dinheiro')
+
+                            venda_temporaria.clear()
+                            produtos.clear()
+                            total = 0
+
                             break
                         if opcao == 9:
                             print('\nAlterando meio de pagamento!')
                             meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
-
-                    print('\nPagamento confirmado!')
-                    
-                    
-                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Dinheiro')
-
-                    produtos.clear()
-                    total = 0
-                    CaixaController.realizar_venda()
         
                 case 2:
 
@@ -160,21 +158,21 @@ class CaixaController:
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
+                            print('\nPagamento confirmado!')
+                            CaixaDAO.realizar_venda(venda_temporaria)
+
+                            VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Pix')
+
+                            venda_temporaria.clear()
+                            produtos.clear()
+                            total = 0
+
                             break
                         if opcao == 9:
                             print('\nAlterando meio de pagamento!')
                             meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
-                            
-                    print('\nPagamento confirmado!')
-
-                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Pix')
-
-                    produtos.clear()
-                    total = 0
-
-                    CaixaController.realizar_venda()
 
                 case 3:
                     print('\nPagamento em credito!')
@@ -203,21 +201,21 @@ class CaixaController:
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
+                            print('\nPagamento confirmado!')
+                            CaixaDAO.realizar_venda(venda_temporaria)
+
+                            VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Credito')
+
+                            venda_temporaria.clear()
+                            produtos.clear()
+                            total = 0
+
                             break
                         if opcao == 9:
                             print('\nAlterando meio de pagamento!')
                             meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
-                            
-                    print('\nPagamento confirmado!')
-
-                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Credito')
-
-                    produtos.clear()
-                    total = 0
-                    
-                    CaixaController.realizar_venda()
 
                 case 4:
                     print('\nPagamento no debito!')
@@ -230,20 +228,22 @@ class CaixaController:
                     while True:
                         opcao = validar_opcao()
                         if opcao == 0:
+                            print('\nPagamento confirmado!')
+                            CaixaDAO.realizar_venda(venda_temporaria)
+        
+                            VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Debito')
+
+                            venda_temporaria.clear()   
+                            produtos.clear()
+                            total = 0
+
                             break
                         if opcao == 9:
                             print('\nAlterando meio de pagamento!')
                             meio_pagamento()
                         else:
                             print('\nOpção inválida!\n')
-                            
-                    print('\nPagamento confirmado!')
-
-                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Cartão de Debito')
-
-                    produtos.clear()
-                    total = 0
-
+                    
 
                     CaixaController.realizar_venda()
 
@@ -254,7 +254,7 @@ class CaixaController:
                         print('\nO cliente já é cadastrado? [1. Sim / 2. Não / 0. Cancelar] ')
                         opcao = validar_opcao()
 
-                        vendas = VendaDAO.listar_venda()
+                        vendas = VendaDAO.listar_vendas()
 
                         id_vendas = gerar_id()
                         for v in vendas:
@@ -276,12 +276,16 @@ class CaixaController:
 
                                     ClienteController.pesquisar_cliente(cpf)
 
-                                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado', id_vendas)
+                                    CaixaDAO.realizar_venda(venda_temporaria)
 
+                                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado')
+
+                                    venda_temporaria.clear()
                                     produtos.clear()
                                     total = 0
 
                                     break
+
                             case 2:
                                 print('\nCadastrando cliente...')
                                 
@@ -295,12 +299,17 @@ class CaixaController:
 
                                 ClienteController.cliente_fiado(nome, cpf, telefone, email, endereco, data_nascimento, divida)
 
+                                print('\nCliente cadastrado com sucesso!')
+
                                 ClienteDAO.atualizar_divida(cpf, total, id_vendas)
 
                                 ClienteController.pesquisar_cliente(cpf)
 
+                                CaixaDAO.realizar_venda(venda_temporaria)
+
                                 VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado', id_vendas)
 
+                                venda_temporaria.clear()
                                 produtos.clear()
                                 total = 0
 
@@ -326,6 +335,7 @@ class CaixaController:
                     print('\nOpção inválida!\n')
                     meio_pagamento()
 
+
         print(f'\n -- NOVA VENDA NO CAIXA: {id_caixa.replace('0000', '')} --')
 
         def venda_produtos():
@@ -338,6 +348,7 @@ class CaixaController:
 
                 if id_produto == 'v':
                     sair = 'v'
+                    venda_temporaria.clear()
                     break
             
                 if id_produto == '000000':
@@ -348,24 +359,18 @@ class CaixaController:
                         print(f'\nTotal a pagar: {float_para_dinheiro(total)}')
                         meio_pagamento()
 
-                venda = CaixaDAO.realizar_venda(id_produto)
-
-                if venda == None:
+                produto = ProdutoDAO.pesquisar_produto(id_produto)
+                if produto and produto.quantidade > 0:
+                    print(f'\nProduto: {produto.nome} | Preço: {produto.preco}')
+                    venda_temporaria.append(produto.id_produto)
+                    total += dinheiro_para_float(produto.preco)
+                    produtos.append(produto.id_produto)
+                else:
                     print('\nProduto não encontrado!')
                     continue
-                if venda == False:
-                    print('\nProduto fora de estoque!')
-                    continue
-
-                while True:
-                    for v in venda:
-                        print(f'\nProduto: {v.nome} | Preço: {v.preco}')
-                        total += dinheiro_para_float(v.preco)
-                        produtos.append(v.id_produto)
-                        break
-                    break
 
                 print(f'\nTotal: {float_para_dinheiro(total)}')
+
         venda_produtos()
 
         if sair != 'v':

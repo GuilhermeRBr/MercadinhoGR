@@ -12,16 +12,17 @@
     },
     {
         "id_cliente": "338469",
-        "nome": "Marc\u00e3o",
+        "nome": "Marcão",
         "cpf": "111.111.111-11",
         "telefone": "(11) 11111-1111",
         "email": "dasd@g.com",
         "endereco": "Rua",
         "data_nascimento": "12/04/2000",
-        "total_divida": "R$ 28,31",
+        "total_divida": "R$ 36,40",
         "id_venda": [
             "274538",
-            "757869"
+            "757869",
+            "554523"
         ]
     },
     {

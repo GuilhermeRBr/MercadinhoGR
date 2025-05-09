@@ -204,5 +204,89 @@
         "id_pagamento": "074457",
         "forma_pagamento": "Fiado",
         "data_venda": "08/05/2025 20:10:29"
+    },
+    {
+        "id_venda": "636083",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "553406",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "09/05/2025 14:05:21"
+    },
+    {
+        "id_venda": "067388",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "548517",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "09/05/2025 14:07:57"
+    },
+    {
+        "id_venda": "929383",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "175603",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:08:33"
+    },
+    {
+        "id_venda": "426328",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "065213",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 14:10:52"
+    },
+    {
+        "id_venda": "346975",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "142205",
+        "forma_pagamento": "Cartão de Debito",
+        "data_venda": "09/05/2025 14:15:16"
+    },
+    {
+        "id_venda": "761535",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "247486",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "09/05/2025 14:23:01"
+    },
+    {
+        "id_venda": "614243",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "528533"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 8,09",
+        "id_pagamento": "296713",
+        "forma_pagamento": "Fiado",
+        "data_venda": "09/05/2025 14:24:58"
     }
 ]
