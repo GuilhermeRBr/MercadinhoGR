@@ -393,14 +393,20 @@ class ClienteController:
             print('\nNenhum cliente cadastrado!')
         else:
             for cliente in clientes:
-                print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {cliente.id_venda} \n')
+                print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {cliente.id_venda if cliente.id_venda else 'Não há dívidas'} \n')
 
 
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados_venda=None):
         clientes = ClienteDAO.listar_clientes()
         vendas = VendaDAO.listar_vendas()
-        
+
+
+        for cliente in clientes:
+
+            if cpf == cliente.cpf:
+                total_divida = dinheiro_para_float(cliente.total_divida)
+                break
 
         acoes = {
             1: validar_nome,
@@ -415,16 +421,24 @@ class ClienteController:
         if opcao in acoes:
             if opcao == 7:
                 valor = acoes[opcao]()
-                
+
+                for venda in vendas:    
+                    if valor in venda.id_venda:
+                        compras = dinheiro_para_float(venda.valor_total)
+                    
                 if dados_venda == 1:
                     for venda in vendas:
                         if valor in venda.id_venda:
-                            ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
+                            valor_adicionar = compras + total_divida
+
+                            ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda, float_para_dinheiro(valor_adicionar))
                             return True
                 else:
                     for cliente in clientes:
                         if valor in cliente.id_venda:
-                            ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda)
+                            valor_subtrair = total_divida - compras
+                            
+                            ClienteDAO.atualizar_cliente(opcao, cpf, valor, dados_venda, float_para_dinheiro(valor_subtrair))
                             return True
             else:          
                 try:
@@ -447,7 +461,7 @@ class ClienteController:
     def pesquisar_cliente(cls, cpf):
         try:
             pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
-            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento} | TOTAL DE DIVIDAS: {pesq_cliente.total_divida} | ID DAS COMPRAS: {pesq_cliente.id_venda}\n')
+            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento} | TOTAL DE DIVIDAS: {pesq_cliente.total_divida} | ID DAS COMPRAS: {pesq_cliente.id_venda if pesq_cliente.id_venda else 'Não há dívidas'}\n')
             return True
         except:
             print(f"\nCliente com CPF {cpf} não encontrado!")

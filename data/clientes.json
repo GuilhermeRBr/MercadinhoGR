@@ -8,9 +8,7 @@
         "endereco": "Rua Centro",
         "data_nascimento": "23/09/1996",
         "total_divida": "R$ 0,00",
-        "id_venda": [
-            "N\u00e3o \u00e0 d\u00edvidas"
-        ]
+        "id_venda": []
     },
     {
         "id_cliente": "338469",
@@ -20,17 +18,10 @@
         "email": "dasd@g.com",
         "endereco": "Rua",
         "data_nascimento": "12/04/2000",
-        "total_divida": "R$ 508,44",
+        "total_divida": "R$ 28,31",
         "id_venda": [
             "274538",
-            "041041",
-            "009942",
-            "620228",
-            "888777",
-            "026879",
-            "104146",
-            "561070",
-            "917163"
+            "757869"
         ]
     },
     {
@@ -42,9 +33,7 @@
         "endereco": "Rauad",
         "data_nascimento": "19/02/2000",
         "total_divida": "R$ 0,00",
-        "id_venda": [
-            "N\u00e3o \u00e0 d\u00edvidas"
-        ]
+        "id_venda": []
     },
     {
         "id_cliente": "458003",
@@ -55,9 +44,7 @@
         "endereco": "Dsads",
         "data_nascimento": "12/02/1998",
         "total_divida": "R$ 0,00",
-        "id_venda": [
-            "N\u00e3o \u00e0 d\u00edvidas"
-        ]
+        "id_venda": []
     },
     {
         "id_cliente": "804354",
@@ -68,9 +55,7 @@
         "endereco": "Rreeed",
         "data_nascimento": "20/01/2000",
         "total_divida": "R$ 0,00",
-        "id_venda": [
-            "N\u00e3o \u00e0 d\u00edvidas"
-        ]
+        "id_venda": []
     },
     {
         "id_cliente": "753624",
@@ -80,10 +65,7 @@
         "email": "faj@kjks.com",
         "endereco": "Diajs",
         "data_nascimento": "04/06/1998",
-        "total_divida": "R$ 25,14",
-        "id_venda": [
-            "172523",
-            "757869"
-        ]
+        "total_divida": "R$ 0,00",
+        "id_venda": []
     }
 ]
