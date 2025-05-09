@@ -37,6 +37,8 @@ def validar_endereco():
 def validar_id():
     while True:
         id = input('ID: ')
+        if id.lower() == 'v':
+              return 'v'
         if id == '0':
             return formatar_id(str(id))
         if not id.isdigit():

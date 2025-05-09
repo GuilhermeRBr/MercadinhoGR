@@ -121,7 +121,8 @@ class Mercado:
                     
     def caixa(self):
         def vender():
-            CaixaController.realizar_venda()
+            if CaixaController.realizar_venda():
+                self.menu_principal()
 
         if not self.caixa_desbloqueado:
             print('\nACESSO BLOQUEADO!')

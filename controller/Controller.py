@@ -15,6 +15,7 @@ total = 0
 id_caixa, id_funcionario = '  '
 produtos = []
 id_venda = []
+sair = ' '
 
 class AcessoSistemaController:
     @classmethod
@@ -329,10 +330,15 @@ class CaixaController:
 
         def venda_produtos():
             
+            
             while True:
-                global total, id_produto
-                print('\nDigite o ID do produto: [0 para ir para o pagamento]')
+                global total, id_produto, sair
+                print('\nDigite o ID do produto: [0 para ir para o pagamento / V para cancelar]')
                 id_produto = validar_id()
+
+                if id_produto == 'v':
+                    sair = 'v'
+                    break
             
                 if id_produto == '000000':
                     if total == 0:
@@ -360,9 +366,13 @@ class CaixaController:
                     break
 
                 print(f'\nTotal: {float_para_dinheiro(total)}')
-
         venda_produtos()
-        meio_pagamento()
+
+        if sair != 'v':
+            meio_pagamento()
+        else:
+            print('\nVoltando para o menu...')
+            return True
                
 class ClienteController:
     @classmethod
