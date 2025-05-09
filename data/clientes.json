@@ -44,8 +44,10 @@
         "email": "ada@d.com",
         "endereco": "Dsads",
         "data_nascimento": "12/02/1998",
-        "total_divida": "R$ 0,00",
-        "id_venda": []
+        "total_divida": "R$ 3,99",
+        "id_venda": [
+            "450007"
+        ]
     },
     {
         "id_cliente": "804354",
@@ -90,5 +92,18 @@
         "data_nascimento": "12/04/2000",
         "total_divida": "R$ 0,00",
         "id_venda": []
+    },
+    {
+        "id_cliente": "349968",
+        "nome": "Guilherme",
+        "cpf": "234.545.432-32",
+        "telefone": "(76) 78787-6666",
+        "email": "gui@ga.com",
+        "endereco": "Brasi",
+        "data_nascimento": "10/05/2000",
+        "total_divida": "R$ 151,78",
+        "id_venda": [
+            "397795"
+        ]
     }
 ]

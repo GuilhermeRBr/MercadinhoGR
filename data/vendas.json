@@ -444,5 +444,75 @@
         "id_pagamento": "278629",
         "forma_pagamento": "Pix",
         "data_venda": "09/05/2025 15:45:17"
+    },
+    {
+        "id_venda": "397795",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "441147",
+            "299871",
+            "575981",
+            "944287",
+            "721377",
+            "835978",
+            "835978",
+            "432936"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 75,89",
+        "id_pagamento": "921329",
+        "forma_pagamento": "Fiado",
+        "data_venda": "09/05/2025 16:02:58"
+    },
+    {
+        "id_venda": "690242",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "432936"
+        ],
+        "id_caixa": " ",
+        "valor_total": "R$ 3,99",
+        "id_pagamento": "532186",
+        "forma_pagamento": "Fiado",
+        "data_venda": "09/05/2025 16:05:34"
+    },
+    {
+        "id_venda": "725875",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "399957",
+            "586277",
+            "586277",
+            "433587"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 26,06",
+        "id_pagamento": "172495",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 16:15:27"
+    },
+    {
+        "id_venda": "999621",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "433587"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 4,12",
+        "id_pagamento": "992980",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 16:18:54"
+    },
+    {
+        "id_venda": "749686",
+        "id_funcionario": "132642",
+        "id_produtos": [
+            "433587"
+        ],
+        "id_caixa": "000001",
+        "valor_total": "R$ 4,12",
+        "id_pagamento": "158655",
+        "forma_pagamento": "Pix",
+        "data_venda": "09/05/2025 16:22:38"
     }
 ]

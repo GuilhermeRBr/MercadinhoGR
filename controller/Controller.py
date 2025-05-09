@@ -288,7 +288,7 @@ class CaixaController:
 
                             case 2:
                                 print('\nCadastrando cliente...')
-                                
+
                                 nome = validar_nome()
                                 cpf = formatar_cpf()
                                 telefone = formatar_telefone()
@@ -296,22 +296,20 @@ class CaixaController:
                                 endereco = validar_endereco()
                                 data_nascimento = formatar_data()
                                 divida = float_para_dinheiro(total)
+                                
+                                if ClienteController.cliente_fiado(nome, cpf, telefone, email, endereco, data_nascimento, divida):
+                                     
+                                    ClienteController.pesquisar_cliente(cpf)
 
-                                ClienteController.cliente_fiado(nome, cpf, telefone, email, endereco, data_nascimento, divida)
+                                    CaixaDAO.realizar_venda(venda_temporaria)
 
-                                ClienteDAO.atualizar_divida(cpf, total, id_vendas)
+                                    VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado', id_vendas)
 
-                                ClienteController.pesquisar_cliente(cpf)
+                                    venda_temporaria.clear()
+                                    produtos.clear()
+                                    total = 0
+                                    break
 
-                                CaixaDAO.realizar_venda(venda_temporaria)
-
-                                VendaController.cadastrar_venda(id_funcionario, produtos, id_caixa, float_para_dinheiro(total), 'Fiado', id_vendas)
-
-                                venda_temporaria.clear()
-                                produtos.clear()
-                                total = 0
-
-                                break
                             case 0:
                                 print('\nCancelando venda...')
                                 return
@@ -405,7 +403,7 @@ class ClienteController:
             print('\nNenhum cliente cadastrado!')
         else:
             for cliente in clientes:
-                print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {cliente.id_venda if cliente.id_venda else 'Não há dívidas'} \n')
+                print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {', ' .join(v for v in cliente.id_venda) if cliente.id_venda else 'Não há dívidas'} \n')
 
 
     @classmethod
@@ -473,7 +471,7 @@ class ClienteController:
     def pesquisar_cliente(cls, cpf):
         try:
             pesq_cliente = ClienteDAO.pesquisar_cliente(cpf)
-            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento} | TOTAL DE DIVIDAS: {pesq_cliente.total_divida} | ID DAS COMPRAS: {pesq_cliente.id_venda if pesq_cliente.id_venda else 'Não há dívidas'}\n')
+            print(f'\nID: {pesq_cliente.id_cliente} | NOME: {pesq_cliente.nome} | CPF: {pesq_cliente.cpf} | TELEFONE: {pesq_cliente.telefone} | EMAIL: {pesq_cliente.email} | ENDEREÇO: {pesq_cliente.endereco} | DATA DE NASCIMENTO: {pesq_cliente.data_nascimento} | TOTAL DE DIVIDAS: {pesq_cliente.total_divida} | ID DAS COMPRAS: {', ' .join(v for v in pesq_cliente.id_venda) if pesq_cliente.id_venda else 'Não há dívidas'}\n')
             return True
         except:
             print(f"\nCliente com CPF {cpf} não encontrado!")
@@ -485,8 +483,10 @@ class ClienteController:
             cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda)
             ClienteDAO.salvar_cliente(cliente)
             print("\nCliente cadastrado com sucesso!")
+            return True
         except ValueError as e:
             print(f"\nErro ao cadastrar cliente:\n{e}")
+            return False
 
 class FuncionarioController:
     @classmethod
@@ -756,3 +756,13 @@ class VendaController:
             print("\nVenda cadastrada com sucesso!")
         except ValueError as e:
             print(f"\nErro ao cadastrar venda:\n{e}")
+    
+    @classmethod
+    def listar_vendas(cls):
+        vendas = VendaDAO.listar_vendas()
+        if len(vendas) == 0:
+            print('\nNenhuma venda cadastrada!')
+        else:
+            for venda in vendas:
+                print(f'\nID: {venda.id_venda} | ID FUNCIONARIO: {venda.id_funcionario} | ID PRODUTOS: {', ' .join(v for v in venda.id_produtos)} | ID CAIXA: {venda.id_caixa} | VALOR TOTAL: {venda.valor_total} | FORMA DE PAGAMENTO: {venda.forma_pagamento}\n')    
+            

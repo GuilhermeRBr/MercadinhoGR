@@ -21,7 +21,7 @@
         "descricao": "Cereal - Embalagem 1UN",
         "preco": "R$ 12,80",
         "categoria": "Alimentos",
-        "quantidade": 51
+        "quantidade": 50
     },
     {
         "id_produto": "311326",
@@ -53,7 +53,7 @@
         "descricao": "Multiuso - Embalagem 200G",
         "preco": "R$ 10,13",
         "categoria": "Limpeza",
-        "quantidade": 20
+        "quantidade": 19
     },
     {
         "id_produto": "712668",
@@ -77,7 +77,7 @@
         "descricao": "Creme dental - Embalagem 1KG",
         "preco": "R$ 12,12",
         "categoria": "Higiene",
-        "quantidade": 7
+        "quantidade": 6
     },
     {
         "id_produto": "953223",
@@ -109,7 +109,7 @@
         "descricao": "Caneta - Embalagem 200G",
         "preco": "R$ 4,32",
         "categoria": "Papelaria",
-        "quantidade": 4
+        "quantidade": 3
     },
     {
         "id_produto": "362729",
@@ -133,7 +133,7 @@
         "descricao": "Refrigerante - Embalagem 1UN",
         "preco": "R$ 5,05",
         "categoria": "Bebidas",
-        "quantidade": 70
+        "quantidade": 69
     },
     {
         "id_produto": "709287",
@@ -149,7 +149,7 @@
         "descricao": "Creme dental - Embalagem 200G",
         "preco": "R$ 3,70",
         "categoria": "Higiene",
-        "quantidade": 98
+        "quantidade": 97
     },
     {
         "id_produto": "656988",
@@ -165,7 +165,7 @@
         "descricao": "Multiuso - Embalagem 300G",
         "preco": "R$ 13,74",
         "categoria": "Limpeza",
-        "quantidade": 50
+        "quantidade": 48
     },
     {
         "id_produto": "432936",
@@ -173,7 +173,7 @@
         "descricao": "Chá - Embalagem 1UN",
         "preco": "R$ 3,99",
         "categoria": "Bebidas",
-        "quantidade": 63
+        "quantidade": 61
     },
     {
         "id_produto": "642358",
@@ -221,7 +221,7 @@
         "descricao": "Energético - Embalagem 500ML",
         "preco": "R$ 9,12",
         "categoria": "Bebidas",
-        "quantidade": 15
+        "quantidade": 13
     },
     {
         "id_produto": "433587",
@@ -229,7 +229,7 @@
         "descricao": "Sabão em pó - Embalagem 2L",
         "preco": "R$ 4,12",
         "categoria": "Limpeza",
-        "quantidade": 51
+        "quantidade": 48
     },
     {
         "id_produto": "786697",
