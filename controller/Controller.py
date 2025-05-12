@@ -746,7 +746,7 @@ class FornecedorController:
             print(f"\nFornecedor com CNPJ {cnpj} não encontrado!")
             return False
 
-class VendaController:
+class VendasController:
     @classmethod
     def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda=None):
         try:
@@ -764,5 +764,4 @@ class VendaController:
             print('\nNenhuma venda cadastrada!')
         else:
             for venda in vendas:
-                print(f'\nID: {venda.id_venda} | ID FUNCIONARIO: {venda.id_funcionario} | ID PRODUTOS: {', ' .join(v for v in venda.id_produtos)} | ID CAIXA: {venda.id_caixa} | VALOR TOTAL: {venda.valor_total} | FORMA DE PAGAMENTO: {venda.forma_pagamento}\n')    
-            
+                print(f'\nID DA VENDA: {venda.id_venda} | ID FUNCIONARIO: {venda.id_funcionario} | ID PRODUTOS: {', ' .join(v for v in venda.id_produtos)} | ID CAIXA: {venda.id_caixa} | VALOR TOTAL: {venda.valor_total} | FORMA DE PAGAMENTO: {venda.forma_pagamento}\n')    

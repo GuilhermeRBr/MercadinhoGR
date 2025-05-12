@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoSistemaController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoSistemaController, VendasController
 from validators import *
 from formatters import *
 
@@ -25,7 +25,8 @@ class Mercado:
             '3. Gerenciar Funcionários\n' \
             '4. Gerenciar Produtos\n' \
             '5. Gerenciar Fornecedores\n' \
-            '6. Relatórios\n' \
+            '6. Vendas\n' \
+            '7. Relatórios\n' \
             '0. Sair\n' \
             )
 
@@ -110,9 +111,22 @@ class Mercado:
                             self.menu_principal()
                         else:
                             self.acesso = True
+                            self.gerenciar_vendas()
+                    else:
+                        self.gerenciar_vendas()
+                case 7:
+                    if self.acesso == False:
+                        print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
+                        resultado = AcessoSistemaController.logar_gerente()
+                        if resultado == '0':
+                            self.acesso = False
+                            self.menu_principal()
+                        else:
+                            self.acesso = True
                             self.relatorios()
                     else:
                         self.relatorios()
+
                 case 0:
                     print('Saindo...')
                     self.rodando = False
@@ -521,6 +535,30 @@ class Mercado:
             case _:
                 print('\nOpção inválida!')
                 self.gerenciar_fornecedores()
+
+    def gerenciar_vendas(self):
+        opcoes = {
+            1: VendasController.listar_vendas,
+            # 2: VendasController.atualizar_venda,
+            # 3: VendasController.excluir_venda,
+            # 4: VendasController.pesquisar_venda
+        }
+
+        while True:
+            print('\n == MENU VENDAS ==\n'
+                    '1. Listar Vendas\n'
+                    '2. Atualizar Venda(ID)\n'
+                    '3. Excluir Venda(ID)\n'
+                    '4. Pesquisar Venda(ID)\n'
+                    '0. Voltar\n')
+            opcao = validar_opcao()
+            if opcao == 0:
+                print('\nVoltando...')
+                break
+            elif opcao in opcoes:
+                opcoes[opcao]()
+            else:
+                print('\nOpção inválida!')
 
     def relatorios(self):
         print('\n == MENU RELATÓRIOS ==\n'

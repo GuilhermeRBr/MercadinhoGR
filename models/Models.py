@@ -43,7 +43,7 @@ class Fornecedor:
 
 class Venda:
     def __init__(self, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda=None, data_venda=None, id_pagamento=None):
-        self.funcionario = id_funcionario
+        self.id_funcionario = id_funcionario
         self.id_produtos = id_produtos 
         self.id_caixa = id_caixa
         self.valor_total = valor_total
