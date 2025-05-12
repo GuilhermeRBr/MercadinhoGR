@@ -484,7 +484,7 @@ class VendaDAO:
 
         vendas.append({
             'id_venda': id_venda,
-            'id_funcionario': venda.funcionario,
+            'id_funcionario': venda.id_funcionario,
             'id_produtos': venda.id_produtos,   
             'id_caixa': venda.id_caixa,
             'valor_total': venda.valor_total,

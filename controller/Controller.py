@@ -9,6 +9,7 @@ from validators import *
 from formatters import *
 from generator import *
 import qrcode
+from collections import defaultdict
 from pixqrcode import PixQrCode
 
 total = 0
@@ -57,15 +58,15 @@ class CaixaController:
         global id_caixa, id_funcionario
         tentativas = 1
         while tentativas > 0:
-            id_funcionario = '132642'
+            id_funcionario = '877655'
             if id_funcionario == '000000':
                 return '0'
             else:
-                senha = 'wAssri'
+                senha = '123456'
                 if CaixaDAO.login_funcionario(id_funcionario, senha):
                     print('\nLogado com sucesso!')
                     print('\nDigite o ID do caixa: ')
-                    id_caixa = '000001'
+                    id_caixa = '000002'
 
                     print('\nO CAIXA AGORA ESTÁ ABERTO')
                     return True
@@ -775,3 +776,53 @@ class VendaController:
         except:
             print(f"\nVenda com ID {id_venda} não encontrada!")
             return False
+        
+class RelatorioController:
+    @classmethod
+    def mais_vendidos(cls):
+        vendas = VendaDAO.listar_vendas()
+        produtos = ProdutoDAO.listar_produtos()
+        contador = defaultdict(int)
+
+        if len(vendas) == 0:
+            print('\nNenhuma venda cadastrada!')
+        else:
+            for venda in vendas:
+                 for produto in venda.id_produtos:
+                    contador[produto] += 1
+            mais_vendidos = sorted(contador.items(), key=lambda x: x[1], reverse=True)[0:5]
+            print('\nOS 5 PRODUTOS MAIS VENDIDOS:')
+            for produto, quantidade in mais_vendidos:
+                for prod in produtos:
+                    if prod.id_produto == produto:
+                        print(f"ID DO PRODUTO: {prod.id_produto} | NOME DO PRODUTO: {prod.nome} | VALOR: {prod.preco} | QUANTIDADE DE VENDAS: {quantidade}")
+
+    @classmethod
+    def total_vendas(cls):
+        vendas = VendaDAO.listar_vendas()
+        total_vendas = total_quantidade = 0
+        if len(vendas) == 0:
+            print('\nNenhuma venda cadastrada!')
+        else:
+            for venda in vendas:
+                total_vendas += dinheiro_para_float(venda.valor_total)
+                total_quantidade += 1
+            print(f'\nO TOTAL DE VENDAS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')
+    
+    def total_vendas_por_funcionario():
+        vendas = VendaDAO.listar_vendas()
+        funcionarios = FuncionarioDAO.listar_funcionarios()
+        total_vendas = defaultdict(int)
+        contador = defaultdict(int)
+        if len(vendas) == 0:
+            print('\nNenhuma venda cadastrada!')
+        else:
+            for venda in vendas:
+                contador[venda.id_funcionario] += 1
+                total_vendas[venda.id_funcionario] += dinheiro_para_float(venda.valor_total)
+            print('\nTOTAL DE VENDAS POR FUNCIONÁRIO:')
+            for funcionario in funcionarios:
+                for id_funcionario, total in total_vendas.items():
+                    if funcionario.id_funcionario == id_funcionario:
+                        print(f"ID DO FUNCIONÁRIO: {funcionario.id_funcionario} | NOME DO FUNCIONÁRIO: {funcionario.nome} | TOTAL DE VENDAS: {contador[id_funcionario]} | VALOR TOTAL: {float_para_dinheiro(total_vendas[id_funcionario])}")
+

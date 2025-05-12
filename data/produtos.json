@@ -1573,7 +1573,7 @@
         "descricao": "Salgadinho - Embalagem 200G",
         "preco": "R$ 12,67",
         "categoria": "Alimentos",
-        "quantidade": 31
+        "quantidade": 29
     },
     {
         "id_produto": "255016",
@@ -1589,7 +1589,7 @@
         "descricao": "Desinfetante - Embalagem 1L",
         "preco": "R$ 7,39",
         "categoria": "Limpeza",
-        "quantidade": 48
+        "quantidade": 46
     },
     {
         "id_produto": "498936",
@@ -1605,7 +1605,7 @@
         "descricao": "Borracha - Embalagem 1KG",
         "preco": "R$ 11,51",
         "categoria": "Papelaria",
-        "quantidade": 60
+        "quantidade": 58
     },
     {
         "id_produto": "981469",
@@ -1613,7 +1613,7 @@
         "descricao": "Bolo - Embalagem 5UN",
         "preco": "R$ 14,64",
         "categoria": "Alimentos",
-        "quantidade": 34
+        "quantidade": 30
     },
     {
         "id_produto": "256782",
@@ -1621,7 +1621,7 @@
         "descricao": "Energético - Embalagem 100ML",
         "preco": "R$ 4,30",
         "categoria": "Bebidas",
-        "quantidade": 69
+        "quantidade": 66
     },
     {
         "id_produto": "476228",

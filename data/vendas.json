@@ -514,5 +514,46 @@
         "id_pagamento": "158655",
         "forma_pagamento": "Pix",
         "data_venda": "09/05/2025 16:22:38"
+    },
+    {
+        "id_venda": "478990",
+        "id_funcionario": "877655",
+        "id_produtos": [
+            "321486",
+            "464426",
+            "973484",
+            "981469",
+            "256782"
+        ],
+        "id_caixa": "000002",
+        "valor_total": "R$ 50,51",
+        "id_pagamento": "155895",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "12/05/2025 14:56:09"
+    },
+    {
+        "id_venda": "794279",
+        "id_funcionario": "877655",
+        "id_produtos": [
+            "981469",
+            "256782"
+        ],
+        "id_caixa": "000002",
+        "valor_total": "R$ 18,94",
+        "id_pagamento": "700463",
+        "forma_pagamento": "Pix",
+        "data_venda": "12/05/2025 14:56:43"
+    },
+    {
+        "id_venda": "515700",
+        "id_funcionario": "877655",
+        "id_produtos": [
+            "981469"
+        ],
+        "id_caixa": "000002",
+        "valor_total": "R$ 14,64",
+        "id_pagamento": "129998",
+        "forma_pagamento": "Cartão de Credito",
+        "data_venda": "12/05/2025 14:57:06"
     }
 ]

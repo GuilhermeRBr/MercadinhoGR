@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoSistemaController, VendaController
+from controller.Controller import *
 from validators import *
 from formatters import *
 
@@ -559,9 +559,9 @@ class Mercado:
         print('\n == MENU RELATÓRIOS ==\n'
                 '1. Relatório de Vendas\n'
                 '2. Relatório de Clientes\n'
-                '3. Relatório de Funcionários\n'
-                '4. Relatório de Produtos\n' 
-                '5. Relatório de Fornecedores\n'
+                '3. Os 5 Produtos mais vendidios\n'
+                '4. Total de vendas\n' 
+                '5. Total de vendas por funcionario\n'
                 '0. Voltar\n'   
               )
         opcao = validar_opcao()
@@ -571,11 +571,11 @@ class Mercado:
             case 2:
                 pass
             case 3:
-                pass
+                RelatorioController.mais_vendidos()
             case 4:
-                pass
+                RelatorioController.total_vendas()
             case 5:
-                pass
+                RelatorioController.total_vendas_por_funcionario()
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()
