@@ -509,4 +509,14 @@ class VendaDAO:
 
         return lista_vendas
 
+    @classmethod
+    def pesquisar_venda(cls, id_venda):
+        with open('data/vendas.json', 'r', encoding='utf-8') as arq:
+            vendas = json.load(arq)
+
+            for v in vendas:
+                if v['id_venda'] == id_venda:
+                    id_venda, id_funcionario, id_produtos, id_caixa, valor_total, id_pagamento, forma_pagamento, data_venda = v.values()
+                    return Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda, data_venda, id_pagamento)
+
 

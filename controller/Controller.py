@@ -746,7 +746,7 @@ class FornecedorController:
             print(f"\nFornecedor com CNPJ {cnpj} não encontrado!")
             return False
 
-class VendasController:
+class VendaController:
     @classmethod
     def cadastrar_venda(cls, id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda=None):
         try:
@@ -764,4 +764,14 @@ class VendasController:
             print('\nNenhuma venda cadastrada!')
         else:
             for venda in vendas:
-                print(f'\nID DA VENDA: {venda.id_venda} | ID FUNCIONARIO: {venda.id_funcionario} | ID PRODUTOS: {', ' .join(v for v in venda.id_produtos)} | ID CAIXA: {venda.id_caixa} | VALOR TOTAL: {venda.valor_total} | FORMA DE PAGAMENTO: {venda.forma_pagamento}\n')    
+                print(f'\nID DA VENDA: {venda.id_venda} | ID FUNCIONARIO: {venda.id_funcionario} | ID PRODUTOS: {', ' .join(v for v in venda.id_produtos)} | ID CAIXA: {venda.id_caixa} | VALOR TOTAL: {venda.valor_total} | FORMA DE PAGAMENTO: {venda.forma_pagamento}\n')   
+    
+    @classmethod
+    def pesquisar_venda(cls, id_venda):
+        try:
+            pesq_venda = VendaDAO.pesquisar_venda(id_venda)
+            print(f'\nID DA VENDA: {pesq_venda.id_venda} | ID FUNCIONARIO: {pesq_venda.id_funcionario} | ID PRODUTOS: {', ' .join(v for v in pesq_venda.id_produtos)} | ID CAIXA: {pesq_venda.id_caixa} | VALOR TOTAL: {pesq_venda.valor_total} | FORMA DE PAGAMENTO: {pesq_venda.forma_pagamento}\n')
+            return True
+        except:
+            print(f"\nVenda com ID {id_venda} não encontrada!")
+            return False

@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoSistemaController, VendasController
+from controller.Controller import ClienteController, FuncionarioController, ProdutoController, FornecedorController, CaixaController, AcessoSistemaController, VendaController
 from validators import *
 from formatters import *
 
@@ -537,26 +537,21 @@ class Mercado:
                 self.gerenciar_fornecedores()
 
     def gerenciar_vendas(self):
-        opcoes = {
-            1: VendasController.listar_vendas,
-            # 2: VendasController.atualizar_venda,
-            # 3: VendasController.excluir_venda,
-            # 4: VendasController.pesquisar_venda
-        }
-
         while True:
             print('\n == MENU VENDAS ==\n'
                     '1. Listar Vendas\n'
-                    '2. Atualizar Venda(ID)\n'
-                    '3. Excluir Venda(ID)\n'
-                    '4. Pesquisar Venda(ID)\n'
+                    '2. Pesquisar Venda(ID)\n'
                     '0. Voltar\n')
             opcao = validar_opcao()
             if opcao == 0:
                 print('\nVoltando...')
                 break
-            elif opcao in opcoes:
-                opcoes[opcao]()
+            elif opcao == 1:
+                VendaController.listar_vendas()
+            elif opcao == 2:
+                print('\n-- Digite o ID da venda para pesquisar --\n')
+                id_venda = validar_id()
+                VendaController.pesquisar_venda(id_venda)
             else:
                 print('\nOpção inválida!')
 
