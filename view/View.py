@@ -557,25 +557,26 @@ class Mercado:
 
     def relatorios(self):
         print('\n == MENU RELATÓRIOS ==\n'
-                '1. Relatório de Vendas\n'
-                '2. Relatório de Clientes\n'
+                '1. Total de vendas\n'
+                '2. Total de vendas por funcionarios\n'
                 '3. Os 5 Produtos mais vendidios\n'
-                '4. Total de vendas\n' 
-                '5. Total de vendas por funcionario\n'
+                '4. Total de vendas por forma de pagamento\n'
+                        
+
                 '0. Voltar\n'   
               )
         opcao = validar_opcao()
         match opcao:
             case 1:
-                pass
+                RelatorioController.total_vendas()
             case 2:
-                pass
+                RelatorioController.total_vendas_por_funcionario()
             case 3:
                 RelatorioController.mais_vendidos()
             case 4:
-                RelatorioController.total_vendas()
+                RelatorioController.total_por_pagamento()
             case 5:
-                RelatorioController.total_vendas_por_funcionario()
+                pass
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()

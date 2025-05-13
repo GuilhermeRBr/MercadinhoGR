@@ -11,6 +11,8 @@ from generator import *
 import qrcode
 from collections import defaultdict
 from pixqrcode import PixQrCode
+from datetime import datetime
+
 
 total = 0
 id_caixa, id_funcionario, sair = '   '
@@ -808,8 +810,9 @@ class RelatorioController:
                 total_vendas += dinheiro_para_float(venda.valor_total)
                 total_quantidade += 1
             print(f'\nO TOTAL DE VENDAS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')
-    
-    def total_vendas_por_funcionario():
+
+    @classmethod
+    def total_vendas_por_funcionario(cls):
         vendas = VendaDAO.listar_vendas()
         funcionarios = FuncionarioDAO.listar_funcionarios()
         total_vendas = defaultdict(int)
@@ -825,4 +828,76 @@ class RelatorioController:
                 for id_funcionario, total in total_vendas.items():
                     if funcionario.id_funcionario == id_funcionario:
                         print(f"ID DO FUNCIONÁRIO: {funcionario.id_funcionario} | NOME DO FUNCIONÁRIO: {funcionario.nome} | TOTAL DE VENDAS: {contador[id_funcionario]} | VALOR TOTAL: {float_para_dinheiro(total_vendas[id_funcionario])}")
+
+    @classmethod
+    def total_por_pagamento(cls):
+        vendas = VendaDAO.listar_vendas()
+        total_vendas = defaultdict(int)
+        if len(vendas) == 0:
+            print('\nNenhuma venda cadastrada!')
+        else:
+            for venda in vendas:
+                total_vendas[venda.forma_pagamento] += dinheiro_para_float(venda.valor_total)
+            print('\nTOTAL DE VENDAS POR FORMA DE PAGAMENTO:')
+            for forma_pagamento, total in total_vendas.items():
+                print(f"FORMA DE PAGAMENTO: {forma_pagamento} | VALOR TOTAL: {float_para_dinheiro(total)}")
+    
+    @classmethod
+    def relatorio_geral(cls):
+        vendas = VendaDAO.listar_vendas()
+        funcionarios = FuncionarioDAO.listar_funcionarios()
+        produtos = ProdutoDAO.listar_produtos()
+        fornecedores = FornecedorDAO.listar_fornecedores()
+        clientes = ClienteDAO.listar_clientes()
+
+        print(f'\nTOTAL DE VENDAS: {len(vendas)}')
+        print(f'TOTAL DE FUNCIONÁRIOS: {len(funcionarios)}')
+        print(f'TOTAL DE PRODUTOS: {len(produtos)}')
+        print(f'TOTAL DE FORNECEDORES: {len(fornecedores)}')
+        print(f'TOTAL DE CLIENTES: {len(clientes)}')
+
+    @classmethod
+    def relatorio_mensal(cls, mes, ano):
+        vendas = VendaDAO.listar_vendas()
+        produtos = ProdutoDAO.listar_produtos()
+        funcionarios = FuncionarioDAO.listar_funcionarios()
+        contador = defaultdict(int)
+        contador_funcionario = defaultdict(int)
+        total_vendas_funcionario = defaultdict(int)
+        total_vendas = total_quantidade = 0
+
+        if len(vendas) == 0:
+            print('\nNenhuma venda cadastrada!')
+        
+        else:
+            try:
+                for venda in vendas:
+                    data = datetime.strptime(venda.data_venda, "%d/%m/%Y %H:%M:%S").date()
+                    if data.month == mes and data.year == ano:
+                        for produto in venda.id_produtos:
+                            contador[produto] += 1
+                        contador_funcionario[venda.id_funcionario] += 1
+                        total_vendas_funcionario[venda.id_funcionario] += dinheiro_para_float(venda.valor_total)
+                        total_vendas += dinheiro_para_float(venda.valor_total)
+                        total_quantidade += 1
+        
+                    
+                mais_vendidos = sorted(contador.items(), key=lambda x: x[1], reverse=True)[0:5]
+                print('\nOS 5 PRODUTOS MAIS VENDIDOS:')
+                for produto, quantidade in mais_vendidos:
+                    for prod in produtos:
+                        if prod.id_produto == produto:
+                            print(f"ID DO PRODUTO: {prod.id_produto} | NOME DO PRODUTO: {prod.nome} | VALOR: {prod.preco} | QUANTIDADE DE VENDAS: {quantidade}")
+                print('\nTOTAL DE VENDAS POR FUNCIONÁRIO:')
+                for funcionario in funcionarios:
+                    for id_funcionario, total in total_vendas_funcionario.items():
+                        if funcionario.id_funcionario == id_funcionario:
+                            print(f"ID DO FUNCIONÁRIO: {funcionario.id_funcionario} | NOME DO FUNCIONÁRIO: {funcionario.nome} | TOTAL DE VENDAS: {contador_funcionario[id_funcionario]} | VALOR TOTAL: {float_para_dinheiro(total_vendas_funcionario[id_funcionario])}")
+
+                print(f'\nO TOTAL DE VENDAS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')
+            except:
+                print('\nMês ou ano inválido!')
+
+RelatorioController.relatorio_mensal(2, 2025)
+
 
