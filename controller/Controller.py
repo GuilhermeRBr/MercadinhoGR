@@ -864,40 +864,60 @@ class RelatorioController:
         contador = defaultdict(int)
         contador_funcionario = defaultdict(int)
         total_vendas_funcionario = defaultdict(int)
+        total_vendas_pagamento = defaultdict(int)
+        total_vendas_caixa = defaultdict(int)
         total_vendas = total_quantidade = 0
 
+        encontrou_data = any(
+                (data := datetime.strptime(venda.data_venda, "%d/%m/%Y %H:%M:%S")).month == mes and
+                data.year == ano
+                for venda in vendas
+            )
         if len(vendas) == 0:
             print('\nNenhuma venda cadastrada!')
-        
         else:
-            try:
+            if not encontrou_data:
+                print("Não tem venda nesse mês e ano")
+            else:
                 for venda in vendas:
                     data = datetime.strptime(venda.data_venda, "%d/%m/%Y %H:%M:%S").date()
                     if data.month == mes and data.year == ano:
                         for produto in venda.id_produtos:
                             contador[produto] += 1
+
                         contador_funcionario[venda.id_funcionario] += 1
                         total_vendas_funcionario[venda.id_funcionario] += dinheiro_para_float(venda.valor_total)
+
                         total_vendas += dinheiro_para_float(venda.valor_total)
                         total_quantidade += 1
-        
+
+                        total_vendas_pagamento[venda.forma_pagamento] += dinheiro_para_float(venda.valor_total)
+
+                        total_vendas_caixa[venda.id_caixa] += dinheiro_para_float(venda.valor_total)
                     
                 mais_vendidos = sorted(contador.items(), key=lambda x: x[1], reverse=True)[0:5]
+
                 print('\nOS 5 PRODUTOS MAIS VENDIDOS:')
                 for produto, quantidade in mais_vendidos:
                     for prod in produtos:
                         if prod.id_produto == produto:
                             print(f"ID DO PRODUTO: {prod.id_produto} | NOME DO PRODUTO: {prod.nome} | VALOR: {prod.preco} | QUANTIDADE DE VENDAS: {quantidade}")
+
                 print('\nTOTAL DE VENDAS POR FUNCIONÁRIO:')
                 for funcionario in funcionarios:
                     for id_funcionario, total in total_vendas_funcionario.items():
                         if funcionario.id_funcionario == id_funcionario:
                             print(f"ID DO FUNCIONÁRIO: {funcionario.id_funcionario} | NOME DO FUNCIONÁRIO: {funcionario.nome} | TOTAL DE VENDAS: {contador_funcionario[id_funcionario]} | VALOR TOTAL: {float_para_dinheiro(total_vendas_funcionario[id_funcionario])}")
 
-                print(f'\nO TOTAL DE VENDAS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')
-            except:
-                print('\nMês ou ano inválido!')
+                print('\nTOTAL DE VENDAS POR FORMA DE PAGAMENTO:')
+                for forma_pagamento, total in total_vendas_pagamento.items():
+                    print(f"FORMA DE PAGAMENTO: {forma_pagamento} | VALOR TOTAL: {float_para_dinheiro(total)}")
 
-RelatorioController.relatorio_mensal(2, 2025)
+                print('\nTOTAL DE VENDAS POR CAIXA:')
+                for caixa, total in total_vendas_caixa.items():
+                    print(f"ID DA CAIXA: {caixa.replace('00000', '0')} | VALOR TOTAL: {float_para_dinheiro(total)}")
+                
+                print(f'\nO TOTAL DE VENDAS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')
+
 
 
