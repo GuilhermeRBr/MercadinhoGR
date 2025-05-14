@@ -3,8 +3,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from controller.Controller import *
-from validators import *
-from formatters import *
+from utils.formatters import *
+from utils.validators import *
 
 
 class Mercado:
@@ -169,423 +169,362 @@ class Mercado:
             vender()
     
     def gerenciar_clientes(self):
-        print('\n == MENU CLIENTES ==\n' \
-                 '1. Cadastrar Cliente\n' \
-                 '2. Listar Clientes\n' \
-                 '3. Atualizar Cliente(CPF)\n' \
-                 '4. Excluir Cliente(CPF)\n' \
-                 '5. Pesquisar Cliente(CPF)\n' \
-                 '0. Voltar\n' \
-                )
-        opcao = validar_opcao()
-        
-        match opcao:
-            case 1:
-                ClienteController.cadastrar_cliente()
-                self.gerenciar_clientes()
-            case 2:
-                ClienteController.listar_clientes()
-                self.gerenciar_clientes()
-            case 3:
-                def atualizar_cliente(cpf_edit):
-                    while True:
-                        if ClienteController.pesquisar_cliente(cpf_edit):
-                            print('\nEscolha o que deseja editar nesse cliente:')
-                            print('\n1. Editar Nome\n' \
-                            '2. Editar Telefone\n' \
-                            '3. Editar Email\n' \
-                            '4. Editar Endereço\n' \
-                            '5. Editar Data de nascimento\n' \
-                            '6. Editar Total de divida\n' \
-                            '7. Editar Compras\n' \
-                            '0. Voltar\n')
+        def atualizar_cliente(cpf_edit):
+            while True:
+                if ClienteController.pesquisar_cliente(cpf_edit):
+                    print('\nEscolha o que deseja editar nesse cliente:')
+                    print('\n1. Editar Nome\n' \
+                    '2. Editar Telefone\n' \
+                    '3. Editar Email\n' \
+                    '4. Editar Endereço\n' \
+                    '5. Editar Data de nascimento\n' \
+                    '6. Editar Total de divida\n' \
+                    '7. Editar Compras\n' \
+                    '0. Voltar\n')
 
-                            opcao = validar_opcao()
+                    opcao = validar_opcao()
 
-                            mensagens = {
-                                1: "Nome",
-                                2: "Telefone",
-                                3: "Email",
-                                4: "Endereço",
-                                5: "Data de nascimento",
-                                6: "Total de dívidas",
-                                7: "Compras"
-                            }
+                    mensagens = {
+                        1: "Nome",
+                        2: "Telefone",
+                        3: "Email",
+                        4: "Endereço",
+                        5: "Data de nascimento",
+                        6: "Total de dívidas",
+                        7: "Compras"
+                    }
 
-                            if opcao == 0:
-                                print('\nVoltando...')
-                                break
-                            
-                            elif opcao in mensagens:
-                                if opcao == 7:
-                                    print("\n-- Submenu de Compras --"
-                                        "\n1. Adicionar ID de venda"
-                                        "\n2. Remover ID de venda" \
-                                        "\n0. Voltar")
-                                    subopcao = validar_opcao()
+                    if opcao == 0:
+                        print('\nVoltando...')
+                        break
+                    
+                    elif opcao in mensagens:
+                        if opcao == 7:
+                            while True:
+                                print("\n-- Submenu de Compras --"
+                                    "\n1. Adicionar ID de venda"
+                                    "\n2. Remover ID de venda" \
+                                    "\n0. Voltar")
+                                subopcao = validar_opcao()
 
-                                    match subopcao:
-                                        case 1:
-                                            if ClienteController.atualizar_cliente(7, cpf_edit, subopcao): 
-                                                print("\nID de venda adicionado com sucesso.")
-                                            else:
-                                                print("\nErro ao adicionar ID de venda.")
-                                        case 2:
-                                            if ClienteController.atualizar_cliente(7,cpf_edit, subopcao):
-                                                print("\nID de venda removido com sucesso.")
-                                            else:
-                                                print("\nErro ao remover ID de venda.")
-                                        case 0:
-                                            print("\nVoltando...")
-                                            atualizar_cliente(cpf_edit)
-                                        case _:
-                                            print("\nOpção inválida.")
-                                else:
-                                    if ClienteController.atualizar_cliente(opcao, cpf_edit):
-                                        print(f'\n{mensagens[opcao]} do cliente alterado com sucesso.')
-                                    else:
-                                        print(f'\nErro ao alterar {mensagens[opcao].lower()} do cliente.')
-
-                            else:
-                                print('\nOpção inválida!')
+                                match subopcao:
+                                    case 1:
+                                        if ClienteController.atualizar_cliente(7, cpf_edit, subopcao): 
+                                            print("\nID de venda adicionado com sucesso.")
+                                        else:
+                                            print("\nErro ao adicionar ID de venda.")
+                                    case 2:
+                                        if ClienteController.atualizar_cliente(7,cpf_edit, subopcao):
+                                            print("\nID de venda removido com sucesso.")
+                                        else:
+                                            print("\nErro ao remover ID de venda.")
+                                    case 0:
+                                        print("\nVoltando...")
+                                        break
+                                    case _:
+                                        print("\nOpção inválida.")
                         else:
-                            break
-                        
-                print('\n-- Digite o CPF para atualizar o cliente --')
-                cpf_edit = formatar_cpf()
-                atualizar_cliente(cpf_edit)
-                self.gerenciar_clientes()
+                            if ClienteController.atualizar_cliente(opcao, cpf_edit):
+                                print(f'\n{mensagens[opcao]} do cliente alterado com sucesso.')
+                            else:
+                                print(f'\nErro ao alterar {mensagens[opcao].lower()} do cliente.')
 
-            case 4:
-                print('\n-- Digite o CPF para excluir cliente --')
-                ClienteController.excluir_cliente()
-                self.gerenciar_clientes()
-                
-            case 5:
-                print('\n-- Digite o CPF para pesquisar um cliente --')
-                cpf_pesq = formatar_cpf()
-                ClienteController.pesquisar_cliente(cpf_pesq)
-                self.gerenciar_clientes()
-            case 0:
-                print('\nVoltando...')
-                self.menu_principal()
-            case _:
-                print('\nOpção inválida!')
-                self.gerenciar_clientes()
+                    else:
+                        print('\nOpção inválida!')
+                else:
+                    break
+        while True:       
+            print('\n == MENU CLIENTES ==\n' \
+                    '1. Cadastrar Cliente\n' \
+                    '2. Listar Clientes\n' \
+                    '3. Atualizar Cliente(CPF)\n' \
+                    '4. Excluir Cliente(CPF)\n' \
+                    '5. Pesquisar Cliente(CPF)\n' \
+                    '0. Voltar\n' \
+                    )
+            opcao = validar_opcao()
+            
+            match opcao:
+                case 1:
+                    ClienteController.cadastrar_cliente()
+                case 2:
+                    ClienteController.listar_clientes()
+                case 3:
+                    print('\n-- Digite o CPF para atualizar o cliente --')
+                    cpf_edit = formatar_cpf()
+                    atualizar_cliente(cpf_edit)
+                case 4:
+                    print('\n-- Digite o CPF para excluir cliente --')
+                    ClienteController.excluir_cliente()
+                case 5:
+                    print('\n-- Digite o CPF para pesquisar um cliente --')
+                    cpf_pesq = formatar_cpf()
+                    ClienteController.pesquisar_cliente(cpf_pesq)
+                case 0:
+                    print('\nVoltando...')
+                    break
+                case _:
+                    print('\nOpção inválida!')
+
 
     def gerenciar_funcionarios(self):
-        print('\n == MENU FUNCIONÁRIOS ==\n' \
-                '1. Cadastrar Funcionário\n' \
-                '2. Listar Funcionários\n' \
-                '3. Atualizar Funcionário(CPF)\n' \
-                '4. Excluir Funcionário(CPF)\n' \
-                '5. Pesquisar Funcionário(CPF)\n' \
-                '0. Voltar\n' 
-                )
-        
-        opcao = validar_opcao()
+        def atualizar_funcionario(cpf_edit):
+            while True:
+                if FuncionarioController.pesquisar_funcionario(cpf_edit):
+                    print('\nEscolha o que deseja editar nesse funcionário:')
+                    print('\n1. Editar Nome\n' \
+                    '2. Editar Telefone\n' \
+                    '3. Editar Email\n' \
+                    '4. Editar Endereço\n' \
+                    '5. Editar Data de nascimento\n' \
+                    '6. Editar Cargo\n' \
+                    '7. Editar Salário\n' \
+                    '0. Voltar\n')
 
-        match opcao:
-            case 1:
-                FuncionarioController.cadastrar_funcionario()
-                self.gerenciar_funcionarios()
-            case 2:
-                FuncionarioController.listar_funcionarios()
-                self.gerenciar_funcionarios()
-            case 3:
-                def atualizar_funcionario(cpf_edit):
-                    while True:
-                        if FuncionarioController.pesquisar_funcionario(cpf_edit):
-                            print('\nEscolha o que deseja editar nesse funcionário:')
-                            print('\n1. Editar Nome\n' \
-                            '2. Editar Telefone\n' \
-                            '3. Editar Email\n' \
-                            '4. Editar Endereço\n' \
-                            '5. Editar Data de nascimento\n' \
-                            '6. Editar Cargo\n' \
-                            '7. Editar Salário\n' \
-                            '0. Voltar\n')
+                    opcao = validar_opcao()
+                    if opcao == 0:
+                        print('\nVoltando...')
+                        break
+                    mensagens = {
+                        1: 'Nome',
+                        2: 'Telefone',
+                        3: 'Email',
+                        4: 'Endereço',
+                        5: 'Data de nascimento',
+                        6: 'Cargo',
+                        7: 'Salário'
+                    }
 
-                            opcao = validar_opcao()
-
-                            match opcao:
-                                case 1:
-                                    if FuncionarioController.atualizar_funcionario(1, cpf_edit):
-                                        print('\nNome do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar nome do funcionário.')
-                                case 2:
-                                    if FuncionarioController.atualizar_funcionario(2, cpf_edit):
-                                        print('\nTelefone do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar telefone do funcionário.')
-                                case 3:
-                                    if FuncionarioController.atualizar_funcionario(3, cpf_edit):
-                                        print('\nEmail do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar email do funcionário.')
-                                case 4:
-                                    if FuncionarioController.atualizar_funcionario(4, cpf_edit):
-                                        print('\nEndereço do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar endereço do funcionário.')
-                                case 5:
-                                    if FuncionarioController.atualizar_funcionario(5, cpf_edit):
-                                        print('\nData de nascimento do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar data de nascimento do funcionário.')
-                                case 6:
-                                    if FuncionarioController.atualizar_funcionario(6, cpf_edit):
-                                        print('\nCargo do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar cargo do funcionário.')
-                                case 7:
-                                    if FuncionarioController.atualizar_funcionario(7, cpf_edit):
-                                        print('\nSalário do funcionário alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar salario do funcionário.')
-                                case 0:
-                                    print('\nVoltando...')
-                                    break
-                                case _:
-                                    print('\nOpção inválida!')
+                    if opcao in mensagens:
+                        sucesso = FuncionarioController.atualizar_funcionario(opcao, cpf_edit)
+                        if sucesso:
+                            print(f'\n{mensagens[opcao]} do funcionário alterado com sucesso.')
                         else:
-                            break
+                            print(f'\nErro ao alterar {mensagens[opcao].lower()} do funcionário.')
+                    else:
+                        print('\nOpção inválida!')
 
+                else:
+                    break
+        while True:
+            print('\n == MENU FUNCIONÁRIOS ==\n' \
+                    '1. Cadastrar Funcionário\n' \
+                    '2. Listar Funcionários\n' \
+                    '3. Atualizar Funcionário(CPF)\n' \
+                    '4. Excluir Funcionário(CPF)\n' \
+                    '5. Pesquisar Funcionário(CPF)\n' \
+                    '0. Voltar\n' 
+                    )
+            
+            opcao = validar_opcao()
 
-                print('\n-- Digite o CPF para atualizar o funcionário --\n')
-                cpf_edit = formatar_cpf()
-                atualizar_funcionario(cpf_edit)
-                self.gerenciar_funcionarios()
-            case 4:
-                print('\n-- Digite o CPF para excluir funcionário --\n')
-                FuncionarioController.excluir_funcionario()
-                self.gerenciar_funcionarios()
-            case 5:
-                print('\n-- Digite o CPF para pesquisar um funcionário --\n')
-                pesq_funcionario = formatar_cpf()
-                FuncionarioController.pesquisar_funcionario(pesq_funcionario)
-                self.gerenciar_funcionarios()
-            case 0:
-                print('\nVoltando...')
-                self.menu_principal()
-            case _:
-                print('\nOpção inválida!')
-                self.gerenciar_funcionarios()
+            match opcao:
+                case 1:
+                    FuncionarioController.cadastrar_funcionario()
+                case 2:
+                    FuncionarioController.listar_funcionarios()
+                case 3:
+                    print('\n-- Digite o CPF para atualizar o funcionário --\n')
+                    cpf_edit = formatar_cpf()
+                    atualizar_funcionario(cpf_edit)
+                case 4:
+                    print('\n-- Digite o CPF para excluir funcionário --\n')
+                    FuncionarioController.excluir_funcionario()
+                case 5:
+                    print('\n-- Digite o CPF para pesquisar um funcionário --\n')
+                    pesq_funcionario = formatar_cpf()
+                    FuncionarioController.pesquisar_funcionario(pesq_funcionario)
+                case 0:
+                    print('\nVoltando...')
+                    break
+                case _:
+                    print('\nOpção inválida!')
     
     def gerenciar_produtos(self):
-        print('\n == MENU PRODUTOS ==\n' \
-        '1. Cadastrar Produtos\n' \
-        '2. Listar Produtos\n' \
-        '3. Atualizar Produtos(ID)\n' \
-        '4. Excluir Produtos(ID)\n' \
-        '5. Pesquisar Produtos(ID)\n' \
-        '0. Voltar\n')
+        def atualizar_produto(id_produto):
+            while True:
+                if ProdutoController.pesquisar_produto(id_produto):
+                    print('\nEscolha o que deseja editar nesse produto:')
+                    print('1. Nome\n'
+                    '2. Descrição\n'
+                    '3. Preço\n'
+                    '4. Quantidade\n'
+                    '5. Categoria\n'
+                    '0. Voltar\n')
+                    opcao = validar_opcao()
 
-        opcao = validar_opcao()
-        match opcao:
-            case 1:
-                ProdutoController.cadastrar_produto()
-                self.gerenciar_produtos()
-            case 2:
-                ProdutoController.listar_produtos()
-                self.gerenciar_produtos()
-            case 3:
-                def atualizar_produto(id_produto):
-                    while True:
-                        if ProdutoController.pesquisar_produto(id_produto):
-                            print('\nEscolha o que deseja editar nesse produto:')
-                            print('1. Nome\n'
-                            '2. Descrição\n'
-                            '3. Preço\n'
-                            '4. Quantidade\n'
-                            '5. Categoria\n'
-                            '0. Voltar\n')
-                            opcao = validar_opcao()
-                            match opcao:
-                                case 1:
-                                    if ProdutoController.atualizar_produto(1, id_produto):
-                                        print('\nNome do produto alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar nome do produto.')
-                                case 2:
-                                    if ProdutoController.atualizar_produto(2, id_produto):
-                                        print('\nDescrição do produto alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar descrição do produto.')
-                                case 3:
-                                    if ProdutoController.atualizar_produto(3, id_produto):
-                                        print('\nPreço do produto alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar preço do produto.')
-                                case 4:
-                                    if ProdutoController.atualizar_produto(4, id_produto):
-                                        print('\nQuantidade do produto alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar quantidade do produto.')
-                                case 5:
-                                    pass
-                                    if ProdutoController.atualizar_produto(5, id_produto):
-                                        print('\nCategoria do produto alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar categoria do produto.')     
-                                case 0:
-                                        print('\nVoltando...')
-                                        break
-                                case _:
-                                    print('\nOpção inválida!')
+                    if opcao ==  0:
+                        print('\nVoltando...')
+                        break
+
+                    mensagens = {
+                        1: 'Nome',
+                        2: 'Descrição',
+                        3: 'Preço',
+                        4: 'Quantidade',
+                        5: 'Categoria'
+                    }
+                    if opcao in mensagens:
+                        sucesso = ProdutoController.atualizar_produto(opcao, id_produto)
+                        if sucesso:
+                            print(f'\n{mensagens[opcao]} do produto alterado com sucesso.')
                         else:
-                            break
-                        
-                print('\n-- Digite o ID para atualizar o produto --\n')
-                id_produto = validar_id()
-                atualizar_produto(id_produto)
-                self.gerenciar_produtos()
-            case 4:
-                print('\n-- Digite o ID para excluir o produto --\n')
-                ProdutoController.excluir_produto()
-                self.gerenciar_produtos()
-            case 5:
-                print('\n-- Digite o ID para pesquisar um produto --\n')
-                pesq_produto = validar_id()
-                ProdutoController.pesquisar_produto(pesq_produto)
-                self.gerenciar_produtos()
-            case 0:
-                print('\nVoltando...')
-                self.menu_principal()
-            case _:
-                print('\nOpção inválida!')
-                self.gerenciar_produtos()
+                            print(f'\nErro ao alterar {mensagens[opcao].lower()} do produto.')
+                    else:
+                        print('\nOpção inválida!')
+                else:
+                    break
+        while True:
+            print('\n == MENU PRODUTOS ==\n' \
+            '1. Cadastrar Produtos\n' \
+            '2. Listar Produtos\n' \
+            '3. Atualizar Produtos(ID)\n' \
+            '4. Excluir Produtos(ID)\n' \
+            '5. Pesquisar Produtos(ID)\n' \
+            '0. Voltar\n')
+
+            opcao = validar_opcao()
+            match opcao:
+                case 1:
+                    ProdutoController.cadastrar_produto()
+                case 2:
+                    ProdutoController.listar_produtos()
+                case 3:  
+                    print('\n-- Digite o ID para atualizar o produto --\n')
+                    id_produto = validar_id()
+                    atualizar_produto(id_produto)
+                case 4:
+                    print('\n-- Digite o ID para excluir o produto --\n')
+                    ProdutoController.excluir_produto()
+                case 5:
+                    print('\n-- Digite o ID para pesquisar um produto --\n')
+                    pesq_produto = validar_id()
+                    ProdutoController.pesquisar_produto(pesq_produto)
+                case 0:
+                    print('\nVoltando...')
+                    break
+                case _:
+                    print('\nOpção inválida!')
 
     def gerenciar_fornecedores(self):
-        print('\n == MENU FORNECEDORES ==\n' 
-        '1. Cadastrar Fornecedor\n'
-        '2. Listar Fornecedores\n' 
-        '3. Atualizar Fornecedor(CNPJ)\n' 
-        '4. Excluir Fornecedor(CNPJ)\n'
-        '5. Pesquisar Fornecedor(CNPJ)\n'
-        '0. Voltar\n' 
-        )
-        opcao = validar_opcao()
+        def atualizar_fornecedor(cnpj):
+            while True:
+                if FornecedorController.pesquisar_fornecedor(cnpj):
+                    print('\nEscolha o que deseja editar nesse fornecedor:')
+                    print('1. Nome\n'
+                    '2. Telefone\n'
+                    '3. Email\n'
+                    '4. Endereço\n'
+                    '0. Voltar\n')
+                    opcao = validar_opcao()
 
-        match opcao:
-            case 1:
-                FornecedorController.cadastrar_fornecedor()
-                self.gerenciar_fornecedores()
-            case 2:
-                FornecedorController.listar_fornecedores()
-                self.gerenciar_fornecedores()
-            case 3:
-                
-                def atualizar_fornecedor(cnpj):
-                    while True:
-                        if FornecedorController.pesquisar_fornecedor(cnpj):
-                            print('\nEscolha o que deseja editar nesse fornecedor:')
-                            print('1. Nome\n'
-                            '2. Telefone\n'
-                            '3. Email\n'
-                            '4. Endereço\n'
-                            '0. Voltar\n')
-                            opcao = validar_opcao()
-                            match opcao:
-                                case 1:
-                                    if FornecedorController.atualizar_fornecedor(1, cnpj):
-                                        print('\nNome do fornecedor alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar nome do fornecedor.')
-                                case 2:
-                                    if FornecedorController.atualizar_fornecedor(2, cnpj):
-                                        print('\nTelefone do fornecedor alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar telefone do fornecedor.')
-                                case 3:
-                                    if FornecedorController.atualizar_fornecedor(3, cnpj):
-                                        print('\nEmail do fornecedor alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar email do fornecedor.')
-                                case 4:
-                                    if FornecedorController.atualizar_fornecedor(4, cnpj):
-                                        print('\nEndereço do fornecedor alterado com sucesso.')
-                                    else:
-                                        print('\nErro ao alterar endereço do fornecedor.')
-                                case 0:
-                                        print('\nVoltando...')
-                                        self.gerenciar_fornecedores()
-                                case _:
-                                    print('\nOpção inválida!')  
+                    if opcao == 0:
+                        print('\nVoltando...')
+                        break
+                    mensagens = {
+                        1: 'Nome',
+                        2: 'Telefone',
+                        3: 'Email',
+                        4: 'Endereço'
+                    }
+
+                    if opcao in mensagens:
+                        sucesso = FornecedorController.atualizar_fornecedor(opcao, cnpj)
+                        if sucesso:
+                            print(f'\n{mensagens[opcao]} do fornecedor atualizado com sucesso.')
                         else:
-                            break
+                            print(f'\nErro ao atualizar {mensagens[opcao].lower()} do fornecedor.')
+                    else:
+                        print('\nOpção inválida!')
+                else:
+                    break
+        while True:
+            print('\n == MENU FORNECEDORES ==\n' 
+            '1. Cadastrar Fornecedor\n'
+            '2. Listar Fornecedores\n' 
+            '3. Atualizar Fornecedor(CNPJ)\n' 
+            '4. Excluir Fornecedor(CNPJ)\n'
+            '5. Pesquisar Fornecedor(CNPJ)\n'
+            '0. Voltar\n' 
+            )
+            opcao = validar_opcao()
 
-                print('\n-- Digite o CNPJ para atualizar o fornecedor --\n')
-                cnpj = formatar_cnpj()
-                atualizar_fornecedor(cnpj)
-            
-            case 4:
-                print('\n-- Digite o CNPJ para excluir um fornecedor --\n')
-                FornecedorController.excluir_fornecedor()
-                self.gerenciar_fornecedores()
-            case 5:
-                print('\n-- Digite o CNPJ para pesquisar um fornecedor --\n')
-                pesq_fornecedor = formatar_cnpj()
-                FornecedorController.pesquisar_fornecedor(pesq_fornecedor)
-                self.gerenciar_fornecedores()
-            case 0:
-                print('\nVoltando...')
-                self.menu_principal()
-            case _:
-                print('\nOpção inválida!')
-                self.gerenciar_fornecedores()
+            match opcao:
+                case 1:
+                    FornecedorController.cadastrar_fornecedor()
+                case 2:
+                    FornecedorController.listar_fornecedores()
+                case 3:
+                    print('\n-- Digite o CNPJ para atualizar o fornecedor --\n')
+                    cnpj = formatar_cnpj()
+                    atualizar_fornecedor(cnpj)
+                case 4:
+                    print('\n-- Digite o CNPJ para excluir um fornecedor --\n')
+                    FornecedorController.excluir_fornecedor()
+                case 5:
+                    print('\n-- Digite o CNPJ para pesquisar um fornecedor --\n')
+                    pesq_fornecedor = formatar_cnpj()
+                    FornecedorController.pesquisar_fornecedor(pesq_fornecedor)
+                case 0:
+                    print('\nVoltando...')
+                    break
+                case _:
+                    print('\nOpção inválida!')
 
     def gerenciar_vendas(self):
         while True:
+            opcoes = {
+                1: VendaController.listar_vendas,
+                2: lambda: VendaController.pesquisar_venda(validar_id()),
+                0: lambda: print('\nVoltando...'),
+            }
+
             print('\n == MENU VENDAS ==\n'
                     '1. Listar Vendas\n'
                     '2. Pesquisar Venda(ID)\n'
                     '0. Voltar\n')
             opcao = validar_opcao()
-            if opcao == 0:
-                print('\nVoltando...')
-                break
-            elif opcao == 1:
-                VendaController.listar_vendas()
-            elif opcao == 2:
-                print('\n-- Digite o ID da venda para pesquisar --\n')
-                id_venda = validar_id()
-                VendaController.pesquisar_venda(id_venda)
+
+            acao = opcoes.get(opcao)
+            if acao:
+                acao()
+                if opcao == 0:
+                    self.menu_principal()
+                    break
             else:
                 print('\nOpção inválida!')
 
     def relatorios(self):
-        print('\n == MENU RELATÓRIOS ==\n'
+        opcoes = {
+            1: RelatorioController.total_vendas,
+            2: RelatorioController.total_vendas_por_funcionario,
+            3: RelatorioController.total_por_pagamento,
+            4: RelatorioController.mais_vendidos,
+            5: lambda: RelatorioController.relatorio_mensal(*input_mes_ano()),
+            6: RelatorioController.relatorio_geral,
+            0: lambda: print('\nVoltando...')
+        }
+
+        while True:
+            print('\n== MENU RELATÓRIOS ==\n'
                 '1. Total de vendas\n'
-                '2. Total de vendas por funcionarios\n'
+                '2. Total de vendas por funcionários\n'
                 '3. Total de vendas por forma de pagamento\n'
-                '4. Os 5 Produtos mais vendidios\n'
-                '5. Relatorio por mes do ano\n'    
+                '4. Os 5 produtos mais vendidos\n'
+                '5. Relatório por mês do ano\n'
                 '6. Dados do mercado\n'
-                '0. Voltar\n'   
-              )
-        opcao = validar_opcao()
-        match opcao:
-            case 1:
-                RelatorioController.total_vendas()
-            case 2:
-                RelatorioController.total_vendas_por_funcionario()
-            case 3:
-                RelatorioController.total_por_pagamento()
-            case 4:
-                RelatorioController.mais_vendidos()
-            case 5:
-                print('\nDigite o mês e o ano para gerar o relatório\n')
-                mes, ano = input_mes_ano()
-                RelatorioController.relatorio_mensal(mes, ano)
-            case 6:
-                RelatorioController.relatorio_geral()
-            case 0:
-                print('\nVoltando...')
-                self.menu_principal()
-            case _:
+                '0. Voltar\n'
+                )
+            opcao = validar_opcao()
+
+            acao = opcoes.get(opcao)
+            if acao:
+                acao()
+                if opcao == 0:
+                    self.menu_principal()
+                    break
+            else:
                 print('\nOpção inválida!')
-                self.relatorios()
+
 app = Mercado()
 app.menu_principal()

@@ -3,11 +3,11 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import ClienteDAO, FuncionarioDAO, ProdutoDAO, FornecedorDAO, CaixaDAO, VendaDAO, AcessoSistemaDao
-from models.Models import Cliente, Funcionario, Produto, Fornecedor, Caixa, Venda
-from validators import *
-from formatters import *
-from generator import *
+from DAO.DAO import *
+from models.Models import *
+from utils.formatters import *
+from utils.validators import *
+from utils.generator import *
 import qrcode
 from collections import defaultdict
 from pixqrcode import PixQrCode
