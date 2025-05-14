@@ -250,9 +250,12 @@ class Mercado:
                 case 2:
                     ClienteController.listar_clientes()
                 case 3:
-                    print('\n-- Digite o CPF para atualizar o cliente --')
+                    print('\n-- Digite o CPF para atualizar o cliente [Digite 0 para voltar] --')
                     cpf_edit = formatar_cpf()
-                    atualizar_cliente(cpf_edit)
+                    if cpf_edit == '0':
+                        return
+                    else:
+                        atualizar_cliente(cpf_edit)
                 case 4:
                     print('\n-- Digite o CPF para excluir cliente --')
                     ClienteController.excluir_cliente()
@@ -265,7 +268,6 @@ class Mercado:
                     break
                 case _:
                     print('\nOpção inválida!')
-
 
     def gerenciar_funcionarios(self):
         def atualizar_funcionario(cpf_edit):
@@ -324,9 +326,12 @@ class Mercado:
                 case 2:
                     FuncionarioController.listar_funcionarios()
                 case 3:
-                    print('\n-- Digite o CPF para atualizar o funcionário --\n')
+                    print('\n-- Digite o CPF para atualizar o funcionário [Digite 0 para voltar] --\n')
                     cpf_edit = formatar_cpf()
-                    atualizar_funcionario(cpf_edit)
+                    if cpf_edit == '0':
+                        return
+                    else:
+                        atualizar_funcionario(cpf_edit)
                 case 4:
                     print('\n-- Digite o CPF para excluir funcionário --\n')
                     FuncionarioController.excluir_funcionario()
@@ -390,9 +395,12 @@ class Mercado:
                 case 2:
                     ProdutoController.listar_produtos()
                 case 3:  
-                    print('\n-- Digite o ID para atualizar o produto --\n')
+                    print('\n-- Digite o ID para atualizar o produto [Digite 0 para voltar] --\n')
                     id_produto = validar_id()
-                    atualizar_produto(id_produto)
+                    if id_produto == '000000':
+                        return
+                    else:
+                        atualizar_produto(id_produto)
                 case 4:
                     print('\n-- Digite o ID para excluir o produto --\n')
                     ProdutoController.excluir_produto()
@@ -457,7 +465,10 @@ class Mercado:
                 case 3:
                     print('\n-- Digite o CNPJ para atualizar o fornecedor --\n')
                     cnpj = formatar_cnpj()
-                    atualizar_fornecedor(cnpj)
+                    if cnpj == '0':
+                        return
+                    else:
+                        atualizar_fornecedor(cnpj)
                 case 4:
                     print('\n-- Digite o CNPJ para excluir um fornecedor --\n')
                     FornecedorController.excluir_fornecedor()

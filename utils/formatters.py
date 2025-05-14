@@ -26,25 +26,31 @@ def formatar_data():
 def formatar_cpf(): 
     while True:
         cpf = input('CPF: ') 
-        if not cpf.isdigit():
-            print("CPF deve conter apenas números.")
-        elif len(cpf) != 11:
-            print("CPF deve ter 11 dígitos.")
+        if cpf == '0':
+            return '0'
         else:
-            cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
-            return cpf_formatado
+            if not cpf.isdigit():
+                print("CPF deve conter apenas números.")
+            elif len(cpf) != 11:
+                print("CPF deve ter 11 dígitos.")
+            else:
+                cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
+                return cpf_formatado
     
 
 def formatar_cnpj():
     while True:
         cnpj = input('CNPJ: ')
-        if not cnpj.isdigit():
-            print("CNPJ deve conter apenas números.")
-        elif len(cnpj) != 14:
-            print("CNPJ deve ter 14 dígitos.")
+        if cnpj == '0':
+            return '0'
         else:
-            cnpj_formatado = f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
-            return cnpj_formatado
+            if not cnpj.isdigit():
+                print("CNPJ deve conter apenas números.")
+            elif len(cnpj) != 14:
+                print("CNPJ deve ter 14 dígitos.")
+            else:
+                cnpj_formatado = f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
+                return cnpj_formatado
 
 def formatar_telefone():
     while True:
