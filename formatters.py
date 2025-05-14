@@ -23,8 +23,6 @@ def formatar_data():
         except ValueError:
             print("Data inválida. Verifique o dia, mês e ano.")
 
-    
-    
 def formatar_cpf(): 
     while True:
         cpf = input('CPF: ') 

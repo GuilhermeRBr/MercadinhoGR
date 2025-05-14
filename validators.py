@@ -129,3 +129,19 @@ def validar_parcelas():
             print("Parcelas deve ser entre 1 e 12.")
         else:
             return int(parcelas)
+         
+def input_mes_ano():
+    while True:
+        data_mes = input('DATA MÊS [MM]: ').strip()
+        data_ano = input('DATA ANO [YYYY]: ').strip()
+        
+        try:
+            data = datetime.strptime(data_mes + data_ano, "%m%Y")
+            if data > datetime.now():
+                print("Data não pode ser no futuro.")
+            elif data.year < 1900:
+                print("Ano inválido. Deve ser a partir de 1900.")
+            else:
+                return int(data_mes), int(data_ano)
+        except ValueError:
+            print("Data inválida. Verifique o mês e ano.")

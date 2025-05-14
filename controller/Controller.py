@@ -897,27 +897,24 @@ class RelatorioController:
                     
                 mais_vendidos = sorted(contador.items(), key=lambda x: x[1], reverse=True)[0:5]
 
-                print('\nOS 5 PRODUTOS MAIS VENDIDOS:')
+                print('\nOS 5 PRODUTOS MAIS VENDIDOS NO MÊS:')
                 for produto, quantidade in mais_vendidos:
                     for prod in produtos:
                         if prod.id_produto == produto:
                             print(f"ID DO PRODUTO: {prod.id_produto} | NOME DO PRODUTO: {prod.nome} | VALOR: {prod.preco} | QUANTIDADE DE VENDAS: {quantidade}")
 
-                print('\nTOTAL DE VENDAS POR FUNCIONÁRIO:')
+                print('\nTOTAL DE VENDAS POR FUNCIONÁRIO NO MÊS:')
                 for funcionario in funcionarios:
                     for id_funcionario, total in total_vendas_funcionario.items():
                         if funcionario.id_funcionario == id_funcionario:
                             print(f"ID DO FUNCIONÁRIO: {funcionario.id_funcionario} | NOME DO FUNCIONÁRIO: {funcionario.nome} | TOTAL DE VENDAS: {contador_funcionario[id_funcionario]} | VALOR TOTAL: {float_para_dinheiro(total_vendas_funcionario[id_funcionario])}")
 
-                print('\nTOTAL DE VENDAS POR FORMA DE PAGAMENTO:')
+                print('\nTOTAL DE VENDAS POR FORMA DE PAGAMENTO NO MÊS:')
                 for forma_pagamento, total in total_vendas_pagamento.items():
                     print(f"FORMA DE PAGAMENTO: {forma_pagamento} | VALOR TOTAL: {float_para_dinheiro(total)}")
 
-                print('\nTOTAL DE VENDAS POR CAIXA:')
+                print('\nTOTAL DE VENDAS POR CAIXA NO MÊS:')
                 for caixa, total in total_vendas_caixa.items():
                     print(f"ID DA CAIXA: {caixa.replace('00000', '0')} | VALOR TOTAL: {float_para_dinheiro(total)}")
                 
-                print(f'\nO TOTAL DE VENDAS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')
-
-
-
+                print(f'\nO TOTAL DE VENDAS NO MÊS FOI: {float_para_dinheiro(total_vendas)} | TOTAL DE VENDAS: {total_quantidade} | VALOR MÉDIO POR VENDA: {float_para_dinheiro(total_vendas / total_quantidade)}')

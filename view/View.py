@@ -559,10 +559,10 @@ class Mercado:
         print('\n == MENU RELATÓRIOS ==\n'
                 '1. Total de vendas\n'
                 '2. Total de vendas por funcionarios\n'
-                '3. Os 5 Produtos mais vendidios\n'
-                '4. Total de vendas por forma de pagamento\n'
-                        
-
+                '3. Total de vendas por forma de pagamento\n'
+                '4. Os 5 Produtos mais vendidios\n'
+                '5. Relatorio por mes do ano\n'    
+                '6. Dados do mercado\n'
                 '0. Voltar\n'   
               )
         opcao = validar_opcao()
@@ -572,11 +572,15 @@ class Mercado:
             case 2:
                 RelatorioController.total_vendas_por_funcionario()
             case 3:
-                RelatorioController.mais_vendidos()
-            case 4:
                 RelatorioController.total_por_pagamento()
+            case 4:
+                RelatorioController.mais_vendidos()
             case 5:
-                pass
+                print('\nDigite o mês e o ano para gerar o relatório\n')
+                mes, ano = input_mes_ano()
+                RelatorioController.relatorio_mensal(mes, ano)
+            case 6:
+                RelatorioController.relatorio_geral()
             case 0:
                 print('\nVoltando...')
                 self.menu_principal()

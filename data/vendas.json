@@ -555,5 +555,17 @@
         "id_pagamento": "129998",
         "forma_pagamento": "Cartão de Credito",
         "data_venda": "12/05/2025 14:57:06"
+    },
+    {
+        "id_venda": "501700",
+        "id_funcionario": "877655",
+        "id_produtos": [
+            "464426"
+        ],
+        "id_caixa": "000002",
+        "valor_total": "R$ 7,39",
+        "id_pagamento": "772345",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "13/05/2025 21:23:19"
     }
 ]
