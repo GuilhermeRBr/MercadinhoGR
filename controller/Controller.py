@@ -15,7 +15,7 @@ from datetime import datetime
 
 
 total = 0
-id_caixa, id_funcionario, sair = '   '
+id_caixa, id_funcionario, sair, caixa_abertura = '    '
 produtos,id_venda, venda_temporaria = [], [], []
 
 class AcessoSistemaController:
@@ -57,7 +57,7 @@ class AcessoSistemaController:
 class CaixaController:
     @classmethod
     def logar_caixa(cls):
-        global id_caixa, id_funcionario
+        global id_caixa, id_funcionario, caixa_abertura
         tentativas = 1
         while tentativas > 0:
             id_funcionario = '877655'
@@ -69,6 +69,7 @@ class CaixaController:
                     print('\nLogado com sucesso!')
                     print('\nDigite o ID do caixa: ')
                     id_caixa = '000002'
+                    caixa_abertura = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 
                     print('\nO CAIXA AGORA ESTÁ ABERTO')
                     return True
@@ -379,7 +380,12 @@ class CaixaController:
         else:
             print('\nVoltando para o menu...')
             return True
-               
+
+    @classmethod
+    def fechar_caixa(cls):
+        caixa_fechamento = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+        CaixaDAO.fechar_caixa(id_caixa, id_funcionario, caixa_abertura, caixa_fechamento)
+
 class ClienteController:
     @classmethod
     def cadastrar_cliente(cls):

@@ -37,6 +37,21 @@ class CaixaDAO:
                     
         with open('data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4, ensure_ascii=False)
+    
+    @classmethod
+    def fechar_caixa(cls, id_caixa, id_funcionario, abertura, fechamento):
+        with open('data/logCaixa.json', 'r', encoding='utf-8') as arq:
+            caixa = json.load(arq)
+
+        caixa.append({
+            'id_caixa': id_caixa,
+            'id_funcionario': id_funcionario,
+            'data_abertura': abertura,
+            'data_fechamento': fechamento
+        })
+
+        with open('data/logCaixa.json', 'w', encoding='utf-8') as arq:
+            json.dump(caixa, arq, indent=4, ensure_ascii=False)
 
 class ClienteDAO:
     @classmethod
@@ -119,7 +134,6 @@ class ClienteDAO:
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
-
     @classmethod        
     def excluir_cliente(cls, cpf):
         with open('data/clientes.json', 'r', encoding='utf-8') as arq:
@@ -161,7 +175,6 @@ class ClienteDAO:
         
         with open('data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
-
 
 class FuncionarioDAO:
     @classmethod

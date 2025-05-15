@@ -1,0 +1,20 @@
+[
+    {
+        "id_caixa": "000002",
+        "id_funcionario": "132642",
+        "data_abertura": "14/05/2025 20:53:55",
+        "data_fechamento": "14/05/2025 20:53:58"
+    },
+    {
+        "id_caixa": "000002",
+        "id_funcionario": "132642",
+        "data_abertura": "14/05/2025 20:54:43",
+        "data_fechamento": "14/05/2025 20:55:29"
+    },
+    {
+        "id_caixa": "000002",
+        "id_funcionario": "132642",
+        "data_abertura": "14/05/2025 21:00:41",
+        "data_fechamento": "14/05/2025 21:00:59"
+    }
+]

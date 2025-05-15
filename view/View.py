@@ -20,13 +20,14 @@ class Mercado:
 
         while self.rodando:
             print('\n == MENU PRINCIPAL ==\n' \
-            '1. Caixa\n' \
+            '1. AbrirCaixa\n' \
             '2. Gerenciar Clientes\n' \
             '3. Gerenciar Funcionários\n' \
             '4. Gerenciar Produtos\n' \
             '5. Gerenciar Fornecedores\n' \
             '6. Vendas\n' \
             '7. Relatórios\n' \
+            '8. Fechar Caixa\n' \
             '0. Sair\n' \
             )
 
@@ -45,7 +46,6 @@ class Mercado:
                             return
                         elif resultado == True:
                             self.caixa_desbloqueado = True
-                            self.caixa_aberto = True
                             self.acesso = True
                             self.gerenciar_clientes()
                         else:
@@ -58,14 +58,12 @@ class Mercado:
                             self.menu_principal()
                             return
                         elif resultado == True:
-                            self.caixa_aberto = True
                             self.gerenciar_clientes()
                         else:
                             self.caixa_desbloqueado = False
                             self.menu_principal()
                     else:
-                        self.gerenciar_clientes()
-                    
+                        self.gerenciar_clientes()                   
                 case 3 :
                     if self.acesso == False:
                         print('\nDigite seu ID e Senha de gerente para acessar o sistema: [Digite 0 para voltar]')
@@ -126,10 +124,25 @@ class Mercado:
                             self.relatorios()
                     else:
                         self.relatorios()
-
+                case 8:
+                    if self.caixa_aberto == False:
+                        print('\nO caixa já está FECHADO!')
+                    else:
+                        print('\nDigite seu ID e Senha de funcionario para fechar o caixa: [Digite 0 para voltar]')
+                        resultado = AcessoSistemaController.logar_funcionario()
+                        if resultado == '0':
+                            self.menu_principal()
+                            return
+                        elif resultado == True:
+                            self.caixa_aberto = False
+                            CaixaController.fechar_caixa()
+                            print('\nO caixa foi FECHADO!')
                 case 0:
-                    print('Saindo...')
-                    self.rodando = False
+                    if self.caixa_aberto:
+                        print('\nO caixa ainda está ABERTO! Feche-o primeiro!')
+                    else:
+                        print('\nSaindo...')
+                        self.rodando = False
                 case _:
                     print('Opção inválida!')
                     
@@ -463,7 +476,7 @@ class Mercado:
                 case 2:
                     FornecedorController.listar_fornecedores()
                 case 3:
-                    print('\n-- Digite o CNPJ para atualizar o fornecedor --\n')
+                    print('\n-- Digite o CNPJ para atualizar o fornecedor [Digite 0 para voltar] --\n')
                     cnpj = formatar_cnpj()
                     if cnpj == '0':
                         return
