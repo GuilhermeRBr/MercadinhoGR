@@ -22,11 +22,11 @@ class AcessoSistemaController:
     @classmethod
     def logar_gerente(cls):
         while True:
-            id_gerente = "745454"
+            id_gerente = validar_id()
             if id_gerente == '000000':
                 return '0'
             else:
-                senha = '856949'
+                senha = validar_senha()
                 if AcessoSistemaDao.login_gerente(id_gerente, senha):
                     print('\nLogado com sucesso!')
                     return True
@@ -36,13 +36,13 @@ class AcessoSistemaController:
     @classmethod
     def logar_funcionario(cls):
             global id_funcionario
-            tentativas = 1
+            tentativas = 3
             while tentativas > 0:
-                id_funcionario = '132642'
+                id_funcionario = validar_id()
                 if id_funcionario == '000000':
                     return '0'
                 else:
-                    senha = 'wAssri'
+                    senha = validar_senha()
                     if CaixaDAO.login_funcionario(id_funcionario, senha):
                         print('\nLogado com sucesso!')
                         return True
@@ -58,17 +58,22 @@ class CaixaController:
     @classmethod
     def logar_caixa(cls):
         global id_caixa, id_funcionario, caixa_abertura
-        tentativas = 1
+        tentativas = 3
         while tentativas > 0:
-            id_funcionario = '877655'
+            id_funcionario = validar_id()
             if id_funcionario == '000000':
                 return '0'
             else:
-                senha = '123456'
+                senha = validar_senha()
                 if CaixaDAO.login_funcionario(id_funcionario, senha):
                     print('\nLogado com sucesso!')
                     print('\nDigite o ID do caixa: ')
-                    id_caixa = '000002'
+                    while True:
+                        id_caixa = validar_id()
+                        if id_caixa == '000000':
+                            print('\nO ID do caixa não pode ser 0!')
+                        else:
+                            break
                     caixa_abertura = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 
                     print('\nO CAIXA AGORA ESTÁ ABERTO')
@@ -81,8 +86,6 @@ class CaixaController:
                         return False
                     print(f'\nVocê tem {tentativas} tentativas restantes.')
             
-
-
     @classmethod
     def realizar_venda(cls):
         def meio_pagamento():
@@ -413,7 +416,6 @@ class ClienteController:
         else:
             for cliente in clientes:
                 print(f'\nID: {cliente.id_cliente} | Nome: {cliente.nome} | CPF: {cliente.cpf} | Telefone: {cliente.telefone} | Email: {cliente.email}, Endereço: {cliente.endereco} | Data de Nascimento: {cliente.data_nascimento} | TOTAL DE DIVIDAS: {cliente.total_divida} | ID DAS COMPRAS: {', ' .join(v for v in cliente.id_venda) if cliente.id_venda else 'Não há dívidas'} \n')
-
 
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados_venda=None):

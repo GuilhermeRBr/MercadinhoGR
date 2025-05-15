@@ -16,11 +16,11 @@ class Mercado:
         self.caixa_desbloqueado = True
 
     def menu_principal(self):
-        print('\nBem-vindo ao sistema de gerenciamento de mercado!')
+        print('\nBem-vindo ao sistema de gerenciamento do MERCADINHO GR!')
 
         while self.rodando:
             print('\n == MENU PRINCIPAL ==\n' \
-            '1. AbrirCaixa\n' \
+            '1. Abrir Caixa\n' \
             '2. Gerenciar Clientes\n' \
             '3. Gerenciar Funcionários\n' \
             '4. Gerenciar Produtos\n' \

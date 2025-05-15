@@ -567,5 +567,17 @@
         "id_pagamento": "772345",
         "forma_pagamento": "Dinheiro",
         "data_venda": "13/05/2025 21:23:19"
+    },
+    {
+        "id_venda": "204321",
+        "id_funcionario": "745454",
+        "id_produtos": [
+            "787306"
+        ],
+        "id_caixa": "000003",
+        "valor_total": "R$ 13,24",
+        "id_pagamento": "630926",
+        "forma_pagamento": "Dinheiro",
+        "data_venda": "15/05/2025 14:13:20"
     }
 ]
