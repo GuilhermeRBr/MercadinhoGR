@@ -53,12 +53,25 @@ Todos os campos do sistema passam por **verificações e validações rigorosas*
 
 ## 🚀 Como Rodar o Projeto
 
-```bash
-# Clone o repositório
-git clone https://github.com/GuilhermeRBr/MercadinhoGR
+1. Clone este repositório:  
+   ```bash
+    git clone https://github.com/GuilhermeRBr/MercadinhoGR
+    cd MercadinhoGR
+2. Crie e ative um ambiente virtual:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # Linux/Mac
+    venv\Scripts\activate      # Windows
 
-# Acesse a pasta do projeto
-cd mercadinhoGR
+3. Instale as dependêndias:
+    ```bash
+    pip install -r requirements.txt
 
-# Execute o sistema
-python main.py
+4. Configure as variáveis de ambiente no arquivo **.env**:
+    ```bash
+    DATABASE_URL=postgresql+psycopg2://usuario:senha@localhost:5432/mercadinhGR
+
+5. Execute o aplicativo:
+    ```bash
+    python main.py
+

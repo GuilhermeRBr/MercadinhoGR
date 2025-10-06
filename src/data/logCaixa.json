@@ -22,5 +22,11 @@
         "id_funcionario": "745454",
         "data_abertura": "15/05/2025 14:12:56",
         "data_fechamento": "15/05/2025 14:13:39"
+    },
+    {
+        "id_caixa": "000001",
+        "id_funcionario": "678865",
+        "data_abertura": "06/10/2025 15:59:42",
+        "data_fechamento": "06/10/2025 16:00:11"
     }
 ]
