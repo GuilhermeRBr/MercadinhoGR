@@ -1,13 +1,13 @@
 import json
 from datetime import datetime
-from utils.generator import gerar_id
-from utils.formatters import *
-from models.models import *
+from src.utils.generator import gerar_id
+from src.utils.formatters import *
+from src.models.models import *
 
 class AcessoSistemaDao:
     @classmethod
     def login_gerente(cls, id, senha):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
 
         for f in funcionarios:
@@ -18,7 +18,7 @@ class AcessoSistemaDao:
 class CaixaDAO:
     @classmethod
     def login_funcionario(cls, id, senha):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
         
         for f in funcionarios:
@@ -27,7 +27,7 @@ class CaixaDAO:
 
     @classmethod
     def realizar_venda(cls, id_produto):
-        with open ('data/produtos.json', 'r', encoding='utf-8') as arq:
+        with open ('src/data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)
 
         for i in id_produto:
@@ -35,12 +35,12 @@ class CaixaDAO:
                 if p['id_produto'] == i:
                     p['quantidade'] -= 1
                     
-        with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4, ensure_ascii=False)
     
     @classmethod
     def fechar_caixa(cls, id_caixa, id_funcionario, abertura, fechamento):
-        with open('data/logCaixa.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/logCaixa.json', 'r', encoding='utf-8') as arq:
             caixa = json.load(arq)
 
         caixa.append({
@@ -50,7 +50,7 @@ class CaixaDAO:
             'data_fechamento': fechamento
         })
 
-        with open('data/logCaixa.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/logCaixa.json', 'w', encoding='utf-8') as arq:
             json.dump(caixa, arq, indent=4, ensure_ascii=False)
 
 class ClienteDAO:
@@ -59,7 +59,7 @@ class ClienteDAO:
         erros = []
         clientes = []
         try:
-            with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+            with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
                 clientes = json.load(arq)
         except FileNotFoundError:
             clientes = []
@@ -90,12 +90,12 @@ class ClienteDAO:
             'id_venda': cliente.id_venda
         })
 
-        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def listar_clientes(cls):
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
             lista_clientes = []
             for c in clientes:
@@ -107,7 +107,7 @@ class ClienteDAO:
         
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados, dados_venda=None, total_divida=None):   
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
 
         for c in clientes:
@@ -131,18 +131,18 @@ class ClienteDAO:
                                 c['id_venda'].append(dados)
                             else:
                                 c['id_venda'].remove(dados)
-        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
     @classmethod        
     def excluir_cliente(cls, cpf):
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
             
         for i, cliente in enumerate(clientes):
             if cliente['cpf'] == cpf:
                 del clientes[i]
-                with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+                with open('src/data/clientes.json', 'w', encoding='utf-8') as arq:
                     json.dump(clientes, arq, indent=4, ensure_ascii=False)
                 return True
             else:
@@ -150,7 +150,7 @@ class ClienteDAO:
 
     @classmethod
     def pesquisar_cliente(cls, cpf):
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
         
         for c in clientes:
@@ -160,7 +160,7 @@ class ClienteDAO:
             
     @classmethod
     def atualizar_divida(cls, cpf, valor, id_venda=None):
-        with open('data/clientes.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
             clientes = json.load(arq)
 
         for c in clientes:
@@ -173,7 +173,7 @@ class ClienteDAO:
                 if id_venda is not None:
                     c['id_venda'].append(id_venda)
         
-        with open('data/clientes.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/clientes.json', 'w', encoding='utf-8') as arq:
             json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
 class FuncionarioDAO:
@@ -182,7 +182,7 @@ class FuncionarioDAO:
         erros = []
         funcionarios = []
         try:
-            with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+            with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
                 funcionarios = json.load(arq)
         except FileNotFoundError:
             funcionarios = []
@@ -213,12 +213,12 @@ class FuncionarioDAO:
             'salario': funcionario.salario,
         })
 
-        with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'w', encoding='utf-8') as arq:
             json.dump(funcionarios, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def listar_funcionarios(cls):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
             lista_funcionarios = []
             
@@ -231,7 +231,7 @@ class FuncionarioDAO:
         
     @classmethod
     def atualizar_funcionario(cls, opcao, cpf, dados):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
         for f in funcionarios:
             if f['cpf'] == cpf:
@@ -251,18 +251,18 @@ class FuncionarioDAO:
                         case 7:
                             f['salario'] = dados
 
-        with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'w', encoding='utf-8') as arq:
             json.dump(funcionarios, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def excluir_funcionario(cls, cpf):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
         
         for i, funcionario in enumerate(funcionarios):
             if funcionario['cpf'] == cpf:
                 del funcionarios[i]
-                with open('data/funcionarios.json', 'w', encoding='utf-8') as arq:
+                with open('src/data/funcionarios.json', 'w', encoding='utf-8') as arq:
                     json.dump(funcionarios, arq, indent=4, ensure_ascii=False)
                 return True
             else:
@@ -270,7 +270,7 @@ class FuncionarioDAO:
 
     @classmethod
     def pesquisar_funcionario(cls, cpf):
-        with open('data/funcionarios.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
             funcionarios = json.load(arq)
 
         for f in funcionarios:
@@ -285,7 +285,7 @@ class ProdutoDAO:
         erros = []
         produtos = []
         try:
-            with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+            with open('src/data/produtos.json', 'r', encoding='utf-8') as arq:
                 produtos = json.load(arq)
         except FileNotFoundError:
             produtos = []
@@ -309,12 +309,12 @@ class ProdutoDAO:
 
         })
 
-        with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def listar_produtos(cls):
-        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)
             lista_produtos = []
 
@@ -327,7 +327,7 @@ class ProdutoDAO:
 
     @classmethod
     def atualizar_produto(cls, opcao, id_produto, dados):
-        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)
 
         for p in produtos:
@@ -342,18 +342,18 @@ class ProdutoDAO:
                         case 4:
                             p['quantidade'] = int(dados)
             
-        with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'w', encoding='utf-8') as arq:
             json.dump(produtos, arq, indent=4, ensure_ascii=False)
     
     @classmethod
     def excluir_produto(cls, id_produto):
-        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)
         
         for i, produto in enumerate(produtos):
             if produto['id_produto'] == id_produto:
                 del produtos[i]
-                with open('data/produtos.json', 'w', encoding='utf-8') as arq:
+                with open('src/data/produtos.json', 'w', encoding='utf-8') as arq:
                     json.dump(produtos, arq, indent=4, ensure_ascii=False)
                 return True
             else:
@@ -361,7 +361,7 @@ class ProdutoDAO:
 
     @classmethod
     def pesquisar_produto(cls, id_produto):
-        with open('data/produtos.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/produtos.json', 'r', encoding='utf-8') as arq:
             produtos = json.load(arq)
         
         for p in produtos:
@@ -376,7 +376,7 @@ class FornecedorDAO:
         erros = []
         fornecedores = []
         try:
-            with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+            with open('src/data/fornecedores.json', 'r', encoding='utf-8') as arq:
                 fornecedores = json.load(arq)
         except FileNotFoundError:
             fornecedores = []
@@ -404,12 +404,12 @@ class FornecedorDAO:
             'endereco': fornecedor.endereco
         })
 
-        with open('data/fornecedores.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/fornecedores.json', 'w', encoding='utf-8') as arq:
             json.dump(fornecedores, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def listar_fornecedores(cls):
-        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/fornecedores.json', 'r', encoding='utf-8') as arq:
             fornecedores = json.load(arq)
             lista_fornecedores = []
         
@@ -422,7 +422,7 @@ class FornecedorDAO:
     
     @classmethod
     def atualizar_fornecedor(cls, opcao, cnpj, dados):
-        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/fornecedores.json', 'r', encoding='utf-8') as arq:
             fornecedores = json.load(arq)
             for f in fornecedores:
                 if f['cnpj'] == cnpj:
@@ -436,19 +436,19 @@ class FornecedorDAO:
                             case 4:
                                 f['endereco'] = dados
 
-        with open('data/fornecedores.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/fornecedores.json', 'w', encoding='utf-8') as arq:
             json.dump(fornecedores, arq, indent=4, ensure_ascii=False)
 
 
     @classmethod
     def excluir_fornecedor(cls, cnpj):
-        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/fornecedores.json', 'r', encoding='utf-8') as arq:
             fornecedores = json.load(arq)
 
         for i, fornecedor in enumerate(fornecedores):
             if fornecedor['cnpj'] == cnpj:
                 del fornecedores[i]
-                with open('data/fornecedores.json', 'w', encoding='utf-8') as arq:
+                with open('src/data/fornecedores.json', 'w', encoding='utf-8') as arq:
                     json.dump(fornecedores, arq, indent=4, ensure_ascii=False)
                 return True
             else:
@@ -456,7 +456,7 @@ class FornecedorDAO:
 
     @classmethod
     def pesquisar_fornecedor(cls, cnpj):
-        with open('data/fornecedores.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/fornecedores.json', 'r', encoding='utf-8') as arq:
             fornecedores = json.load(arq)
 
         for f in fornecedores:
@@ -471,7 +471,7 @@ class VendaDAO:
         erros = []
         vendas = []
         try:
-            with open('data/vendas.json', 'r', encoding='utf-8') as arq:
+            with open('src/data/vendas.json', 'r', encoding='utf-8') as arq:
                 vendas = json.load(arq)
         except FileNotFoundError:
             vendas = []
@@ -506,12 +506,12 @@ class VendaDAO:
             'data_venda': data_venda
         })
 
-        with open('data/vendas.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/vendas.json', 'w', encoding='utf-8') as arq:
             json.dump(vendas, arq, indent=4, ensure_ascii=False)
     
     @classmethod
     def listar_vendas(cls):
-        with open('data/vendas.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/vendas.json', 'r', encoding='utf-8') as arq:
             vendas = json.load(arq)
             lista_vendas = []
 
@@ -524,12 +524,10 @@ class VendaDAO:
 
     @classmethod
     def pesquisar_venda(cls, id_venda):
-        with open('data/vendas.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/vendas.json', 'r', encoding='utf-8') as arq:
             vendas = json.load(arq)
 
             for v in vendas:
                 if v['id_venda'] == id_venda:
                     id_venda, id_funcionario, id_produtos, id_caixa, valor_total, id_pagamento, forma_pagamento, data_venda = v.values()
                     return Venda(id_funcionario, id_produtos, id_caixa, valor_total, forma_pagamento, id_venda, data_venda, id_pagamento)
-
-

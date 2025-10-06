@@ -22,7 +22,6 @@ class Cliente(Pessoa):
         self.total_divida = total_divida
         self.id_venda = id_venda
 
-
 class Produto:
     def __init__(self, nome ,descricao, preco,categoria, quantidade, id_produto=None):
         self.id_produto = id_produto

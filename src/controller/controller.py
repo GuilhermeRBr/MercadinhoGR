@@ -3,11 +3,11 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.dao import *
-from models.models import *
-from utils.formatters import *
-from utils.validators import *
-from utils.generator import *
+from src.DAO.dao import *
+from src.models.models import *
+from src.utils.formatters import *
+from src.utils.validators import *
+from src.utils.generator import *
 import qrcode
 from collections import defaultdict
 from pixqrcode import PixQrCode

@@ -54,11 +54,11 @@ Todos os campos do sistema passam por **verificações e validações rigorosas*
 ## 🚀 Como Rodar o Projeto
 
 ```bash
-
+# Clone o repositório
 git clone https://github.com/GuilhermeRBr/MercadinhoGR
 
 # Acesse a pasta do projeto
 cd mercadinhoGR
 
 # Execute o sistema
-python view/View.py
+python main.py

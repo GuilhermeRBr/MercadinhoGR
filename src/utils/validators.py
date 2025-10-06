@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-from utils.formatters import formatar_id
+from src.utils.formatters import formatar_id
 
 
 def validar_nome():
