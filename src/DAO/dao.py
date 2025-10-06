@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from utils.generator import gerar_id
 from utils.formatters import *
-from models.Models import *
+from models.models import *
 
 class AcessoSistemaDao:
     @classmethod

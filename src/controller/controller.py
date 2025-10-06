@@ -3,8 +3,8 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from DAO.DAO import *
-from models.Models import *
+from DAO.dao import *
+from models.models import *
 from utils.formatters import *
 from utils.validators import *
 from utils.generator import *

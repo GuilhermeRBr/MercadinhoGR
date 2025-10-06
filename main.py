@@ -2,9 +2,9 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from controller.Controller import *
-from utils.formatters import *
-from utils.validators import *
+from src.controller.controller import *
+from src.utils.formatters import *
+from src.utils.validators import *
 
 
 class Mercado:
