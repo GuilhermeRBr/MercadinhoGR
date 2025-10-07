@@ -4,7 +4,8 @@ from src.utils.generator import gerar_id
 from src.utils.formatters import *
 from src.models.models import *
 
-class AcessoSistemaDao:
+
+class AcessoSistemaDAO:
     @classmethod
     def login_gerente(cls, id, senha):
         with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
@@ -40,7 +41,7 @@ class CaixaDAO:
     
     @classmethod
     def fechar_caixa(cls, id_caixa, id_funcionario, abertura, fechamento):
-        with open('src/data/logCaixa.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/log_caixa.json', 'r', encoding='utf-8') as arq:
             caixa = json.load(arq)
 
         caixa.append({
@@ -50,7 +51,7 @@ class CaixaDAO:
             'data_fechamento': fechamento
         })
 
-        with open('src/data/logCaixa.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/log_caixa.json', 'w', encoding='utf-8') as arq:
             json.dump(caixa, arq, indent=4, ensure_ascii=False)
 
 class ClienteDAO:
@@ -63,6 +64,9 @@ class ClienteDAO:
                 clientes = json.load(arq)
         except FileNotFoundError:
             clientes = []
+            
+        print(clientes)
+
 
         id_cliente = gerar_id()
         for c in clientes:

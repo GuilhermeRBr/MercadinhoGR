@@ -22,7 +22,7 @@ class AcessoSistemaController:
                 return '0'
             else:
                 senha = validar_senha()
-                if AcessoSistemaDao.login_gerente(id_gerente, senha):
+                if AcessoSistemaDAO.login_gerente(id_gerente, senha):
                     print('\nLogado com sucesso!')
                     return True
                 else:
@@ -33,11 +33,11 @@ class AcessoSistemaController:
             global id_funcionario
             tentativas = 3
             while tentativas > 0:
-                id_funcionario = validar_id()
+                id_funcionario = "678865"
                 if id_funcionario == '000000':
                     return '0'
                 else:
-                    senha = validar_senha()
+                    senha = "645123"
                     if CaixaDAO.login_funcionario(id_funcionario, senha):
                         print('\nLogado com sucesso!')
                         return True
