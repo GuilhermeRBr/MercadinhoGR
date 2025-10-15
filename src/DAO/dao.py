@@ -3,7 +3,22 @@ from datetime import datetime
 from src.utils.generator import gerar_id
 from src.utils.formatters import *
 from src.models.models import *
+from sqlalchemy.orm import joinedload
 
+
+def to_dict(obj):
+    result = {col.name: getattr(obj, col.name) for col in obj.__table__.columns}
+
+    # Adiciona relacionamentos
+    for rel in obj.__mapper__.relationships:
+        value = getattr(obj, rel.key)
+        if value is None:
+            result[rel.key] = None
+        elif isinstance(value, list):
+            result[rel.key] = [to_dict(i) for i in value]
+        else:
+            result[rel.key] = to_dict(value)
+    return result
 
 class AcessoSistemaDAO:
     @classmethod
@@ -58,14 +73,16 @@ class ClienteDAO:
     @classmethod
     def salvar_cliente(cls, cliente: Cliente,):
         erros = []
-        clientes = []
-        try:
-            with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
-                clientes = json.load(arq)
-        except FileNotFoundError:
-            clientes = []
+        # clientes = []
+        # try:
+        #     with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
+        #         clientes = json.load(arq)
+        # except FileNotFoundError:
+        #     clientes = []
+        clientes = session.query(Cliente).options(joinedload(Cliente.vendas), joinedload(Cliente.pessoa)).all()
+        clientes = [to_dict(c) for c in clientes]
             
-        print(clientes)
+        print("......................",clientes)
 
 
         id_cliente = gerar_id()
@@ -82,32 +99,41 @@ class ClienteDAO:
         if erros:
             raise ValueError('\n'.join(erros))
         
-        clientes.append({
-            'id_cliente': id_cliente,
-            'nome': cliente.nome,
-            'cpf': cliente.cpf,
-            'telefone': cliente.telefone,
-            'email': cliente.email,
-            'endereco': cliente.endereco,
-            'data_nascimento': cliente.data_nascimento,
-            'total_divida': cliente.total_divida,
-            'id_venda': cliente.id_venda
-        })
+        # clientes.append({
+        #     'id_cliente': id_cliente,
+        #     'nome': cliente.nome,
+        #     'cpf': cliente.cpf,
+        #     'telefone': cliente.telefone,
+        #     'email': cliente.email,
+        #     'endereco': cliente.endereco,
+        #     'data_nascimento': cliente.data_nascimento,
+        #     'total_divida': cliente.total_divida,
+        #     'id_venda': cliente.id_venda
+        # })
 
-        with open('src/data/clientes.json', 'w', encoding='utf-8') as arq:
-            json.dump(clientes, arq, indent=4, ensure_ascii=False)
+        # with open('src/data/clientes.json', 'w', encoding='utf-8') as arq:
+        #     json.dump(clientes, arq, indent=4, ensure_ascii=False)
 
     @classmethod
     def listar_clientes(cls):
-        with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
-            clientes = json.load(arq)
-            lista_clientes = []
-            for c in clientes:
-                id_cliente, nome,  cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda= c.values()
-                cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda, id_cliente)
-                lista_clientes.append(cliente)
+        # with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
+        #     clientes = json.load(arq)
+        #     lista_clientes = []
+        #     for c in clientes:
+        #         id_cliente, nome,  cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda= c.values()
+        #         cliente = Cliente(nome, cpf, telefone, email, endereco, data_nascimento, total_divida, id_venda, id_cliente)
+        #         lista_clientes.append(cliente)
 
-            return lista_clientes
+        #     return lista_clientes
+
+
+        clientes = session.query(Cliente).options(joinedload(Cliente.vendas), joinedload(Cliente.pessoa)).all()
+
+        clientes = [to_dict(c) for c in clientes]
+        lista_clientes = []
+
+        for c in clientes:
+            print(c["id_cliente"], c["pessoa"]["nome"], c["pessoa"]["cpf"], c["pessoa"]["telefone"], c["pessoa"]["email"], c["pessoa"]["endereco"], c["pessoa"]["data_nascimento"], c["total_divida"], c["vendas"])
         
     @classmethod
     def atualizar_cliente(cls, opcao, cpf, dados, dados_venda=None, total_divida=None):   
