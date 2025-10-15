@@ -6,21 +6,8 @@ from src.models.models import *
 from sqlalchemy.orm import joinedload
 
 
-def to_dict(obj):
-    result = {col.name: getattr(obj, col.name) for col in obj.__table__.columns}
+class AcessoSistemaDao:
 
-    # Adiciona relacionamentos
-    for rel in obj.__mapper__.relationships:
-        value = getattr(obj, rel.key)
-        if value is None:
-            result[rel.key] = None
-        elif isinstance(value, list):
-            result[rel.key] = [to_dict(i) for i in value]
-        else:
-            result[rel.key] = to_dict(value)
-    return result
-
-class AcessoSistemaDAO:
     @classmethod
     def login_gerente(cls, id, senha):
         with open('src/data/funcionarios.json', 'r', encoding='utf-8') as arq:
@@ -56,7 +43,7 @@ class CaixaDAO:
     
     @classmethod
     def fechar_caixa(cls, id_caixa, id_funcionario, abertura, fechamento):
-        with open('src/data/log_caixa.json', 'r', encoding='utf-8') as arq:
+        with open('src/data/logCaixa.json', 'r', encoding='utf-8') as arq:
             caixa = json.load(arq)
 
         caixa.append({
@@ -66,24 +53,20 @@ class CaixaDAO:
             'data_fechamento': fechamento
         })
 
-        with open('src/data/log_caixa.json', 'w', encoding='utf-8') as arq:
+        with open('src/data/logCaixa.json', 'w', encoding='utf-8') as arq:
             json.dump(caixa, arq, indent=4, ensure_ascii=False)
 
 class ClienteDAO:
     @classmethod
     def salvar_cliente(cls, cliente: Cliente,):
         erros = []
-        # clientes = []
-        # try:
-        #     with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
-        #         clientes = json.load(arq)
-        # except FileNotFoundError:
-        #     clientes = []
-        clientes = session.query(Cliente).options(joinedload(Cliente.vendas), joinedload(Cliente.pessoa)).all()
-        clientes = [to_dict(c) for c in clientes]
-            
-        print("......................",clientes)
 
+        clientes = []
+        try:
+            with open('src/data/clientes.json', 'r', encoding='utf-8') as arq:
+                clientes = json.load(arq)
+        except FileNotFoundError:
+            clientes = []
 
         id_cliente = gerar_id()
         for c in clientes:
@@ -127,7 +110,7 @@ class ClienteDAO:
         #     return lista_clientes
 
 
-        clientes = session.query(Cliente).options(joinedload(Cliente.vendas), joinedload(Cliente.pessoa)).all()
+        # clientes = session.query(Cliente).options(joinedload(Cliente.vendas), joinedload(Cliente.pessoa)).all()
 
         clientes = [to_dict(c) for c in clientes]
         lista_clientes = []
