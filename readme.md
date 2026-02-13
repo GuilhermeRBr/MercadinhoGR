@@ -1,13 +1,13 @@
-# 🛒 Mercadinho GR
+# Mercadinho GR
 
-Bem-vindo ao **Mercadinho Gr**, um sistema de gerenciamento de mercado simples, funcional e bem estruturado!  
-Este projeto foi desenvolvido com foco em organização, boas práticas e validação completa de dados, ideal para uso acadêmico ou para quem deseja entender na prática como funciona a arquitetura **MVC** com persistência em **arquivos JSON**.
+Bem-vindo ao **Mercadinho Gr**, um sistema de gerenciamento de mercado simples, funcional e bem estruturado!
+Este projeto esta sendo desenvolvido com foco em organização, boas práticas e validação completa de dados, ideal para uso acadêmico ou ate mesmo em caixas pequenos de mercearias e pequenos mercados.
 
 ---
 
 ## 📌 Sobre o Projeto
 
-O **Mercadinho Gr** simula a estrutura básica de um sistema de mercado, onde é possível:
+O **Mercadinho GR** simula a estrutura básica de um sistema de mercado, onde é possível:
 
 - Cadastrar, editar e remover **produtos**, **categorias**, **clientes**, **fornecedores** e **funcionários**.
 - Registrar vendas e controlar o **caixa**.
@@ -53,7 +53,7 @@ Todos os campos do sistema passam por **verificações e validações rigorosas*
 
 ## 🚀 Como Rodar o Projeto
 
-1. Clone este repositório:  
+1. Clone este repositório:
    ```bash
     git clone https://github.com/GuilhermeRBr/MercadinhoGR
     cd MercadinhoGR
