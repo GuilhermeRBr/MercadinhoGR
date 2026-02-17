@@ -27,7 +27,7 @@ Este projeto esta sendo desenvolvido com foco em organização, boas práticas e
 
 5. Execute o aplicativo:
     ```bash
-    uvicorn server.main app --reload #debug on
-    uvicorn server.main app #debug off
+    uvicorn server.main:app --reload #debug on
+    uvicorn server.main:app #debug off
 
 

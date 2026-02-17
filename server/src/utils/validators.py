@@ -5,7 +5,7 @@ from src.utils.formatters import formatar_id
 
 def validar_nome():
     while True:
-        nome = input('NOME: ')
+        nome = input("NOME: ")
         if not nome.strip():
             print("Nome não pode ser vazio.")
         elif not nome.replace(" ", "").isalpha():
@@ -15,31 +15,33 @@ def validar_nome():
         else:
             return nome.title()
 
+
 def validar_email():
     while True:
-        email = input('EMAIL: ')
+        email = input("EMAIL: ")
         if not email.strip():
             print("Email não pode ser vazio.")
-        elif not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-    , email):
+        elif not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", email):
             print("Email inválido.")
         else:
             return email.lower()
 
+
 def validar_endereco():
     while True:
-        endereco = input('ENDEREÇO: ')
+        endereco = input("ENDEREÇO: ")
         if not endereco.strip():
             print("Endereço não pode ser vazio.")
         else:
             return endereco.title()
 
+
 def validar_id():
     while True:
-        id = input('ID: ')
-        if id.lower() == 'v':
-              return 'v'
-        if id == '0':
+        id = input("ID: ")
+        if id.lower() == "v":
+            return "v"
+        if id == "0":
             return formatar_id(str(id))
         if not id.isdigit():
             print("ID deve conter apenas números.")
@@ -51,7 +53,7 @@ def validar_id():
 
 def validar_quantidade():
     while True:
-        quantidade = input('QUANTIDADE: ')
+        quantidade = input("QUANTIDADE: ")
         if not quantidade.isdigit():
             print("Quantidade deve conter apenas números.")
         elif int(quantidade) < 0 or int(quantidade) == 0:
@@ -62,7 +64,7 @@ def validar_quantidade():
 
 def validar_nome_produto():
     while True:
-        nome_produto = input('NOME DO PRODUTO: ')
+        nome_produto = input("NOME DO PRODUTO: ")
         if not nome_produto.strip():
             print("Nome do produto não pode ser vazio.")
         elif len(nome_produto) < 3:
@@ -70,19 +72,21 @@ def validar_nome_produto():
         else:
             return nome_produto.title()
 
+
 def validar_descricao():
     while True:
-        descricao = input('DESCRIÇÃO: ')
+        descricao = input("DESCRIÇÃO: ")
         if not descricao.strip():
             print("Descrição não pode ser vazia.")
         elif len(descricao) < 3:
             print("Descrição deve ter pelo menos 3 caracteres.")
         else:
-            return descricao.title() 
+            return descricao.title()
+
 
 def validar_categoria():
     while True:
-        categoria = input('CATEGORIA: ')
+        categoria = input("CATEGORIA: ")
         if not categoria.strip():
             print("Categoria não pode ser vazia.")
         elif len(categoria) < 3:
@@ -90,17 +94,19 @@ def validar_categoria():
         else:
             return categoria.title()
 
+
 def validar_opcao():
     while True:
-        opcao = input('\nDigite a opção desejada: ')
+        opcao = input("\nDigite a opção desejada: ")
         if not opcao.isdigit():
             print("Opção inválida. Digite um número.")
         else:
             return int(opcao)
 
+
 def validar_cargo():
     while True:
-        cargo = input('CARGO: ')
+        cargo = input("CARGO: ")
         if not cargo.strip():
             print("Cargo não pode ser vazio.")
         elif not cargo.isalpha():
@@ -110,9 +116,10 @@ def validar_cargo():
         else:
             return cargo.title()
 
+
 def validar_senha():
     while True:
-        senha = input('SENHA: ')
+        senha = input("SENHA: ")
         if not senha.strip():
             print("Senha não pode ser vazia.")
         elif len(senha) < 6:
@@ -120,21 +127,23 @@ def validar_senha():
         else:
             return str(senha)
 
+
 def validar_parcelas():
     while True:
-        parcelas = input('PARCELAS: ')
+        parcelas = input("PARCELAS: ")
         if not parcelas.isdigit():
             print("Parcelas deve conter apenas números.")
         elif int(parcelas) < 1 or int(parcelas) > 12:
             print("Parcelas deve ser entre 1 e 12.")
         else:
             return int(parcelas)
-         
+
+
 def input_mes_ano():
     while True:
-        data_mes = input('DATA MÊS [MM]: ').strip()
-        data_ano = input('DATA ANO [YYYY]: ').strip()
-        
+        data_mes = input("DATA MÊS [MM]: ").strip()
+        data_ano = input("DATA ANO [YYYY]: ").strip()
+
         try:
             data = datetime.strptime(data_mes + data_ano, "%m%Y")
             if data > datetime.now():

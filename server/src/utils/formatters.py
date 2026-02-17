@@ -5,7 +5,7 @@ import re
 
 def formatar_data():
     while True:
-        data_nascimento = input('DATA DE NASCIMENTO [DDMMYYYY]: ').strip()
+        data_nascimento = input("DATA DE NASCIMENTO [DDMMYYYY]: ").strip()
 
         if not re.fullmatch(r"\d{8}", data_nascimento):
             print("Formato inválido. Use apenas números no formato DDMMYYYY.")
@@ -23,11 +23,12 @@ def formatar_data():
         except ValueError:
             print("Data inválida. Verifique o dia, mês e ano.")
 
-def formatar_cpf(): 
+
+def formatar_cpf():
     while True:
-        cpf = input('CPF: ') 
-        if cpf == '0':
-            return '0'
+        cpf = input("CPF: ")
+        if cpf == "0":
+            return "0"
         else:
             if not cpf.isdigit():
                 print("CPF deve conter apenas números.")
@@ -36,25 +37,28 @@ def formatar_cpf():
             else:
                 cpf_formatado = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
                 return cpf_formatado
-    
+
 
 def formatar_cnpj():
     while True:
-        cnpj = input('CNPJ: ')
-        if cnpj == '0':
-            return '0'
+        cnpj = input("CNPJ: ")
+        if cnpj == "0":
+            return "0"
         else:
             if not cnpj.isdigit():
                 print("CNPJ deve conter apenas números.")
             elif len(cnpj) != 14:
                 print("CNPJ deve ter 14 dígitos.")
             else:
-                cnpj_formatado = f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
+                cnpj_formatado = (
+                    f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
+                )
                 return cnpj_formatado
+
 
 def formatar_telefone():
     while True:
-        telefone = input('TELEFONE:')
+        telefone = input("TELEFONE:")
         if not telefone.isdigit():
             print("Telefone deve conter apenas números.")
         elif len(telefone) != 11:
@@ -63,29 +67,31 @@ def formatar_telefone():
             telefone_formatado = f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
             return telefone_formatado
 
+
 def formatar_dinheiro():
     while True:
-        valor = input('VALOR: ')
+        valor = input("VALOR: ")
         if valor.replace(".", "").replace(",", "").isdigit():
             valor = float(valor.replace(",", "."))
-            if valor < 0 :
+            if valor < 0:
                 print("Valor não pode ser negativo.")
             else:
-                locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+                locale.setlocale(locale.LC_ALL, "pt_BR.UTF-8")
                 valor_formatado = locale.currency(valor, grouping=True)
                 return valor_formatado
         else:
             print("Valor deve conter apenas números.")
 
+
 def dinheiro_para_float(valor_str):
     valor_limpo = valor_str.replace("R$", "").strip().replace(",", ".")
- 
+
     return float(valor_limpo)
 
-def float_para_dinheiro(valor_float):
-    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-    return locale.currency(valor_float, grouping=True)
 
+def float_para_dinheiro(valor_float):
+    locale.setlocale(locale.LC_ALL, "pt_BR.UTF-8")
+    return locale.currency(valor_float, grouping=True)
 
 
 def formatar_id(id):
@@ -102,4 +108,3 @@ def formatar_id(id):
             return f"0{id}"
         case 6:
             return id
-        
