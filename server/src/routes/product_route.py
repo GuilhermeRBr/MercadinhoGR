@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, Path, status
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
+from server.src.messages.product_messages import ProductMessages
 from server.src.schemas.product_schema import ProductCreate, ProductResponse
 from server.src.services.product_service import (
     create_new_product,
@@ -34,9 +35,9 @@ router = APIRouter(prefix="/products", tags=["products"])
                 }
             },
         },
-        400: {"description": "Bad Request"},
-        409: {"description": "Conflict - Product already exists"},
-        422: {"description": "Unprocessable Entity - Invalid product details"},
+        400: {"description": ProductMessages.BAD_REQUEST},
+        409: {"description": ProductMessages.CONFLICT},
+        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def create_product(data: ProductCreate, db: Session = Depends(get_db)):
@@ -67,8 +68,8 @@ def create_product(data: ProductCreate, db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found - No products available"},
-        422: {"description": "Unprocessable Entity - Invalid product ID"},
+        404: {"description": ProductMessages.NOT_FOUND},
+        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def list_all_products(db: Session = Depends(get_db)):
@@ -95,8 +96,8 @@ def list_all_products(db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found - Product not available"},
-        422: {"description": "Unprocessable Entity - Invalid product ID"},
+        404: {"description": ProductMessages.NOT_FOUND},
+        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
@@ -119,7 +120,7 @@ def get_by_id(
                 "application/json": {
                     "example": {
                         "id": 1,
-                        "name": "Updated Product",
+                        "name": ProductMessages.PRODUCT_UPDATED,
                         "price": 19.99,
                         "stock": 50,
                         "barcode": "1234567890123",
@@ -127,8 +128,8 @@ def get_by_id(
                 }
             },
         },
-        404: {"description": "Not Found - Product not available"},
-        422: {"description": "Unprocessable Entity - Invalid product ID"},
+        404: {"description": ProductMessages.NOT_FOUND},
+        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def put_product(
@@ -149,16 +150,16 @@ def put_product(
             "description": "OK",
             "content": {
                 "application/json": {
-                    "example": {"detail": "Product deleted successfully"}
+                    "example": {"detail": ProductMessages.PRODUCT_DELETED}
                 }
             },
         },
-        404: {"description": "Not Found - Product not available"},
-        422: {"description": "Unprocessable Entity - Invalid product ID"},
+        404: {"description": ProductMessages.NOT_FOUND},
+        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def del_product(
     product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
     delete_product(db, product_id)
-    return {"detail": "Product deleted successfully"}
+    return {"detail": ProductMessages.PRODUCT_DELETED}

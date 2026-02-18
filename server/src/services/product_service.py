@@ -13,6 +13,11 @@ def create_new_product(db: Session, data):
         raise HTTPException(
             status_code=409, detail=ProductMessages.PRODUCT_ALREADY_EXISTS
         )
+    elif data.stock <= 0:
+        raise HTTPException(status_code=422, detail=ProductMessages.INVALID_STOCK)
+    elif data.price <= 0:
+        raise HTTPException(status_code=422, detail=ProductMessages.INVALID_PRICE)
+
     new_product = Product(**data.model_dump())
     db.add(new_product)
     db.commit()
