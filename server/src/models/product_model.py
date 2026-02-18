@@ -9,6 +9,4 @@ class Product(Base):
     name = Column(String, nullable=False)
     price = Column(Float, nullable=False)
     stock = Column(Integer, default=0)
-    category_id = Column(Integer, nullable=False)
-    supplier_id = Column(Integer, nullable=False)
     barcode = Column(String, nullable=False)

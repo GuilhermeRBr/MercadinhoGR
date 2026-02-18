@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Path
+from fastapi import APIRouter, Depends, Path, status
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.schemas.product_schema import ProductCreate, ProductResponse
@@ -13,13 +13,62 @@ from server.src.services.product_service import (
 router = APIRouter(prefix="/products", tags=["products"])
 
 
-@router.post("/", response_model=ProductResponse)
+@router.post(
+    "/create",
+    summary="Create a new product",
+    description="Create a new product with the provided details.",
+    response_model=ProductResponse,
+    status_code=status.HTTP_201_CREATED,
+    responses={
+        201: {
+            "description": "Created",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "id": 1,
+                        "name": "Example Product",
+                        "price": 9.99,
+                        "stock": 100,
+                        "barcode": "1234567890123",
+                    }
+                }
+            },
+        },
+        400: {"description": "Bad Request"},
+        409: {"description": "Conflict - Product already exists"},
+    },
+)
 def create_product(data: ProductCreate, db: Session = Depends(get_db)):
     new_product = create_new_product(db, data)
     return new_product
 
 
-@router.get("/", response_model=list[ProductResponse])
+@router.get(
+    "/",
+    summary="List all products",
+    description="Retrieve a list of all products.",
+    response_model=list[ProductResponse],
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": [
+                        {
+                            "id": 1,
+                            "name": "Example Product",
+                            "price": 9.99,
+                            "stock": 100,
+                            "barcode": "1234567890123",
+                        }
+                    ]
+                }
+            },
+        },
+        404: {"description": "Not Found - No products available"},
+    },
+)
 def list_all_products(db: Session = Depends(get_db)):
     return list_products(db)
 
