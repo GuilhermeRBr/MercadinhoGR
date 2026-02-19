@@ -7,7 +7,6 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     error = exc.errors()[0]
     loc = error["loc"]
 
-    # ignora termos genéricos
     ignored = {"body", "query", "path"}
 
     field = next(

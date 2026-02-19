@@ -1,8 +1,8 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from server.src.models.product_model import Product
-from server.src.schemas.product_schema import ProductResponse
-from server.src.messages.product_messages import ProductMessages
+from server.src.products.models.product_model import Product
+from server.src.products.schemas.product_schema import ProductResponse
+from server.src.products.messages.product_messages import ProductMessages
 
 
 def create_new_product(db: Session, data):

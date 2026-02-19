@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, Path, status
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
-from server.src.messages.product_messages import ProductMessages
-from server.src.schemas.product_schema import ProductCreate, ProductResponse
-from server.src.services.product_service import (
+from server.src.products.messages.product_messages import ProductMessages
+from server.src.products.schemas.product_schema import ProductCreate, ProductResponse
+from server.src.products.services.product_service import (
     create_new_product,
     get_product,
     list_products,
@@ -11,7 +11,7 @@ from server.src.services.product_service import (
     delete_product,
 )
 
-router = APIRouter(prefix="/products", tags=["products"])
+router = APIRouter(prefix="/products", tags=["Products"])
 
 
 @router.post(
