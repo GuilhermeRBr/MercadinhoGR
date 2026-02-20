@@ -3,13 +3,7 @@ from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.products.messages.product_messages import ProductMessages
 from server.src.products.schemas.product_schema import ProductCreate, ProductResponse
-from server.src.products.services.product_service import (
-    create_new_product,
-    get_product,
-    list_products,
-    update_product,
-    delete_product,
-)
+from server.src.products.services.product_service import ProductService
 
 router = APIRouter(prefix="/products", tags=["Products"])
 
@@ -41,7 +35,7 @@ router = APIRouter(prefix="/products", tags=["Products"])
     },
 )
 def create_product(data: ProductCreate, db: Session = Depends(get_db)):
-    new_product = create_new_product(db, data)
+    new_product = ProductService.create_new_product(db, data)
     return new_product
 
 
@@ -73,7 +67,7 @@ def create_product(data: ProductCreate, db: Session = Depends(get_db)):
     },
 )
 def list_all_products(db: Session = Depends(get_db)):
-    return list_products(db)
+    return ProductService.list_products(db)
 
 
 @router.get(
@@ -103,7 +97,7 @@ def list_all_products(db: Session = Depends(get_db)):
 def get_by_id(
     product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    product = get_product(db, product_id)
+    product = ProductService.get_product(db, product_id)
 
     return product
 
@@ -137,7 +131,7 @@ def put_product(
     data: ProductCreate = ...,
     db: Session = Depends(get_db),
 ):
-    updated_product = update_product(db, product_id, data)
+    updated_product = ProductService.update_product(db, product_id, data)
     return updated_product
 
 
@@ -161,5 +155,5 @@ def put_product(
 def del_product(
     product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    delete_product(db, product_id)
+    ProductService.delete_product(db, product_id)
     return {"detail": ProductMessages.PRODUCT_DELETED}

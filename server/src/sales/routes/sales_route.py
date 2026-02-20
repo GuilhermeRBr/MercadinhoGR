@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.sales.schemas.sales_schema import SaleCreate
-from server.src.sales.services.sales_service import new_sale
+from server.src.sales.services.sales_service import SalesService
 
 router = APIRouter(prefix="/sales", tags=["Sales"])
 
@@ -13,4 +13,9 @@ router = APIRouter(prefix="/sales", tags=["Sales"])
     description="Create a new sale with the provided details.",
 )
 def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
-    return new_sale(data, db)
+    return SalesService.new_sale(data, db)
+
+
+@router.get("/list", summary="List all sales", description="List all sales.")
+def list_sales(db: Session = Depends(get_db)):
+    return SalesService.get_sales(db)
