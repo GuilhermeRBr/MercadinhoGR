@@ -3,8 +3,8 @@ from typing import List
 
 
 class SaleItemCreate(BaseModel):
-    product_id: int
-    quantity: int = Field(gt=0)
+    product_id: int = Field(gt=0, example=1, le=1_000_000)
+    quantity: int = Field(gt=0, example=1, le=1_000_000)
 
 
 class SaleCreate(BaseModel):
