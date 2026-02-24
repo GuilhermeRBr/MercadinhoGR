@@ -22,7 +22,7 @@ class ProductService:
 
         new_product = Product(**data.model_dump())
         db.add(new_product)
-        db.flush()
+        db.commit()
         db.refresh(new_product)
         return ProductResponse.model_validate(new_product)
 
@@ -56,7 +56,7 @@ class ProductService:
             )
         for key, value in data.model_dump().items():
             setattr(product, key, value)
-        db.flush()
+        db.commit()
         db.refresh(product)
         return ProductResponse.model_validate(product)
 
@@ -69,3 +69,4 @@ class ProductService:
                 detail=ProductMessages.PRODUCT_NOT_FOUND,
             )
         db.delete(product)
+        db.commit()

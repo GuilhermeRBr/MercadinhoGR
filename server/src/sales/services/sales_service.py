@@ -50,8 +50,8 @@ class SalesService:
 
         new_sale = Sale(total=total, status="completed")
         db.add(new_sale)
-        db.flush()
-
+        db.commit()
+        
         for item in sales_items:
             item.sale_id = new_sale.id
             db.add(item)
