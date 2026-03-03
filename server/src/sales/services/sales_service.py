@@ -14,50 +14,60 @@ class SalesService:
                 detail="A venda deve conter pelo menos um item.",
             )
 
+        new_sale = Sale(total=0, status="pending")
+        db.add(new_sale)
+        db.flush()
+
         total = 0
-        sales_items = []
-        product_to_update = []
 
-        for item in data.items:
+        try:
+            for item in data.items:
 
-            product = db.query(Product).filter(Product.id == item.product_id).first()
-
-            if not product:
-                raise HTTPException(
-                    status_code=status.HTTP_404_NOT_FOUND,
-                    detail=f"Produto com ID {item.product_id} não encontrado.",
+                product = (
+                    db.query(Product).filter(Product.id == item.product_id).first()
                 )
 
-            if product.stock < item.quantity:
-                raise HTTPException(
-                    status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                    detail=f"Estoque insuficiente para o produto {product.name}.",
-                )
+                if not product:
+                    raise HTTPException(
+                        status_code=status.HTTP_404_NOT_FOUND,
+                        detail=f"Produto com ID {item.product_id} não encontrado.",
+                    )
 
-            subtotal = product.price * item.quantity
-            total += subtotal
+                if product.stock < item.quantity:
+                    raise HTTPException(
+                        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                        detail=f"Estoque insuficiente para o produto {product.name}.",
+                    )
 
-            sales_items.append(
-                SaleItem(
+                subtotal = product.price * item.quantity
+                total += subtotal
+
+                product.stock -= item.quantity
+
+                sales_item = SaleItem(
+                    sale_id=new_sale.id,
                     product_id=item.product_id,
                     quantity=item.quantity,
                     price=product.price,
                 )
+
+                db.add(sales_item)
+
+            new_sale.total = total
+            new_sale.status = "completed"
+
+            db.commit()
+            db.refresh
+
+            db.refresh(new_sale)
+            return new_sale
+
+        except Exception as e:
+            new_sale.status = "canceled"
+            db.commit()
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(e)
             )
-
-            product.stock -= item.quantity
-            product_to_update.append(product)
-
-        new_sale = Sale(total=total, status="completed")
-        db.add(new_sale)
-        db.commit()
-        
-        for item in sales_items:
-            item.sale_id = new_sale.id
-            db.add(item)
-
-        db.refresh(new_sale)
-        return new_sale
 
     def get_sales(db: Session):
         sales = db.query(Sale).all()
