@@ -13,7 +13,19 @@ router = APIRouter(prefix="/sales", tags=["Sales"])
     description="Create a new sale with the provided details.",
     status_code=status.HTTP_201_CREATED,
     responses={
-        201: {"description": "Created"},
+        201: {
+            "description": "Created",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "id": 1,
+                        "created_at": "2026-03-09T18:09:43.449145",
+                        "total": 9.99,
+                        "status": "completed",
+                    }
+                }
+            },
+        },
         400: {"description": "Bad Request"},
         422: {"description": "Unprocessable Entity"},
     },
@@ -28,7 +40,21 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
     summary="List all sales",
     description="List all sales.",
     responses={
-        200: {"description": "OK"},
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": [
+                        {
+                            "id": 1,
+                            "created_at": "2026-02-23T19:31:06.267635",
+                            "total": 9.99,
+                            "status": "completed",
+                        }
+                    ]
+                }
+            },
+        },
         404: {"description": "Not Found"},
         422: {"description": "Unprocessable Entity"},
     },

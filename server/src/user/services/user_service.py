@@ -34,3 +34,15 @@ class UserService:
         db.commit()
         db.refresh(new_user)
         return UserResponse.model_validate(new_user)
+
+    @staticmethod
+    def get_users(db: Session):
+        users = db.query(User).all()
+
+        if not users:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Nenhum usuário encontrado",
+            )
+
+        return [UserResponse.model_validate(user) for user in users]
