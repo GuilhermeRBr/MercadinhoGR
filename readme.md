@@ -23,11 +23,10 @@ Este projeto esta sendo desenvolvido com foco em organização, boas práticas e
 
 4. Configure as variáveis de ambiente no arquivo **.env**:
     ```bash
-    DATABASE_URL=postgresql+psycopg2://usuario:senha@localhost:5432/mercadinhGR
+    DATABASE_URL=postgresql+psycopg2://usuario:senha@localhost:5432/mercadinhoGR
 
 5. Execute o aplicativo:
     ```bash
-    uvicorn server.main:app --reload #debug on
-    uvicorn server.main:app #debug off
+    python run.py
 
 

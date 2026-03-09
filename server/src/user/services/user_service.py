@@ -8,6 +8,12 @@ import bcrypt
 class UserService:
     @staticmethod
     def create_new_user(db: Session, data: UserCreate):
+
+        if db.query(User).filter(User.email == data.email).first():
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Já existe um usuário cadastrado com esse email",
+            )
         if db.query(User).filter(User.role == "owner").first():
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
