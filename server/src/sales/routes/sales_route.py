@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, status, Path
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.sales.schemas.sales_schema import SaleCreate
@@ -56,8 +56,35 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
             },
         },
         404: {"description": "Not Found"},
-        422: {"description": "Unprocessable Entity"},
     },
 )
 def list_sales(db: Session = Depends(get_db)):
     return SalesService.get_sales(db)
+
+
+@router.get(
+    "/{sale_id}",
+    summary="Get a sale by ID",
+    description="Retrieve a sale by its unique ID.",
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "id": 1,
+                        "created_at": "2026-02-23T19:31:06.267635",
+                        "total": 9.99,
+                        "status": "completed",
+                    }
+                }
+            },
+        },
+        404: {"description": "Not Found"},
+        422: {"description": "Unprocessable Entity"},
+    },
+)
+def get_by_id(
+    sale_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+):
+    return SalesService.get_sale_by_id(db, sale_id)

@@ -8,7 +8,7 @@ from server.src.user.routes.user_route import router as user_router
 
 app = FastAPI(
     title="Mercadinho GR",
-    description="API para gerenciamento de produtos e vendas em um Mercadinho GR",
+    description="API para gerenciamento de produtos e vendas no Mercadinho GR",
     version="1.0.0",
 )
 API_PREFIX = "/api"

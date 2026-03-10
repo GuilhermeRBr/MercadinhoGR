@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Session
 from server.src.user.models.user_model import User
 from server.src.user.schemas.user_schema import UserCreate, UserResponse
-from fastapi import HTTPException, status
+from fastapi import HTTPException
 import bcrypt
+from server.src.user.messages.user_message import USER_MESSAGES
 
 
 class UserService:
@@ -11,19 +12,18 @@ class UserService:
 
         if db.query(User).filter(User.email == data.email).first():
             raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail="Já existe um usuário cadastrado com esse email",
+                status_code=409,
+                detail=USER_MESSAGES.USER_ALREADY_EXISTS,
             )
         if db.query(User).filter(User.role == "owner").first():
             raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail="Já existe um proprietário cadastrado",
+                status_code=409, detail=USER_MESSAGES.USER_ALREADY_EXISTS
             )
 
         if data.password != data.confirm_password:
             raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail="As senhas devem ser iguais",
+                status_code=422,
+                detail=USER_MESSAGES.PASSWORDS_NOT_MATCH,
             )
 
         password_hash = bcrypt.hashpw(
@@ -41,8 +41,20 @@ class UserService:
 
         if not users:
             raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="Nenhum usuário encontrado",
+                status_code=404,
+                detail=USER_MESSAGES.NO_USERS_FOUND,
             )
 
         return [UserResponse.model_validate(user) for user in users]
+
+    @staticmethod
+    def get_user_by_id(db: Session, user_id: int):
+        user = db.query(User).filter(User.id == user_id).first()
+
+        if not user:
+            raise HTTPException(
+                status_code=404,
+                detail=USER_MESSAGES.USER_NOT_FOUND,
+            )
+
+        return UserResponse.model_validate(user)
