@@ -1,8 +1,9 @@
-from fastapi import status, HTTPException
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from server.src.products.models.product_model import Product
 from server.src.sales.models.sales_model import Sale, SaleItem
 from server.src.sales.schemas.sales_schema import SaleCreate
+from server.src.sales.messages.sales_messages import SALES_MESSAGES
 
 
 class SalesService:
@@ -10,8 +11,8 @@ class SalesService:
     def new_sale(data: SaleCreate, db: Session):
         if not data.items:
             raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail="A venda deve conter pelo menos um item.",
+                status_code=422,
+                detail=SALES_MESSAGES.INVALID_SALE,
             )
 
         new_sale = Sale(total=0, status="pending")
@@ -29,14 +30,14 @@ class SalesService:
 
                 if not product:
                     raise HTTPException(
-                        status_code=status.HTTP_404_NOT_FOUND,
-                        detail=f"Produto com ID {item.product_id} não encontrado.",
+                        status_code=404,
+                        detail=SALES_MESSAGES.PRODUCT_NOT_FOUND,
                     )
 
                 if product.stock < item.quantity:
                     raise HTTPException(
-                        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                        detail=f"Estoque insuficiente para o produto {product.name}.",
+                        status_code=400,
+                        detail=SALES_MESSAGES.STOCK_NOT_ENOUGH + product.name,
                     )
 
                 subtotal = product.price * item.quantity
@@ -65,14 +66,18 @@ class SalesService:
         except Exception as e:
             new_sale.status = "canceled"
             db.commit()
-            raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(e)
-            )
+            raise e
 
+    @staticmethod
     def get_sales(db: Session):
         sales = db.query(Sale).all()
         if not sales:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND, detail="Nenhuma venda encontrada"
-            )
+            raise HTTPException(status_code=404, detail=SALES_MESSAGES.SALES_NOT_FOUND)
         return sales
+
+    @staticmethod
+    def get_sale_by_id(db: Session, sale_id: int):
+        sale = db.query(Sale).filter(Sale.id == sale_id).first()
+        if not sale:
+            raise HTTPException(status_code=404, detail=SALES_MESSAGES.SALE_NOT_FOUND)
+        return sale

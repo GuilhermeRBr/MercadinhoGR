@@ -63,7 +63,6 @@ def create_product(data: ProductCreate, db: Session = Depends(get_db)):
             },
         },
         404: {"description": ProductMessages.NOT_FOUND},
-        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def list_all_products(db: Session = Depends(get_db)):
