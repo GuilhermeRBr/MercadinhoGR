@@ -8,7 +8,7 @@ router = APIRouter(prefix="/sales", tags=["Sales"])
 
 
 @router.post(
-    "/create",
+    "/",
     summary="Create a new sale",
     description="Create a new sale with the provided details.",
     status_code=status.HTTP_201_CREATED,
@@ -36,7 +36,7 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/list",
+    "/",
     summary="List all sales",
     description="List all sales.",
     responses={
@@ -63,7 +63,7 @@ def list_sales(db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/{sale_id}",
+    "/{id}",
     summary="Get a sale by ID",
     description="Retrieve a sale by its unique ID.",
     responses={
@@ -85,6 +85,6 @@ def list_sales(db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    sale_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    return SalesService.get_sale_by_id(db, sale_id)
+    return SalesService.get_sale_by_id(db, id)

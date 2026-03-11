@@ -8,7 +8,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 
 
 @router.post(
-    "/create",
+    "/",
     summary="Create a new user",
     description="Create a new user with the provided details.",
     status_code=status.HTTP_201_CREATED,
@@ -35,7 +35,7 @@ def create_user(data: UserCreate, db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/list",
+    "/",
     summary="List all users",
     description="List all users.",
     status_code=status.HTTP_200_OK,
@@ -59,7 +59,7 @@ def list_users(db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/{user_id}",
+    "/{id}",
     summary="Get a user by ID",
     description="Retrieve a user by its unique ID",
     status_code=status.HTTP_200_OK,
@@ -81,7 +81,7 @@ def list_users(db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    user_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    user = UserService.get_user_by_id(db, user_id)
+    user = UserService.get_user_by_id(db, id)
     return user

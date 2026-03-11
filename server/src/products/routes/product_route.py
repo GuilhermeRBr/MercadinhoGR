@@ -9,7 +9,7 @@ router = APIRouter(prefix="/products", tags=["Products"])
 
 
 @router.post(
-    "/create",
+    "/",
     summary="Create a new product",
     description="Create a new product with the provided details.",
     response_model=ProductResponse,
@@ -70,7 +70,7 @@ def list_all_products(db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/{product_id}",
+    "/{id}",
     summary="Get a product by ID",
     description="Retrieve a product by its unique ID.",
     response_model=ProductResponse,
@@ -94,15 +94,15 @@ def list_all_products(db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    product = ProductService.get_product(db, product_id)
+    product = ProductService.get_product(db, id)
 
     return product
 
 
 @router.put(
-    "/{product_id}",
+    "/{id}",
     summary="Update a product",
     description="Update an existing product with new details.",
     response_model=ProductResponse,
@@ -126,16 +126,16 @@ def get_by_id(
     },
 )
 def put_product(
-    product_id: int = Path(..., ge=1, le=2_147_483_647),
+    id: int = Path(..., ge=1, le=2_147_483_647),
     data: ProductCreate = ...,
     db: Session = Depends(get_db),
 ):
-    updated_product = ProductService.update_product(db, product_id, data)
+    updated_product = ProductService.update_product(db, id, data)
     return updated_product
 
 
 @router.delete(
-    "/{product_id}",
+    "/{id}",
     summary="Delete a product",
     description="Delete an existing product by its unique ID.",
     responses={
@@ -152,7 +152,7 @@ def put_product(
     },
 )
 def del_product(
-    product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    ProductService.delete_product(db, product_id)
+    ProductService.delete_product(db, id)
     return {"detail": ProductMessages.PRODUCT_DELETED}
