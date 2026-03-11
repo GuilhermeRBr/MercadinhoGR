@@ -74,6 +74,12 @@ def list_all_products(db: Session = Depends(get_db)):
     return ProductService.list_products(db)
 
 
+@router.get("/search")
+def search_products_by_name(name: str, db: Session = Depends(get_db)):
+    products = ProductService.search_products_by_name(db, name)
+    return products
+
+
 @router.get(
     "/{id}",
     summary="Get a product by ID",

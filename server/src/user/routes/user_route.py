@@ -3,12 +3,13 @@ from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.user.schemas.user_schema import UserCreate
 from server.src.user.services.user_service import UserService
+from server.src.common.messages.common_messages import CommonMessages
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
 
 @router.post(
-    "/",
+    "/register",
     summary="Create a new user",
     description="Create a new user with the provided details.",
     status_code=status.HTTP_201_CREATED,
@@ -25,8 +26,8 @@ router = APIRouter(prefix="/users", tags=["Users"])
                 }
             },
         },
-        400: {"description": "Bad Request"},
-        422: {"description": "Unprocessable Entity"},
+        400: {"description": CommonMessages.BAD_REQUEST},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def create_user(data: UserCreate, db: Session = Depends(get_db)):
@@ -50,7 +51,7 @@ def create_user(data: UserCreate, db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found"},
+        404: {"description": CommonMessages.NOT_FOUND},
     },
 )
 def list_users(db: Session = Depends(get_db)):
@@ -76,8 +77,8 @@ def list_users(db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found"},
-        422: {"description": "Unprocessable Entity"},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(

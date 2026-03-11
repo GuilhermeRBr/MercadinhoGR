@@ -13,7 +13,7 @@ class UserService:
         if db.query(User).filter(User.email == data.email).first():
             raise HTTPException(
                 status_code=409,
-                detail=USER_MESSAGES.USER_ALREADY_EXISTS,
+                detail=USER_MESSAGES.EMAIL_ALREADY_EXISTS,
             )
         if db.query(User).filter(User.role == "owner").first():
             raise HTTPException(

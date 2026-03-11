@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from server.src.data.database import Base
 
 
@@ -8,3 +8,4 @@ class User(Base):
     email = Column(String, nullable=False)
     password = Column(String, nullable=False)
     role = Column(String, nullable=False, default="operator")
+    active = Column(Boolean, default=True)

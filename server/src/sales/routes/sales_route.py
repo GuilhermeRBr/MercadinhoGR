@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.sales.schemas.sales_schema import SaleCreate
 from server.src.sales.services.sales_service import SalesService
+from server.src.common.messages.common_messages import CommonMessages
 
 router = APIRouter(prefix="/sales", tags=["Sales"])
 
@@ -26,8 +27,8 @@ router = APIRouter(prefix="/sales", tags=["Sales"])
                 }
             },
         },
-        400: {"description": "Bad Request"},
-        422: {"description": "Unprocessable Entity"},
+        400: {"description": CommonMessages.BAD_REQUEST},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
@@ -55,7 +56,7 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found"},
+        404: {"description": CommonMessages.NOT_FOUND},
     },
 )
 def list_sales(db: Session = Depends(get_db)):
@@ -80,8 +81,8 @@ def list_sales(db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found"},
-        422: {"description": "Unprocessable Entity"},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(

@@ -49,6 +49,16 @@ class ProductService:
         return ProductResponse.model_validate(product)
 
     @staticmethod
+    def search_products_by_name(db: Session, name: str):
+        products = db.query(Product).filter(Product.name.ilike(f"%{name}%")).all()
+        if not products:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=ProductMessages.PRODUCT_NOT_FOUND,
+            )
+        return [ProductResponse.model_validate(product) for product in products]
+
+    @staticmethod
     def update_product(db: Session, product_id: int, data):
         product = db.query(Product).filter(Product.id == product_id).first()
         if not product:
@@ -58,7 +68,7 @@ class ProductService:
             )
 
         update_data = data.model_dump(exclude_unset=True)
-        
+
         if data.barcode is not None:
             barcode_exists = (
                 db.query(Product)
