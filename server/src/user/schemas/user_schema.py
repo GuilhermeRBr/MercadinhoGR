@@ -6,6 +6,7 @@ class UserCreate(BaseModel):
     password: str = Field(..., min_length=8, max_length=16, example="Test@123")
     confirm_password: str = Field(..., min_length=8, max_length=16, example="Test@123")
     role: str = Field(..., min_length=3, max_length=100, example="operator")
+    active: bool = Field(..., example=True)
 
     class Config:
         from_attributes = True
@@ -15,6 +16,7 @@ class UserResponse(BaseModel):
     id: int
     email: str
     role: str
+    active: bool
 
     class Config:
         from_attributes = True

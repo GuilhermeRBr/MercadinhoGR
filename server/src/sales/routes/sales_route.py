@@ -3,12 +3,13 @@ from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.sales.schemas.sales_schema import SaleCreate
 from server.src.sales.services.sales_service import SalesService
+from server.src.common.messages.common_messages import CommonMessages
 
 router = APIRouter(prefix="/sales", tags=["Sales"])
 
 
 @router.post(
-    "/create",
+    "/",
     summary="Create a new sale",
     description="Create a new sale with the provided details.",
     status_code=status.HTTP_201_CREATED,
@@ -26,8 +27,8 @@ router = APIRouter(prefix="/sales", tags=["Sales"])
                 }
             },
         },
-        400: {"description": "Bad Request"},
-        422: {"description": "Unprocessable Entity"},
+        400: {"description": CommonMessages.BAD_REQUEST},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
@@ -36,7 +37,7 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/list",
+    "/",
     summary="List all sales",
     description="List all sales.",
     responses={
@@ -55,7 +56,7 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found"},
+        404: {"description": CommonMessages.NOT_FOUND},
     },
 )
 def list_sales(db: Session = Depends(get_db)):
@@ -63,7 +64,7 @@ def list_sales(db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/{sale_id}",
+    "/{id}",
     summary="Get a sale by ID",
     description="Retrieve a sale by its unique ID.",
     responses={
@@ -80,11 +81,11 @@ def list_sales(db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": "Not Found"},
-        422: {"description": "Unprocessable Entity"},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
-    sale_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    return SalesService.get_sale_by_id(db, sale_id)
+    return SalesService.get_sale_by_id(db, id)

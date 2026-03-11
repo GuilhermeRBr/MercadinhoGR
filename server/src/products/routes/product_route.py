@@ -2,14 +2,19 @@ from fastapi import APIRouter, Depends, Path, status
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
 from server.src.products.messages.product_messages import ProductMessages
-from server.src.products.schemas.product_schema import ProductCreate, ProductResponse
+from server.src.products.schemas.product_schema import (
+    ProductCreate,
+    ProductResponse,
+    ProductUpdate,
+)
 from server.src.products.services.product_service import ProductService
+from server.src.common.messages.common_messages import CommonMessages
 
 router = APIRouter(prefix="/products", tags=["Products"])
 
 
 @router.post(
-    "/create",
+    "/",
     summary="Create a new product",
     description="Create a new product with the provided details.",
     response_model=ProductResponse,
@@ -29,9 +34,9 @@ router = APIRouter(prefix="/products", tags=["Products"])
                 }
             },
         },
-        400: {"description": ProductMessages.BAD_REQUEST},
-        409: {"description": ProductMessages.CONFLICT},
-        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
+        400: {"description": CommonMessages.BAD_REQUEST},
+        409: {"description": CommonMessages.CONFLICT},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def create_product(data: ProductCreate, db: Session = Depends(get_db)):
@@ -62,15 +67,21 @@ def create_product(data: ProductCreate, db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": ProductMessages.NOT_FOUND},
+        404: {"description": CommonMessages.NOT_FOUND},
     },
 )
 def list_all_products(db: Session = Depends(get_db)):
     return ProductService.list_products(db)
 
 
+@router.get("/search")
+def search_products_by_name(name: str, db: Session = Depends(get_db)):
+    products = ProductService.search_products_by_name(db, name)
+    return products
+
+
 @router.get(
-    "/{product_id}",
+    "/{id}",
     summary="Get a product by ID",
     description="Retrieve a product by its unique ID.",
     response_model=ProductResponse,
@@ -89,20 +100,20 @@ def list_all_products(db: Session = Depends(get_db)):
                 }
             },
         },
-        404: {"description": ProductMessages.NOT_FOUND},
-        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
-    product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
-    product = ProductService.get_product(db, product_id)
+    product = ProductService.get_product(db, id)
 
     return product
 
 
-@router.put(
-    "/{product_id}",
+@router.patch(
+    "/{id}",
     summary="Update a product",
     description="Update an existing product with new details.",
     response_model=ProductResponse,
@@ -121,38 +132,14 @@ def get_by_id(
                 }
             },
         },
-        404: {"description": ProductMessages.NOT_FOUND},
-        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def put_product(
-    product_id: int = Path(..., ge=1, le=2_147_483_647),
-    data: ProductCreate = ...,
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    data: ProductUpdate = ...,
     db: Session = Depends(get_db),
 ):
-    updated_product = ProductService.update_product(db, product_id, data)
+    updated_product = ProductService.update_product(db, id, data)
     return updated_product
-
-
-@router.delete(
-    "/{product_id}",
-    summary="Delete a product",
-    description="Delete an existing product by its unique ID.",
-    responses={
-        200: {
-            "description": "OK",
-            "content": {
-                "application/json": {
-                    "example": {"detail": ProductMessages.PRODUCT_DELETED}
-                }
-            },
-        },
-        404: {"description": ProductMessages.NOT_FOUND},
-        422: {"description": ProductMessages.UNPROCESSABLE_ENTITY},
-    },
-)
-def del_product(
-    product_id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
-):
-    ProductService.delete_product(db, product_id)
-    return {"detail": ProductMessages.PRODUCT_DELETED}

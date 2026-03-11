@@ -9,6 +9,19 @@ class ProductCreate(BaseModel):
     barcode: Optional[str] = Field(
         None, min_length=8, max_length=13, example="1234567890123"
     )
+    active: bool = Field(..., example=True)
+
+
+class ProductUpdate(BaseModel):
+    name: Optional[str] = Field(
+        None, min_length=3, max_length=100, example="Coca-Cola 2L"
+    )
+    price: Optional[float] = Field(None, gt=0, example=9.99)
+    stock: Optional[int] = Field(None, ge=0, example=100, le=1_000_000)
+    barcode: Optional[str] = Field(
+        None, min_length=8, max_length=13, example="1234567890123"
+    )
+    active: Optional[bool] = Field(None, example=True)
 
 
 class ProductResponse(BaseModel):
@@ -17,6 +30,7 @@ class ProductResponse(BaseModel):
     price: float
     stock: int
     barcode: str
+    active: bool
 
     class Config:
         from_attributes = True

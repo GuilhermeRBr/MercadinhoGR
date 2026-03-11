@@ -39,6 +39,11 @@ class SalesService:
                         status_code=400,
                         detail=SALES_MESSAGES.STOCK_NOT_ENOUGH + product.name,
                     )
+                if product.active is False:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=SALES_MESSAGES.PRODUCT_NOT_ACTIVE,
+                    )
 
                 subtotal = product.price * item.quantity
                 total += subtotal
