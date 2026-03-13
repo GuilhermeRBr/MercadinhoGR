@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import Optional
 
 
 class UserCreate(BaseModel):
@@ -14,7 +13,7 @@ class UserCreate(BaseModel):
 
 
 class UserActive(BaseModel):
-    active: Optional[bool] = Field(None, example=True)
+    active: bool = Field(..., example=True)
 
 
 class UserResponse(BaseModel):

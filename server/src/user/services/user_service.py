@@ -69,7 +69,7 @@ class UserService:
                 detail=USER_MESSAGES.USER_NOT_FOUND,
             )
 
-        user.is_active = data.is_active
+        user.active = data.active
 
         db.commit()
         db.refresh(user)

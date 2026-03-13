@@ -22,6 +22,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
                         "id": 1,
                         "email": "email@example.com",
                         "role": "operator",
+                        "active": True,
                     }
                 }
             },
@@ -46,7 +47,12 @@ def create_user(data: UserCreate, db: Session = Depends(get_db)):
             "content": {
                 "application/json": {
                     "example": [
-                        {"id": 1, "email": "email@example.com", "role": "operator"}
+                        {
+                            "id": 1,
+                            "email": "email@example.com",
+                            "role": "operator",
+                            "active": True,
+                        },
                     ]
                 }
             },
@@ -73,6 +79,7 @@ def list_users(db: Session = Depends(get_db)):
                         "id": 1,
                         "email": "email@example.com",
                         "role": "operator",
+                        "active": True,
                     }
                 }
             },
@@ -102,6 +109,7 @@ def get_by_id(
                         "id": 1,
                         "email": "email@example.com",
                         "role": "operator",
+                        "active": True,
                     }
                 }
             },
