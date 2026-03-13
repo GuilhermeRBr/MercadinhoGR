@@ -20,25 +20,21 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
     error_type = error["type"]
 
+    ERROR_MESSAGES = {
+        "string_too_long": "excede o tamanho máximo permitido.",
+        "string_too_short": "tem tamanho menor do que o permitido.",
+        "missing": "é obrigatório.",
+        "int_parsing": "deve ser um número inteiro válido.",
+        "float_parsing": "deve ser um número válido.",
+        "greater_than": "deve ser maior que zero.",
+        "greater_than_equal": "deve ser maior ou igual ao valor mínimo permitido.",
+        "string_pattern_mismatch": "contém caracteres inválidos.",
+    }
+
+    message = ERROR_MESSAGES.get(error_type, "é inválido.")
+
     if field:
-        if error_type == "string_too_long":
-            message = f"O campo '{field}' excede o tamanho máximo permitido."
-        elif error_type == "string_too_short":
-            message = f"O campo '{field}' tem tamanho menor do que o permitido."
-        elif error_type == "missing":
-            message = f"O campo '{field}' é obrigatório."
-        elif error_type == "int_parsing":
-            message = f"O campo '{field}' deve ser um número inteiro válido."
-        elif error_type == "float_parsing":
-            message = f"O campo '{field}' deve ser um número válido."
-        elif error_type == "greater_than":
-            message = f"O campo '{field}' deve ser maior que zero."
-        elif error_type == "greater_than_equal":
-            message = (
-                f"O campo '{field}' deve ser maior ou igual ao valor mínimo permitido."
-            )
-        else:
-            message = f"Erro no campo '{field}'."
+        message = f"O campo '{field}' {message}"
     else:
         message = "Erro nos dados enviados."
 
