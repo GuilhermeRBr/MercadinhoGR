@@ -4,6 +4,7 @@ from server.src.data.database import get_db
 from server.src.sales.schemas.sales_schema import SaleCreate
 from server.src.sales.services.sales_service import SalesService
 from server.src.common.messages.common_messages import CommonMessages
+from server.src.sales.messages.sales_messages import SalesMessages
 
 router = APIRouter(prefix="/sales", tags=["Sales"])
 
@@ -89,3 +90,33 @@ def get_by_id(
     id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
 ):
     return SalesService.get_sale_by_id(db, id)
+
+
+@router.patch(
+    "/{id}",
+    summary="Cancel a sale",
+    description="Cancel a sale by its unique ID.",
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "id": 1,
+                        "created_at": "2026-02-23T19:31:06.267635",
+                        "total": 9.99,
+                        "status": "cancelled",
+                    }
+                }
+            },
+        },
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
+def cancel_sale(
+    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+):
+    SalesService.cancel_sale(db, id)
+
+    return {"datail": SalesMessages.SALE_CANCELLED_SUCCESS}
