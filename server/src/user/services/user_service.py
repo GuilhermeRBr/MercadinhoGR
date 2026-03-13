@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from server.src.user.models.user_model import User
-from server.src.user.schemas.user_schema import UserCreate, UserResponse
+from server.src.user.schemas.user_schema import UserCreate, UserResponse, UserActive
 from fastapi import HTTPException
 import bcrypt
 from server.src.user.messages.user_message import USER_MESSAGES
@@ -57,4 +57,20 @@ class UserService:
                 detail=USER_MESSAGES.USER_NOT_FOUND,
             )
 
+        return UserResponse.model_validate(user)
+
+    @staticmethod
+    def activate_user(db: Session, user_id: int, data: UserActive):
+        user = db.query(User).filter(User.id == user_id).first()
+
+        if not user:
+            raise HTTPException(
+                status_code=404,
+                detail=USER_MESSAGES.USER_NOT_FOUND,
+            )
+
+        user.is_active = data.is_active
+
+        db.commit()
+        db.refresh(user)
         return UserResponse.model_validate(user)

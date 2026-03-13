@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 
 class UserCreate(BaseModel):
@@ -10,6 +11,10 @@ class UserCreate(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class UserActive(BaseModel):
+    active: Optional[bool] = Field(None, example=True)
 
 
 class UserResponse(BaseModel):
