@@ -1,9 +1,9 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from server.src.products.models.product_model import Product
-from server.src.sales.models.sales_model import Sale, SaleItem
+from server.src.sales.models.sales_model import Sale, SaleItem, SaleStatus
 from server.src.sales.schemas.sales_schema import SaleCreate
-from server.src.sales.messages.sales_messages import SALES_MESSAGES
+from server.src.sales.messages.sales_messages import SalesMessages
 
 
 class SalesService:
@@ -12,10 +12,10 @@ class SalesService:
         if not data.items:
             raise HTTPException(
                 status_code=422,
-                detail=SALES_MESSAGES.INVALID_SALE,
+                detail=SalesMessages.INVALID_SALE,
             )
 
-        new_sale = Sale(total=0, status="pending")
+        new_sale = Sale(total=0, status=SaleStatus.PENDING)
         db.add(new_sale)
         db.flush()
 
@@ -31,18 +31,18 @@ class SalesService:
                 if not product:
                     raise HTTPException(
                         status_code=404,
-                        detail=SALES_MESSAGES.PRODUCT_NOT_FOUND,
+                        detail=SalesMessages.PRODUCT_NOT_FOUND,
                     )
 
                 if product.stock < item.quantity:
                     raise HTTPException(
                         status_code=400,
-                        detail=SALES_MESSAGES.STOCK_NOT_ENOUGH + product.name,
+                        detail=SalesMessages.STOCK_NOT_ENOUGH + product.name,
                     )
                 if product.active is False:
                     raise HTTPException(
                         status_code=400,
-                        detail=SALES_MESSAGES.PRODUCT_NOT_ACTIVE,
+                        detail=SalesMessages.PRODUCT_NOT_ACTIVE,
                     )
 
                 subtotal = product.price * item.quantity
@@ -60,7 +60,7 @@ class SalesService:
                 db.add(sales_item)
 
             new_sale.total = total
-            new_sale.status = "completed"
+            new_sale.status = SaleStatus.COMPLETED
 
             db.commit()
             db.refresh
@@ -69,7 +69,7 @@ class SalesService:
             return new_sale
 
         except Exception as e:
-            new_sale.status = "canceled"
+            new_sale.status = SaleStatus.CANCELLED
             db.commit()
             raise e
 
@@ -77,12 +77,49 @@ class SalesService:
     def get_sales(db: Session):
         sales = db.query(Sale).all()
         if not sales:
-            raise HTTPException(status_code=404, detail=SALES_MESSAGES.SALES_NOT_FOUND)
+            raise HTTPException(status_code=404, detail=SalesMessages.SALES_NOT_FOUND)
         return sales
 
     @staticmethod
     def get_sale_by_id(db: Session, sale_id: int):
         sale = db.query(Sale).filter(Sale.id == sale_id).first()
         if not sale:
-            raise HTTPException(status_code=404, detail=SALES_MESSAGES.SALE_NOT_FOUND)
+            raise HTTPException(status_code=404, detail=SalesMessages.SALE_NOT_FOUND)
+        return sale
+
+    @staticmethod
+    def cancel_sale(db: Session, sale_id: int):
+        sale = db.query(Sale).filter(Sale.id == sale_id).first()
+
+        if not sale:
+            raise HTTPException(status_code=404, detail=SalesMessages.SALE_NOT_FOUND)
+
+        if sale.status == SaleStatus.CANCELLED:
+            raise HTTPException(
+                status_code=400,
+                detail=SalesMessages.SALE_ALREADY_CANCELLED,
+            )
+
+        items = db.query(SaleItem).filter(SaleItem.sale_id == sale_id).all()
+
+        product_ids = [item.product_id for item in items]
+
+        products = db.query(Product).filter(Product.id.in_(product_ids)).all()
+        product_map = {product.id: product for product in products}
+
+        for item in items:
+            product = product_map.get(item.product_id)
+
+            if not product:
+                raise HTTPException(
+                    status_code=404,
+                    detail=SalesMessages.PRODUCT_NOT_FOUND,
+                )
+
+            product.stock += item.quantity
+
+        sale.status = SaleStatus.CANCELLED
+
+        db.commit()
+
         return sale

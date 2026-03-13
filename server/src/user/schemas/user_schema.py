@@ -12,6 +12,10 @@ class UserCreate(BaseModel):
         from_attributes = True
 
 
+class UserActive(BaseModel):
+    active: bool = Field(..., example=True)
+
+
 class UserResponse(BaseModel):
     id: int
     email: str

@@ -30,6 +30,7 @@ router = APIRouter(prefix="/products", tags=["Products"])
                         "price": 9.99,
                         "stock": 100,
                         "barcode": "1234567890123",
+                        "active": True,
                     }
                 }
             },
@@ -62,6 +63,7 @@ def create_product(data: ProductCreate, db: Session = Depends(get_db)):
                             "price": 9.99,
                             "stock": 100,
                             "barcode": "1234567890123",
+                            "active": True,
                         }
                     ]
                 }
@@ -96,6 +98,7 @@ def search_products_by_name(name: str, db: Session = Depends(get_db)):
                         "price": 9.99,
                         "stock": 100,
                         "barcode": "1234567890123",
+                        "active": True,
                     }
                 }
             },
@@ -128,6 +131,7 @@ def get_by_id(
                         "price": 19.99,
                         "stock": 50,
                         "barcode": "1234567890123",
+                        "active": True,
                     }
                 }
             },

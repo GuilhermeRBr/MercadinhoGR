@@ -1,21 +1,45 @@
 from typing import Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class ProductCreate(BaseModel):
-    name: str = Field(..., min_length=3, max_length=100, example="Coca-Cola 2L")
+
+    name: str = Field(
+        ...,
+        min_length=3,
+        max_length=100,
+        example="Coca-Cola 2L",
+        pattern=r"^[a-zA-ZÀ-ÿ0-9 .\-+]+$",
+    )
+
+    @field_validator("name")
+    def clean_name(cls, value):
+        return value.strip()
+
     price: float = Field(..., gt=0, example=9.99)
+
     stock: int = Field(..., ge=0, example=100, le=1_000_000)
+
     barcode: Optional[str] = Field(
         None, min_length=8, max_length=13, example="1234567890123"
     )
+
     active: bool = Field(..., example=True)
 
 
 class ProductUpdate(BaseModel):
     name: Optional[str] = Field(
-        None, min_length=3, max_length=100, example="Coca-Cola 2L"
+        None,
+        min_length=3,
+        max_length=100,
+        example="Coca-Cola 2L",
+        pattern=r"^[a-zA-ZÀ-ÿ0-9 .\-+]+$",
     )
+
+    @field_validator("name")
+    def clean_name(cls, value):
+        return value.strip()
+
     price: Optional[float] = Field(None, gt=0, example=9.99)
     stock: Optional[int] = Field(None, ge=0, example=100, le=1_000_000)
     barcode: Optional[str] = Field(

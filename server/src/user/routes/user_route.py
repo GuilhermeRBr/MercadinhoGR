@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, status, Path
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
-from server.src.user.schemas.user_schema import UserCreate
+from server.src.user.schemas.user_schema import UserCreate, UserActive
 from server.src.user.services.user_service import UserService
 from server.src.common.messages.common_messages import CommonMessages
 
@@ -22,6 +22,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
                         "id": 1,
                         "email": "email@example.com",
                         "role": "operator",
+                        "active": True,
                     }
                 }
             },
@@ -46,7 +47,12 @@ def create_user(data: UserCreate, db: Session = Depends(get_db)):
             "content": {
                 "application/json": {
                     "example": [
-                        {"id": 1, "email": "email@example.com", "role": "operator"}
+                        {
+                            "id": 1,
+                            "email": "email@example.com",
+                            "role": "operator",
+                            "active": True,
+                        },
                     ]
                 }
             },
@@ -73,6 +79,7 @@ def list_users(db: Session = Depends(get_db)):
                         "id": 1,
                         "email": "email@example.com",
                         "role": "operator",
+                        "active": True,
                     }
                 }
             },
@@ -86,3 +93,35 @@ def get_by_id(
 ):
     user = UserService.get_user_by_id(db, id)
     return user
+
+
+@router.patch(
+    "/{id}",
+    summary="Update a user",
+    description="Update an existing user with new details.",
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "id": 1,
+                        "email": "email@example.com",
+                        "role": "operator",
+                        "active": True,
+                    }
+                }
+            },
+        },
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
+def patch_user(
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    data: UserActive = ...,
+    db: Session = Depends(get_db),
+):
+    updated_user = UserService.activate_user(db, id, data)
+    return updated_user

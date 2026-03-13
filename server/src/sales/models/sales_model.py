@@ -1,6 +1,12 @@
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Numeric
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Numeric, Enum
 from server.src.data.database import Base
 from datetime import datetime
+
+
+class SaleStatus(str, Enum):
+    PENDING = "pending"
+    COMPLETED = "completed"
+    CANCELLED = "cancelled"
 
 
 class Sale(Base):
@@ -9,7 +15,7 @@ class Sale(Base):
     id = Column(Integer, primary_key=True, index=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     total = Column(Numeric(10, 2), nullable=False)
-    status = Column(String, default="pending")
+    status = Column(String, default=SaleStatus.PENDING)
 
 
 class SaleItem(Base):
