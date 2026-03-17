@@ -4,3 +4,4 @@ class CommonMessages:
     UNPROCESSABLE_ENTITY = "Unprocessable Entity"
     CONFLICT = "Conflict"
     NOT_FOUND = "Not Found"
+    UNAUTHORIZED = "Unauthorized"

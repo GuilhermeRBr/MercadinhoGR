@@ -16,6 +16,11 @@ class UserActive(BaseModel):
     active: bool = Field(..., example=True)
 
 
+class UserLogin(BaseModel):
+    email: str = Field(..., min_length=3, max_length=100, example="email@dominio.com")
+    password: str = Field(..., min_length=8, max_length=16, example="Test@123")
+
+
 class UserResponse(BaseModel):
     id: int
     email: str
