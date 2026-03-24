@@ -1,5 +1,5 @@
 from typing import Optional
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 
 
 class ProductCreate(BaseModel):
@@ -8,7 +8,7 @@ class ProductCreate(BaseModel):
         ...,
         min_length=3,
         max_length=100,
-        example="Coca-Cola 2L",
+        json_schema_extra={"example": "Coca-Cola 2L"},
         pattern=r"^[a-zA-ZÀ-ÿ0-9 .\-+]+$",
     )
 
@@ -16,15 +16,22 @@ class ProductCreate(BaseModel):
     def clean_name(cls, value):
         return value.strip()
 
-    price: float = Field(..., gt=0, example=9.99)
-
-    stock: int = Field(..., ge=0, example=100, le=1_000_000)
-
-    barcode: Optional[str] = Field(
-        None, min_length=8, max_length=13, example="1234567890123"
+    price: float = Field(
+        ..., gt=0, json_schema_extra={"example": 9.99}
     )
 
-    active: bool = Field(..., example=True)
+    stock: int = Field(
+        ..., ge=0, json_schema_extra={"example": 100}, le=1_000_000
+    )
+
+    barcode: Optional[str] = Field(
+        None,
+        min_length=8,
+        max_length=13,
+        json_schema_extra={"example": "1234567890123"},
+    )
+
+    active: bool = Field(..., json_schema_extra={"example": True})
 
 
 class ProductUpdate(BaseModel):
@@ -32,7 +39,7 @@ class ProductUpdate(BaseModel):
         None,
         min_length=3,
         max_length=100,
-        example="Coca-Cola 2L",
+        json_schema_extra={"example": "Coca-Cola 2L"},
         pattern=r"^[a-zA-ZÀ-ÿ0-9 .\-+]+$",
     )
 
@@ -41,11 +48,18 @@ class ProductUpdate(BaseModel):
         return value.strip()
 
     price: Optional[float] = Field(None, gt=0, example=9.99)
-    stock: Optional[int] = Field(None, ge=0, example=100, le=1_000_000)
-    barcode: Optional[str] = Field(
-        None, min_length=8, max_length=13, example="1234567890123"
+    stock: Optional[int] = Field(
+        None, ge=0, json_schema_extra={"example": 100}, le=1_000_000
     )
-    active: Optional[bool] = Field(None, example=True)
+    barcode: Optional[str] = Field(
+        None,
+        min_length=8,
+        max_length=13,
+        json_schema_extra={"example": "1234567890123"},
+    )
+    active: Optional[bool] = Field(
+        None, json_schema_extra={"example": True}
+    )
 
 
 class ProductResponse(BaseModel):
@@ -56,5 +70,4 @@ class ProductResponse(BaseModel):
     barcode: str
     active: bool
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

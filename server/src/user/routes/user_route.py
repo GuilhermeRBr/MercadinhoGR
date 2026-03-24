@@ -1,7 +1,11 @@
 from fastapi import APIRouter, Depends, status, Path
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
-from server.src.user.schemas.user_schema import UserCreate, UserActive
+from server.src.user.schemas.user_schema import (
+    UserCreate,
+    UserActive,
+    UserLogin,
+)
 from server.src.user.services.user_service import UserService
 from server.src.common.messages.common_messages import CommonMessages
 
@@ -34,6 +38,35 @@ router = APIRouter(prefix="/users", tags=["Users"])
 def create_user(data: UserCreate, db: Session = Depends(get_db)):
     new_user = UserService.create_new_user(db, data)
     return new_user
+
+
+@router.post(
+    "/login",
+    summary="Login a user",
+    description="Login a user with the provided details.",
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "id": 1,
+                        "email": "email@example.com",
+                        "role": "operator",
+                        "active": True,
+                    }
+                }
+            },
+        },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
+def login_user(data: UserLogin, db: Session = Depends(get_db)):
+    user = UserService.login_user(db, data)
+    return user
 
 
 @router.get(
@@ -89,7 +122,8 @@ def list_users(db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    db: Session = Depends(get_db),
 ):
     user = UserService.get_user_by_id(db, id)
     return user

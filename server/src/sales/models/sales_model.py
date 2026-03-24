@@ -1,4 +1,12 @@
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Numeric, Enum
+from sqlalchemy import (
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    Numeric,
+    Enum,
+)
 from server.src.data.database import Base
 from datetime import datetime
 
@@ -23,6 +31,8 @@ class SaleItem(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     sale_id = Column(Integer, ForeignKey("sales.id"), nullable=False)
-    product_id = Column(Integer, ForeignKey("products.id"), nullable=False)
+    product_id = Column(
+        Integer, ForeignKey("products.id"), nullable=False
+    )
     quantity = Column(Integer, nullable=False)
     price = Column(Numeric(10, 2), nullable=False)

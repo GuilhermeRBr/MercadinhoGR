@@ -1,5 +1,7 @@
 class ProductMessages:
-    PRODUCT_ALREADY_EXISTS_BARCODE = "Produto já existe com esse código de barras"
+    PRODUCT_ALREADY_EXISTS_BARCODE = (
+        "Produto já existe com esse código de barras"
+    )
     PRODUCT_ALREADY_EXISTS_NAME = "Produto já existe com esse nome"
     PRODUCT_NOT_FOUND = "Produto não encontrado"
     NO_PRODUCTS_FOUND = "Nenhum produto encontrado"
