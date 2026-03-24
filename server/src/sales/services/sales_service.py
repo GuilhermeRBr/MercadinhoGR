@@ -1,7 +1,11 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from server.src.products.models.product_model import Product
-from server.src.sales.models.sales_model import Sale, SaleItem, SaleStatus
+from server.src.sales.models.sales_model import (
+    Sale,
+    SaleItem,
+    SaleStatus,
+)
 from server.src.sales.schemas.sales_schema import SaleCreate
 from server.src.sales.messages.sales_messages import SalesMessages
 
@@ -25,7 +29,9 @@ class SalesService:
             for item in data.items:
 
                 product = (
-                    db.query(Product).filter(Product.id == item.product_id).first()
+                    db.query(Product)
+                    .filter(Product.id == item.product_id)
+                    .first()
                 )
 
                 if not product:
@@ -37,7 +43,8 @@ class SalesService:
                 if product.stock < item.quantity:
                     raise HTTPException(
                         status_code=400,
-                        detail=SalesMessages.STOCK_NOT_ENOUGH + product.name,
+                        detail=SalesMessages.STOCK_NOT_ENOUGH
+                        + product.name,
                     )
                 if product.active is False:
                     raise HTTPException(
@@ -77,14 +84,18 @@ class SalesService:
     def get_sales(db: Session):
         sales = db.query(Sale).all()
         if not sales:
-            raise HTTPException(status_code=404, detail=SalesMessages.SALES_NOT_FOUND)
+            raise HTTPException(
+                status_code=404, detail=SalesMessages.SALES_NOT_FOUND
+            )
         return sales
 
     @staticmethod
     def get_sale_by_id(db: Session, sale_id: int):
         sale = db.query(Sale).filter(Sale.id == sale_id).first()
         if not sale:
-            raise HTTPException(status_code=404, detail=SalesMessages.SALE_NOT_FOUND)
+            raise HTTPException(
+                status_code=404, detail=SalesMessages.SALE_NOT_FOUND
+            )
         return sale
 
     @staticmethod
@@ -92,7 +103,9 @@ class SalesService:
         sale = db.query(Sale).filter(Sale.id == sale_id).first()
 
         if not sale:
-            raise HTTPException(status_code=404, detail=SalesMessages.SALE_NOT_FOUND)
+            raise HTTPException(
+                status_code=404, detail=SalesMessages.SALE_NOT_FOUND
+            )
 
         if sale.status == SaleStatus.CANCELLED:
             raise HTTPException(
@@ -100,11 +113,19 @@ class SalesService:
                 detail=SalesMessages.SALE_ALREADY_CANCELLED,
             )
 
-        items = db.query(SaleItem).filter(SaleItem.sale_id == sale_id).all()
+        items = (
+            db.query(SaleItem)
+            .filter(SaleItem.sale_id == sale_id)
+            .all()
+        )
 
         product_ids = [item.product_id for item in items]
 
-        products = db.query(Product).filter(Product.id.in_(product_ids)).all()
+        products = (
+            db.query(Product)
+            .filter(Product.id.in_(product_ids))
+            .all()
+        )
         product_map = {product.id: product for product in products}
 
         for item in items:

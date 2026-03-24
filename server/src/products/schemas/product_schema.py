@@ -41,7 +41,9 @@ class ProductUpdate(BaseModel):
         return value.strip()
 
     price: Optional[float] = Field(None, gt=0, example=9.99)
-    stock: Optional[int] = Field(None, ge=0, example=100, le=1_000_000)
+    stock: Optional[int] = Field(
+        None, ge=0, example=100, le=1_000_000
+    )
     barcode: Optional[str] = Field(
         None, min_length=8, max_length=13, example="1234567890123"
     )

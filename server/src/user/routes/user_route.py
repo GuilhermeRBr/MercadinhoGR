@@ -1,7 +1,11 @@
 from fastapi import APIRouter, Depends, status, Path
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
-from server.src.user.schemas.user_schema import UserCreate, UserActive, UserLogin
+from server.src.user.schemas.user_schema import (
+    UserCreate,
+    UserActive,
+    UserLogin,
+)
 from server.src.user.services.user_service import UserService
 from server.src.common.messages.common_messages import CommonMessages
 
@@ -118,7 +122,8 @@ def list_users(db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    db: Session = Depends(get_db),
 ):
     user = UserService.get_user_by_id(db, id)
     return user

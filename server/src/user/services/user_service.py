@@ -22,7 +22,8 @@ class UserService:
             )
         if db.query(User).filter(User.role == "owner").first():
             raise HTTPException(
-                status_code=409, detail=USER_MESSAGES.USER_ALREADY_EXISTS
+                status_code=409,
+                detail=USER_MESSAGES.USER_ALREADY_EXISTS,
             )
 
         if data.password != data.confirm_password:
@@ -34,7 +35,9 @@ class UserService:
         password_hash = bcrypt.hashpw(
             data.password.encode("utf-8"), bcrypt.gensalt()
         ).decode("utf-8")
-        new_user = User(email=data.email, password=password_hash, role=data.role)
+        new_user = User(
+            email=data.email, password=password_hash, role=data.role
+        )
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
@@ -51,7 +54,8 @@ class UserService:
             )
 
         if not bcrypt.checkpw(
-            data.password.encode("utf-8"), user.password.encode("utf-8")
+            data.password.encode("utf-8"),
+            user.password.encode("utf-8"),
         ):
             raise HTTPException(
                 status_code=401,

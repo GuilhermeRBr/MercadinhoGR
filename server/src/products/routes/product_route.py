@@ -1,13 +1,17 @@
 from fastapi import APIRouter, Depends, Path, status
 from sqlalchemy.orm import Session
 from server.src.data.database import get_db
-from server.src.products.messages.product_messages import ProductMessages
+from server.src.products.messages.product_messages import (
+    ProductMessages,
+)
 from server.src.products.schemas.product_schema import (
     ProductCreate,
     ProductResponse,
     ProductUpdate,
 )
-from server.src.products.services.product_service import ProductService
+from server.src.products.services.product_service import (
+    ProductService,
+)
 from server.src.common.messages.common_messages import CommonMessages
 
 router = APIRouter(prefix="/products", tags=["Products"])
@@ -40,7 +44,9 @@ router = APIRouter(prefix="/products", tags=["Products"])
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def create_product(data: ProductCreate, db: Session = Depends(get_db)):
+def create_product(
+    data: ProductCreate, db: Session = Depends(get_db)
+):
     new_product = ProductService.create_new_product(db, data)
     return new_product
 
@@ -108,7 +114,8 @@ def search_products_by_name(name: str, db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    db: Session = Depends(get_db),
 ):
     product = ProductService.get_product(db, id)
 

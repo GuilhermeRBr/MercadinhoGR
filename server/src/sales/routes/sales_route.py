@@ -87,7 +87,8 @@ def list_sales(db: Session = Depends(get_db)):
     },
 )
 def get_by_id(
-    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    db: Session = Depends(get_db),
 ):
     return SalesService.get_sale_by_id(db, id)
 
@@ -115,7 +116,8 @@ def get_by_id(
     },
 )
 def cancel_sale(
-    id: int = Path(..., ge=1, le=2_147_483_647), db: Session = Depends(get_db)
+    id: int = Path(..., ge=1, le=2_147_483_647),
+    db: Session = Depends(get_db),
 ):
     SalesService.cancel_sale(db, id)
 
