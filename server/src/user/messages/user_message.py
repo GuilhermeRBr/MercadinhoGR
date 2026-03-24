@@ -6,4 +6,3 @@ class USER_MESSAGES:
     PASSWORDS_NOT_MATCH = "As senhas devem ser iguais"
     USER_NOT_FOUND = "Usuário não encontrado"
     NO_USERS_FOUND = "Nenhum usuário encontrado"
-    EMAIL_OR_PASSWORD_INCORRECT = "Email ou senha incorretos"

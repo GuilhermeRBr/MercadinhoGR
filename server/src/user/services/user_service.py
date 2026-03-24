@@ -4,7 +4,6 @@ from server.src.user.schemas.user_schema import (
     UserCreate,
     UserResponse,
     UserActive,
-    UserLogin,
 )
 from fastapi import HTTPException
 import bcrypt
@@ -42,27 +41,6 @@ class UserService:
         db.commit()
         db.refresh(new_user)
         return UserResponse.model_validate(new_user)
-
-    @staticmethod
-    def login_user(db: Session, data: UserLogin):
-        user = db.query(User).filter(User.email == data.email).first()
-
-        if not user:
-            raise HTTPException(
-                status_code=401,
-                detail=USER_MESSAGES.EMAIL_OR_PASSWORD_INCORRECT,
-            )
-
-        if not bcrypt.checkpw(
-            data.password.encode("utf-8"),
-            user.password.encode("utf-8"),
-        ):
-            raise HTTPException(
-                status_code=401,
-                detail=USER_MESSAGES.EMAIL_OR_PASSWORD_INCORRECT,
-            )
-
-        return UserResponse.model_validate(user)
 
     @staticmethod
     def get_users(db: Session):
