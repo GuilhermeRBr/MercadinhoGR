@@ -4,8 +4,13 @@ from server.src.user.models.user_model import User
 from server.src.login.schemas.login_schema import UserLogin
 from server.src.login.schemas.login_schema import LoginResponse
 from server.src.login.messages.login_messages import LOGIN_MESSAGES
-from server.src.core.security import create_access_token, create_refresh_token
-from server.src.login.services.refresh_token_service import RefreshTokenService
+from server.src.core.security import (
+    create_access_token,
+    create_refresh_token,
+)
+from server.src.login.services.refresh_token_service import (
+    RefreshTokenService,
+)
 import bcrypt
 
 
@@ -38,8 +43,13 @@ class LoginService:
         access_token = create_access_token(data={"sub": user.id})
         refresh_token = create_refresh_token(data={"sub": user.id})
 
-        RefreshTokenService.save_refresh_token(refresh_token, db, user.id)
+        RefreshTokenService.save_refresh_token(
+            refresh_token, db, user.id
+        )
 
-        return LoginResponse.model_validate({"access_token": access_token, "refresh_token": refresh_token})
-
-   
+        return LoginResponse.model_validate(
+            {
+                "access_token": access_token,
+                "refresh_token": refresh_token,
+            }
+        )

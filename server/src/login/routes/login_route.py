@@ -4,9 +4,11 @@ from server.src.data.database import get_db
 from server.src.login.schemas.login_schema import UserLogin
 from server.src.login.services.login_service import LoginService
 from server.src.common.messages.common_messages import CommonMessages
-from server.src.login.services.refresh_token_service import RefreshTokenService
+from server.src.login.services.refresh_token_service import (
+    RefreshTokenService,
+)
 
-router = APIRouter(prefix="/login", tags=["Login"])
+router = APIRouter(prefix="/auth", tags=["Auth"])
 
 
 @router.post(
@@ -20,10 +22,8 @@ router = APIRouter(prefix="/login", tags=["Login"])
             "content": {
                 "application/json": {
                     "example": {
-                        "id": 1,
-                        "email": "email@example.com",
-                        "role": "operator",
-                        "active": True,
+                        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwic3ViIjoxfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+                        "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwic3ViIjoxfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
                     }
                 }
             },
@@ -37,7 +37,14 @@ def login_user(data: UserLogin, db: Session = Depends(get_db)):
     user = LoginService.login_user(db, data)
     return user
 
-@router.get('/refresh')
+
+@router.get("/refresh-token")
 def refresh_token(token: str, db: Session = Depends(get_db)):
-    new_token =RefreshTokenService.refresh_token(db, token)
+    new_token = RefreshTokenService.refresh_token(db, token)
     return new_token
+
+
+@router.post("/logout")
+def logout(token: str, db: Session = Depends(get_db)):
+    RefreshTokenService.delete_refresh_token(db, token)
+    return {"details": "Logged out"}
