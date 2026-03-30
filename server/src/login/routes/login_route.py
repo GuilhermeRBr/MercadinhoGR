@@ -4,6 +4,7 @@ from server.src.data.database import get_db
 from server.src.login.schemas.login_schema import UserLogin
 from server.src.login.services.login_service import LoginService
 from server.src.common.messages.common_messages import CommonMessages
+from server.src.login.services.refresh_token_service import RefreshTokenService
 
 router = APIRouter(prefix="/login", tags=["Login"])
 
@@ -35,3 +36,8 @@ router = APIRouter(prefix="/login", tags=["Login"])
 def login_user(data: UserLogin, db: Session = Depends(get_db)):
     user = LoginService.login_user(db, data)
     return user
+
+@router.get('/refresh')
+def refresh_token(token: str, db: Session = Depends(get_db)):
+    new_token =RefreshTokenService.refresh_token(db, token)
+    return new_token
