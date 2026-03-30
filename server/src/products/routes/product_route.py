@@ -13,6 +13,7 @@ from server.src.products.services.product_service import (
     ProductService,
 )
 from server.src.common.messages.common_messages import CommonMessages
+from server.src.core.dependency import get_current_user
 
 router = APIRouter(prefix="/products", tags=["Products"])
 
@@ -44,8 +45,7 @@ router = APIRouter(prefix="/products", tags=["Products"])
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def create_product(
-    data: ProductCreate, db: Session = Depends(get_db)
+def create_product(data: ProductCreate, _: str = Depends(get_current_user), db: Session = Depends(get_db)
 ):
     new_product = ProductService.create_new_product(db, data)
     return new_product

@@ -61,8 +61,8 @@ def login_user(data: UserLogin, db: Session = Depends(get_db)):
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def refresh_token(token: str, db: Session = Depends(get_db)):
-    new_token = RefreshTokenService.refresh_token(db, token)
+def refresh_token(refresh_token: str, db: Session = Depends(get_db)):
+    new_token = RefreshTokenService.refresh_token(db, refresh_token)
     return new_token
 
 
@@ -86,6 +86,6 @@ def refresh_token(token: str, db: Session = Depends(get_db)):
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def logout(token: str, db: Session = Depends(get_db)):
-    RefreshTokenService.delete_refresh_token(db, token)
+def logout(refresh_token: str, db: Session = Depends(get_db)):
+    RefreshTokenService.delete_refresh_token(db, refresh_token)
     return {"details": "Logged out"}
