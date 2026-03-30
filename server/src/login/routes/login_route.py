@@ -30,6 +30,7 @@ router = APIRouter(prefix="/auth", tags=["Auth"])
         },
         400: {"description": CommonMessages.BAD_REQUEST},
         401: {"description": CommonMessages.UNAUTHORIZED},
+        403: {"description": CommonMessages.FORBIDDEN},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
@@ -38,13 +39,53 @@ def login_user(data: UserLogin, db: Session = Depends(get_db)):
     return user
 
 
-@router.get("/refresh-token")
+@router.post(
+    "/refresh-token",
+    summary="Create a new access token",
+    description="Create a new access token with the provided refresh token.",
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwic3ViIjoxfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+                    }
+                }
+            },
+        },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
+        403: {"description": CommonMessages.FORBIDDEN},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
 def refresh_token(token: str, db: Session = Depends(get_db)):
     new_token = RefreshTokenService.refresh_token(db, token)
     return new_token
 
 
-@router.post("/logout")
+@router.post(
+    "/logout",
+    summary="Logout a user",
+    description="Logout a user with the provided token.",
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": {"details": "Logged out"}
+                }
+            },
+        },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
+        403: {"description": CommonMessages.FORBIDDEN},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
 def logout(token: str, db: Session = Depends(get_db)):
     RefreshTokenService.delete_refresh_token(db, token)
     return {"details": "Logged out"}

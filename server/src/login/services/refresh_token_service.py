@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from fastapi import HTTPException
 from server.src.core.config import settings
 from server.src.core.security import create_access_token
+from server.src.login.messages.login_messages import LOGIN_MESSAGES
 
 
 class RefreshTokenService:
@@ -32,12 +33,14 @@ class RefreshTokenService:
         )
         if not refresh_token:
             raise HTTPException(
-                status_code=401, detail="Invalid refresh token"
+                status_code=401,
+                detail=LOGIN_MESSAGES.INVALID_REFRESH_TOKEN,
             )
 
         if refresh_token.expires_at < str(datetime.utcnow()):
             raise HTTPException(
-                status_code=401, detail="Refresh token expired"
+                status_code=401,
+                detail=LOGIN_MESSAGES.EXPIRED_REFRESH_TOKEN,
             )
 
         new_access_token = create_access_token(
@@ -55,7 +58,8 @@ class RefreshTokenService:
         )
         if not refresh_token:
             raise HTTPException(
-                status_code=401, detail="Invalid refresh token"
+                status_code=401,
+                detail=LOGIN_MESSAGES.INVALID_REFRESH_TOKEN,
             )
         db.delete(refresh_token)
         db.commit()

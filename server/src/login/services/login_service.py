@@ -36,7 +36,7 @@ class LoginService:
 
         if not user.active:
             raise HTTPException(
-                status_code=401,
+                status_code=403,
                 detail=LOGIN_MESSAGES.USER_NOT_ACTIVE,
             )
 
