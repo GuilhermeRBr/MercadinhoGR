@@ -4,11 +4,18 @@ from server.src.core.config import settings
 
 
 def create_token(data: dict, expires_timedelta: timedelta):
-    to_encode = data.copy()
+    print("Creating token with data:", data)
+    payload = data.copy()
     expire = datetime.utcnow() + expires_timedelta
-    to_encode.update({"exp": expire})
+    payload.update(
+        {
+            "sub": str(data["sub"]),
+            "owner": str(data["owner"]),
+            "exp": expire,
+        }
+    )
     encoded_jwt = jwt.encode(
-        to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM
+        payload, settings.SECRET_KEY, algorithm=settings.ALGORITHM
     )
     return encoded_jwt
 

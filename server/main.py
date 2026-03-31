@@ -1,5 +1,4 @@
-from fastapi import FastAPI, Depends
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import FastAPI
 from server.src.common.exceptions import validation_exception_handler
 from fastapi.exceptions import RequestValidationError
 from server.src.data.database import engine, Base
@@ -15,7 +14,6 @@ app = FastAPI(
     description="API para gerenciamento de produtos e vendas no Mercadinho GR",
     version="1.0.0",
 )
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 API_PREFIX = "/api"
 
 app.add_exception_handler(

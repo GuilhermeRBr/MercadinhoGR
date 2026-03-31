@@ -40,8 +40,12 @@ class LoginService:
                 detail=LOGIN_MESSAGES.USER_NOT_ACTIVE,
             )
 
-        access_token = create_access_token(data={"sub": user.id})
-        refresh_token = create_refresh_token(data={"sub": user.id})
+        access_token = create_access_token(
+            data={"sub": user.id, "owner": user.role}
+        )
+        refresh_token = create_refresh_token(
+            data={"sub": user.id, "owner": user.role}
+        )
 
         RefreshTokenService.save_refresh_token(
             refresh_token, db, user.id

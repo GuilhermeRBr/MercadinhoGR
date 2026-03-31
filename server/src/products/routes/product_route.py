@@ -41,11 +41,15 @@ router = APIRouter(prefix="/products", tags=["Products"])
             },
         },
         400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         409: {"description": CommonMessages.CONFLICT},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def create_product(data: ProductCreate, _: str = Depends(get_current_user), db: Session = Depends(get_db)
+def create_product(
+    data: ProductCreate,
+    _: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
 ):
     new_product = ProductService.create_new_product(db, data)
     return new_product
@@ -75,15 +79,52 @@ def create_product(data: ProductCreate, _: str = Depends(get_current_user), db: 
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
     },
 )
-def list_all_products(db: Session = Depends(get_db)):
+def list_all_products(
+    _: str = Depends(get_current_user), db: Session = Depends(get_db)
+):
     return ProductService.list_products(db)
 
 
-@router.get("/search")
-def search_products_by_name(name: str, db: Session = Depends(get_db)):
+@router.get(
+    "/search",
+    summary="Search products by name",
+    description="Search for products by their name.",
+    response_model=list[ProductResponse],
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": [
+                        {
+                            "id": 1,
+                            "name": "Example Product",
+                            "price": 9.99,
+                            "stock": 100,
+                            "barcode": "1234567890123",
+                            "active": True,
+                        }
+                    ]
+                }
+            },
+        },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
+def search_products_by_name(
+    name: str,
+    _: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
     products = ProductService.search_products_by_name(db, name)
     return products
 
@@ -109,12 +150,15 @@ def search_products_by_name(name: str, db: Session = Depends(get_db)):
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
     id: int = Path(..., ge=1, le=2_147_483_647),
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     product = ProductService.get_product(db, id)
@@ -143,13 +187,17 @@ def get_by_id(
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
+        409: {"description": CommonMessages.CONFLICT},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def put_product(
     id: int = Path(..., ge=1, le=2_147_483_647),
     data: ProductUpdate = ...,
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     updated_product = ProductService.update_product(db, id, data)
