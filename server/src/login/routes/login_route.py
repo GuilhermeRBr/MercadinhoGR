@@ -1,5 +1,6 @@
 from fastapi import APIRouter, status, Depends
 from sqlalchemy.orm import Session
+from server.src.core.dependency import get_current_user
 from server.src.data.database import get_db
 from server.src.login.schemas.login_schema import UserLogin
 from server.src.login.services.login_service import LoginService
@@ -61,7 +62,11 @@ def login_user(data: UserLogin, db: Session = Depends(get_db)):
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def refresh_token(refresh_token: str, db: Session = Depends(get_db)):
+def refresh_token(
+    refresh_token: str,
+    _: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
     new_token = RefreshTokenService.refresh_token(db, refresh_token)
     return new_token
 
@@ -86,6 +91,10 @@ def refresh_token(refresh_token: str, db: Session = Depends(get_db)):
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def logout(refresh_token: str, db: Session = Depends(get_db)):
+def logout(
+    refresh_token: str,
+    _: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
     RefreshTokenService.delete_refresh_token(db, refresh_token)
     return {"details": "Logged out"}

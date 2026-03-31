@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, status, Path
 from sqlalchemy.orm import Session
+from server.src.core.dependency import get_current_user
 from server.src.data.database import get_db
 from server.src.user.schemas.user_schema import (
     UserCreate,
@@ -31,6 +32,8 @@ router = APIRouter(prefix="/users", tags=["Users"])
             },
         },
         400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
+        409: {"description": CommonMessages.CONFLICT},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
@@ -60,10 +63,14 @@ def create_user(data: UserCreate, db: Session = Depends(get_db)):
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
     },
 )
-def list_users(db: Session = Depends(get_db)):
+def list_users(
+    _: str = Depends(get_current_user), db: Session = Depends(get_db)
+):
     user_list = UserService.get_users(db)
     return user_list
 
@@ -87,12 +94,15 @@ def list_users(db: Session = Depends(get_db)):
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
     id: int = Path(..., ge=1, le=2_147_483_647),
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     user = UserService.get_user_by_id(db, id)
@@ -118,6 +128,8 @@ def get_by_id(
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
@@ -125,6 +137,7 @@ def get_by_id(
 def patch_user(
     id: int = Path(..., ge=1, le=2_147_483_647),
     data: UserActive = ...,
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     updated_user = UserService.activate_user(db, id, data)
