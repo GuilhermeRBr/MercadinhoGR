@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, status, Path
 from sqlalchemy.orm import Session
+from server.src.core.dependency import get_current_user
 from server.src.data.database import get_db
 from server.src.sales.schemas.sales_schema import SaleCreate
 from server.src.sales.services.sales_service import SalesService
@@ -29,10 +30,15 @@ router = APIRouter(prefix="/sales", tags=["Sales"])
             },
         },
         400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
+def create_sale(
+    data: SaleCreate,
+    _: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
     new_sale = SalesService.new_sale(data, db)
     return new_sale
 
@@ -57,10 +63,14 @@ def create_sale(data: SaleCreate, db: Session = Depends(get_db)):
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
     },
 )
-def list_sales(db: Session = Depends(get_db)):
+def list_sales(
+    _: str = Depends(get_current_user), db: Session = Depends(get_db)
+):
     return SalesService.get_sales(db)
 
 
@@ -82,12 +92,15 @@ def list_sales(db: Session = Depends(get_db)):
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
     id: int = Path(..., ge=1, le=2_147_483_647),
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     return SalesService.get_sale_by_id(db, id)
@@ -111,12 +124,15 @@ def get_by_id(
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def cancel_sale(
     id: int = Path(..., ge=1, le=2_147_483_647),
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     SalesService.cancel_sale(db, id)
