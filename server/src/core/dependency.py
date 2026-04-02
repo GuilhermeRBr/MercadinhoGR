@@ -1,13 +1,17 @@
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import jwt, JWTError
+from sqlalchemy.orm import Session
 from server.src.core.config import settings
+from server.src.user.models.user_model import User
+from server.src.data.database import get_db
 
 security = HTTPBearer()
 
 
 def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
+    db: Session = Depends(get_db),
 ):
     token = credentials.credentials
     try:
@@ -21,7 +25,8 @@ def get_current_user(
             raise HTTPException(
                 status_code=401, detail="Invalid token"
             )
-        return user_id
+        user = db.query(User).filter(User.id == int(user_id)).first()
+        return user
 
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")

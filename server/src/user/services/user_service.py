@@ -12,12 +12,25 @@ from server.src.user.messages.user_message import USER_MESSAGES
 
 class UserService:
     @staticmethod
-    def create_new_user(db: Session, data: UserCreate):
+    def create_new_user(
+        db: Session, data: UserCreate, current_user: User
+    ):
+        if current_user.role != "OWNER":
+            raise HTTPException(
+                status_code=401,
+                detail=USER_MESSAGES.UNAUTHORIZED,
+            )
 
         if db.query(User).filter(User.email == data.email).first():
             raise HTTPException(
                 status_code=409,
                 detail=USER_MESSAGES.EMAIL_ALREADY_EXISTS,
+            )
+
+        if db.query(User).filter(User.role == data.role).first():
+            raise HTTPException(
+                status_code=409,
+                detail=USER_MESSAGES.USER_ALREADY_EXISTS,
             )
 
         if data.password != data.confirm_password:

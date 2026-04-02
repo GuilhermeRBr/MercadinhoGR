@@ -37,8 +37,12 @@ router = APIRouter(prefix="/users", tags=["Users"])
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
-def create_user(data: UserCreate, db: Session = Depends(get_db)):
-    new_user = UserService.create_new_user(db, data)
+def create_user(
+    data: UserCreate,
+    user: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    new_user = UserService.create_new_user(db, data, user)
     return new_user
 
 

@@ -9,13 +9,11 @@ def hash_password(password: str):
 
 
 def create_token(data: dict, expires_timedelta: timedelta):
-    print("Creating token with data:", data)
     payload = data.copy()
     expire = datetime.utcnow() + expires_timedelta
     payload.update(
         {
             "sub": str(data["sub"]),
-            "owner": str(data["owner"]),
             "exp": expire,
         }
     )
