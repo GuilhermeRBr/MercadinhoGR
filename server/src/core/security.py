@@ -1,6 +1,11 @@
 from datetime import datetime, timedelta
+import bcrypt
 from jose import jwt
 from server.src.core.config import settings
+
+
+def hash_password(password: str):
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
 
 
 def create_token(data: dict, expires_timedelta: timedelta):

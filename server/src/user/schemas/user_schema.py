@@ -24,7 +24,7 @@ class UserCreate(BaseModel):
         ...,
         min_length=3,
         max_length=100,
-        json_schema_extra={"example": "operator"},
+        json_schema_extra={"example": "OPERATOR"},
     )
     active: bool = Field(..., json_schema_extra={"example": True})
 

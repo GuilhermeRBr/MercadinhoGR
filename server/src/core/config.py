@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
     REFRESH_TOKEN_EXPIRE_DAYS: int
+    FIRST_OWNER_EMAIL: str
+    FIRST_OWNER_PASSWORD: str
 
     DEBUG: bool = False
 

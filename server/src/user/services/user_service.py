@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from server.src.core.security import hash_password
 from server.src.user.models.user_model import User
 from server.src.user.schemas.user_schema import (
     UserCreate,
@@ -6,7 +7,6 @@ from server.src.user.schemas.user_schema import (
     UserActive,
 )
 from fastapi import HTTPException
-import bcrypt
 from server.src.user.messages.user_message import USER_MESSAGES
 
 
@@ -19,11 +19,6 @@ class UserService:
                 status_code=409,
                 detail=USER_MESSAGES.EMAIL_ALREADY_EXISTS,
             )
-        if db.query(User).filter(User.role == "owner").first():
-            raise HTTPException(
-                status_code=409,
-                detail=USER_MESSAGES.USER_ALREADY_EXISTS,
-            )
 
         if data.password != data.confirm_password:
             raise HTTPException(
@@ -31,9 +26,7 @@ class UserService:
                 detail=USER_MESSAGES.PASSWORDS_NOT_MATCH,
             )
 
-        password_hash = bcrypt.hashpw(
-            data.password.encode("utf-8"), bcrypt.gensalt()
-        ).decode("utf-8")
+        password_hash = hash_password(data.password).decode("utf-8")
         new_user = User(
             email=data.email, password=password_hash, role=data.role
         )
