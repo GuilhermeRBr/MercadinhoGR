@@ -14,6 +14,7 @@ from server.src.products.services.product_service import (
 )
 from server.src.common.messages.common_messages import CommonMessages
 from server.src.core.dependency import get_current_user
+from server.src.user.models.user_model import User
 
 router = APIRouter(prefix="/products", tags=["Products"])
 
@@ -21,7 +22,7 @@ router = APIRouter(prefix="/products", tags=["Products"])
 @router.post(
     "/",
     summary="Create a new product",
-    description="Create a new product with the provided details.",
+    description="Create a new product with the provided details. Only owners can create new products.",
     response_model=ProductResponse,
     status_code=status.HTTP_201_CREATED,
     responses={
@@ -48,10 +49,12 @@ router = APIRouter(prefix="/products", tags=["Products"])
 )
 def create_product(
     data: ProductCreate,
-    _: str = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    new_product = ProductService.create_new_product(db, data)
+    new_product = ProductService.create_new_product(
+        db, data, current_user
+    )
     return new_product
 
 
@@ -169,7 +172,7 @@ def get_by_id(
 @router.patch(
     "/{id}",
     summary="Update a product",
-    description="Update an existing product with new details.",
+    description="Update an existing product with new details. Only owners can update products.",
     response_model=ProductResponse,
     responses={
         200: {
@@ -197,8 +200,10 @@ def get_by_id(
 def put_product(
     id: int = Path(..., ge=1, le=2_147_483_647),
     data: ProductUpdate = ...,
-    _: str = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    updated_product = ProductService.update_product(db, id, data)
+    updated_product = ProductService.update_product(
+        db, id, data, current_user
+    )
     return updated_product

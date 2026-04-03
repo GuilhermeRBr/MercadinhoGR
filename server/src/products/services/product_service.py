@@ -5,11 +5,19 @@ from server.src.products.schemas.product_schema import ProductResponse
 from server.src.products.messages.product_messages import (
     ProductMessages,
 )
+from server.src.user.messages.user_message import USER_MESSAGES
+from server.src.user.models.user_model import User
 
 
 class ProductService:
     @staticmethod
-    def create_new_product(db: Session, data):
+    def create_new_product(db: Session, data, current_user: User):
+        if current_user.role != "OWNER":
+            raise HTTPException(
+                status_code=401,
+                detail=USER_MESSAGES.UNAUTHORIZED,
+            )
+
         if (
             db.query(Product)
             .filter(Product.barcode == data.barcode)
@@ -87,7 +95,15 @@ class ProductService:
         ]
 
     @staticmethod
-    def update_product(db: Session, product_id: int, data):
+    def update_product(
+        db: Session, product_id: int, data, current_user: User
+    ):
+        if current_user.role != "OWNER":
+            raise HTTPException(
+                status_code=401,
+                detail=USER_MESSAGES.UNAUTHORIZED,
+            )
+
         product = (
             db.query(Product).filter(Product.id == product_id).first()
         )
