@@ -6,6 +6,7 @@ from server.src.sales.schemas.sales_schema import SaleCreate
 from server.src.sales.services.sales_service import SalesService
 from server.src.common.messages.common_messages import CommonMessages
 from server.src.sales.messages.sales_messages import SalesMessages
+from server.src.user.models.user_model import User
 
 router = APIRouter(prefix="/sales", tags=["Sales"])
 
@@ -46,7 +47,7 @@ def create_sale(
 @router.get(
     "/",
     summary="List all sales",
-    description="List all sales.",
+    description="List all sales. Only owners can access this endpoint.",
     responses={
         200: {
             "description": "OK",
@@ -69,9 +70,10 @@ def create_sale(
     },
 )
 def list_sales(
-    _: str = Depends(get_current_user), db: Session = Depends(get_db)
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
 ):
-    return SalesService.get_sales(db)
+    return SalesService.get_sales(db, current_user)
 
 
 @router.get(

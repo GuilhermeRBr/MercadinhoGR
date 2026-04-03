@@ -16,7 +16,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 @router.post(
     "/register",
     summary="Create a new user",
-    description="Create a new user with the provided details.",
+    description="Create a new user with the provided details. Only owners can create new users.",
     status_code=status.HTTP_201_CREATED,
     responses={
         201: {
@@ -50,7 +50,7 @@ def create_user(
 @router.get(
     "/",
     summary="List all users",
-    description="List all users.",
+    description="List all users. Only owners can access this endpoint.",
     status_code=status.HTTP_200_OK,
     responses={
         200: {
@@ -84,7 +84,7 @@ def list_users(
 @router.get(
     "/{id}",
     summary="Get a user by ID",
-    description="Retrieve a user by its unique ID",
+    description="Retrieve a user by its unique ID. Only owners can retrieve users.",
     status_code=status.HTTP_200_OK,
     responses={
         200: {
@@ -118,7 +118,7 @@ def get_by_id(
 @router.patch(
     "/{id}",
     summary="Update a user",
-    description="Update an existing user with new details.",
+    description="Update an existing user with new details. Only owners can update users.",
     status_code=status.HTTP_200_OK,
     responses={
         200: {
