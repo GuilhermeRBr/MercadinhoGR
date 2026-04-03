@@ -27,12 +27,6 @@ class UserService:
                 detail=USER_MESSAGES.EMAIL_ALREADY_EXISTS,
             )
 
-        if db.query(User).filter(User.role == data.role).first():
-            raise HTTPException(
-                status_code=409,
-                detail=USER_MESSAGES.USER_ALREADY_EXISTS,
-            )
-
         if data.password != data.confirm_password:
             raise HTTPException(
                 status_code=422,
@@ -49,7 +43,13 @@ class UserService:
         return UserResponse.model_validate(new_user)
 
     @staticmethod
-    def get_users(db: Session):
+    def get_users(db: Session, current_user: User):
+        if current_user.role != "OWNER":
+            raise HTTPException(
+                status_code=401,
+                detail=USER_MESSAGES.UNAUTHORIZED,
+            )
+
         users = db.query(User).all()
 
         if not users:
@@ -61,7 +61,13 @@ class UserService:
         return [UserResponse.model_validate(user) for user in users]
 
     @staticmethod
-    def get_user_by_id(db: Session, user_id: int):
+    def get_user_by_id(db: Session, user_id: int, current_user: User):
+        if current_user.role != "OWNER":
+            raise HTTPException(
+                status_code=401,
+                detail=USER_MESSAGES.UNAUTHORIZED,
+            )
+
         user = db.query(User).filter(User.id == user_id).first()
 
         if not user:
@@ -73,7 +79,18 @@ class UserService:
         return UserResponse.model_validate(user)
 
     @staticmethod
-    def activate_user(db: Session, user_id: int, data: UserActive):
+    def activate_user(
+        db: Session,
+        user_id: int,
+        data: UserActive,
+        current_user: User,
+    ):
+        if current_user.role != "OWNER":
+            raise HTTPException(
+                status_code=401,
+                detail=USER_MESSAGES.UNAUTHORIZED,
+            )
+
         user = db.query(User).filter(User.id == user_id).first()
 
         if not user:
