@@ -13,6 +13,8 @@ from server.src.products.services.product_service import (
     ProductService,
 )
 from server.src.common.messages.common_messages import CommonMessages
+from server.src.core.dependency import get_current_user
+from server.src.user.models.user_model import User
 
 router = APIRouter(prefix="/products", tags=["Products"])
 
@@ -20,7 +22,7 @@ router = APIRouter(prefix="/products", tags=["Products"])
 @router.post(
     "/",
     summary="Create a new product",
-    description="Create a new product with the provided details.",
+    description="Create a new product with the provided details. Only owners can create new products.",
     response_model=ProductResponse,
     status_code=status.HTTP_201_CREATED,
     responses={
@@ -40,14 +42,19 @@ router = APIRouter(prefix="/products", tags=["Products"])
             },
         },
         400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         409: {"description": CommonMessages.CONFLICT},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def create_product(
-    data: ProductCreate, db: Session = Depends(get_db)
+    data: ProductCreate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
 ):
-    new_product = ProductService.create_new_product(db, data)
+    new_product = ProductService.create_new_product(
+        db, data, current_user
+    )
     return new_product
 
 
@@ -75,15 +82,52 @@ def create_product(
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
     },
 )
-def list_all_products(db: Session = Depends(get_db)):
+def list_all_products(
+    _: str = Depends(get_current_user), db: Session = Depends(get_db)
+):
     return ProductService.list_products(db)
 
 
-@router.get("/search")
-def search_products_by_name(name: str, db: Session = Depends(get_db)):
+@router.get(
+    "/search",
+    summary="Search products by name",
+    description="Search for products by their name.",
+    response_model=list[ProductResponse],
+    status_code=status.HTTP_200_OK,
+    responses={
+        200: {
+            "description": "OK",
+            "content": {
+                "application/json": {
+                    "example": [
+                        {
+                            "id": 1,
+                            "name": "Example Product",
+                            "price": 9.99,
+                            "stock": 100,
+                            "barcode": "1234567890123",
+                            "active": True,
+                        }
+                    ]
+                }
+            },
+        },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
+        404: {"description": CommonMessages.NOT_FOUND},
+        422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
+    },
+)
+def search_products_by_name(
+    name: str,
+    _: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
     products = ProductService.search_products_by_name(db, name)
     return products
 
@@ -109,12 +153,15 @@ def search_products_by_name(name: str, db: Session = Depends(get_db)):
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def get_by_id(
     id: int = Path(..., ge=1, le=2_147_483_647),
+    _: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     product = ProductService.get_product(db, id)
@@ -125,7 +172,7 @@ def get_by_id(
 @router.patch(
     "/{id}",
     summary="Update a product",
-    description="Update an existing product with new details.",
+    description="Update an existing product with new details. Only owners can update products.",
     response_model=ProductResponse,
     responses={
         200: {
@@ -143,14 +190,20 @@ def get_by_id(
                 }
             },
         },
+        400: {"description": CommonMessages.BAD_REQUEST},
+        401: {"description": CommonMessages.UNAUTHORIZED},
         404: {"description": CommonMessages.NOT_FOUND},
+        409: {"description": CommonMessages.CONFLICT},
         422: {"description": CommonMessages.UNPROCESSABLE_ENTITY},
     },
 )
 def put_product(
     id: int = Path(..., ge=1, le=2_147_483_647),
     data: ProductUpdate = ...,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    updated_product = ProductService.update_product(db, id, data)
+    updated_product = ProductService.update_product(
+        db, id, data, current_user
+    )
     return updated_product

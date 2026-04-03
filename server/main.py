@@ -7,6 +7,9 @@ from server.src.products.routes.product_route import (
 )
 from server.src.sales.routes.sales_route import router as sales_router
 from server.src.user.routes.user_route import router as user_router
+from server.src.login.routes.login_route import router as login_router
+from server.src.seed.seed_admin import seed_admin
+from server.src.data.database import SessionLocal
 
 app = FastAPI(
     title="Mercadinho GR",
@@ -23,6 +26,15 @@ Base.metadata.create_all(bind=engine)
 app.include_router(product_router, prefix=API_PREFIX)
 app.include_router(sales_router, prefix=API_PREFIX)
 app.include_router(user_router, prefix=API_PREFIX)
+app.include_router(login_router, prefix=API_PREFIX)
+
+
+@app.on_event("startup")
+def startup():
+    db = SessionLocal()
+    seed_admin(db)
+
+
 print("Server is running... http://localhost:8000")
 
 # running with uvicorn server.main:app --reload

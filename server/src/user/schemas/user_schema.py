@@ -1,4 +1,10 @@
 from pydantic import BaseModel, Field, ConfigDict
+from enum import Enum
+
+
+class UserRole(str, Enum):
+    OWNER = "OWNER"
+    OPERATOR = "OPERATOR"
 
 
 class UserCreate(BaseModel):
@@ -20,11 +26,9 @@ class UserCreate(BaseModel):
         max_length=16,
         json_schema_extra={"example": "Test@123"},
     )
-    role: str = Field(
+    role: UserRole = Field(
         ...,
-        min_length=3,
-        max_length=100,
-        json_schema_extra={"example": "operator"},
+        json_schema_extra={"example": UserRole.OPERATOR},
     )
     active: bool = Field(..., json_schema_extra={"example": True})
 
@@ -33,21 +37,6 @@ class UserCreate(BaseModel):
 
 class UserActive(BaseModel):
     active: bool = Field(..., json_schema_extra={"example": True})
-
-
-class UserLogin(BaseModel):
-    email: str = Field(
-        ...,
-        min_length=3,
-        max_length=100,
-        json_schema_extra={"example": "email@dominio.com"},
-    )
-    password: str = Field(
-        ...,
-        min_length=8,
-        max_length=16,
-        json_schema_extra={"example": "Test@123"},
-    )
 
 
 class UserResponse(BaseModel):

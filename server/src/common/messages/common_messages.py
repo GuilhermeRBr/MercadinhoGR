@@ -5,3 +5,4 @@ class CommonMessages:
     CONFLICT = "Conflict"
     NOT_FOUND = "Not Found"
     UNAUTHORIZED = "Unauthorized"
+    FORBIDDEN = "Forbidden"
