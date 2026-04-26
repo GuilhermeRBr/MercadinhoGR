@@ -39,11 +39,6 @@ const menuItems = [
     href: "/usuarios",
     icon: Users,
   },
-  {
-    name: "Pagamentos",
-    href: "/pagamentos",
-    icon: CreditCard,
-  },
 ];
 
 export default function Sidebar() {

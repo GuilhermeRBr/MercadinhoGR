@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { LogIn, Loader2, AlertCircle } from "lucide-react";
 
@@ -124,6 +125,19 @@ export default function LoginPage() {
                 <strong>Senha:</strong> Owner@123
               </p>
             </div>
+          </div>
+
+          {/* Link para Cadastro */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">
+              Não tem uma conta?{" "}
+              <Link
+                href="/register"
+                className="text-blue-600 hover:text-blue-700 font-medium"
+              >
+                Criar conta
+              </Link>
+            </p>
           </div>
         </div>
 
